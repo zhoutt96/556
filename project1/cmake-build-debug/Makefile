@@ -48,10 +48,10 @@ RM = "/Applications/CLion 2.app/Contents/bin/cmake/mac/bin/cmake" -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/zhoutt96/class/556/project/project2
+CMAKE_SOURCE_DIR = /Users/zhoutt96/class/556/github/project1
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/zhoutt96/class/556/project/project2/cmake-build-debug
+CMAKE_BINARY_DIR = /Users/zhoutt96/class/556/github/project1/cmake-build-debug
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -80,9 +80,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/zhoutt96/class/556/project/project2/cmake-build-debug/CMakeFiles /Users/zhoutt96/class/556/project/project2/cmake-build-debug/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/zhoutt96/class/556/github/project1/cmake-build-debug/CMakeFiles /Users/zhoutt96/class/556/github/project1/cmake-build-debug/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/zhoutt96/class/556/project/project2/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/zhoutt96/class/556/github/project1/cmake-build-debug/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -150,32 +150,32 @@ client_num.c.s:
 	$(MAKE) -f CMakeFiles/project2.dir/build.make CMakeFiles/project2.dir/client_num.c.s
 .PHONY : client_num.c.s
 
-client_num_demo.o: client_num_demo.c.o
+server_num.o: server_num.c.o
 
-.PHONY : client_num_demo.o
+.PHONY : server_num.o
 
 # target to build an object file
-client_num_demo.c.o:
-	$(MAKE) -f CMakeFiles/project2.dir/build.make CMakeFiles/project2.dir/client_num_demo.c.o
-.PHONY : client_num_demo.c.o
+server_num.c.o:
+	$(MAKE) -f CMakeFiles/project2.dir/build.make CMakeFiles/project2.dir/server_num.c.o
+.PHONY : server_num.c.o
 
-client_num_demo.i: client_num_demo.c.i
+server_num.i: server_num.c.i
 
-.PHONY : client_num_demo.i
+.PHONY : server_num.i
 
 # target to preprocess a source file
-client_num_demo.c.i:
-	$(MAKE) -f CMakeFiles/project2.dir/build.make CMakeFiles/project2.dir/client_num_demo.c.i
-.PHONY : client_num_demo.c.i
+server_num.c.i:
+	$(MAKE) -f CMakeFiles/project2.dir/build.make CMakeFiles/project2.dir/server_num.c.i
+.PHONY : server_num.c.i
 
-client_num_demo.s: client_num_demo.c.s
+server_num.s: server_num.c.s
 
-.PHONY : client_num_demo.s
+.PHONY : server_num.s
 
 # target to generate assembly for a file
-client_num_demo.c.s:
-	$(MAKE) -f CMakeFiles/project2.dir/build.make CMakeFiles/project2.dir/client_num_demo.c.s
-.PHONY : client_num_demo.c.s
+server_num.c.s:
+	$(MAKE) -f CMakeFiles/project2.dir/build.make CMakeFiles/project2.dir/server_num.c.s
+.PHONY : server_num.c.s
 
 # Help Target
 help:
@@ -189,9 +189,9 @@ help:
 	@echo "... client_num.o"
 	@echo "... client_num.i"
 	@echo "... client_num.s"
-	@echo "... client_num_demo.o"
-	@echo "... client_num_demo.i"
-	@echo "... client_num_demo.s"
+	@echo "... server_num.o"
+	@echo "... server_num.i"
+	@echo "... server_num.s"
 .PHONY : help
 
 

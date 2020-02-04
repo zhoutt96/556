@@ -82,11 +82,11 @@ int main(int argc, char** argv) {
         abort();
     }
 
-//    returnTimeStamp = (char *) malloc(4);
-
     *(short *) (sendbuffer) = (short) htons(dataSize);
 
     struct timeval start, end;
+
+    int returnSize;
 
     int newCount = 0;
     while (newCount < count)
@@ -98,15 +98,19 @@ int main(int argc, char** argv) {
 
         send(sock, sendbuffer, size, 0);
 
-        recv(sock, buffer, size, 0);
+
+        returnSize = recv(sock, buffer, size, 0);
+        printf("Receive the data of size %d \n", returnSize);
 
         gettimeofday(&end, NULL);
         totalLatency += getLatency(buffer, &end);
         newCount ++;
     }
-    
+
+    free(buffer);
+    free(sendbuffer);
+    close(sock);
     averageLatency = totalLatency/(count*1000);
     printf("The average latency is: %.3Lf millisecond \n", averageLatency);
     return 0;
 }
-

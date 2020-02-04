@@ -92,7 +92,7 @@ int main(int argc, char **argv) {
     int count;
 
     /* numeric value received */
-    int num;
+    short num;
 
     /* linked list for keeping track of connected sockets */
     struct node head;
@@ -280,16 +280,27 @@ int main(int argc, char **argv) {
                            message has been received, you must wait and
                            receive the rest later when more data is available
                            to be read */
+
                         /* in this case, we expect a message where the first byte
-                                   stores the number of bytes used to encode a number,
-                                   followed by that many bytes holding a numeric value */
-//                        printf("receive the data from client \n");
-//                        printf("The received data size %d \n", count);
+                           stores the number of bytes used to encode a number,
+                           followed by that many bytes holding a numeric value */
 
-//                        num = (short) ntohs(*(short *)(buf));
-//                        printf("%d", num);
-                        send(current->socket, buf, count, 0);
+                        num= (short) ntohs(*(short *)(buf));
+                        char *returnBuffer;
+                        int curCount = 0; // curCount = 1000
 
+                        returnBuffer = (char*) malloc(num + 10);
+                        while (count >=0 && curCount <= num+10)
+                        {
+                            memcpy(returnBuffer+curCount, buf, count);
+                            curCount += count; // 1000 |
+                            if (curCount != num)
+                            {
+                                count = recv(current->socket, buf, BUF_LEN, 0); // 1
+                            }
+                        }
+                        printf("Receive the data of size %d \n", num+10);
+                        send(current->socket, returnBuffer, num+10, 0);
                     }
                 }
             }
