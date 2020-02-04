@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true">
+    <generated>
+      <config projectName="project2" targetName="project2" />
+    </generated>
+  </component>
+  <component name="CMakeSettings">
+    <configurations>
+      <configuration PROFILE_NAME="Debug" CONFIG_NAME="Debug" />
+    </configurations>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="34cdcb26-1025-47b5-8325-dd093f30f36a" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ClangdSettings">
+    <option name="formatViaClangd" value="false" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
+  <component name="OCFindUsagesOptions" text="true" ivars="false" properties="true" derivedClasses="false" />
+  <component name="ProjectId" id="1X61RFZYnmKVW4sSNpbWrxzwfVw" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="project2" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="project2" TARGET_NAME="project2" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="project2" RUN_TARGET_NAME="project2">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="34cdcb26-1025-47b5-8325-dd093f30f36a" name="Default Changelist" comment="" />
+      <created>1579992583562</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1579992583562</updated>
+      <workItem from="1579992585256" duration="3061000" />
+      <workItem from="1580061663152" duration="2958000" />
+      <workItem from="1580351721362" duration="4410000" />
+      <workItem from="1580364722785" duration="57346000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="432" y="249" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1580599404046">
+      <screen x="0" y="23" width="1440" height="821" />
+    </state>
+    <state x="432" y="249" key="#com.intellij.fileTypes.FileTypeChooser/0.23.1440.821@0.23.1440.821" timestamp="1580599404046" />
+    <state x="449" y="193" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1580594056930">
+      <screen x="0" y="23" width="1440" height="821" />
+    </state>
+    <state x="449" y="193" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.23.1440.821@0.23.1440.821" timestamp="1580594056930" />
+    <state width="1343" height="248" key="GridCell.Tab.0.bottom" timestamp="1580763004415">
+      <screen x="0" y="23" width="1440" height="822" />
+    </state>
+    <state width="1343" height="248" key="GridCell.Tab.0.bottom/0.23.1440.821@0.23.1440.821" timestamp="1580683197606" />
+    <state width="1343" height="248" key="GridCell.Tab.0.bottom/0.23.1440.822@0.23.1440.822" timestamp="1580763004415" />
+    <state width="1343" height="248" key="GridCell.Tab.0.center" timestamp="1580763004414">
+      <screen x="0" y="23" width="1440" height="822" />
+    </state>
+    <state width="1343" height="248" key="GridCell.Tab.0.center/0.23.1440.821@0.23.1440.821" timestamp="1580683197605" />
+    <state width="1343" height="248" key="GridCell.Tab.0.center/0.23.1440.822@0.23.1440.822" timestamp="1580763004413" />
+    <state width="1343" height="248" key="GridCell.Tab.0.left" timestamp="1580763004413">
+      <screen x="0" y="23" width="1440" height="822" />
+    </state>
+    <state width="1343" height="248" key="GridCell.Tab.0.left/0.23.1440.821@0.23.1440.821" timestamp="1580683197604" />
+    <state width="1343" height="248" key="GridCell.Tab.0.left/0.23.1440.822@0.23.1440.822" timestamp="1580763004413" />
+    <state width="1343" height="248" key="GridCell.Tab.0.right" timestamp="1580763004414">
+      <screen x="0" y="23" width="1440" height="822" />
+    </state>
+    <state width="1343" height="248" key="GridCell.Tab.0.right/0.23.1440.821@0.23.1440.821" timestamp="1580683197606" />
+    <state width="1343" height="248" key="GridCell.Tab.0.right/0.23.1440.822@0.23.1440.822" timestamp="1580763004414" />
+    <state width="1343" height="248" key="GridCell.Tab.1.bottom" timestamp="1580763004418">
+      <screen x="0" y="23" width="1440" height="822" />
+    </state>
+    <state width="1343" height="248" key="GridCell.Tab.1.bottom/0.23.1440.821@0.23.1440.821" timestamp="1580683197608" />
+    <state width="1343" height="248" key="GridCell.Tab.1.bottom/0.23.1440.822@0.23.1440.822" timestamp="1580763004418" />
+    <state width="1343" height="248" key="GridCell.Tab.1.center" timestamp="1580763004416">
+      <screen x="0" y="23" width="1440" height="822" />
+    </state>
+    <state width="1343" height="248" key="GridCell.Tab.1.center/0.23.1440.821@0.23.1440.821" timestamp="1580683197607" />
+    <state width="1343" height="248" key="GridCell.Tab.1.center/0.23.1440.822@0.23.1440.822" timestamp="1580763004416" />
+    <state width="1343" height="248" key="GridCell.Tab.1.left" timestamp="1580763004415">
+      <screen x="0" y="23" width="1440" height="822" />
+    </state>
+    <state width="1343" height="248" key="GridCell.Tab.1.left/0.23.1440.821@0.23.1440.821" timestamp="1580683197607" />
+    <state width="1343" height="248" key="GridCell.Tab.1.left/0.23.1440.822@0.23.1440.822" timestamp="1580763004415" />
+    <state width="1343" height="248" key="GridCell.Tab.1.right" timestamp="1580763004416">
+      <screen x="0" y="23" width="1440" height="822" />
+    </state>
+    <state width="1343" height="248" key="GridCell.Tab.1.right/0.23.1440.821@0.23.1440.821" timestamp="1580683197608" />
+    <state width="1343" height="248" key="GridCell.Tab.1.right/0.23.1440.822@0.23.1440.822" timestamp="1580763004416" />
+    <state x="220" y="78" key="SettingsEditor" timestamp="1580595204743">
+      <screen x="0" y="23" width="1440" height="821" />
+    </state>
+    <state x="220" y="78" key="SettingsEditor/0.23.1440.821@0.23.1440.821" timestamp="1580595204743" />
+    <state x="119" y="147" width="1185" height="586" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1580797202800">
+      <screen x="0" y="23" width="1440" height="823" />
+    </state>
+    <state x="119" y="147" width="1185" height="584" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.23.1440.821@0.23.1440.821" timestamp="1580683282966" />
+    <state x="119" y="147" width="1185" height="586" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.23.1440.823/1440.23.1920.1057@0.23.1440.823" timestamp="1580797202800" />
+    <state x="386" y="196" width="667" height="487" key="find.popup" timestamp="1580601026508">
+      <screen x="0" y="23" width="1440" height="821" />
+    </state>
+    <state x="386" y="196" width="667" height="486" key="find.popup/0.23.1440.821/1440.23.1920.1057@0.23.1440.821" timestamp="1580357060951" />
+    <state x="386" y="196" width="667" height="487" key="find.popup/0.23.1440.821@0.23.1440.821" timestamp="1580601026508" />
+    <state x="386" y="196" width="667" height="487" key="find.popup/0.23.1440.822/1440.23.1920.1057@0.23.1440.822" timestamp="1580357420717" />
+    <state x="376" y="199" key="run.anything.popup" timestamp="1580677287679">
+      <screen x="0" y="23" width="1440" height="821" />
+    </state>
+    <state x="376" y="199" key="run.anything.popup/0.23.1440.821@0.23.1440.821" timestamp="1580677287679" />
+    <state x="728" y="202" width="670" height="619" key="search.everywhere.popup" timestamp="1580797118637">
+      <screen x="0" y="23" width="1440" height="823" />
+    </state>
+    <state x="728" y="196" width="670" height="676" key="search.everywhere.popup/0.0.1440.900@0.0.1440.900" timestamp="1580772253782" />
+    <state x="728" y="202" width="670" height="618" key="search.everywhere.popup/0.23.1440.822@0.23.1440.822" timestamp="1580762248777" />
+    <state x="728" y="202" width="670" height="619" key="search.everywhere.popup/0.23.1440.823/1440.23.1920.1057@0.23.1440.823" timestamp="1580797118637" />
+    <state x="728" y="202" width="670" height="619" key="search.everywhere.popup/0.23.1440.823@0.23.1440.823" timestamp="1580775065931" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/server_num.c</url>
+          <line>118</line>
+          <option name="timeStamp" value="17" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>
