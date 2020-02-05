@@ -269,28 +269,43 @@ int main(int argc, char **argv) {
                         close(current->socket);
                         dump(&head, current->socket);
                     } else {
-//                        printf("The count is %d \n", count);
-//                        printf("num is ");
                         num= (unsigned short) ntohs(*(unsigned short *)(buf));
-//                        printf("num is %d \n", num);
                         char *returnBuffer;
-                        int curCount = 0;
+
+                        int totalReceCount = 0;
+                        int curReceCount = 0;
 
                         returnBuffer = (char*) malloc(num + 10);
-                        while (count >=0 && curCount <= num+10)
+                        memcpy(returnBuffer, buf, count);
+                        totalReceCount += count;
+
+                        while (totalReceCount < num+10)
                         {
-                            memcpy(returnBuffer+curCount, buf, count);
-                            curCount += count;
-                            if (curCount != num)
+                            curReceCount = recv(current->socket, buf, BUF_LEN, 0); // 1
+                            if (curReceCount>0)
                             {
-                                count = recv(current->socket, buf, BUF_LEN, 0); // 1
+                                memcpy(returnBuffer+totalReceCount, buf, curReceCount);
+                                totalReceCount += curReceCount;
                             }
                         }
 
+                        /*
+                         * When the data size is too big,
+                         * sometimes it is hard to send all the data once.
+                         */
 
-                        printf("【Receive】%d byte data from client: %s \n", num+10, inet_ntoa(addr.sin_addr));
-                        num = send(current->socket, returnBuffer, num+10, 0);
-                        printf("【Send】%d byte data to client: %s \n", num, inet_ntoa(addr.sin_addr));
+
+                        int totalSendCount=0;
+                        int curSendCount=0;
+
+                        while (totalSendCount < num+10)
+                        {
+                            curSendCount = send(current->socket, returnBuffer+totalSendCount, num+10, 0);
+                            totalSendCount += curSendCount;
+                        }
+
+                        printf("【Receive】%d byte data from client: %s \n", totalReceCount, inet_ntoa(addr.sin_addr));
+                        printf("【Send】%d byte data to client: %s \n", totalSendCount, inet_ntoa(addr.sin_addr));
                         free(returnBuffer);
                     }
                 }
