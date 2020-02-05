@@ -86,8 +86,7 @@ int main(int argc, char **argv) {
     int select_retval;
 
     /* a silly message */
-    char *message = "Welcome! COMP/ELEC 429 Students!\n";
-
+//    char *message = "Welcome! COMP/ELEC 429 Students!\n";
     /* number of bytes sent/received */
     int count;
 
@@ -236,7 +235,7 @@ int main(int argc, char **argv) {
                            describing what data is supposed to be sent next.
                        but here for simplicity, let's say we are just
                            sending whatever is in the buffer buf
-                         */
+                    */
                     count = send(current->socket, buf, BUF_LEN, MSG_DONTWAIT);
                     if (count < 0) {
                         if (errno == EAGAIN) {
@@ -272,35 +271,26 @@ int main(int argc, char **argv) {
                         close(current->socket);
                         dump(&head, current->socket);
                     } else {
-                        /* we got count bytes of data from the client */
-                        /* in general, the amount of data received in a recv()
-                           call may not be a complete application message. it
-                           is important to check the data received against
-                           the message format you expect. if only a part of a
-                           message has been received, you must wait and
-                           receive the rest later when more data is available
-                           to be read */
-
-                        /* in this case, we expect a message where the first byte
-                           stores the number of bytes used to encode a number,
-                           followed by that many bytes holding a numeric value */
 
                         num= (short) ntohs(*(short *)(buf));
                         char *returnBuffer;
-                        int curCount = 0; // curCount = 1000
+                        int curCount = 0;
 
                         returnBuffer = (char*) malloc(num + 10);
                         while (count >=0 && curCount <= num+10)
                         {
                             memcpy(returnBuffer+curCount, buf, count);
-                            curCount += count; // 1000 |
+                            curCount += count;
                             if (curCount != num)
                             {
                                 count = recv(current->socket, buf, BUF_LEN, 0); // 1
                             }
                         }
-                        printf("Receive the data of size %d \n", num+10);
+
+                        printf("【Receive】%d byte data from client: %s \n", num+10, inet_ntoa(addr.sin_addr));
                         send(current->socket, returnBuffer, num+10, 0);
+                        printf("【Send】%d byte data to client: %s \n", num+10, inet_ntoa(addr.sin_addr));
+                        free(returnBuffer);
                     }
                 }
             }

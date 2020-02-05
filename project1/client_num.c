@@ -18,6 +18,33 @@ long double getLatency(char* buffer, struct timeval* end){
     return (end->tv_sec - returnSecond) * 1000000 + end->tv_usec - returnUSecond;
 }
 
+void checkDataSize(int size)
+{
+    if (size < 10 || size > 65535)
+    {
+        perror("Data size should between 10 and 65,535 byte");
+        abort();
+    }
+}
+
+void checkDataCount(int count)
+{
+    if (count < 1 || count > 10000)
+    {
+        perror("Data count should between 1 and 10,000 byte");
+        abort();
+    }
+}
+
+void checkPort(int port)
+{
+    if (port < 18000 || port > 18200)
+    {
+        perror("Port number should between 18000 and 18200");
+        abort();
+    }
+}
+
 int main(int argc, char** argv) {
 
     /* our client socket */
@@ -45,7 +72,11 @@ int main(int argc, char** argv) {
     int count = atoi(argv[4]);
     int dataSize = atoi(argv[3]);
     int size = dataSize+10;
-    long returnTimeStamp;
+//    long returnTimeStamp;
+
+    checkDataSize(size);
+    checkDataCount(count);
+    checkPort(server_port);
 
     buffer = (char *) malloc(size);
     if (!buffer)
@@ -87,6 +118,7 @@ int main(int argc, char** argv) {
     struct timeval start, end;
 
     int returnSize;
+    int sendSize;
 
     int newCount = 0;
     while (newCount < count)
@@ -96,11 +128,11 @@ int main(int argc, char** argv) {
         *(long *) (sendbuffer + 2) = (long) htonl(start.tv_sec);
         *(long *) (sendbuffer + 6) = (long) htonl(start.tv_usec);
 
-        send(sock, sendbuffer, size, 0);
-
+        sendSize = send(sock, sendbuffer, size, 0);
+        printf("【Send】 %d byte data successfully\n", sendSize);
 
         returnSize = recv(sock, buffer, size, 0);
-        printf("Receive the data of size %d \n", returnSize);
+        printf("【Receive】 %d byte data successfully\n", returnSize);
 
         gettimeofday(&end, NULL);
         totalLatency += getLatency(buffer, &end);
