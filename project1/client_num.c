@@ -74,7 +74,6 @@ int main(int argc, char** argv) {
     unsigned int count = atoi(argv[4]);
     unsigned short dataSize = atoi(argv[3]);
     unsigned int size = dataSize+10;
-//    long returnTimeStamp;
 
     checkDataSize(dataSize);
     checkDataCount(count);
@@ -119,9 +118,12 @@ int main(int argc, char** argv) {
 
     struct timeval start, end;
 
-    int returnSize;
-    int sendSize;
+    int totalReturnSize;
+    int totalSendSize;
     int returnOneSize;
+    int sendOneSize;
+
+
 
     int newCount = 0;
     while (newCount < count)
@@ -131,25 +133,30 @@ int main(int argc, char** argv) {
         *(long *) (sendbuffer + 2) = (long) htonl(start.tv_sec);
         *(long *) (sendbuffer + 6) = (long) htonl(start.tv_usec);
 
-//        printf("The sizeee is %d \n", (unsigned short) ntohs(*(short *)(sendbuffer)));
-//        printf("The total size is %d \n", size);
-
-        sendSize = send(sock, sendbuffer, size, 0);
-        printf("【Send】 %d byte data to server:%s \n", sendSize, inet_ntoa(sin.sin_addr));
-
-        returnSize = 0;
-        while (returnSize < size)
+        totalSendSize = 0;
+        while (totalSendSize<size)
         {
-//            printf("eeee %d \n", returnSize);
-            returnOneSize = recv(sock, buffer+returnSize, size, 0);
-            if (returnOneSize >0){
-                returnSize += returnOneSize;
+            sendOneSize = send(sock, sendbuffer+totalSendSize, size, 0);
+            if (sendOneSize > 0)
+            {
+                totalSendSize += sendOneSize;
             }
         }
 
-//        returnSize = recv(sock, buffer, size, 0);
+//        totalSendSize = send(sock, sendbuffer, size, 0);
+        printf("【Send】 %d byte data to server:%s \n", totalSendSize, inet_ntoa(sin.sin_addr));
 
-        printf("【Receive】 %d byte data from server:%s \n", returnSize, inet_ntoa(sin.sin_addr));
+        totalReturnSize = 0;
+        while (totalReturnSize < size)
+        {
+//            printf("eeee %d \n", returnSize);
+            returnOneSize = recv(sock, buffer+totalReturnSize, size, 0);
+            if (returnOneSize >0){
+                totalReturnSize += returnOneSize;
+            }
+        }
+
+        printf("【Receive】 %d byte data from server:%s \n", totalReturnSize, inet_ntoa(sin.sin_addr));
 
         gettimeofday(&end, NULL);
         totalLatency += getLatency(buffer, &end);
