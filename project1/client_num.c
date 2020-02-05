@@ -2,7 +2,6 @@
 #include <stdio.h>
 #include <unistd.h>
 #include <string.h>
-#include <sys/types.h>
 #include <sys/socket.h>
 #include <netinet/in.h>
 #include <arpa/inet.h>
@@ -15,6 +14,7 @@
 long double getLatency(char* buffer, struct timeval* end){
     long returnSecond = (long) ntohl(*(long *)(buffer+2));
     long returnUSecond = (long) ntohl(*(long *)(buffer+6));
+//    printf("%ld \n", returnUSecond);
     return (end->tv_sec - returnSecond) * 1000000 + end->tv_usec - returnUSecond;
 }
 
@@ -69,9 +69,9 @@ int main(int argc, char** argv) {
     unsigned short server_port = atoi (argv[2]);
 
     char *buffer, *sendbuffer;
-    int count = atoi(argv[4]);
-    int dataSize = atoi(argv[3]);
-    int size = dataSize+10;
+    unsigned int count = atoi(argv[4]);
+    unsigned short dataSize = atoi(argv[3]);
+    unsigned int size = dataSize+10;
 //    long returnTimeStamp;
 
     checkDataSize(size);
@@ -113,7 +113,7 @@ int main(int argc, char** argv) {
         abort();
     }
 
-    *(short *) (sendbuffer) = (short) htons(dataSize);
+    *(unsigned short *) (sendbuffer) = (unsigned short) htons(dataSize);
 
     struct timeval start, end;
 
@@ -128,11 +128,13 @@ int main(int argc, char** argv) {
         *(long *) (sendbuffer + 2) = (long) htonl(start.tv_sec);
         *(long *) (sendbuffer + 6) = (long) htonl(start.tv_usec);
 
+//        printf("The sizeee is %d", (unsigned short) ntohs(*(short *)(sendbuffer)));
+
         sendSize = send(sock, sendbuffer, size, 0);
-        printf("【Send】 %d byte data successfully\n", sendSize);
+        printf("【Send】 %d byte data to server:%s \n", sendSize, inet_ntoa(sin.sin_addr));
 
         returnSize = recv(sock, buffer, size, 0);
-        printf("【Receive】 %d byte data successfully\n", returnSize);
+        printf("【Receive】 %d byte data from server:%s \n", returnSize, inet_ntoa(sin.sin_addr));
 
         gettimeofday(&end, NULL);
         totalLatency += getLatency(buffer, &end);

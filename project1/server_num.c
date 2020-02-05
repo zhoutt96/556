@@ -85,13 +85,11 @@ int main(int argc, char **argv) {
     struct timeval time_out;
     int select_retval;
 
-    /* a silly message */
-//    char *message = "Welcome! COMP/ELEC 429 Students!\n";
     /* number of bytes sent/received */
     int count;
 
     /* numeric value received */
-    short num;
+    unsigned short num;
 
     /* linked list for keeping track of connected sockets */
     struct node head;
@@ -99,7 +97,7 @@ int main(int argc, char **argv) {
 
     /* a buffer to read data */
     char *buf;
-    int BUF_LEN = 1000;
+    int BUF_LEN = 2000;
 
     buf = (char *)malloc(BUF_LEN);
 
@@ -271,8 +269,10 @@ int main(int argc, char **argv) {
                         close(current->socket);
                         dump(&head, current->socket);
                     } else {
-
-                        num= (short) ntohs(*(short *)(buf));
+//                        printf("The count is %d \n", count);
+//                        printf("num is ");
+                        num= (unsigned short) ntohs(*(unsigned short *)(buf));
+//                        printf("num is %d \n", num);
                         char *returnBuffer;
                         int curCount = 0;
 
@@ -288,8 +288,8 @@ int main(int argc, char **argv) {
                         }
 
                         printf("【Receive】%d byte data from client: %s \n", num+10, inet_ntoa(addr.sin_addr));
-                        send(current->socket, returnBuffer, num+10, 0);
-                        printf("【Send】%d byte data to client: %s \n", num+10, inet_ntoa(addr.sin_addr));
+                        num = send(current->socket, returnBuffer, num+10, 0);
+                        printf("【Send】%d byte data to client: %s \n", num, inet_ntoa(addr.sin_addr));
                         free(returnBuffer);
                     }
                 }
