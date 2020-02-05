@@ -18,9 +18,11 @@ long double getLatency(char* buffer, struct timeval* end){
     return (end->tv_sec - returnSecond) * 1000000 + end->tv_usec - returnUSecond;
 }
 
-void checkDataSize(int size)
+void checkDataSize(unsigned short size)
 {
-    if (size < 10 || size > 65535)
+    unsigned short min = 10;
+    unsigned short max = 65535;
+    if (size < min || size > max)
     {
         perror("Data size should between 10 and 65,535 byte");
         abort();
@@ -31,7 +33,7 @@ void checkDataCount(int count)
 {
     if (count < 1 || count > 10000)
     {
-        perror("Data count should between 1 and 10,000 byte");
+        perror("Data count should between 1 and 10,000");
         abort();
     }
 }
@@ -74,7 +76,7 @@ int main(int argc, char** argv) {
     unsigned int size = dataSize+10;
 //    long returnTimeStamp;
 
-    checkDataSize(size);
+    checkDataSize(dataSize);
     checkDataCount(count);
     checkPort(server_port);
 
@@ -119,6 +121,7 @@ int main(int argc, char** argv) {
 
     int returnSize;
     int sendSize;
+    int returnOneSize;
 
     int newCount = 0;
     while (newCount < count)
@@ -128,12 +131,24 @@ int main(int argc, char** argv) {
         *(long *) (sendbuffer + 2) = (long) htonl(start.tv_sec);
         *(long *) (sendbuffer + 6) = (long) htonl(start.tv_usec);
 
-//        printf("The sizeee is %d", (unsigned short) ntohs(*(short *)(sendbuffer)));
+//        printf("The sizeee is %d \n", (unsigned short) ntohs(*(short *)(sendbuffer)));
+//        printf("The total size is %d \n", size);
 
         sendSize = send(sock, sendbuffer, size, 0);
         printf("【Send】 %d byte data to server:%s \n", sendSize, inet_ntoa(sin.sin_addr));
 
-        returnSize = recv(sock, buffer, size, 0);
+        returnSize = 0;
+        while (returnSize < size)
+        {
+//            printf("eeee %d \n", returnSize);
+            returnOneSize = recv(sock, buffer+returnSize, size, 0);
+            if (returnOneSize >0){
+                returnSize += returnOneSize;
+            }
+        }
+
+//        returnSize = recv(sock, buffer, size, 0);
+
         printf("【Receive】 %d byte data from server:%s \n", returnSize, inet_ntoa(sin.sin_addr));
 
         gettimeofday(&end, NULL);

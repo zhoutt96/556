@@ -287,6 +287,7 @@ int main(int argc, char **argv) {
                             }
                         }
 
+
                         printf("【Receive】%d byte data from client: %s \n", num+10, inet_ntoa(addr.sin_addr));
                         num = send(current->socket, returnBuffer, num+10, 0);
                         printf("【Send】%d byte data to client: %s \n", num, inet_ntoa(addr.sin_addr));
