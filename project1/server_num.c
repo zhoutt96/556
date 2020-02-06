@@ -58,6 +58,23 @@ void add(struct node *head, int socket, struct sockaddr_in addr) {
     head->next = new_node;
 }
 
+void helpMenu()
+{
+    printf("--------------             Menu for COMP 556 Project 1             --------------\n");
+    printf("|./server_num -h:                                                  show help menu|\n");
+    printf("|./server_num port mode root_directory                                           |\n");
+    printf("|  port: The port on which the server should run (on CLEAR,                      |\n"
+           "|        the usable range is 18000 <= port <= 18200).                            |\n");
+    printf("|   mode: The mode of the server. If this is \"www\", then the server should     |\n"
+           "|        run in web server mode (described in Section IV). If it is              |\n"
+           "|        anything else, or left out, then the server should run in ping-pong     |\n"
+           "|        mode.                                                                   |\n");
+    printf("|  root_directory: This is the directory where the web server should look        |\n"
+           "|        for documents. If the server is not in web server mode,                 |\n"
+           "|        ignore this parameter. (e.g. /home/student/comp429/project1/html)       |\n");
+    printf("--------------                 End of the Menu                     --------------|\n");
+}
+
 
 /*****************************************/
 /* main program                          */
@@ -66,9 +83,17 @@ void add(struct node *head, int socket, struct sockaddr_in addr) {
 /* simple server, takes one parameter, the server port number */
 int main(int argc, char **argv) {
 
+    if (strcmp(argv[1], "-h") == 0)
+    {
+        helpMenu();
+        abort();
+    }
+
     /* socket and option variables */
     int sock, new_sock, max;
     int optval = 1;
+    char * mode = NULL;
+    char * rootDirectory = NULL;
 
     /* server socket address variables */
     struct sockaddr_in sin, addr;
@@ -100,10 +125,21 @@ int main(int argc, char **argv) {
     int BUF_LEN = 2000;
 
     buf = (char *)malloc(BUF_LEN);
+//    mode = (char *)malloc(3);
 
     /* initialize dummy head node of linked list */
     head.socket = -1;
     head.next = 0;
+
+
+    if (argc == 3)
+    {
+        // there are three parametersl,
+        mode = argv[2];
+        // read the root directory
+        rootDirectory = argv[3];
+
+    }
 
     /* create a server socket to listen for TCP connection requests */
     if ((sock = socket (PF_INET, SOCK_STREAM, IPPROTO_TCP)) < 0)

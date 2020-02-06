@@ -1,0 +1,11 @@
+Team Members
+
+How to build:
+	Type "make" on command line under the same path of the "makefile" file to build the project.
+	If you want to clean the file, type "make clean".
+
+How to run execute:
+	Type "./server_num -h" to view the usage of server
+	Type "./client_num -h" to view the usage of client
+
+

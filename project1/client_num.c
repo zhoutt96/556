@@ -11,10 +11,29 @@
 /* simple client, takes two parameters, the server domain name,
    and the server port number */
 
+void helpMenu()
+{
+    printf("--------------           Menu for COMP 556 Project 1         ---------------\n");
+    printf("|./client_num -h:                                         show help menu    |\n");
+    printf("|./client_num port mode root_directory                                      |\n");
+    printf("|  hostname:                                                                |\n"
+           "|        The host where the server is running. You should support           |\n"
+           "|        connecting to a server by domain name (current list of CLEAR       |\n"
+           "|        servers: ring.clear.rice.edu, sky.clear.rice.edu,                  |\n"
+           "|        glass.clear.rice.edu, water.clear.rice.edu).                       |\n");
+    printf("|  port:                                                                    |\n"
+           "|        The port on which the server is running (on CLEAR,                 |\n"
+           "|        the usable range is 18000 <= port <= 18200).                       |\n");
+    printf("|  size:                                                                    |\n"
+           "|        The size in bytes of each message to send (10 <= size <= 65,535)   |\n");
+    printf("|  count:                                                                   |\n"
+           "|        The number of message exchanges to perform (1 <= count <= 10,000). |\n");
+    printf("|--------------                End of the Menu                --------------\n");
+}
+
 long double getLatency(char* buffer, struct timeval* end){
     long returnSecond = (long) ntohl(*(long *)(buffer+2));
     long returnUSecond = (long) ntohl(*(long *)(buffer+6));
-//    printf("%ld \n", returnUSecond);
     return (end->tv_sec - returnSecond) * 1000000 + end->tv_usec - returnUSecond;
 }
 
@@ -49,6 +68,12 @@ void checkPort(int port)
 
 int main(int argc, char** argv) {
 
+    if (strcmp(argv[1], "-h") == 0)
+    {
+        helpMenu();
+        abort();
+    }
+
     /* our client socket */
     int sock;
     long double totalLatency = 0;
@@ -57,6 +82,7 @@ int main(int argc, char** argv) {
     unsigned int server_addr;
     struct sockaddr_in sin;
     struct addrinfo *getaddrinfo_result, hints;
+
 
     /* convert server domain name to IP address */
     memset(&hints, 0, sizeof(struct addrinfo));
