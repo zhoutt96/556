@@ -177,6 +177,33 @@ server_num.c.s:
 	$(MAKE) -f CMakeFiles/project2.dir/build.make CMakeFiles/project2.dir/server_num.c.s
 .PHONY : server_num.c.s
 
+web_server.o: web_server.c.o
+
+.PHONY : web_server.o
+
+# target to build an object file
+web_server.c.o:
+	$(MAKE) -f CMakeFiles/project2.dir/build.make CMakeFiles/project2.dir/web_server.c.o
+.PHONY : web_server.c.o
+
+web_server.i: web_server.c.i
+
+.PHONY : web_server.i
+
+# target to preprocess a source file
+web_server.c.i:
+	$(MAKE) -f CMakeFiles/project2.dir/build.make CMakeFiles/project2.dir/web_server.c.i
+.PHONY : web_server.c.i
+
+web_server.s: web_server.c.s
+
+.PHONY : web_server.s
+
+# target to generate assembly for a file
+web_server.c.s:
+	$(MAKE) -f CMakeFiles/project2.dir/build.make CMakeFiles/project2.dir/web_server.c.s
+.PHONY : web_server.c.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -192,6 +219,9 @@ help:
 	@echo "... server_num.o"
 	@echo "... server_num.i"
 	@echo "... server_num.s"
+	@echo "... web_server.o"
+	@echo "... web_server.i"
+	@echo "... web_server.s"
 .PHONY : help
 
 

@@ -86,6 +86,12 @@
 		<Unit filename="/Users/zhoutt96/class/556/github/project1/server_num.c">
 			<Option target="project2"/>
 		</Unit>
+		<Unit filename="/Users/zhoutt96/class/556/github/project1/web_server.c">
+			<Option target="project2"/>
+		</Unit>
+		<Unit filename="/Users/zhoutt96/class/556/github/project1/web_server.h">
+			<Option target="project2"/>
+		</Unit>
 		<Unit filename="/Users/zhoutt96/class/556/github/project1/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>

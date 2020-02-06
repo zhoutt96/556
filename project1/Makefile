@@ -8,10 +8,13 @@ DEFS 	 	=
 all:	server_num client_num name_addr
 
 server_num: server_num.c
-	$(CC) $(DEFS) $(CFLAGS) $(LIB) -o server_num server_num.c
+	$(CC) $(DEFS) $(CFLAGS) $(LIB) -o server_num server_num.c web_server.c
 
 client_num: client_num.c
 	$(CC) $(DEFS) $(CFLAGS) $(LIB) -o client_num client_num.c
+
+#web_server: web_server.c
+
 
 name_addr:	name_addr.c
 	$(CC) $(DEFS) $(CFLAGS) $(LIB) -o name_addr name_addr.c

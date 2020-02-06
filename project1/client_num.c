@@ -119,7 +119,6 @@ int main(int argc, char** argv) {
         abort();
     }
 
-
     /* create a socket */
     if ((sock = socket (PF_INET, SOCK_STREAM, IPPROTO_TCP)) < 0)
     {
