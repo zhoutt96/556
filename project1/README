@@ -8,4 +8,10 @@ How to run execute:
 	Type "./server_num -h" to view the usage of server
 	Type "./client_num -h" to view the usage of client
 
+How to collect data
+	Type "./test_size hostname port f" to collect the data that with same data size and different count.
+		    The data was stored in /data/frequency.csv
+	Type "./test_size hostname port a" to collect the data with same count and different data size.
+			The data was store in /data/latency.csv
+	We use this two data for our measurement report.
 
