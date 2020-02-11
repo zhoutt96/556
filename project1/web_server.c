@@ -12,13 +12,23 @@
 #include <netinet/in.h>
 #include <arpa/inet.h>
 #include <fcntl.h>
+#include <dirent.h>
 
 void enterIntoWeb()
 {
     printf("Web Server Running");
 }
 
+int validDir(char* request_dir){
 
+    if (strstr(request_dir, "../")){   //400 Bad Request
+        return 0;
+    }
+    if(opendir(request_dir) == NULL)   //404 Not Found
+        return -1;
+    return 1;   //200 OK
+
+}
 
 
 void readFile(char* fname, int socket)
@@ -27,6 +37,19 @@ void readFile(char* fname, int socket)
     char *buffer;
     int filesize;
     int readCount;
+
+    char header[256] = "HTTP/1.1 ";
+    int type = validDir(fname);
+    switch(type){
+        case 1: strcat(header, "200 OK \r\n");
+            strcat(header,"Content-Type: text/html \r\n");break;
+        case 0: strcat(header, "400 Bad Request \r\n");break;
+        case -1: strcat(header, "404 Not Found \r\n");break;
+    }
+    strcat(header," \r\n");
+    send(socket,header,strlen(header),0);
+    if(type!=1)
+        return;
 
     fp = fopen(fname, "r");
     if (fp == NULL)
