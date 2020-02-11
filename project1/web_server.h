@@ -6,6 +6,7 @@
 #define PROJECT2_WEB_SERVER_H
 
 void enterIntoWeb();
+int validDir(char* request_dir);
 void getFileName(char* buffer, char* rootDirectory);
 void readFile(char* fname, int socket);
 
