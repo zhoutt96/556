@@ -85,11 +85,6 @@ void helpMenu()
 
 /* simple server, takes one parameter, the server port number */
 int main(int argc, char **argv) {
-
-    argv[1] = "18100";
-    argv[2] = "www";
-    argv[3] = "/static";
-
     if (strcmp(argv[1], "-h") == 0)
     {
         helpMenu();
@@ -319,10 +314,6 @@ int main(int argc, char **argv) {
                             strcpy(fileDir,rootDirectory);
                             getFileName(buf, fileDir);
                             readFile(fileDir, current->socket);
-//                            close(current->socket);
-//                            printf("%s", fileContent);
-//                            send(current->socket, fileContent, )
-
                         }
                         else{
                             num= (unsigned short) ntohs(*(unsigned short *)(buf));

@@ -43,10 +43,10 @@ RM = "/Applications/CLion 2.app/Contents/bin/cmake/mac/bin/cmake" -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/zhoutt96/class/556/github/project1
+CMAKE_SOURCE_DIR = /Users/zhoutt96/class/556/github/project/project1
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/zhoutt96/class/556/github/project1/cmake-build-debug
+CMAKE_BINARY_DIR = /Users/zhoutt96/class/556/github/project/project1/cmake-build-debug
 
 # Include any dependencies generated for this target.
 include CMakeFiles/project2.dir/depend.make
@@ -59,42 +59,42 @@ include CMakeFiles/project2.dir/flags.make
 
 CMakeFiles/project2.dir/client_num.c.o: CMakeFiles/project2.dir/flags.make
 CMakeFiles/project2.dir/client_num.c.o: ../client_num.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/zhoutt96/class/556/github/project1/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/project2.dir/client_num.c.o"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/project2.dir/client_num.c.o   -c /Users/zhoutt96/class/556/github/project1/client_num.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/zhoutt96/class/556/github/project/project1/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/project2.dir/client_num.c.o"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/project2.dir/client_num.c.o   -c /Users/zhoutt96/class/556/github/project/project1/client_num.c
 
 CMakeFiles/project2.dir/client_num.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/project2.dir/client_num.c.i"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/zhoutt96/class/556/github/project1/client_num.c > CMakeFiles/project2.dir/client_num.c.i
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/zhoutt96/class/556/github/project/project1/client_num.c > CMakeFiles/project2.dir/client_num.c.i
 
 CMakeFiles/project2.dir/client_num.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/project2.dir/client_num.c.s"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/zhoutt96/class/556/github/project1/client_num.c -o CMakeFiles/project2.dir/client_num.c.s
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/zhoutt96/class/556/github/project/project1/client_num.c -o CMakeFiles/project2.dir/client_num.c.s
 
 CMakeFiles/project2.dir/server_num.c.o: CMakeFiles/project2.dir/flags.make
 CMakeFiles/project2.dir/server_num.c.o: ../server_num.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/zhoutt96/class/556/github/project1/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/project2.dir/server_num.c.o"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/project2.dir/server_num.c.o   -c /Users/zhoutt96/class/556/github/project1/server_num.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/zhoutt96/class/556/github/project/project1/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/project2.dir/server_num.c.o"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/project2.dir/server_num.c.o   -c /Users/zhoutt96/class/556/github/project/project1/server_num.c
 
 CMakeFiles/project2.dir/server_num.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/project2.dir/server_num.c.i"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/zhoutt96/class/556/github/project1/server_num.c > CMakeFiles/project2.dir/server_num.c.i
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/zhoutt96/class/556/github/project/project1/server_num.c > CMakeFiles/project2.dir/server_num.c.i
 
 CMakeFiles/project2.dir/server_num.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/project2.dir/server_num.c.s"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/zhoutt96/class/556/github/project1/server_num.c -o CMakeFiles/project2.dir/server_num.c.s
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/zhoutt96/class/556/github/project/project1/server_num.c -o CMakeFiles/project2.dir/server_num.c.s
 
 CMakeFiles/project2.dir/web_server.c.o: CMakeFiles/project2.dir/flags.make
 CMakeFiles/project2.dir/web_server.c.o: ../web_server.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/zhoutt96/class/556/github/project1/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/project2.dir/web_server.c.o"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/project2.dir/web_server.c.o   -c /Users/zhoutt96/class/556/github/project1/web_server.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/zhoutt96/class/556/github/project/project1/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/project2.dir/web_server.c.o"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/project2.dir/web_server.c.o   -c /Users/zhoutt96/class/556/github/project/project1/web_server.c
 
 CMakeFiles/project2.dir/web_server.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/project2.dir/web_server.c.i"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/zhoutt96/class/556/github/project1/web_server.c > CMakeFiles/project2.dir/web_server.c.i
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/zhoutt96/class/556/github/project/project1/web_server.c > CMakeFiles/project2.dir/web_server.c.i
 
 CMakeFiles/project2.dir/web_server.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/project2.dir/web_server.c.s"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/zhoutt96/class/556/github/project1/web_server.c -o CMakeFiles/project2.dir/web_server.c.s
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/zhoutt96/class/556/github/project/project1/web_server.c -o CMakeFiles/project2.dir/web_server.c.s
 
 # Object files for target project2
 project2_OBJECTS = \
@@ -110,7 +110,7 @@ project2: CMakeFiles/project2.dir/server_num.c.o
 project2: CMakeFiles/project2.dir/web_server.c.o
 project2: CMakeFiles/project2.dir/build.make
 project2: CMakeFiles/project2.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/zhoutt96/class/556/github/project1/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking C executable project2"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/zhoutt96/class/556/github/project/project1/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking C executable project2"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/project2.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -123,6 +123,6 @@ CMakeFiles/project2.dir/clean:
 .PHONY : CMakeFiles/project2.dir/clean
 
 CMakeFiles/project2.dir/depend:
-	cd /Users/zhoutt96/class/556/github/project1/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /Users/zhoutt96/class/556/github/project1 /Users/zhoutt96/class/556/github/project1 /Users/zhoutt96/class/556/github/project1/cmake-build-debug /Users/zhoutt96/class/556/github/project1/cmake-build-debug /Users/zhoutt96/class/556/github/project1/cmake-build-debug/CMakeFiles/project2.dir/DependInfo.cmake --color=$(COLOR)
+	cd /Users/zhoutt96/class/556/github/project/project1/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /Users/zhoutt96/class/556/github/project/project1 /Users/zhoutt96/class/556/github/project/project1 /Users/zhoutt96/class/556/github/project/project1/cmake-build-debug /Users/zhoutt96/class/556/github/project/project1/cmake-build-debug /Users/zhoutt96/class/556/github/project/project1/cmake-build-debug/CMakeFiles/project2.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/project2.dir/depend
 

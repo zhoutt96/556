@@ -1,1 +1,1 @@
-/Library/Developer/CommandLineTools/usr/bin/cc -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX10.14.sdk -Wl,-search_paths_first -Wl,-headerpad_max_install_names  CMakeFiles/project2.dir/client_num.c.o CMakeFiles/project2.dir/server_num.c.o CMakeFiles/project2.dir/web_server.c.o  -o project2 
+/Library/Developer/CommandLineTools/usr/bin/cc -g -Wl,-search_paths_first -Wl,-headerpad_max_install_names  CMakeFiles/project2.dir/client_num.c.o CMakeFiles/project2.dir/server_num.c.o CMakeFiles/project2.dir/web_server.c.o  -o project2 

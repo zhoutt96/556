@@ -4,9 +4,9 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
-  "/Users/zhoutt96/class/556/github/project1/client_num.c" "/Users/zhoutt96/class/556/github/project1/cmake-build-debug/CMakeFiles/project2.dir/client_num.c.o"
-  "/Users/zhoutt96/class/556/github/project1/server_num.c" "/Users/zhoutt96/class/556/github/project1/cmake-build-debug/CMakeFiles/project2.dir/server_num.c.o"
-  "/Users/zhoutt96/class/556/github/project1/web_server.c" "/Users/zhoutt96/class/556/github/project1/cmake-build-debug/CMakeFiles/project2.dir/web_server.c.o"
+  "/Users/zhoutt96/class/556/github/project/project1/client_num.c" "/Users/zhoutt96/class/556/github/project/project1/cmake-build-debug/CMakeFiles/project2.dir/client_num.c.o"
+  "/Users/zhoutt96/class/556/github/project/project1/server_num.c" "/Users/zhoutt96/class/556/github/project/project1/cmake-build-debug/CMakeFiles/project2.dir/server_num.c.o"
+  "/Users/zhoutt96/class/556/github/project/project1/web_server.c" "/Users/zhoutt96/class/556/github/project/project1/cmake-build-debug/CMakeFiles/project2.dir/web_server.c.o"
   )
 set(CMAKE_C_COMPILER_ID "AppleClang")
 
