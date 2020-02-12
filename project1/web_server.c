@@ -9,19 +9,24 @@
 #include <sys/socket.h>
 #include <dirent.h>
 
+#define STATUS200 200
+#define ERROR404 404
+#define ERROR400 400
+#define ERROR500 500
+#define EROOR501 501
 
 int validDir(char* request_dir){
 
     if (strstr(request_dir, "../")){   //400 Bad Request
-        return 0;
+        return ERROR400;
     }
     if(strcmp(request_dir,"/")==0) // ***********????????
-        return -1;
+        return ERROR404;
     FILE *fp = NULL;
     fp = fopen(request_dir,"r");
     if(fp == NULL)   //404 Not Found
-        return -1;
-    return 1;   //200 OK
+        return ERROR404;
+    return STATUS200;   //200 OK
 }
 
 void readFile(char* fname, int socket)
@@ -35,13 +40,13 @@ void readFile(char* fname, int socket)
     int type = validDir(fname);
     printf("The type is %d \n", type);
     switch(type){
-        case 1:
+        case STATUS200:
             strcat(header, "200 OK \r\n");
             break;
-        case 0:
+        case ERROR400:
             strcat(header, "400 Bad Request \r\n");
             break;
-        case -1:
+        case ERROR404:
             fname = "./static/404.html";
             strcat(header, "404 Not Found \r\n");
             break;

@@ -310,6 +310,7 @@ int main(int argc, char **argv) {
                         if (mode!=NULL)
                         {
                             //recv(current->socket, buf, BUF_LEN, 0);
+                            printf("%s", buf);
                             char fileDir[256];
                             strcpy(fileDir,rootDirectory);
                             getFileName(buf, fileDir);
