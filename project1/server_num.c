@@ -312,7 +312,7 @@ int main(int argc, char **argv) {
                             char *action;
                             char *fileName;
                             fileName = (char*) malloc(BUFSIZ);
-                            action = (char*) malloc(BUFSIZ);
+                            action = (char*) malloc(10);
 
                             strcpy(fullFilePath,rootDirectory);
                             extractInfoFromHeader(buf, fileName, fullFilePath, action);

@@ -19,6 +19,7 @@ int validDir(char* request_dir, char *action){
     if (strcmp(action, "GET") != 0){
         return ERROR501;
     }
+
     if (strstr(request_dir, "../")){   //400 Bad Request
         return ERROR400;
     }
@@ -39,7 +40,6 @@ void sendResponse(char* fullFilePath, int socket, char* action)
     char *buffer;
     int filesize;
     int readCount;
-    printf("fullfilepath is %s \n", fullFilePath);
 
     char header[256] = "HTTP/1.1 ";
     int type = validDir(fullFilePath, action);
