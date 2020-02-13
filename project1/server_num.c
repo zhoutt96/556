@@ -306,7 +306,7 @@ int main(int argc, char **argv) {
                         close(current->socket);
                         dump(&head, current->socket);
                     } else {
-                        if (mode!=NULL)
+                        if (strcmp(mode,"www")==0)
                         {
                             char fileDir[256];
                             char *action;
