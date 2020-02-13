@@ -309,10 +309,12 @@ int main(int argc, char **argv) {
                         if (mode!=NULL)
                         {
                             char fileDir[256];
-                            strcpy(fileDir,rootDirectory);
-                            getFileName(buf, fileDir);
-                            readFile(fileDir, current->socket);
+                            char *action;
+                            action = (char*) malloc(BUFSIZ);
 
+                            strcpy(fileDir,rootDirectory);
+                            extractInfoFromHeader(buf, fileDir, action);
+                            sendResponse(fileDir, current->socket, action);
                             close(current->socket);
                             dump(&head, current->socket);
                         }

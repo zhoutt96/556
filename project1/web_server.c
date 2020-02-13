@@ -13,15 +13,18 @@
 #define ERROR404 404
 #define ERROR400 400
 #define ERROR500 500
-#define EROOR501 501
+#define ERROR501 501
 
-int validDir(char* request_dir){
-
+int validDir(char* request_dir, char *action){
+//    printf("The action is %s", action);
+    if (strcmp(action, "GET") != 0){
+//        printf("Get ERROR 501");
+        return ERROR501;
+    }
     if (strstr(request_dir, "../")){   //400 Bad Request
         return ERROR400;
     }
     if(strcmp(request_dir,"/")==0) // ***********????????
-//        printf("Get a 400 ERROR");
         return ERROR400;
     FILE *fp = NULL;
     fp = fopen(request_dir,"r");
@@ -30,7 +33,7 @@ int validDir(char* request_dir){
     return STATUS200;   //200 OK
 }
 
-void readFile(char* fname, int socket)
+void sendResponse(char* fname, int socket, char* action)
 {
     FILE *fp = NULL;
     char *buffer;
@@ -38,8 +41,8 @@ void readFile(char* fname, int socket)
     int readCount;
 
     char header[256] = "HTTP/1.1 ";
-    int type = validDir(fname);
-    printf("The type is %d \n", type);
+    int type = validDir(fname, action);
+
     switch(type){
         case STATUS200:
             strcat(header, "200 OK \r\n");
@@ -51,6 +54,10 @@ void readFile(char* fname, int socket)
         case ERROR404:
             fname = "./static/404.html";
             strcat(header, "404 Not Found \r\n");
+            break;
+        case ERROR501:
+            fname = "./static/501.html";
+            strcat(header, "501 Not Implemented \r\n");
             break;
     }
 
@@ -86,13 +93,15 @@ void readFile(char* fname, int socket)
 
 //void conconateFileName(char* buffer, char* )
 
-void getFileName(char* buffer, char* rootDirectory)
+void extractInfoFromHeader(char* buffer, char* rootDirectory, char* action)
 {
-    char *action;
     char *fileName;
-    action = (char*) malloc(BUFSIZ);
     fileName = (char*) malloc(BUFSIZ);
     sscanf(buffer, "%s %s",action, fileName);
     strcat(rootDirectory, fileName);
+}
+
+void getRequestAction(char *buffer){
+
 }
 
