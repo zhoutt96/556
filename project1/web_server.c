@@ -22,8 +22,10 @@ int validDir(char* request_dir, char *action){
     if (strstr(request_dir, "../")){   //400 Bad Request
         return ERROR400;
     }
-//    if(strcmp(request_dir, "/"))
-//        return ERROR400;
+
+    if(request_dir[strlen(request_dir)-1]=='/') // 400 cannot be directory
+        return ERROR400;
+
     FILE *fp = NULL;
     fp = fopen(request_dir,"r");
     if(fp == NULL)   //404 Not Found
