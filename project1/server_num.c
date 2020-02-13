@@ -306,15 +306,15 @@ int main(int argc, char **argv) {
                         close(current->socket);
                         dump(&head, current->socket);
                     } else {
-//                        char *fileContent = NULL;
                         if (mode!=NULL)
                         {
-                            //recv(current->socket, buf, BUF_LEN, 0);
-                            printf("%s", buf);
                             char fileDir[256];
                             strcpy(fileDir,rootDirectory);
                             getFileName(buf, fileDir);
                             readFile(fileDir, current->socket);
+
+                            close(current->socket);
+                            dump(&head, current->socket);
                         }
                         else{
                             num= (unsigned short) ntohs(*(unsigned short *)(buf));
@@ -341,7 +341,6 @@ int main(int argc, char **argv) {
                              * When the data size is too big,
                              * sometimes it is hard to send all the data once.
                              */
-
 
                             int totalSendCount=0;
                             int curSendCount=0;

@@ -21,7 +21,8 @@ int validDir(char* request_dir){
         return ERROR400;
     }
     if(strcmp(request_dir,"/")==0) // ***********????????
-        return ERROR404;
+//        printf("Get a 400 ERROR");
+        return ERROR400;
     FILE *fp = NULL;
     fp = fopen(request_dir,"r");
     if(fp == NULL)   //404 Not Found
@@ -44,6 +45,7 @@ void readFile(char* fname, int socket)
             strcat(header, "200 OK \r\n");
             break;
         case ERROR400:
+            fname = "./static/400.html";
             strcat(header, "400 Bad Request \r\n");
             break;
         case ERROR404:
@@ -55,24 +57,8 @@ void readFile(char* fname, int socket)
     strcat(header,"Content-Type: text/html \r\n");
     strcat(header," \r\n");
 
-//    if(type!=1){
-//        char msg[256] = "<!DOCTYPE html><html><body><h1>";
-//        strcat(msg,header);
-//        strcat(msg,"</h1></body></html>");
-//        int sendCount = send(socket,msg,strlen(msg),0);
-//        printf("%s\n",msg);
-//        printf("send count:%d, real size:%lu\n",sendCount,strlen(msg));
-//        if(errno == EAGAIN){
-//            printf("send error!\n");
-//        }
-//        return;
-//    }
-
-
-//    printf("the filename is %s \n", fname);
     send(socket,header,strlen(header),0);
     fp = fopen(fname, "r");
-//    fp = fopen("./static/404.html", "r");
     if (fp == NULL)
     {
         perror("Can not find this file");
@@ -91,7 +77,7 @@ void readFile(char* fname, int socket)
         perror("Reading Error");
         abort();
     }
-//    printf("%s \n", buffer);
+
     send(socket, buffer, filesize, 0);
     if(errno == EAGAIN){
         printf("send error!\n");
