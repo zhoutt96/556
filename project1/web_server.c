@@ -1,6 +1,4 @@
-//
-// Created by zhoutt96 on 2/5/20.
-//
+
 
 #include <errno.h>
 #include <stdio.h>
@@ -16,16 +14,16 @@
 #define ERROR501 501
 
 int validDir(char* request_dir, char *action){
-//    printf("The action is %s", action);
+
+//    printf("request_dir is %s \n", request_dir);
     if (strcmp(action, "GET") != 0){
-//        printf("Get ERROR 501");
         return ERROR501;
     }
     if (strstr(request_dir, "../")){   //400 Bad Request
         return ERROR400;
     }
-    if(strcmp(request_dir,"/")==0) // ***********????????
-        return ERROR400;
+//    if(strcmp(request_dir, "/"))
+//        return ERROR400;
     FILE *fp = NULL;
     fp = fopen(request_dir,"r");
     if(fp == NULL)   //404 Not Found
@@ -33,30 +31,31 @@ int validDir(char* request_dir, char *action){
     return STATUS200;   //200 OK
 }
 
-void sendResponse(char* fname, int socket, char* action)
+void sendResponse(char* fullFilePath, int socket, char* action)
 {
     FILE *fp = NULL;
     char *buffer;
     int filesize;
     int readCount;
+    printf("fullfilepath is %s \n", fullFilePath);
 
     char header[256] = "HTTP/1.1 ";
-    int type = validDir(fname, action);
+    int type = validDir(fullFilePath, action);
 
     switch(type){
         case STATUS200:
             strcat(header, "200 OK \r\n");
             break;
         case ERROR400:
-            fname = "./static/400.html";
+            fullFilePath = "./static/400.html";
             strcat(header, "400 Bad Request \r\n");
             break;
         case ERROR404:
-            fname = "./static/404.html";
+            fullFilePath = "./static/404.html";
             strcat(header, "404 Not Found \r\n");
             break;
         case ERROR501:
-            fname = "./static/501.html";
+            fullFilePath = "./static/501.html";
             strcat(header, "501 Not Implemented \r\n");
             break;
     }
@@ -65,7 +64,7 @@ void sendResponse(char* fname, int socket, char* action)
     strcat(header," \r\n");
 
     send(socket,header,strlen(header),0);
-    fp = fopen(fname, "r");
+    fp = fopen(fullFilePath, "r");
     if (fp == NULL)
     {
         perror("Can not find this file");
@@ -91,17 +90,9 @@ void sendResponse(char* fname, int socket, char* action)
     }
 }
 
-//void conconateFileName(char* buffer, char* )
-
-void extractInfoFromHeader(char* buffer, char* rootDirectory, char* action)
+void extractInfoFromHeader(char* buffer, char *fileName, char* rootDirectory, char* action)
 {
-    char *fileName;
-    fileName = (char*) malloc(BUFSIZ);
     sscanf(buffer, "%s %s",action, fileName);
     strcat(rootDirectory, fileName);
-}
-
-void getRequestAction(char *buffer){
-
 }
 

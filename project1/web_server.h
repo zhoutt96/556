@@ -6,8 +6,8 @@
 #define PROJECT2_WEB_SERVER_H
 
 int validDir(char* request_dir, char *action);
-void extractInfoFromHeader(char* buffer, char* rootDirectory, char* action);
-void sendResponse(char* fname, int socket, char* action);
+void extractInfoFromHeader(char* buffer, char *fileName, char* rootDirectory, char* action);
+void sendResponse(char* fullFilePath, int socket, char* action);
 
 #endif //PROJECT2_WEB_SERVER_H
 

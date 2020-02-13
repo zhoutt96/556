@@ -308,15 +308,19 @@ int main(int argc, char **argv) {
                     } else {
                         if (mode!=NULL)
                         {
-                            char fileDir[256];
+                            char fullFilePath[256];
                             char *action;
+                            char *fileName;
+                            fileName = (char*) malloc(BUFSIZ);
                             action = (char*) malloc(BUFSIZ);
 
-                            strcpy(fileDir,rootDirectory);
-                            extractInfoFromHeader(buf, fileDir, action);
-                            sendResponse(fileDir, current->socket, action);
+                            strcpy(fullFilePath,rootDirectory);
+                            extractInfoFromHeader(buf, fileName, fullFilePath, action);
+                            sendResponse(fullFilePath, current->socket, action);
                             close(current->socket);
                             dump(&head, current->socket);
+                            free(action);
+                            free(fileName);
                         }
                         else{
                             num= (unsigned short) ntohs(*(unsigned short *)(buf));
