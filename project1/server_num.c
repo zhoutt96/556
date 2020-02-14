@@ -132,7 +132,6 @@ int main(int argc, char **argv) {
     head.socket = -1;
     head.next = 0;
 
-
     if (argc == 4)
     {
         mode = argv[2];
@@ -292,7 +291,6 @@ int main(int argc, char **argv) {
 
                 if (FD_ISSET(current->socket, &read_set)) {
                     /* we have data from a client */
-
                     count = recv(current->socket, buf, BUF_LEN, 0);
                     if (count <= 0) {
                         /* something is wrong */
@@ -306,7 +304,7 @@ int main(int argc, char **argv) {
                         close(current->socket);
                         dump(&head, current->socket);
                     } else {
-                        if (strcmp(mode,"www")==0)
+                        if (mode != NULL)
                         {
                             char fullFilePath[256];
                             char *action;
@@ -317,13 +315,15 @@ int main(int argc, char **argv) {
                             strcpy(fullFilePath,rootDirectory);
                             extractInfoFromHeader(buf, fileName, fullFilePath, action);
                             sendResponse(fullFilePath, current->socket, action);
-                            close(current->socket);
-                            dump(&head, current->socket);
                             free(action);
                             free(fileName);
+                            close(current->socket);
+                            dump(&head, current->socket);
+
                         }
-                        else{
+                        else if (strcmp(mode, "www") == 0){
                             num= (unsigned short) ntohs(*(unsigned short *)(buf));
+                            printf("The num is %d", num);
                             char *returnBuffer;
 
                             int totalReceCount = 0;
@@ -360,6 +360,9 @@ int main(int argc, char **argv) {
                             printf("【Receive】%d byte data from client: %s \n", totalReceCount, inet_ntoa(addr.sin_addr));
                             printf("【Send】%d byte data to client: %s \n", totalSendCount, inet_ntoa(addr.sin_addr));
                             free(returnBuffer);
+                        }else{
+                            perror("Wrong Parameter!");
+                            abort();
                         }
                     }
                 }
@@ -367,3 +370,5 @@ int main(int argc, char **argv) {
         }
     }
 }
+
+

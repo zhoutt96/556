@@ -6,6 +6,7 @@
 #include <string.h>
 #include <sys/socket.h>
 #include <dirent.h>
+#include <unistd.h>
 
 #define STATUS200 200
 #define ERROR404 404
@@ -26,11 +27,10 @@ int validDir(char* request_dir, char *action){
 
     if(request_dir[strlen(request_dir)-1]=='/') // 400 cannot be directory
         return ERROR400;
-
-    FILE *fp = NULL;
-    fp = fopen(request_dir,"r");
-    if(fp == NULL)   //404 Not Found
+    if(access(request_dir,F_OK)!= 0)
         return ERROR404;
+    if(access(request_dir,R_OK)!=0)
+        return ERROR500;
     return STATUS200;   //200 OK
 }
 
@@ -59,6 +59,9 @@ void sendResponse(char* fullFilePath, int socket, char* action)
         case ERROR501:
             fullFilePath = "./static/501.html";
             strcat(header, "501 Not Implemented \r\n");
+        case ERROR500:
+            fullFilePath = "./static/500.html";
+            strcat(header, "500 Internal Server Error \r\n");
             break;
     }
 
