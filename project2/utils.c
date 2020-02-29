@@ -18,7 +18,6 @@
 #define ERROR500 500
 #define ERROR501 501
 
-
 int getFileLength(char* fullFilePath)
 {
     FILE *fp = NULL;
@@ -83,4 +82,3 @@ u_short cksum(u_short *buf, int count)
     }
     return ~(sum & 0xFFFF);
 }
-

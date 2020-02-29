@@ -7,22 +7,20 @@
 #include <arpa/inet.h>
 #include <netdb.h>
 #include <sys/time.h>
+#include <math.h>
+#include <jmorecfg.h>
 #include "utils.h"
+#include "checksum.h"
 
-#define PACKETSIZE 80;
-#define DEFAULTWINDOWSIZE 100;
-#define DEFAULTBUFFERSIZE 1000000;
+#define BUFFERSIZE 1000000
+
+
 
 typedef struct {
     char **str;     //the PChar of string array
     size_t num;     //the number of string
 }IString;
 
-typedef struct packet{
-    int seq;
-    int size;
-    char data[BUFSIZ];
-} packet;
 
 typedef struct window{
     int windowsize;  // total window size of sliding window
@@ -128,13 +126,11 @@ int main(int argc, char** argv) {
 //    char* hostAndPort = (char*) malloc(BUFSIZ);
     int sock;
     unsigned int server_addr;
-    struct sockaddr_in sin;
+    struct sockaddr_in sin, addr;
     struct addrinfo *getaddrinfo_result, hints;
     unsigned short server_port;  /* server port number */
-//    char* filepath = (char*) malloc(BUFSIZ);
     char* filePath = argv[4];
     checkFilePath(filePath);
-
 
     /* convert server domain name to IP address */
     memset(&hints, 0, sizeof(struct addrinfo));
@@ -172,32 +168,44 @@ int main(int argc, char** argv) {
     sin.sin_addr.s_addr = server_addr;
     sin.sin_port = htons(server_port);
 
-    char* buffer = (char*) malloc(BUFSIZ);
-    readFile(filePath, buffer);
+//    char* buffer = (char*) malloc(BUFSIZ);
+//    readFile(filePath, buffer);
 
     struct window send_window;
-    send_window.windowsize = DEFAULTWINDOWSIZE;
-    send_window.usable = DEFAULTWINDOWSIZE;
+    send_window.windowsize = DEFAULTMAXWINDOWSIZE;
+    send_window.usable = DEFAULTMAXWINDOWSIZE;
     send_window.unack = 1;
     send_window.nextwindow = 1;
 
-    u_short checksum = cksum(buffer, strlen(buffer));
-    printf("the checksum is %u \n", checksum);
-
+    int send_num;
+    int recv_num;
     // get the data size first
-    int total_file_length = getFileLength(filePath);
-    while (send_window.nextwindow < total_file_length)
-    {
-        // read the data from the buffer
-        
+    double total_file_length = getFileLength(filePath);
+    // calculate the total number of packets
+    double total_count_double = total_file_length/DATASIZE;
+    int total_count = ceil(total_count_double);
+
+    // read the data of length BUFFERSIZE each time from the file, allocate memory for msg
+
+    char* buffer = (char*) malloc(BUFFERSIZE);
+
+    packet send_packet = {1,0,0,0,0};
+    ackpacket ack_packet;
+    memcpy(send_packet.data, filePath, DATASIZE);
+    send_packet.payload_checksum = crc_16((unsigned char*)send_packet.data, sizeof(send_packet.data));
+    boolean ack=FALSE;
+    while (ack == FALSE) {
+        send_num = sendto(sock, &send_packet, sizeof(send_packet), 0, (const struct sockaddr *) &sin, sizeof(sin));
+        recv_num = recvfrom(sock, buffer, sizeof(packet), 0, (const struct sockaddr *) &sin, sizeof(sin));
     }
 
+    /* when file is less than 1 MB*/
+    // send the packet which contains the filename and directory name
+    sendto(sock, &send_packet, sizeof(send_packet), 0, (const struct sockaddr *) &sin, sizeof(sin));
+    printf("send the data successfully");
 
-    // read the data of length BUFFERSIZE each time from the file
-
-
-//    sendto(sock, buffer, strlen(buffer),0, (const struct sockaddr *) &sin, sizeof(sin));
-
-
+    while (send_window.usable > 0 && send_window.nextwindow < total_file_length){
+        
+    }
 }
 
