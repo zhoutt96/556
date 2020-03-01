@@ -60,7 +60,6 @@ void readFile(char* fullFilePath, char* buffer){
         abort();
     }
 
-//    send(socket, buffer, filesize, 0);
     if(errno == EAGAIN){
         printf("send error!\n");
     }

@@ -76,8 +76,8 @@ int main(int argc, char **argv) {
     boolean receive_correct_file = FALSE;
     char* buffer = (char*) malloc(sizeof(packet));
     packet *recv_packet = (packet*) buffer;
-    ackpacket *ack_packet;
-    // 这儿没想好怎么写 LOL
+    ackpacket *ack_packet = (ackpacket*) malloc(sizeof(ackpacket));
+
     while (receive_correct_file==FALSE)
     {
         recvfrom(sock, buffer, sizeof(packet), 0, (struct sockaddr *)&addr, &addrlen);
@@ -87,9 +87,16 @@ int main(int argc, char **argv) {
             // send a ack back to the client
             printf("receive the filename successfully \n");
             receive_correct_file = TRUE;
-//            sendto(sock, &send_packet, sizeof(send_packet), 0, (const struct sockaddr *) &sin, sizeof(sin));
+            sendto(sock, &ack_packet, sizeof(ack_packet), 0, (const struct sockaddr *) &sin, sizeof(sin));
         }
     }
+
+
+    FILE *fp = NULL;
+    int filesize;
+
+//    fp = fopen(recv_packet->data, "r");
+
 
 
 

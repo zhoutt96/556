@@ -8,9 +8,9 @@
 #include <netdb.h>
 #include <sys/time.h>
 #include <math.h>
-#include <jmorecfg.h>
 #include "utils.h"
 #include "checksum.h"
+#include "queue.h"
 
 #define BUFFERSIZE 1000000
 
@@ -22,12 +22,7 @@ typedef struct {
 }IString;
 
 
-typedef struct window{
-    int windowsize;  // total window size of sliding window
-    int usable; // total availwindow
-    int unack;
-    int nextwindow;
-} sendwindow;
+
 
 int Split(char *src, char *delim, IString* istr)//split buf
 {
@@ -132,6 +127,10 @@ int main(int argc, char** argv) {
     char* filePath = argv[4];
     checkFilePath(filePath);
 
+    Queue *q = (Queue*) malloc(sizeof(Queue));
+    q->front = NULL;
+    q->rear = NULL;
+
     /* convert server domain name to IP address */
     memset(&hints, 0, sizeof(struct addrinfo));
     hints.ai_family = AF_INET; /* indicates we want IPv4 */
@@ -168,14 +167,10 @@ int main(int argc, char** argv) {
     sin.sin_addr.s_addr = server_addr;
     sin.sin_port = htons(server_port);
 
-//    char* buffer = (char*) malloc(BUFSIZ);
-//    readFile(filePath, buffer);
-
     struct window send_window;
-    send_window.windowsize = DEFAULTMAXWINDOWSIZE;
     send_window.usable = DEFAULTMAXWINDOWSIZE;
-    send_window.unack = 1;
-    send_window.nextwindow = 1;
+    send_window.to_be_send = 1;
+    send_window.to_be_ack = 1;
 
     int send_num;
     int recv_num;
@@ -189,23 +184,50 @@ int main(int argc, char** argv) {
 
     char* buffer = (char*) malloc(BUFFERSIZE);
 
+    // send the packet which contains the filename and directory name
     packet send_packet = {1,0,0,0,0};
     ackpacket ack_packet;
     memcpy(send_packet.data, filePath, DATASIZE);
     send_packet.payload_checksum = crc_16((unsigned char*)send_packet.data, sizeof(send_packet.data));
     boolean ack=FALSE;
+    ackpacket *recvpacket = (ackpacket*) malloc(sizeof(ackpacket));
     while (ack == FALSE) {
         send_num = sendto(sock, &send_packet, sizeof(send_packet), 0, (const struct sockaddr *) &sin, sizeof(sin));
-        recv_num = recvfrom(sock, buffer, sizeof(packet), 0, (const struct sockaddr *) &sin, sizeof(sin));
+        recv_num = recvfrom(sock, recvpacket, sizeof(recvpacket), 0, (const struct sockaddr *) &sin, sizeof(sin));
+        if (recvpacket->ack_checksum == crc_16((unsigned char*)recvpacket->ack_num, sizeof(recvpacket->ack_num))){
+            ack = TRUE;
+            printf("send the filename successfully \n");
+        }
     }
 
-    /* when file is less than 1 MB*/
-    // send the packet which contains the filename and directory name
-    sendto(sock, &send_packet, sizeof(send_packet), 0, (const struct sockaddr *) &sin, sizeof(sin));
-    printf("send the data successfully");
+    /* when file is less than 1 MB, store the file into the buffer*/
+    while (send_window.to_be_ack < total_file_length){
+        // if the window is full, we can only wait for the ack from the receiver
+        if (send_window.usable == 0){
+            recv_num = recvfrom(sock, recvpacket, sizeof(recvpacket), 0, (const struct sockaddr *) &sin, sizeof(sin));
+            if (recv_num>0){
+                // 如果receiver的ack传丢了怎么办
+                // 如果没有传丢话
+                // for example, if the sending sliding window is 1,2,3,4,5 and the ack is 4, then we will pop the 1,2,3 from the queue
+                while (q->front != NULL && q->front->data[0]+q->front->data[1] < recvpacket->ack_num){
+                    send_window.usable += q->front->data[1];
+                    pop(q);
+                }
+            }
+        }
 
-    while (send_window.usable > 0 && send_window.nextwindow < total_file_length){
-        
+        // if the window is not full, then send the packet until the window is full
+        /*
+         * step1: read data from the file, and then store it into the queue
+         * step2: then send the packet to the receive
+         * step3: usable -= 1
+         * step4: to_be_send+= length, to_be_acked += length
+         * */
+
+
     }
+
+
+
 }
 
