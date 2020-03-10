@@ -34,7 +34,6 @@ typedef struct ackpacket{
     __uint16_t ack_checksum;
 } ackpacket;
 
-
 FILE* openFile(char* fullFilePath);
 //void readFile(char* fullFilePath, char* contentbuffer, int length);
 void readFile(FILE *fp, char* contentbuffer, int length);

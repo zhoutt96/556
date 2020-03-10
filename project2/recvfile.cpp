@@ -1,7 +1,7 @@
-#include <errno.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
+#include <cerrno>
+#include <cstdio>
+#include <cstdlib>
+#include <cstring>
 #include <sys/types.h>
 #include <unistd.h>
 #include <sys/socket.h>
@@ -34,21 +34,21 @@ void helpMenu()
     printf("--------------                 End of the Menu                     --------------|\n");
 }
 
-u_short cksum(u_short *buf, int count)
-{
-    register u_long sum = 0;
-    while (count--)
-    {
-        sum += *buf++;
-        if (sum & 0xFFFF0000)
-        {
-            /* carry occurred, so wrap around */
-            sum &= 0xFFFF;
-            sum++;
-        }
-    }
-    return ~(sum & 0xFFFF);
-}
+//u_short cksum(u_short *buf, int count)
+//{
+//    register u_long sum = 0;
+//    while (count--)
+//    {
+//        sum += *buf++;
+//        if (sum & 0xFFFF0000)
+//        {
+//            /* carry occurred, so wrap around */
+//            sum &= 0xFFFF;
+//            sum++;
+//        }
+//    }
+//    return ~(sum & 0xFFFF);
+//}
 
 
 /*****************************************/
@@ -200,8 +200,5 @@ int main(int argc, char **argv) {
     fclose(fp);
     printf("completed\n");
     exit(0);
-
-
-
 
 }

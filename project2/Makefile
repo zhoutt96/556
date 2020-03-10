@@ -1,17 +1,22 @@
-CC	 	= gcc
-LD	 	= gcc
+CC	 	= g++
+LD	 	= g++
 CFLAGS	 	= -Wall -g
-LDFLAGS	 	= 
+
+LDFLAGS	 	=
 DEFS 	 	=
 
-#all:	recvfile sendfile
-all: sendfile
+#all: sendfile recvfile
 
-#recvfile: recvfile.cc
-#	$(CC) $(DEFS) $(CFLAGS) $(LIB) -o recvfile recvfile.c utils.c
 
-sendfile: sendfile.c
-	$(CC) $(DEFS) $(CFLAGS) $(LIB) -o sendfile utils.c sendfile.c
+#sendfile: sendfile.cpp
+#	$(CC) $(DEFS) $(CFLAGS) $(LIB) -o sendfile.cpp utils.cpp queue.cpp
+#
+#recvfile: recvfile.cpp
+#	$(CC) $(DEFS) $(CFLAGS) $(LIB) -o recvfile.cpp utils.cpp
+
+all:
+	g++ sendfile.cpp utils.cpp queue.cpp -o sendfile
+	g++ recvfile.cpp utils.cpp -o recvfile
 
 clean:
 	rm -f *.o

@@ -1,0 +1,1 @@
+/Library/Developer/CommandLineTools/usr/bin/c++  -g -Wl,-search_paths_first -Wl,-headerpad_max_install_names  CMakeFiles/pj2__.dir/sendfile.cpp.o CMakeFiles/pj2__.dir/recvfile.cc.o CMakeFiles/pj2__.dir/utils.c.o  -o pj2__ 
