@@ -12,7 +12,7 @@
 #include <sys/stat.h>
 #include <dirent.h>
 //#include <jmorecfg.h>
-#include "checksum.h"
+//#include "checksum.h"
 #include <queue>
 using namespace std;
 
