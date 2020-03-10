@@ -13,16 +13,26 @@
 #include "queue.h"
 
 #define BUFFERSIZE 1000000
+#define TIMEOUT 1000
 
+#define MAX(x, y) (((x) > (y)) ? (x) : (y))
+#define MIN(x, y) (((x) < (y)) ? (x) : (y))
 
-
-typedef struct {
+typedef struct IString{
     char **str;     //the PChar of string array
     size_t num;     //the number of string
 }IString;
 
+typedef struct ACKCount{
+    int count;
+    int ackNum;
+}ACKCount;
 
-
+void MoveForward(struct window* send_window, Queue* queue){
+    send_window->usable -= 1;
+    send_window->to_be_send += 1;
+    Enqueue(queue);
+}
 
 int Split(char *src, char *delim, IString* istr)//split buf
 {
@@ -105,6 +115,34 @@ void checkPort(int port)
     }
 }
 
+void fillPacket(packet* sendbuffer,struct window* send_window, __uint16_t left_filesize){
+    __uint16_t new_checksum;
+
+    if (left_filesize <= DATASIZE){
+        sendbuffer->payload_size = left_filesize;
+        sendbuffer->isEnd = 1;
+    }else{
+        sendbuffer->payload_size = DATASIZE;
+        sendbuffer->isEnd = 0;
+    }
+
+    sendbuffer->checksum = 0;
+    sendbuffer->seq_num = send_window->to_be_send;
+    new_checksum = cksum((u_short*) sendbuffer, (DATASIZE+10)/2);
+    sendbuffer->checksum = new_checksum;
+}
+
+void fillFilePacket(packet* sendbuffer,struct window* send_window, __uint16_t filename_path){
+    __uint16_t new_checksum;
+
+    sendbuffer->seq_num = 0;
+    sendbuffer->isEnd = 0;
+    sendbuffer->payload_size = filename_path;
+    sendbuffer->checksum = 0;
+    new_checksum = cksum((u_short*) sendbuffer, (DATASIZE+10)/2);
+    sendbuffer->checksum = new_checksum;
+}
+
 int main(int argc, char** argv) {
 
     if (strcmp(argv[1], "-h") == 0)
@@ -125,11 +163,10 @@ int main(int argc, char** argv) {
     struct addrinfo *getaddrinfo_result, hints;
     unsigned short server_port;  /* server port number */
     char* filePath = argv[4];
+    __uint16_t fileLength = strlen(filePath);
     checkFilePath(filePath);
 
-    Queue *q = (Queue*) malloc(sizeof(Queue));
-    q->front = NULL;
-    q->rear = NULL;
+    Queue *queue = (Queue*) malloc(sizeof(Queue));
 
     /* convert server domain name to IP address */
     memset(&hints, 0, sizeof(struct addrinfo));
@@ -169,65 +206,95 @@ int main(int argc, char** argv) {
 
     struct window send_window;
     send_window.usable = DEFAULTMAXWINDOWSIZE;
-    send_window.to_be_send = 1;
-    send_window.to_be_ack = 1;
+    send_window.to_be_send = 0;
+    send_window.to_be_ack = 0;
+    socklen_t addrlen = sizeof(addr);
 
     int send_num;
     int recv_num;
     // get the data size first
     double total_file_length = getFileLength(filePath);
     // calculate the total number of packets
-    double total_count_double = total_file_length/DATASIZE;
-    int total_count = ceil(total_count_double);
+    int total_count = (int)total_file_length/DATASIZE+1;
+//    int total_count =(int) total_count_double + 1;
 
-    // read the data of length BUFFERSIZE each time from the file, allocate memory for msg
+    struct ACKCount initAck;
+    initAck.count = 0;
+    initAck.ackNum = 0;
+    FILE* fp = openFile(filePath);
 
-    char* buffer = (char*) malloc(BUFFERSIZE);
+    char* buffer = (unsigned char*) malloc(DATASIZE);
+    /*
+     * send the packet which contains the filename and directory name
+     */
 
-    // send the packet which contains the filename and directory name
-    packet send_packet = {1,0,0,0,0};
-    ackpacket ack_packet;
-    memcpy(send_packet.data, filePath, DATASIZE);
-    send_packet.payload_checksum = crc_16((unsigned char*)send_packet.data, sizeof(send_packet.data));
-    boolean ack=FALSE;
-    ackpacket *recvpacket = (ackpacket*) malloc(sizeof(ackpacket));
-    while (ack == FALSE) {
-        send_num = sendto(sock, &send_packet, sizeof(send_packet), 0, (const struct sockaddr *) &sin, sizeof(sin));
-        recv_num = recvfrom(sock, recvpacket, sizeof(recvpacket), 0, (const struct sockaddr *) &sin, sizeof(sin));
-        if (recvpacket->ack_checksum == crc_16((unsigned char*)recvpacket->ack_num, sizeof(recvpacket->ack_num))){
-            ack = TRUE;
-            printf("send the filename successfully \n");
+    packet* send_packet;
+    ackpacket *recv_packet = (ackpacket*) malloc(sizeof(ackpacket));
+    InitQueue(queue); // init the queue, and allocate memory to the data
+
+    send_packet = Rear(queue);
+    memcpy(send_packet->data, filePath, DATASIZE);
+    fillFilePacket(send_packet, &send_window, fileLength);
+    send_num = sendto(sock, send_packet, sizeof(*send_packet), 0, (const struct sockaddr *) &sin, sizeof(sin));
+    MoveForward(&send_window, queue);
+    printf("the size of the file path is %hu \n", fileLength);
+    printf("the filepath checksum is %hu \n", send_packet->checksum);
+    printf(" ----------------------------------------- ");
+
+    while (send_window.to_be_send>0 || send_window.to_be_ack>0){
+        while(send_window.usable > 0){
+            /*
+             * Keep sending data, until the usable windows is equal to zero
+             */
+
+            __uint16_t left_filesize = total_file_length-send_window.to_be_send;
+            send_packet = Rear(queue);
+            readFile(fp, send_packet->data, DATASIZE);
+            fillPacket(send_packet, &send_window, left_filesize);
+            send_num = sendto(sock,send_packet,sizeof(*send_packet), 0, (const struct sockaddr *) &sin, sizeof(sin));
+            MoveForward(&send_window, queue);
+
+            printf("the data size is %hu \n", send_packet->payload_size);
+            printf("the checksum is %hu \n", send_packet->checksum);
+            printf("current to_be_ack is %d\n", send_window.to_be_ack);
+            printf("current to_be_send is %d \n", send_window.to_be_send);
+            printf(" ----------------------------------------- ");
         }
-    }
 
-    /* when file is less than 1 MB, store the file into the buffer*/
-    while (send_window.to_be_ack < total_file_length){
-        // if the window is full, we can only wait for the ack from the receiver
-        if (send_window.usable == 0){
-            recv_num = recvfrom(sock, recvpacket, sizeof(recvpacket), 0, (const struct sockaddr *) &sin, sizeof(sin));
-            if (recv_num>0){
-                // 如果receiver的ack传丢了怎么办
-                // 如果没有传丢话
-                // for example, if the sending sliding window is 1,2,3,4,5 and the ack is 4, then we will pop the 1,2,3 from the queue
-                while (q->front != NULL && q->front->data[0]+q->front->data[1] < recvpacket->ack_num){
-                    send_window.usable += q->front->data[1];
-                    pop(q);
+        if ( send_window.usable == 0){
+            /*
+             * if there is no available data, then begin to wait for the ack and free the data
+             */
+            recvfrom(sock, recv_packet, sizeof(packet), 0, (struct sockaddr *)&addr, &addrlen);
+            __uint16_t ack_checksum = recv_packet->ack_checksum;
+            recv_packet->ack_checksum = 0;
+            __uint16_t cur_checksum = cksum((u_short*) recv_packet, sizeof(*recv_packet)/2);
+
+            if (cur_checksum == ack_checksum){
+                /*
+                 * store the ack number, and take a look
+                 */
+                if (ack_checksum == initAck.ackNum){
+                    initAck.count += 1;
+                    if (initAck.count == RESENDLIMIT){
+                        /*
+                         * if we receive the same ack for three times, then we need to resend this packet
+                         */
+                        send_packet = Front(queue);
+                        send_num = sendto(sock, send_packet, sizeof(*send_packet), 0, (const struct sockaddr *) &sin, sizeof(sin));
+                        initAck.count = 0;
+                    }
+                }else{
+                    initAck.ackNum = ack_checksum;
+                    initAck.count = 1;
+                    if (send_window.to_be_ack == ack_checksum){
+                        send_window.to_be_ack ++;
+                        send_window.usable ++;
+                        Dequeue(queue);
+                    }
                 }
             }
         }
-
-        // if the window is not full, then send the packet until the window is full
-        /*
-         * step1: read data from the file, and then store it into the queue
-         * step2: then send the packet to the receive
-         * step3: usable -= 1
-         * step4: to_be_send+= length, to_be_acked += length
-         * */
-
-
     }
-
-
-
 }
 
