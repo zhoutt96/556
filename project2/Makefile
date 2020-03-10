@@ -1,14 +1,14 @@
 CC	 	= gcc
 LD	 	= gcc
 CFLAGS	 	= -Wall -g
-
 LDFLAGS	 	= 
 DEFS 	 	=
 
-all:	recvfile sendfile
+#all:	recvfile sendfile
+all: sendfile
 
-recvfile: recvfile.c
-	$(CC) $(DEFS) $(CFLAGS) $(LIB) -o recvfile recvfile.c
+#recvfile: recvfile.cc
+#	$(CC) $(DEFS) $(CFLAGS) $(LIB) -o recvfile recvfile.c utils.c
 
 sendfile: sendfile.c
 	$(CC) $(DEFS) $(CFLAGS) $(LIB) -o sendfile utils.c sendfile.c

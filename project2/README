@@ -1,0 +1,47 @@
+COMP/ELEC 429/556 Project 2: Reliable File Transfer Protocol
+
+
+Team Members:
+
+How to build:
+	Type "make" on command line under the same path of the "makefile" file to build the project.
+	If you want to clean the file, type "make clean".
+
+How to run execute:
+	Type "./sendfile -h" to view the usage of sendfile
+	Type "./recvfile -h" to view the usage of recvfile
+
+UDP Packet:
+	Packet Structure:
+		The first packet which contains the filename and file count:
+			20 byte - filename
+			4 byte - count
+		Data packet:
+			32bit - Sequence Number
+			32bit - Acknowledgement Number
+			//4bit  - Header Length
+			16bit - header checksum
+			16bit - window size
+			16bit - payload checksum
+			1400 byte payload
+
+	Packet Size:
+		In this project, we set the maximum packet size with 1400Bytes.
+		The absolute limitation on TCP packet size is 64K (65535 bytes),
+		but in practicality this is far larger than the size of any packet you will see,
+		because the lower layers (e.g. ethernet) have lower packet sizes.
+		The MTU (Maximum Transmission Unit) for Ethernet, for instance, is 1500 bytes. (reference from ...????)
+
+Data Flow Control Algorithm:
+Sliding Window(More explaination on slide:reliability)
+	window size: we set the default window size as 64KB(65,535bytes), without any window size scaling here.
+
+Error Detections Algorithm:
+1’s Complement Checksum (More explaination on slide:reliability)
+
+Retransmit Algorithm:
+Fast Retransmit Algorithm
+
+
+
+

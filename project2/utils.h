@@ -3,28 +3,29 @@
 //
 
 #include <sys/types.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <sys/types.h>
+#include <unistd.h>
 
 #ifndef PROJECT2_UTILS_H
 #define PROJECT2_UTILS_H
-#define DEFAULTMAXWINDOWSIZE 65535
-#define DATASIZE 1400  // The size of the payload part of sending packet
+#define DEFAULTMAXWINDOWSIZE 40
+#define DATASIZE 50  // The size of the payload part of sending packet
+#define RESENDLIMIT 3
 
 typedef struct window{
     __uint16_t usable; // total available window
-//    __uint16_t unack_start; // sent but not yet acknowledged
-//    __uint16_t unack_end; //
     __uint16_t to_be_send; // the index of next to be sent data
     __uint16_t to_be_ack; // the index of next to be acknowledged data
 } sendwindow;
 
 typedef struct packet{
-    // header
     __uint32_t seq_num;
-    __uint32_t ack_num;
-    __uint16_t header_checksum;
-//    __uint16_t window_size;
-    __uint16_t payload_checksum;
-    // payload
+    __uint16_t payload_size;
+    __uint16_t checksum;
+    __uint16_t isEnd; // 0 -> has not reached to end, 1->the last packet, 2->filename
     char data[DATASIZE];
 } packet;
 
@@ -33,9 +34,13 @@ typedef struct ackpacket{
     __uint16_t ack_checksum;
 } ackpacket;
 
-void readFile(char* fullFilePath, char* contentbuffer);
+
+FILE* openFile(char* fullFilePath);
+//void readFile(char* fullFilePath, char* contentbuffer, int length);
+void readFile(FILE *fp, char* contentbuffer, int length);
 int getFileLength(char* fullFilePath);
 u_short cksum(u_short *buf, int count);
 void createFile(char* filename);
+long double calLatency(struct timeval* start, struct timeval* end);
 
 #endif //PROJECT2_UTILS_H

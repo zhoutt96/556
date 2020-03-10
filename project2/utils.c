@@ -2,15 +2,12 @@
 // Created by zhoutt96 on 2/26/20.
 //
 #include <errno.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <sys/types.h>
-#include <unistd.h>
-#include <sys/socket.h>
-#include <netinet/in.h>
-#include <arpa/inet.h>
-#include <fcntl.h>
+//#include <stdio.h>
+//#include <stdlib.h>
+//#include <string.h>
+//#include <sys/types.h>
+//#include <unistd.h>
+#include "utils.h"
 
 #define STATUS200 200
 #define ERROR404 404
@@ -32,38 +29,60 @@ int getFileLength(char* fullFilePath)
 
     fseek(fp, 0, SEEK_END);
     filesize = ftell(fp);
+    fseek(fp, 0, SEEK_SET);
+    fclose(fp);
     return filesize;
 }
 
-void readFile(char* fullFilePath, char* buffer){
+FILE* openFile(char* fullFilePath){
     FILE *fp = NULL;
-    int filesize;
-    int readCount;
-
     fp = fopen(fullFilePath, "r");
     if (fp == NULL)
     {
         perror("Can not find this file");
         abort();
     }
-
-    fseek(fp, 0, SEEK_END);
-    filesize = ftell(fp);
-//    buffer = (char*) malloc(filesize);
-
-    fseek(fp, 0, SEEK_SET);
-
-    readCount = fread (buffer,1,filesize,fp);
-    if (readCount != filesize)
-    {
-        perror("Reading Error");
-        abort();
-    }
-
-    if(errno == EAGAIN){
-        printf("send error!\n");
-    }
+    return fp;
 }
+
+void readFile(FILE *fp, char* buffer, int length){
+    int readCount = fread (buffer,1,length,fp);
+//    if (readCount != length)
+//    {
+//        perror("Reading Error");
+//        abort();
+//    }
+}
+
+//void readFile(char* fullFilePath, char* buffer, int length){
+//    FILE *fp = NULL;
+//    int filesize;
+//    int readCount;
+//
+//    fp = fopen(fullFilePath, "r");
+//    if (fp == NULL)
+//    {
+//        perror("Can not find this file");
+//        abort();
+//    }
+//
+//    fseek(fp, 0, SEEK_END);
+//    filesize = ftell(fp);
+////    buffer = (char*) malloc(filesize);
+//
+//    fseek(fp, 0, SEEK_SET);
+//
+//    readCount = fread (buffer,1,filesize,fp);
+//    if (readCount != filesize)
+//    {
+//        perror("Reading Error");
+//        abort();
+//    }
+//
+//    if(errno == EAGAIN){
+//        printf("send error!\n");
+//    }
+//}
 
 
 u_short cksum(u_short *buf, int count)
@@ -80,4 +99,8 @@ u_short cksum(u_short *buf, int count)
         }
     }
     return ~(sum & 0xFFFF);
+}
+
+long double calLatency(struct timeval* start, struct timeval* end){
+    return (end->tv_sec - start->tv_sec)*1000000 + end->tv_usec - start->tv_usec;
 }

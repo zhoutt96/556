@@ -5,7 +5,7 @@
 #include <sys/types.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include <jmorecfg.h>
+//#include <jmorecfg.h>
 #include "utils.h"
 //
 //#ifndef PROJECT2_QUEUE_H
