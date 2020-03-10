@@ -99,6 +99,7 @@ int main(int argc, char **argv) {
 
 
 
+
     while (receive_correct_file==0)
     {
         recvfrom(sock, buffer, sizeof(packet), 0, (struct sockaddr *)&addr, &addrlen);
@@ -112,7 +113,9 @@ int main(int argc, char **argv) {
             receive_correct_file = 1;
             ack_packet->ack_num = recv_packet->seq_num;
             ack_packet->ack_checksum = recv_packet->seq_num;
-            sendto(sock, &ack_packet, sizeof(*ack_packet), 0, (const struct sockaddr *) &sin, sizeof(sin));
+//            sendto(sock, &ack_packet, sizeof(*ack_packet), 0, (const struct sockaddr *) &sin, sizeof(sin));
+//            sendto(sock, &ack_packet, sizeof(*ack_packet), 0, (const struct sockaddr *) &addr, sizeof(addr));
+            sendto(sock, ack_packet, sizeof(*ack_packet), 0, (const struct sockaddr *) &addr, sizeof(addr));
         }else{
             printf("recv corrupt packet\n");
         }
@@ -165,7 +168,8 @@ int main(int argc, char **argv) {
                     printf("[recv data] %lu (%lu) %s \n",offset, length,"IGNORED");
                     ack_packet->ack_num = ack;
                     ack_packet->ack_checksum = recv_packet->seq_num;
-                    sendto(sock, &ack_packet, sizeof(*ack_packet), 0, (const struct sockaddr *) &sin, sizeof(sin));
+//                    sendto(sock, &ack_packet, sizeof(*ack_packet), 0, (const struct sockaddr *) &sin, sizeof(sin));
+                    sendto(sock, ack_packet, sizeof(*ack_packet), 0, (const struct sockaddr *) &addr, sizeof(addr));
                 }else{
                     if(endFile==0){
                         endFile = recv_packet->isEnd;
@@ -189,13 +193,15 @@ int main(int argc, char **argv) {
                     fwrite(recv_packet->data,1,length,fp);
                     ack_packet->ack_num = ack;
                     ack_packet->ack_checksum = recv_packet->seq_num;
-                    sendto(sock, &ack_packet, sizeof(*ack_packet), 0, (const struct sockaddr *) &sin, sizeof(sin));
+//                    sendto(sock, &ack_packet, sizeof(*ack_packet), 0, (const struct sockaddr *) &sin, sizeof(sin));
+                    sendto(sock, ack_packet, sizeof(*ack_packet), 0, (const struct sockaddr *) &addr, sizeof(addr));
                 }
             }else{
                 printf("[recv corrupt packet]\n");
                 ack_packet->ack_num = ack;
                 ack_packet->ack_checksum = recv_packet->seq_num;
-                sendto(sock, &ack_packet, sizeof(*ack_packet), 0, (const struct sockaddr *) &sin, sizeof(sin));
+//                sendto(sock, &ack_packet, sizeof(*ack_packet), 0, (const struct sockaddr *) &sin, sizeof(sin));
+                sendto(sock, ack_packet, sizeof(*ack_packet), 0, (const struct sockaddr *) &addr, sizeof(addr));
             }
 
         }
@@ -203,8 +209,5 @@ int main(int argc, char **argv) {
     fclose(fp);
     printf("[completed]\n");
     exit(0);
-
-
-
 
 }
