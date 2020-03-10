@@ -1,5 +1,3 @@
-
-
 #include <errno.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -11,11 +9,10 @@
 #include <arpa/inet.h>
 #include <fcntl.h>
 #include "utils.h"
-#include "../../../../../../../usr/include/printf.h"
 #include <sys/stat.h>
 #include <dirent.h>
 //#include <jmorecfg.h>
-//#include "checksum.h"
+#include "checksum.h"
 #include <queue>
 using namespace std;
 
@@ -100,6 +97,8 @@ int main(int argc, char **argv) {
     packet *recv_packet = (packet*) buffer;
     ackpacket *ack_packet = (ackpacket*) malloc(sizeof(ackpacket));
 
+
+
     while (receive_correct_file==0)
     {
         recvfrom(sock, buffer, sizeof(packet), 0, (struct sockaddr *)&addr, &addrlen);
@@ -110,12 +109,10 @@ int main(int argc, char **argv) {
         {
             // send a ack back to the client
             printf("receive the filename successfully \n");
-            printf("the file name is %s \n", recv_packet->data);
             receive_correct_file = 1;
             ack_packet->ack_num = recv_packet->seq_num;
             ack_packet->ack_checksum = recv_packet->seq_num;
-            sendto(sock, ack_packet, sizeof(*ack_packet), 0, (const struct sockaddr *) &addr, sizeof(addr));
-            printf("send the ack  \n");
+            sendto(sock, &ack_packet, sizeof(*ack_packet), 0, (const struct sockaddr *) &sin, sizeof(sin));
         }else{
             printf("recv corrupt packet\n");
         }
@@ -203,4 +200,8 @@ int main(int argc, char **argv) {
     fclose(fp);
     printf("completed\n");
     exit(0);
+
+
+
+
 }
