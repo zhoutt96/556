@@ -71,7 +71,6 @@ int Split(char *src, char *delim, IString* istr)//split buf
     return 1;
 }
 
-
 void helpMenu()
 {
     printf("------------------------            Menu for COMP 556 Project 2         ------------------------|\n");
@@ -114,6 +113,9 @@ void checkPort(int port)
         abort();
     }
 }
+
+
+
 
 void fillPacket(FILE *fp, packet* sendbuffer, struct window* send_window, __uint32_t left_filesize){
     __uint16_t new_checksum;
@@ -198,6 +200,13 @@ int main(int argc, char** argv) {
     {
         perror ("UDP socket creation failure");
         abort ();
+    }
+
+    struct timeval timeout;
+    timeout.tv_sec = 1;//sencond
+    timeout.tv_usec = 0;//m_second
+    if (setsockopt(sock, SOL_SOCKET, SO_RCVTIMEO, &timeout, sizeof(timeout)) == -1) {
+        perror("setsockopt failed:");
     }
 
     /* fill in the server's address */
@@ -342,6 +351,7 @@ int main(int argc, char** argv) {
                         send_window.usable ++;
                     }
                 }else{
+
                     printf("[Ignore ACK] %u \n", ack_checksum);
                     if (ack_checksum == initAck.ackNum){
                         initAck.count += 1;
@@ -380,6 +390,8 @@ int main(int argc, char** argv) {
         printf("cur queue front seq is %u \n", Front(queue)->seq_num);
         printf("the size of queue %d \n", queue->size);
         printf("the usable is %d \n", send_window.usable);
+        printf(" ------------------------------------------ ");
     }
 }
 
+//./sendfile -r onyx.clear.rice.edu:18004 -f data/data.txt
