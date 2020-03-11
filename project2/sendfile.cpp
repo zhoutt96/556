@@ -1,13 +1,14 @@
-#include <stdlib.h>
-#include <stdio.h>
+#include <cstdlib>
+#include <cstdio>
 #include <unistd.h>
-#include <string.h>
+#include <cstring>
 #include <sys/socket.h>
 #include <netinet/in.h>
 #include <arpa/inet.h>
 #include <netdb.h>
+//#include <ctime>
 #include <sys/time.h>
-#include <math.h>
+#include <cmath>
 #include "utils.h"
 #include "queue.h"
 
@@ -210,19 +211,22 @@ int main(int argc, char** argv) {
     struct window send_window;
     send_window.usable = DEFAULTMAXWINDOWSIZE;
     send_window.to_be_send = 1;
-    send_window.to_be_ack = 1;
+//    send_window.to_be_ack = 1;
 //    socklen_t addrlen = sizeof(addr);
 
     int send_num;
     int recv_num;
     // get the data size first
-    double total_file_length = getFileLength(filePath);
+    long total_file_length = getFileLength(filePath);
     // calculate the total number of packets
+    printf("the total_file_length is %lu \n", total_file_length);
     int total_count = (int)total_file_length/DATASIZE+1;
+    printf("the datasize is %d \n", DATASIZE);
+    printf("the total count is %d \n", total_count);
 
     struct ACKCount initAck;
-    initAck.count = 0;
-    initAck.ackNum = 0;
+    initAck.count = -1;
+    initAck.ackNum = -1;
     FILE* fp = openFile(filePath);
     struct timeval last_send_tstamp, cur_timestamp;
     long double latency = 0;
@@ -258,15 +262,13 @@ int main(int argc, char** argv) {
 
     while (recv_filename_ack == NOTRECEIVED){
         recv_num = recvfrom(sock, recv_packet, sizeof(ackpacket), 0, (struct sockaddr *)&sin, &sinlen);
-
+        printf("recv num %d \n", recv_num);
         if (recv_num>0 && recv_packet->ack_checksum == recv_packet->ack_num){
             /*Receive the ack package from receiver succesfully,
              * begin to send the content */
 //            printf("receive the ack successfully %Lf \n", latency);
             recv_filename_ack = RECEIVED;
             printf("[RECEVE ACK SUCCESS] Receive the ack number of filepath/filename successfully \n");
-//            printf("receive ack is %d \n", recv_packet->ack_num);
-//            printf("receive ack is %d \n", recv_packet->ack_checksum);
             gettimeofday(&cur_timestamp, NULL);
             latency = getLatency(&last_send_tstamp, &cur_timestamp);
             printf("the latency is %Lf \n", latency);
@@ -284,30 +286,20 @@ int main(int argc, char** argv) {
         }
     }
 
-//    send_packet = Rear(queue);
-//    memcpy(send_packet->data, filePath, DATASIZE);
-//    fillFilePacket(send_packet, &send_window, fileLength);
-//    send_num = sendto(sock, send_packet, sizeof(*send_packet), 0, (const struct sockaddr *) &sin, sizeof(sin));
-//    MoveForward(&send_window, queue);
-
-//    printf("the size of the file path is %hu \n", fileLength);
-//    printf("the filepath checksum is %hu \n", send_packet->checksum);
-//    printf(" ----------------------------------------- ");
-
     printf("-------- [BEGIN TRANSFERRING] -------- \n");
 
-    while (send_window.to_be_send <= total_count || send_window.to_be_ack>0){
-        while(send_window.usable > 0){
+    while (send_window.to_be_send <= total_count || IsEmpty(queue) == 0){
+        while(send_window.usable > 0 && send_window.to_be_send<=total_count){
             /*
              * Keep sending data, until the usable windows is equal to zero
              */
 
             offset = (send_window.to_be_send - 1)*DATASIZE;
-            __uint16_t left_filesize = total_file_length-send_window.to_be_send;
+            __uint16_t left_filesize = total_file_length-(send_window.to_be_send-1)*DATASIZE;
             send_packet = Rear(queue);
             fillPacket(fp, send_packet, &send_window, left_filesize);
             send_num = sendto(sock,send_packet,sizeof(*send_packet), 0, (const struct sockaddr *) &sin, sizeof(sin));
-            printf("[SEND DATA] %u (%u)\n", offset, send_packet->payload_size);
+            printf("[SEND DATA] %u (%u) Seq(%u)\n", offset, send_packet->payload_size, send_packet->seq_num);
             while(send_num<=0){
                 send_num = sendto(sock,send_packet,sizeof(*send_packet), 0, (const struct sockaddr *) &sin, sizeof(sin));
                 printf("[SEND DATA] %u (%u)\n", offset, send_packet->payload_size);
@@ -315,18 +307,12 @@ int main(int argc, char** argv) {
 
             MoveForward(&send_window, queue);
             gettimeofday(&last_send_tstamp, NULL);
-
-//            printf("the data size is %hu \n", send_packet->payload_size);
-//            printf("the checksum is %hu \n", send_packet->checksum);
-//            printf("current to_be_ack is %d\n", send_window.to_be_ack);
-//            printf("current to_be_send is %d \n", send_window.to_be_send);
-//            printf(" ----------------------------------------- ");
         }
 
         if (send_window.usable == 0){
             gettimeofday(&cur_timestamp, NULL);
             latency = getLatency(&last_send_tstamp, &cur_timestamp);
-            printf("the latency is %Lf \n", latency/1000);
+
             /*
              * if there is no available data, then begin to wait for the ack and free the data
              */
@@ -342,25 +328,31 @@ int main(int argc, char** argv) {
                  * store the ack number, and take a look
                  */
 
-                printf("[recv ack] %u \n ", recv_packet->ack_num);
-                if (ack_checksum == initAck.ackNum){
-                    initAck.count += 1;
-                    if (initAck.count == RESENDLIMIT){
-                        /*
-                         * if we receive the same ack for three times, then we need to resend this packet
-                         */
-                        send_packet = Front(queue);
-                        while(send_num<=0){
-                            send_num = sendto(sock, send_packet, sizeof(*send_packet), 0, (const struct sockaddr *) &sin, sizeof(sin));
-                        }
-                        offset = (Front(queue)->seq_num-1)*DATASIZE;
-                        printf("[SEND DATA] %u (%u)\n", offset, send_packet->payload_size);
-                        initAck.count = 0;
-                    }
-                }else{
-                    while (ack_checksum > Front(queue)->seq_num){
+                if (ack_checksum >= Front(queue)->seq_num){
+                    printf("[Recv ACK] %u \n", ack_checksum);
+                    initAck.ackNum = ack_checksum;
+                    initAck.count = 1;
+                    while (ack_checksum >= Front(queue)->seq_num){
                         Dequeue(queue);
                         send_window.usable ++;
+                    }
+                }else{
+                    if (ack_checksum == initAck.ackNum){
+                        initAck.count += 1;
+                        if (initAck.count == RESENDLIMIT){
+                            /*
+                             * if we receive the same ack for three times, then we need to resend this packet
+                             */
+                            send_packet = Front(queue);
+                            while(send_num<=0){
+                                send_num = sendto(sock, send_packet, sizeof(*send_packet), 0, (const struct sockaddr *) &sin, sizeof(sin));
+                            }
+                            offset = (Front(queue)->seq_num-1)*DATASIZE;
+                            printf("[send data] %u (%u)\n", offset, send_packet->payload_size);
+                            initAck.count = 0;
+                        }
+                    }else{
+                        printf("[Ignore ACK] %u \n", ack_checksum);
                         initAck.ackNum = ack_checksum;
                         initAck.count = 1;
                     }
