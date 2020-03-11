@@ -115,7 +115,7 @@ void checkPort(int port)
     }
 }
 
-void fillPacket(FILE *fp, packet* sendbuffer,struct window* send_window, __uint16_t left_filesize){
+void fillPacket(FILE *fp, packet* sendbuffer, struct window* send_window, __uint32_t left_filesize){
     __uint16_t new_checksum;
 
     if (left_filesize <= DATASIZE){
@@ -217,9 +217,9 @@ int main(int argc, char** argv) {
     int send_num;
     int recv_num;
     // get the data size first
-    long total_file_length = getFileLength(filePath);
+    __uint32_t total_file_length = getFileLength(filePath);
     // calculate the total number of packets
-    printf("the total_file_length is %lu \n", total_file_length);
+    printf("the total_file_length is %u \n", total_file_length);
     int total_count = (int)total_file_length/DATASIZE+1;
     printf("the datasize is %d \n", DATASIZE);
     printf("the total count is %d \n", total_count);
@@ -230,7 +230,7 @@ int main(int argc, char** argv) {
     FILE* fp = openFile(filePath);
     struct timeval last_send_tstamp, cur_timestamp;
     long double latency = 0;
-    __uint16_t offset = 0;
+    __uint32_t offset = 0;
 
     /*
      * send the packet which contains the filename and directory name, in the format of filepath/filename
@@ -295,7 +295,7 @@ int main(int argc, char** argv) {
              */
 
             offset = (send_window.to_be_send - 1)*DATASIZE;
-            __uint16_t left_filesize = total_file_length-(send_window.to_be_send-1)*DATASIZE;
+            __uint32_t left_filesize = total_file_length-(send_window.to_be_send-1)*DATASIZE;
             send_packet = Rear(queue);
             fillPacket(fp, send_packet, &send_window, left_filesize);
             send_num = sendto(sock,send_packet,sizeof(*send_packet), 0, (const struct sockaddr *) &sin, sizeof(sin));
@@ -309,69 +309,67 @@ int main(int argc, char** argv) {
             gettimeofday(&last_send_tstamp, NULL);
         }
 
-//        if (send_window.usable == 0){
-            gettimeofday(&cur_timestamp, NULL);
-            latency = getLatency(&last_send_tstamp, &cur_timestamp);
+
+        gettimeofday(&cur_timestamp, NULL);
+        latency = getLatency(&last_send_tstamp, &cur_timestamp);
+
+        /*
+         * if there is no available data, then begin to wait for the ack and free the data
+         */
+        recv_num = recvfrom(sock, recv_packet, sizeof(ackpacket), 0, (struct sockaddr *)&sin, &sinlen);
+        __uint16_t ack_checksum = recv_packet->ack_checksum;
+
+        /*
+         * if the ack is correct, and it is equal to the smallest ack in queue, accept it, otherwise, ignore it
+         */
+        if (recv_num>0 && recv_packet->ack_checksum == recv_packet->ack_num ){
 
             /*
-             * if there is no available data, then begin to wait for the ack and free the data
+             * store the ack number, and take a look
              */
-            recv_num = recvfrom(sock, recv_packet, sizeof(ackpacket), 0, (struct sockaddr *)&sin, &sinlen);
-            __uint16_t ack_checksum = recv_packet->ack_checksum;
-
-            /*
-             * if the ack is correct, and it is equal to the smallest ack in queue, accept it, otherwise, ignore it
-             */
-            if (recv_num>0 && recv_packet->ack_checksum == recv_packet->ack_num ){
-
-                /*
-                 * store the ack number, and take a look
-                 */
 
 
-                if (ack_checksum >= Front(queue)->seq_num){
-                    printf("[Recv ACK] %u \n", ack_checksum);
-                    initAck.ackNum = ack_checksum;
-                    initAck.count = 1;
-                    while (ack_checksum >= Front(queue)->seq_num){
-                        Dequeue(queue);
-                        send_window.usable ++;
-                    }
-                }else{
-                    printf("[Ignore ACK] %u \n", ack_checksum);
-                    if (ack_checksum == initAck.ackNum){
-                        initAck.count += 1;
-                        if (initAck.count == RESENDLIMIT){
-                            /*
-                             * if we receive the same ack for three times, then we need to resend this packet
-                             */
-                            send_packet = Front(queue);
-                            while(send_num<=0){
-                                send_num = sendto(sock, send_packet, sizeof(*send_packet), 0, (const struct sockaddr *) &sin, sizeof(sin));
-                            }
-                            offset = (Front(queue)->seq_num-1)*DATASIZE;
-                            printf("[send data] %u (%u)\n", offset, send_packet->payload_size);
-                            initAck.count = 0;
-                        }
-                    }else{
-                        initAck.ackNum = ack_checksum;
-                        initAck.count = 1;
-                    }
+            if (ack_checksum >= Front(queue)->seq_num){
+                printf("[Recv ACK] %u \n", ack_checksum);
+                initAck.ackNum = ack_checksum;
+                initAck.count = 1;
+                while (ack_checksum >= Front(queue)->seq_num){
+                    Dequeue(queue);
+                    send_window.usable ++;
                 }
             }else{
-                printf("[receive corrupt ack] %u \n ", recv_packet->ack_num);
+                printf("[Ignore ACK] %u \n", ack_checksum);
+                if (ack_checksum == initAck.ackNum){
+                    initAck.count += 1;
+                    if (initAck.count == RESENDLIMIT){
+                        /*
+                         * if we receive the same ack for three times, then we need to resend this packet
+                         */
+                        send_packet = Front(queue);
+                        while(send_num<=0){
+                            send_num = sendto(sock, send_packet, sizeof(*send_packet), 0, (const struct sockaddr *) &sin, sizeof(sin));
+                        }
+                        offset = (Front(queue)->seq_num-1)*DATASIZE;
+                        printf("[send data] %u (%u)\n", offset, send_packet->payload_size);
+                        initAck.count = 0;
+                    }
+                }else{
+                    initAck.ackNum = ack_checksum;
+                    initAck.count = 1;
+                }
             }
+        }else{
+            printf("[receive corrupt ack] %u \n ", recv_packet->ack_num);
+        }
 
-            if (latency >= TIMEEXCEEDLIMIT){
-                /*
-                 * time exceed, retransmit the packet
-                 */
-                send_packet = Front(queue);
-                send_num = sendto(sock,send_packet,sizeof(*send_packet), 0, (const struct sockaddr *) &sin, sizeof(sin));
-                gettimeofday(&last_send_tstamp, NULL);
-            }
-//        }
-//        printf("the size of the queue is %d \n", queue->size);
+        if (latency >= TIMEEXCEEDLIMIT){
+            /*
+             * time exceed, retransmit the packet
+             */
+            send_packet = Front(queue);
+            send_num = sendto(sock,send_packet,sizeof(*send_packet), 0, (const struct sockaddr *) &sin, sizeof(sin));
+            gettimeofday(&last_send_tstamp, NULL);
+        }
     }
 }
 
