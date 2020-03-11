@@ -309,7 +309,7 @@ int main(int argc, char** argv) {
             gettimeofday(&last_send_tstamp, NULL);
         }
 
-        if (send_window.usable == 0){
+//        if (send_window.usable == 0){
             gettimeofday(&cur_timestamp, NULL);
             latency = getLatency(&last_send_tstamp, &cur_timestamp);
 
@@ -328,6 +328,7 @@ int main(int argc, char** argv) {
                  * store the ack number, and take a look
                  */
 
+
                 if (ack_checksum >= Front(queue)->seq_num){
                     printf("[Recv ACK] %u \n", ack_checksum);
                     initAck.ackNum = ack_checksum;
@@ -337,6 +338,7 @@ int main(int argc, char** argv) {
                         send_window.usable ++;
                     }
                 }else{
+                    printf("[Ignore ACK] %u \n", ack_checksum);
                     if (ack_checksum == initAck.ackNum){
                         initAck.count += 1;
                         if (initAck.count == RESENDLIMIT){
@@ -352,7 +354,6 @@ int main(int argc, char** argv) {
                             initAck.count = 0;
                         }
                     }else{
-                        printf("[Ignore ACK] %u \n", ack_checksum);
                         initAck.ackNum = ack_checksum;
                         initAck.count = 1;
                     }
@@ -369,7 +370,8 @@ int main(int argc, char** argv) {
                 send_num = sendto(sock,send_packet,sizeof(*send_packet), 0, (const struct sockaddr *) &sin, sizeof(sin));
                 gettimeofday(&last_send_tstamp, NULL);
             }
-        }
+//        }
+//        printf("the size of the queue is %d \n", queue->size);
     }
 }
 
