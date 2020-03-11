@@ -17,8 +17,9 @@
 
 typedef struct window{
     __uint16_t usable; // total available window
-    __uint16_t to_be_send; // the index of next to be sent data
-    __uint16_t to_be_ack; // the index of next to be acknowledged data
+    __uint32_t to_be_send; // the index of next to be sent data
+//    __uint16_t to_be_ack; // the index of next to be acknowledged data
+    int invalid_count;
 } sendwindow;
 
 typedef struct packet{
@@ -31,7 +32,7 @@ typedef struct packet{
 
 typedef struct ackpacket{
     __uint32_t ack_num;
-    __uint16_t ack_checksum;
+    __uint32_t ack_checksum;
 } ackpacket;
 
 FILE* openFile(char* fullFilePath);
