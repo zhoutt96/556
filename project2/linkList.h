@@ -14,10 +14,10 @@ public:
     char* data;
     ListNode* next;
 
-    ListNode(int seq_num,char* content){
+    ListNode(int seq_num,char* content, unsigned long length){
         seq = seq_num;
-        data = (char*)malloc(DATASIZE);
-        memcpy(data,content,DATASIZE);
+        data = (char*)malloc(length);
+        memcpy(data,content,length);
         next = NULL;
     }
     ListNode(){
@@ -48,7 +48,7 @@ public:
             delete temp;
         }
     }
-    int add(unsigned int seq_num,char*content){
+    int add(unsigned int seq_num,char*content, unsigned long length){
         ListNode* ptr = head;
         int flag = 1;
         while(ptr->next!=NULL){
@@ -57,7 +57,7 @@ public:
             }else if(ptr->next->seq==seq_num){
                 return 1;
             }else{
-                ListNode* node = new ListNode(seq_num,content);
+                ListNode* node = new ListNode(seq_num,content,length);
                 node->next = ptr->next;
                 ptr->next = node;
                 count++;
@@ -65,7 +65,7 @@ public:
             }
         }
         if(flag){
-            ListNode* node = new ListNode(seq_num,content);
+            ListNode* node = new ListNode(seq_num,content,length);
             node->next = ptr->next;
             ptr->next = node;
             count++;

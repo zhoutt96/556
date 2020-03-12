@@ -104,7 +104,7 @@ int main(int argc, char **argv) {
         recvfrom(sock, buffer, sizeof(packet), 0, (struct sockaddr *)&addr, &addrlen);
         u_short checksum = recv_packet->checksum;
         recv_packet->checksum = 0;
-        u_short newCheckSum = cksum((u_short*)buffer, (DATASIZE+10)/2);
+        u_short newCheckSum = cksum((u_short*)buffer, sizeof(*recv_packet)/2);
         if (checksum == newCheckSum)  //modify
         {
             // send a ack back to the client
@@ -151,6 +151,8 @@ int main(int argc, char **argv) {
     int window_size = 20;
     short endFile = 0;
     LinkList list;
+    unsigned long offset = 0;
+    unsigned long length = 0;
     while(endFile == 0 || !list.isEmpty()){
         num = recvfrom(sock, buffer, sizeof(packet), 0, (struct sockaddr *)&addr, &addrlen);
         if(num>0){
@@ -158,8 +160,8 @@ int main(int argc, char **argv) {
             unsigned int checksum = recv_packet->checksum;
             recv_packet->checksum = 0;
             if (checksum == cksum((unsigned short*)recv_packet, sizeof(*recv_packet)/2)){
-                unsigned long offset = (recv_packet->seq_num-1)*sizeof(recv_packet->data);
-                unsigned long length = sizeof(recv_packet->data);
+                offset = (recv_packet->seq_num-1)*sizeof(recv_packet->data);
+                length = recv_packet->payload_size;
 
                 if(recv_packet->seq_num<= ack || recv_packet->seq_num>(ack+window_size)){
                     printf("[recv data] %lu (%lu) %u %s \n",offset, length, recv_packet->seq_num,"IGNORED");
@@ -174,7 +176,7 @@ int main(int argc, char **argv) {
                         ack++;
                     }else {
                         printf("[recv data] %lu (%lu) %s \n", offset, length, "ACCEPTED(out-of-order)");
-                        list.add(recv_packet->seq_num,recv_packet->data);
+                        list.add(recv_packet->seq_num,recv_packet->data,length);
                         ListNode* content = list.pop();
                         while(content!=NULL){
                             fwrite(content->data,1,length,fp);
