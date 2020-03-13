@@ -177,7 +177,7 @@ int main(int argc, char **argv) {
                     }else {
                         printf("[recv data] %lu (%lu) %s \n", offset, length, "ACCEPTED(out-of-order)");
                         list.add(recv_packet->seq_num,recv_packet->data,length);
-                        ListNode* content = list.pop();
+                        ListNode* content = list.pop(ack);
                         while(content!=NULL){
                             fwrite(content->data,1,length,fp);
                             ack = content->seq;

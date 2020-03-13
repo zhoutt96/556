@@ -75,8 +75,10 @@ public:
     bool isEmpty(){
         return head->next == NULL;
     }
-    ListNode* pop(){
+    ListNode* pop(unsigned int ack){
         if(head->next==NULL)
+            return NULL;
+        if(head->next->seq!=ack+1)
             return NULL;
         ListNode* result = head->next;
         ListNode* ptr = result;
