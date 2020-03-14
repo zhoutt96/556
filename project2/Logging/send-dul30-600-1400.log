@@ -1,0 +1,5163 @@
+$ ./sendfile -r amber.clear.rice.edu:18004 -f data/data1M.txt
+the total_file_length is 1288890
+the datasize is 1400
+the total count is 921
+[SEND SUCCESS] Send the filepathf/filename successfully
+[RECEVE ACK SUCCESS] Receive the ack number of filepath/filename successfully
+-------- [BEGIN TRANSFERRING] --------
+[SEND DATA] 0 (1400) Seq(1)
+[SEND DATA] 1400 (1400) Seq(2)
+[SEND DATA] 2800 (1400) Seq(3)
+[SEND DATA] 4200 (1400) Seq(4)
+[SEND DATA] 5600 (1400) Seq(5)
+[SEND DATA] 7000 (1400) Seq(6)
+[SEND DATA] 8400 (1400) Seq(7)
+[SEND DATA] 9800 (1400) Seq(8)
+[SEND DATA] 11200 (1400) Seq(9)
+[SEND DATA] 12600 (1400) Seq(10)
+[SEND DATA] 14000 (1400) Seq(11)
+[SEND DATA] 15400 (1400) Seq(12)
+[SEND DATA] 16800 (1400) Seq(13)
+[SEND DATA] 18200 (1400) Seq(14)
+[SEND DATA] 19600 (1400) Seq(15)
+[SEND DATA] 21000 (1400) Seq(16)
+[SEND DATA] 22400 (1400) Seq(17)
+[SEND DATA] 23800 (1400) Seq(18)
+[SEND DATA] 25200 (1400) Seq(19)
+[SEND DATA] 26600 (1400) Seq(20)
+[SEND DATA] 28000 (1400) Seq(21)
+[SEND DATA] 29400 (1400) Seq(22)
+[SEND DATA] 30800 (1400) Seq(23)
+[SEND DATA] 32200 (1400) Seq(24)
+[SEND DATA] 33600 (1400) Seq(25)
+[SEND DATA] 35000 (1400) Seq(26)
+[SEND DATA] 36400 (1400) Seq(27)
+[SEND DATA] 37800 (1400) Seq(28)
+[SEND DATA] 39200 (1400) Seq(29)
+[SEND DATA] 40600 (1400) Seq(30)
+[SEND DATA] 42000 (1400) Seq(31)
+[SEND DATA] 43400 (1400) Seq(32)
+[SEND DATA] 44800 (1400) Seq(33)
+[SEND DATA] 46200 (1400) Seq(34)
+[SEND DATA] 47600 (1400) Seq(35)
+[SEND DATA] 49000 (1400) Seq(36)
+[SEND DATA] 50400 (1400) Seq(37)
+[SEND DATA] 51800 (1400) Seq(38)
+[SEND DATA] 53200 (1400) Seq(39)
+[SEND DATA] 54600 (1400) Seq(40)
+[SEND DATA] 56000 (1400) Seq(41)
+[SEND DATA] 57400 (1400) Seq(42)
+[SEND DATA] 58800 (1400) Seq(43)
+[SEND DATA] 60200 (1400) Seq(44)
+[SEND DATA] 61600 (1400) Seq(45)
+[SEND DATA] 63000 (1400) Seq(46)
+[SEND DATA] 64400 (1400) Seq(47)
+[SEND DATA] 65800 (1400) Seq(48)
+[SEND DATA] 67200 (1400) Seq(49)
+[SEND DATA] 68600 (1400) Seq(50)
+[SEND DATA] 70000 (1400) Seq(51)
+[SEND DATA] 71400 (1400) Seq(52)
+[SEND DATA] 72800 (1400) Seq(53)
+[SEND DATA] 74200 (1400) Seq(54)
+[SEND DATA] 75600 (1400) Seq(55)
+[SEND DATA] 77000 (1400) Seq(56)
+[SEND DATA] 78400 (1400) Seq(57)
+[SEND DATA] 79800 (1400) Seq(58)
+[SEND DATA] 81200 (1400) Seq(59)
+[SEND DATA] 82600 (1400) Seq(60)
+[SEND DATA] 84000 (1400) Seq(61)
+[SEND DATA] 85400 (1400) Seq(62)
+[SEND DATA] 86800 (1400) Seq(63)
+[SEND DATA] 88200 (1400) Seq(64)
+[SEND DATA] 89600 (1400) Seq(65)
+[SEND DATA] 91000 (1400) Seq(66)
+[SEND DATA] 92400 (1400) Seq(67)
+[SEND DATA] 93800 (1400) Seq(68)
+[SEND DATA] 95200 (1400) Seq(69)
+[SEND DATA] 96600 (1400) Seq(70)
+[SEND DATA] 98000 (1400) Seq(71)
+[SEND DATA] 99400 (1400) Seq(72)
+[SEND DATA] 100800 (1400) Seq(73)
+[SEND DATA] 102200 (1400) Seq(74)
+[SEND DATA] 103600 (1400) Seq(75)
+[SEND DATA] 105000 (1400) Seq(76)
+[SEND DATA] 106400 (1400) Seq(77)
+[SEND DATA] 107800 (1400) Seq(78)
+[SEND DATA] 109200 (1400) Seq(79)
+[SEND DATA] 110600 (1400) Seq(80)
+[SEND DATA] 112000 (1400) Seq(81)
+[SEND DATA] 113400 (1400) Seq(82)
+[SEND DATA] 114800 (1400) Seq(83)
+[SEND DATA] 116200 (1400) Seq(84)
+[SEND DATA] 117600 (1400) Seq(85)
+[SEND DATA] 119000 (1400) Seq(86)
+[SEND DATA] 120400 (1400) Seq(87)
+[SEND DATA] 121800 (1400) Seq(88)
+[SEND DATA] 123200 (1400) Seq(89)
+[SEND DATA] 124600 (1400) Seq(90)
+[SEND DATA] 126000 (1400) Seq(91)
+[SEND DATA] 127400 (1400) Seq(92)
+[SEND DATA] 128800 (1400) Seq(93)
+[SEND DATA] 130200 (1400) Seq(94)
+[SEND DATA] 131600 (1400) Seq(95)
+[SEND DATA] 133000 (1400) Seq(96)
+[SEND DATA] 134400 (1400) Seq(97)
+[SEND DATA] 135800 (1400) Seq(98)
+[SEND DATA] 137200 (1400) Seq(99)
+[SEND DATA] 138600 (1400) Seq(100)
+[SEND DATA] 140000 (1400) Seq(101)
+[SEND DATA] 141400 (1400) Seq(102)
+[SEND DATA] 142800 (1400) Seq(103)
+[SEND DATA] 144200 (1400) Seq(104)
+[SEND DATA] 145600 (1400) Seq(105)
+[SEND DATA] 147000 (1400) Seq(106)
+[SEND DATA] 148400 (1400) Seq(107)
+[SEND DATA] 149800 (1400) Seq(108)
+[SEND DATA] 151200 (1400) Seq(109)
+[SEND DATA] 152600 (1400) Seq(110)
+[SEND DATA] 154000 (1400) Seq(111)
+[SEND DATA] 155400 (1400) Seq(112)
+[SEND DATA] 156800 (1400) Seq(113)
+[SEND DATA] 158200 (1400) Seq(114)
+[SEND DATA] 159600 (1400) Seq(115)
+[SEND DATA] 161000 (1400) Seq(116)
+[SEND DATA] 162400 (1400) Seq(117)
+[SEND DATA] 163800 (1400) Seq(118)
+[SEND DATA] 165200 (1400) Seq(119)
+[SEND DATA] 166600 (1400) Seq(120)
+[SEND DATA] 168000 (1400) Seq(121)
+[SEND DATA] 169400 (1400) Seq(122)
+[SEND DATA] 170800 (1400) Seq(123)
+[SEND DATA] 172200 (1400) Seq(124)
+[SEND DATA] 173600 (1400) Seq(125)
+[SEND DATA] 175000 (1400) Seq(126)
+[SEND DATA] 176400 (1400) Seq(127)
+[SEND DATA] 177800 (1400) Seq(128)
+[SEND DATA] 179200 (1400) Seq(129)
+[SEND DATA] 180600 (1400) Seq(130)
+[SEND DATA] 182000 (1400) Seq(131)
+[SEND DATA] 183400 (1400) Seq(132)
+[SEND DATA] 184800 (1400) Seq(133)
+[SEND DATA] 186200 (1400) Seq(134)
+[SEND DATA] 187600 (1400) Seq(135)
+[SEND DATA] 189000 (1400) Seq(136)
+[SEND DATA] 190400 (1400) Seq(137)
+[SEND DATA] 191800 (1400) Seq(138)
+[SEND DATA] 193200 (1400) Seq(139)
+[SEND DATA] 194600 (1400) Seq(140)
+[SEND DATA] 196000 (1400) Seq(141)
+[SEND DATA] 197400 (1400) Seq(142)
+[SEND DATA] 198800 (1400) Seq(143)
+[SEND DATA] 200200 (1400) Seq(144)
+[SEND DATA] 201600 (1400) Seq(145)
+[SEND DATA] 203000 (1400) Seq(146)
+[SEND DATA] 204400 (1400) Seq(147)
+[SEND DATA] 205800 (1400) Seq(148)
+[SEND DATA] 207200 (1400) Seq(149)
+[SEND DATA] 208600 (1400) Seq(150)
+[SEND DATA] 210000 (1400) Seq(151)
+[SEND DATA] 211400 (1400) Seq(152)
+[SEND DATA] 212800 (1400) Seq(153)
+[SEND DATA] 214200 (1400) Seq(154)
+[SEND DATA] 215600 (1400) Seq(155)
+[SEND DATA] 217000 (1400) Seq(156)
+[SEND DATA] 218400 (1400) Seq(157)
+[SEND DATA] 219800 (1400) Seq(158)
+[SEND DATA] 221200 (1400) Seq(159)
+[SEND DATA] 222600 (1400) Seq(160)
+[SEND DATA] 224000 (1400) Seq(161)
+[SEND DATA] 225400 (1400) Seq(162)
+[SEND DATA] 226800 (1400) Seq(163)
+[SEND DATA] 228200 (1400) Seq(164)
+[SEND DATA] 229600 (1400) Seq(165)
+[SEND DATA] 231000 (1400) Seq(166)
+[SEND DATA] 232400 (1400) Seq(167)
+[SEND DATA] 233800 (1400) Seq(168)
+[SEND DATA] 235200 (1400) Seq(169)
+[SEND DATA] 236600 (1400) Seq(170)
+[SEND DATA] 238000 (1400) Seq(171)
+[SEND DATA] 239400 (1400) Seq(172)
+[SEND DATA] 240800 (1400) Seq(173)
+[SEND DATA] 242200 (1400) Seq(174)
+[SEND DATA] 243600 (1400) Seq(175)
+[SEND DATA] 245000 (1400) Seq(176)
+[SEND DATA] 246400 (1400) Seq(177)
+[SEND DATA] 247800 (1400) Seq(178)
+[SEND DATA] 249200 (1400) Seq(179)
+[SEND DATA] 250600 (1400) Seq(180)
+[SEND DATA] 252000 (1400) Seq(181)
+[SEND DATA] 253400 (1400) Seq(182)
+[SEND DATA] 254800 (1400) Seq(183)
+[SEND DATA] 256200 (1400) Seq(184)
+[SEND DATA] 257600 (1400) Seq(185)
+[SEND DATA] 259000 (1400) Seq(186)
+[SEND DATA] 260400 (1400) Seq(187)
+[SEND DATA] 261800 (1400) Seq(188)
+[SEND DATA] 263200 (1400) Seq(189)
+[SEND DATA] 264600 (1400) Seq(190)
+[SEND DATA] 266000 (1400) Seq(191)
+[SEND DATA] 267400 (1400) Seq(192)
+[SEND DATA] 268800 (1400) Seq(193)
+[SEND DATA] 270200 (1400) Seq(194)
+[SEND DATA] 271600 (1400) Seq(195)
+[SEND DATA] 273000 (1400) Seq(196)
+[SEND DATA] 274400 (1400) Seq(197)
+[SEND DATA] 275800 (1400) Seq(198)
+[SEND DATA] 277200 (1400) Seq(199)
+[SEND DATA] 278600 (1400) Seq(200)
+[SEND DATA] 280000 (1400) Seq(201)
+[SEND DATA] 281400 (1400) Seq(202)
+[SEND DATA] 282800 (1400) Seq(203)
+[SEND DATA] 284200 (1400) Seq(204)
+[SEND DATA] 285600 (1400) Seq(205)
+[SEND DATA] 287000 (1400) Seq(206)
+[SEND DATA] 288400 (1400) Seq(207)
+[SEND DATA] 289800 (1400) Seq(208)
+[SEND DATA] 291200 (1400) Seq(209)
+[SEND DATA] 292600 (1400) Seq(210)
+[SEND DATA] 294000 (1400) Seq(211)
+[SEND DATA] 295400 (1400) Seq(212)
+[SEND DATA] 296800 (1400) Seq(213)
+[SEND DATA] 298200 (1400) Seq(214)
+[SEND DATA] 299600 (1400) Seq(215)
+[SEND DATA] 301000 (1400) Seq(216)
+[SEND DATA] 302400 (1400) Seq(217)
+[SEND DATA] 303800 (1400) Seq(218)
+[SEND DATA] 305200 (1400) Seq(219)
+[SEND DATA] 306600 (1400) Seq(220)
+[SEND DATA] 308000 (1400) Seq(221)
+[SEND DATA] 309400 (1400) Seq(222)
+[SEND DATA] 310800 (1400) Seq(223)
+[SEND DATA] 312200 (1400) Seq(224)
+[SEND DATA] 313600 (1400) Seq(225)
+[SEND DATA] 315000 (1400) Seq(226)
+[SEND DATA] 316400 (1400) Seq(227)
+[SEND DATA] 317800 (1400) Seq(228)
+[SEND DATA] 319200 (1400) Seq(229)
+[SEND DATA] 320600 (1400) Seq(230)
+[SEND DATA] 322000 (1400) Seq(231)
+[SEND DATA] 323400 (1400) Seq(232)
+[SEND DATA] 324800 (1400) Seq(233)
+[SEND DATA] 326200 (1400) Seq(234)
+[SEND DATA] 327600 (1400) Seq(235)
+[SEND DATA] 329000 (1400) Seq(236)
+[SEND DATA] 330400 (1400) Seq(237)
+[SEND DATA] 331800 (1400) Seq(238)
+[SEND DATA] 333200 (1400) Seq(239)
+[SEND DATA] 334600 (1400) Seq(240)
+[SEND DATA] 336000 (1400) Seq(241)
+[SEND DATA] 337400 (1400) Seq(242)
+[SEND DATA] 338800 (1400) Seq(243)
+[SEND DATA] 340200 (1400) Seq(244)
+[SEND DATA] 341600 (1400) Seq(245)
+[SEND DATA] 343000 (1400) Seq(246)
+[SEND DATA] 344400 (1400) Seq(247)
+[SEND DATA] 345800 (1400) Seq(248)
+[SEND DATA] 347200 (1400) Seq(249)
+[SEND DATA] 348600 (1400) Seq(250)
+[SEND DATA] 350000 (1400) Seq(251)
+[SEND DATA] 351400 (1400) Seq(252)
+[SEND DATA] 352800 (1400) Seq(253)
+[SEND DATA] 354200 (1400) Seq(254)
+[SEND DATA] 355600 (1400) Seq(255)
+[SEND DATA] 357000 (1400) Seq(256)
+[SEND DATA] 358400 (1400) Seq(257)
+[SEND DATA] 359800 (1400) Seq(258)
+[SEND DATA] 361200 (1400) Seq(259)
+[SEND DATA] 362600 (1400) Seq(260)
+[SEND DATA] 364000 (1400) Seq(261)
+[SEND DATA] 365400 (1400) Seq(262)
+[SEND DATA] 366800 (1400) Seq(263)
+[SEND DATA] 368200 (1400) Seq(264)
+[SEND DATA] 369600 (1400) Seq(265)
+[SEND DATA] 371000 (1400) Seq(266)
+[SEND DATA] 372400 (1400) Seq(267)
+[SEND DATA] 373800 (1400) Seq(268)
+[SEND DATA] 375200 (1400) Seq(269)
+[SEND DATA] 376600 (1400) Seq(270)
+[SEND DATA] 378000 (1400) Seq(271)
+[SEND DATA] 379400 (1400) Seq(272)
+[SEND DATA] 380800 (1400) Seq(273)
+[SEND DATA] 382200 (1400) Seq(274)
+[SEND DATA] 383600 (1400) Seq(275)
+[SEND DATA] 385000 (1400) Seq(276)
+[SEND DATA] 386400 (1400) Seq(277)
+[SEND DATA] 387800 (1400) Seq(278)
+[SEND DATA] 389200 (1400) Seq(279)
+[SEND DATA] 390600 (1400) Seq(280)
+[SEND DATA] 392000 (1400) Seq(281)
+[SEND DATA] 393400 (1400) Seq(282)
+[SEND DATA] 394800 (1400) Seq(283)
+[SEND DATA] 396200 (1400) Seq(284)
+[SEND DATA] 397600 (1400) Seq(285)
+[SEND DATA] 399000 (1400) Seq(286)
+[SEND DATA] 400400 (1400) Seq(287)
+[SEND DATA] 401800 (1400) Seq(288)
+[SEND DATA] 403200 (1400) Seq(289)
+[SEND DATA] 404600 (1400) Seq(290)
+[SEND DATA] 406000 (1400) Seq(291)
+[SEND DATA] 407400 (1400) Seq(292)
+[SEND DATA] 408800 (1400) Seq(293)
+[SEND DATA] 410200 (1400) Seq(294)
+[SEND DATA] 411600 (1400) Seq(295)
+[SEND DATA] 413000 (1400) Seq(296)
+[SEND DATA] 414400 (1400) Seq(297)
+[SEND DATA] 415800 (1400) Seq(298)
+[SEND DATA] 417200 (1400) Seq(299)
+[SEND DATA] 418600 (1400) Seq(300)
+[SEND DATA] 420000 (1400) Seq(301)
+[SEND DATA] 421400 (1400) Seq(302)
+[SEND DATA] 422800 (1400) Seq(303)
+[SEND DATA] 424200 (1400) Seq(304)
+[SEND DATA] 425600 (1400) Seq(305)
+[SEND DATA] 427000 (1400) Seq(306)
+[SEND DATA] 428400 (1400) Seq(307)
+[SEND DATA] 429800 (1400) Seq(308)
+[SEND DATA] 431200 (1400) Seq(309)
+[SEND DATA] 432600 (1400) Seq(310)
+[SEND DATA] 434000 (1400) Seq(311)
+[SEND DATA] 435400 (1400) Seq(312)
+[SEND DATA] 436800 (1400) Seq(313)
+[SEND DATA] 438200 (1400) Seq(314)
+[SEND DATA] 439600 (1400) Seq(315)
+[SEND DATA] 441000 (1400) Seq(316)
+[SEND DATA] 442400 (1400) Seq(317)
+[SEND DATA] 443800 (1400) Seq(318)
+[SEND DATA] 445200 (1400) Seq(319)
+[SEND DATA] 446600 (1400) Seq(320)
+[SEND DATA] 448000 (1400) Seq(321)
+[SEND DATA] 449400 (1400) Seq(322)
+[SEND DATA] 450800 (1400) Seq(323)
+[SEND DATA] 452200 (1400) Seq(324)
+[SEND DATA] 453600 (1400) Seq(325)
+[SEND DATA] 455000 (1400) Seq(326)
+[SEND DATA] 456400 (1400) Seq(327)
+[SEND DATA] 457800 (1400) Seq(328)
+[SEND DATA] 459200 (1400) Seq(329)
+[SEND DATA] 460600 (1400) Seq(330)
+[SEND DATA] 462000 (1400) Seq(331)
+[SEND DATA] 463400 (1400) Seq(332)
+[SEND DATA] 464800 (1400) Seq(333)
+[SEND DATA] 466200 (1400) Seq(334)
+[SEND DATA] 467600 (1400) Seq(335)
+[SEND DATA] 469000 (1400) Seq(336)
+[SEND DATA] 470400 (1400) Seq(337)
+[SEND DATA] 471800 (1400) Seq(338)
+[SEND DATA] 473200 (1400) Seq(339)
+[SEND DATA] 474600 (1400) Seq(340)
+[SEND DATA] 476000 (1400) Seq(341)
+[SEND DATA] 477400 (1400) Seq(342)
+[SEND DATA] 478800 (1400) Seq(343)
+[SEND DATA] 480200 (1400) Seq(344)
+[SEND DATA] 481600 (1400) Seq(345)
+[SEND DATA] 483000 (1400) Seq(346)
+[SEND DATA] 484400 (1400) Seq(347)
+[SEND DATA] 485800 (1400) Seq(348)
+[SEND DATA] 487200 (1400) Seq(349)
+[SEND DATA] 488600 (1400) Seq(350)
+[SEND DATA] 490000 (1400) Seq(351)
+[SEND DATA] 491400 (1400) Seq(352)
+[SEND DATA] 492800 (1400) Seq(353)
+[SEND DATA] 494200 (1400) Seq(354)
+[SEND DATA] 495600 (1400) Seq(355)
+[SEND DATA] 497000 (1400) Seq(356)
+[SEND DATA] 498400 (1400) Seq(357)
+[SEND DATA] 499800 (1400) Seq(358)
+[SEND DATA] 501200 (1400) Seq(359)
+[SEND DATA] 502600 (1400) Seq(360)
+[SEND DATA] 504000 (1400) Seq(361)
+[SEND DATA] 505400 (1400) Seq(362)
+[SEND DATA] 506800 (1400) Seq(363)
+[SEND DATA] 508200 (1400) Seq(364)
+[SEND DATA] 509600 (1400) Seq(365)
+[SEND DATA] 511000 (1400) Seq(366)
+[SEND DATA] 512400 (1400) Seq(367)
+[SEND DATA] 513800 (1400) Seq(368)
+[SEND DATA] 515200 (1400) Seq(369)
+[SEND DATA] 516600 (1400) Seq(370)
+[SEND DATA] 518000 (1400) Seq(371)
+[SEND DATA] 519400 (1400) Seq(372)
+[SEND DATA] 520800 (1400) Seq(373)
+[SEND DATA] 522200 (1400) Seq(374)
+[SEND DATA] 523600 (1400) Seq(375)
+[SEND DATA] 525000 (1400) Seq(376)
+[SEND DATA] 526400 (1400) Seq(377)
+[SEND DATA] 527800 (1400) Seq(378)
+[SEND DATA] 529200 (1400) Seq(379)
+[SEND DATA] 530600 (1400) Seq(380)
+[SEND DATA] 532000 (1400) Seq(381)
+[SEND DATA] 533400 (1400) Seq(382)
+[SEND DATA] 534800 (1400) Seq(383)
+[SEND DATA] 536200 (1400) Seq(384)
+[SEND DATA] 537600 (1400) Seq(385)
+[SEND DATA] 539000 (1400) Seq(386)
+[SEND DATA] 540400 (1400) Seq(387)
+[SEND DATA] 541800 (1400) Seq(388)
+[SEND DATA] 543200 (1400) Seq(389)
+[SEND DATA] 544600 (1400) Seq(390)
+[SEND DATA] 546000 (1400) Seq(391)
+[SEND DATA] 547400 (1400) Seq(392)
+[SEND DATA] 548800 (1400) Seq(393)
+[SEND DATA] 550200 (1400) Seq(394)
+[SEND DATA] 551600 (1400) Seq(395)
+[SEND DATA] 553000 (1400) Seq(396)
+[SEND DATA] 554400 (1400) Seq(397)
+[SEND DATA] 555800 (1400) Seq(398)
+[SEND DATA] 557200 (1400) Seq(399)
+[SEND DATA] 558600 (1400) Seq(400)
+[SEND DATA] 560000 (1400) Seq(401)
+[SEND DATA] 561400 (1400) Seq(402)
+[SEND DATA] 562800 (1400) Seq(403)
+[SEND DATA] 564200 (1400) Seq(404)
+[SEND DATA] 565600 (1400) Seq(405)
+[SEND DATA] 567000 (1400) Seq(406)
+[SEND DATA] 568400 (1400) Seq(407)
+[SEND DATA] 569800 (1400) Seq(408)
+[SEND DATA] 571200 (1400) Seq(409)
+[SEND DATA] 572600 (1400) Seq(410)
+[SEND DATA] 574000 (1400) Seq(411)
+[SEND DATA] 575400 (1400) Seq(412)
+[SEND DATA] 576800 (1400) Seq(413)
+[SEND DATA] 578200 (1400) Seq(414)
+[SEND DATA] 579600 (1400) Seq(415)
+[SEND DATA] 581000 (1400) Seq(416)
+[SEND DATA] 582400 (1400) Seq(417)
+[SEND DATA] 583800 (1400) Seq(418)
+[SEND DATA] 585200 (1400) Seq(419)
+[SEND DATA] 586600 (1400) Seq(420)
+[SEND DATA] 588000 (1400) Seq(421)
+[SEND DATA] 589400 (1400) Seq(422)
+[SEND DATA] 590800 (1400) Seq(423)
+[SEND DATA] 592200 (1400) Seq(424)
+[SEND DATA] 593600 (1400) Seq(425)
+[SEND DATA] 595000 (1400) Seq(426)
+[SEND DATA] 596400 (1400) Seq(427)
+[SEND DATA] 597800 (1400) Seq(428)
+[SEND DATA] 599200 (1400) Seq(429)
+[SEND DATA] 600600 (1400) Seq(430)
+[SEND DATA] 602000 (1400) Seq(431)
+[SEND DATA] 603400 (1400) Seq(432)
+[SEND DATA] 604800 (1400) Seq(433)
+[SEND DATA] 606200 (1400) Seq(434)
+[SEND DATA] 607600 (1400) Seq(435)
+[SEND DATA] 609000 (1400) Seq(436)
+[SEND DATA] 610400 (1400) Seq(437)
+[SEND DATA] 611800 (1400) Seq(438)
+[SEND DATA] 613200 (1400) Seq(439)
+[SEND DATA] 614600 (1400) Seq(440)
+[SEND DATA] 616000 (1400) Seq(441)
+[SEND DATA] 617400 (1400) Seq(442)
+[SEND DATA] 618800 (1400) Seq(443)
+[SEND DATA] 620200 (1400) Seq(444)
+[SEND DATA] 621600 (1400) Seq(445)
+[SEND DATA] 623000 (1400) Seq(446)
+[SEND DATA] 624400 (1400) Seq(447)
+[SEND DATA] 625800 (1400) Seq(448)
+[SEND DATA] 627200 (1400) Seq(449)
+[SEND DATA] 628600 (1400) Seq(450)
+[SEND DATA] 630000 (1400) Seq(451)
+[SEND DATA] 631400 (1400) Seq(452)
+[SEND DATA] 632800 (1400) Seq(453)
+[SEND DATA] 634200 (1400) Seq(454)
+[SEND DATA] 635600 (1400) Seq(455)
+[SEND DATA] 637000 (1400) Seq(456)
+[SEND DATA] 638400 (1400) Seq(457)
+[SEND DATA] 639800 (1400) Seq(458)
+[SEND DATA] 641200 (1400) Seq(459)
+[SEND DATA] 642600 (1400) Seq(460)
+[SEND DATA] 644000 (1400) Seq(461)
+[SEND DATA] 645400 (1400) Seq(462)
+[SEND DATA] 646800 (1400) Seq(463)
+[SEND DATA] 648200 (1400) Seq(464)
+[SEND DATA] 649600 (1400) Seq(465)
+[SEND DATA] 651000 (1400) Seq(466)
+[SEND DATA] 652400 (1400) Seq(467)
+[SEND DATA] 653800 (1400) Seq(468)
+[SEND DATA] 655200 (1400) Seq(469)
+[SEND DATA] 656600 (1400) Seq(470)
+[SEND DATA] 658000 (1400) Seq(471)
+[SEND DATA] 659400 (1400) Seq(472)
+[SEND DATA] 660800 (1400) Seq(473)
+[SEND DATA] 662200 (1400) Seq(474)
+[SEND DATA] 663600 (1400) Seq(475)
+[SEND DATA] 665000 (1400) Seq(476)
+[SEND DATA] 666400 (1400) Seq(477)
+[SEND DATA] 667800 (1400) Seq(478)
+[SEND DATA] 669200 (1400) Seq(479)
+[SEND DATA] 670600 (1400) Seq(480)
+[SEND DATA] 672000 (1400) Seq(481)
+[SEND DATA] 673400 (1400) Seq(482)
+[SEND DATA] 674800 (1400) Seq(483)
+[SEND DATA] 676200 (1400) Seq(484)
+[SEND DATA] 677600 (1400) Seq(485)
+[SEND DATA] 679000 (1400) Seq(486)
+[SEND DATA] 680400 (1400) Seq(487)
+[SEND DATA] 681800 (1400) Seq(488)
+[SEND DATA] 683200 (1400) Seq(489)
+[SEND DATA] 684600 (1400) Seq(490)
+[SEND DATA] 686000 (1400) Seq(491)
+[SEND DATA] 687400 (1400) Seq(492)
+[SEND DATA] 688800 (1400) Seq(493)
+[SEND DATA] 690200 (1400) Seq(494)
+[SEND DATA] 691600 (1400) Seq(495)
+[SEND DATA] 693000 (1400) Seq(496)
+[SEND DATA] 694400 (1400) Seq(497)
+[SEND DATA] 695800 (1400) Seq(498)
+[SEND DATA] 697200 (1400) Seq(499)
+[SEND DATA] 698600 (1400) Seq(500)
+[SEND DATA] 700000 (1400) Seq(501)
+[SEND DATA] 701400 (1400) Seq(502)
+[SEND DATA] 702800 (1400) Seq(503)
+[SEND DATA] 704200 (1400) Seq(504)
+[SEND DATA] 705600 (1400) Seq(505)
+[SEND DATA] 707000 (1400) Seq(506)
+[SEND DATA] 708400 (1400) Seq(507)
+[SEND DATA] 709800 (1400) Seq(508)
+[SEND DATA] 711200 (1400) Seq(509)
+[SEND DATA] 712600 (1400) Seq(510)
+[SEND DATA] 714000 (1400) Seq(511)
+[SEND DATA] 715400 (1400) Seq(512)
+[SEND DATA] 716800 (1400) Seq(513)
+[SEND DATA] 718200 (1400) Seq(514)
+[SEND DATA] 719600 (1400) Seq(515)
+[SEND DATA] 721000 (1400) Seq(516)
+[SEND DATA] 722400 (1400) Seq(517)
+[SEND DATA] 723800 (1400) Seq(518)
+[SEND DATA] 725200 (1400) Seq(519)
+[SEND DATA] 726600 (1400) Seq(520)
+[SEND DATA] 728000 (1400) Seq(521)
+[SEND DATA] 729400 (1400) Seq(522)
+[SEND DATA] 730800 (1400) Seq(523)
+[SEND DATA] 732200 (1400) Seq(524)
+[SEND DATA] 733600 (1400) Seq(525)
+[SEND DATA] 735000 (1400) Seq(526)
+[SEND DATA] 736400 (1400) Seq(527)
+[SEND DATA] 737800 (1400) Seq(528)
+[SEND DATA] 739200 (1400) Seq(529)
+[SEND DATA] 740600 (1400) Seq(530)
+[SEND DATA] 742000 (1400) Seq(531)
+[SEND DATA] 743400 (1400) Seq(532)
+[SEND DATA] 744800 (1400) Seq(533)
+[SEND DATA] 746200 (1400) Seq(534)
+[SEND DATA] 747600 (1400) Seq(535)
+[SEND DATA] 749000 (1400) Seq(536)
+[SEND DATA] 750400 (1400) Seq(537)
+[SEND DATA] 751800 (1400) Seq(538)
+[SEND DATA] 753200 (1400) Seq(539)
+[SEND DATA] 754600 (1400) Seq(540)
+[SEND DATA] 756000 (1400) Seq(541)
+[SEND DATA] 757400 (1400) Seq(542)
+[SEND DATA] 758800 (1400) Seq(543)
+[SEND DATA] 760200 (1400) Seq(544)
+[SEND DATA] 761600 (1400) Seq(545)
+[SEND DATA] 763000 (1400) Seq(546)
+[SEND DATA] 764400 (1400) Seq(547)
+[SEND DATA] 765800 (1400) Seq(548)
+[SEND DATA] 767200 (1400) Seq(549)
+[SEND DATA] 768600 (1400) Seq(550)
+[SEND DATA] 770000 (1400) Seq(551)
+[SEND DATA] 771400 (1400) Seq(552)
+[SEND DATA] 772800 (1400) Seq(553)
+[SEND DATA] 774200 (1400) Seq(554)
+[SEND DATA] 775600 (1400) Seq(555)
+[SEND DATA] 777000 (1400) Seq(556)
+[SEND DATA] 778400 (1400) Seq(557)
+[SEND DATA] 779800 (1400) Seq(558)
+[SEND DATA] 781200 (1400) Seq(559)
+[SEND DATA] 782600 (1400) Seq(560)
+[SEND DATA] 784000 (1400) Seq(561)
+[SEND DATA] 785400 (1400) Seq(562)
+[SEND DATA] 786800 (1400) Seq(563)
+[SEND DATA] 788200 (1400) Seq(564)
+[SEND DATA] 789600 (1400) Seq(565)
+[SEND DATA] 791000 (1400) Seq(566)
+[SEND DATA] 792400 (1400) Seq(567)
+[SEND DATA] 793800 (1400) Seq(568)
+[SEND DATA] 795200 (1400) Seq(569)
+[SEND DATA] 796600 (1400) Seq(570)
+[SEND DATA] 798000 (1400) Seq(571)
+[SEND DATA] 799400 (1400) Seq(572)
+[SEND DATA] 800800 (1400) Seq(573)
+[SEND DATA] 802200 (1400) Seq(574)
+[SEND DATA] 803600 (1400) Seq(575)
+[SEND DATA] 805000 (1400) Seq(576)
+[SEND DATA] 806400 (1400) Seq(577)
+[SEND DATA] 807800 (1400) Seq(578)
+[SEND DATA] 809200 (1400) Seq(579)
+[SEND DATA] 810600 (1400) Seq(580)
+[SEND DATA] 812000 (1400) Seq(581)
+[SEND DATA] 813400 (1400) Seq(582)
+[SEND DATA] 814800 (1400) Seq(583)
+[SEND DATA] 816200 (1400) Seq(584)
+[SEND DATA] 817600 (1400) Seq(585)
+[SEND DATA] 819000 (1400) Seq(586)
+[SEND DATA] 820400 (1400) Seq(587)
+[SEND DATA] 821800 (1400) Seq(588)
+[SEND DATA] 823200 (1400) Seq(589)
+[SEND DATA] 824600 (1400) Seq(590)
+[SEND DATA] 826000 (1400) Seq(591)
+[SEND DATA] 827400 (1400) Seq(592)
+[SEND DATA] 828800 (1400) Seq(593)
+[SEND DATA] 830200 (1400) Seq(594)
+[SEND DATA] 831600 (1400) Seq(595)
+[SEND DATA] 833000 (1400) Seq(596)
+[SEND DATA] 834400 (1400) Seq(597)
+[SEND DATA] 835800 (1400) Seq(598)
+[SEND DATA] 837200 (1400) Seq(599)
+[SEND DATA] 838600 (1400) Seq(600)
+[Recv ACK] 1
+cur queue front seq is 2
+the usable is 1
+ ------------------------------------------
+[SEND DATA] 840000 (1400) Seq(601)
+[Ignore ACK] 1
+cur queue front seq is 2
+the usable is 0
+ ------------------------------------------
+[Recv ACK] 2
+cur queue front seq is 3
+the usable is 1
+ ------------------------------------------
+[SEND DATA] 841400 (1400) Seq(602)
+[Recv ACK] 3
+cur queue front seq is 4
+the usable is 1
+ ------------------------------------------
+[SEND DATA] 842800 (1400) Seq(603)
+[Recv ACK] 4
+cur queue front seq is 5
+the usable is 1
+ ------------------------------------------
+[SEND DATA] 844200 (1400) Seq(604)
+[Recv ACK] 5
+cur queue front seq is 6
+the usable is 1
+ ------------------------------------------
+[SEND DATA] 845600 (1400) Seq(605)
+[Recv ACK] 6
+cur queue front seq is 7
+the usable is 1
+ ------------------------------------------
+[SEND DATA] 847000 (1400) Seq(606)
+[Recv ACK] 7
+cur queue front seq is 8
+the usable is 1
+ ------------------------------------------
+[SEND DATA] 848400 (1400) Seq(607)
+[Recv ACK] 8
+cur queue front seq is 9
+the usable is 1
+ ------------------------------------------
+[SEND DATA] 849800 (1400) Seq(608)
+[Recv ACK] 9
+cur queue front seq is 10
+the usable is 1
+ ------------------------------------------
+[SEND DATA] 851200 (1400) Seq(609)
+[Ignore ACK] 9
+cur queue front seq is 10
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 9
+[MORE THAN 3 ACK RESEND] 12600 (10)
+cur queue front seq is 10
+the usable is 0
+ ------------------------------------------
+[Recv ACK] 10
+cur queue front seq is 11
+the usable is 1
+ ------------------------------------------
+[SEND DATA] 852600 (1400) Seq(610)
+[Recv ACK] 11
+cur queue front seq is 12
+the usable is 1
+ ------------------------------------------
+[SEND DATA] 854000 (1400) Seq(611)
+[Recv ACK] 12
+cur queue front seq is 13
+the usable is 1
+ ------------------------------------------
+[SEND DATA] 855400 (1400) Seq(612)
+[Recv ACK] 13
+cur queue front seq is 14
+the usable is 1
+ ------------------------------------------
+[SEND DATA] 856800 (1400) Seq(613)
+[Recv ACK] 14
+cur queue front seq is 15
+the usable is 1
+ ------------------------------------------
+[SEND DATA] 858200 (1400) Seq(614)
+[Ignore ACK] 14
+cur queue front seq is 15
+the usable is 0
+ ------------------------------------------
+[Recv ACK] 15
+cur queue front seq is 16
+the usable is 1
+ ------------------------------------------
+[SEND DATA] 859600 (1400) Seq(615)
+[Recv ACK] 16
+cur queue front seq is 17
+the usable is 1
+ ------------------------------------------
+[SEND DATA] 861000 (1400) Seq(616)
+[Recv ACK] 17
+cur queue front seq is 18
+the usable is 1
+ ------------------------------------------
+[SEND DATA] 862400 (1400) Seq(617)
+[Ignore ACK] 17
+cur queue front seq is 18
+the usable is 0
+ ------------------------------------------
+[Recv ACK] 18
+cur queue front seq is 19
+the usable is 1
+ ------------------------------------------
+[SEND DATA] 863800 (1400) Seq(618)
+[Ignore ACK] 18
+cur queue front seq is 19
+the usable is 0
+ ------------------------------------------
+[Recv ACK] 19
+cur queue front seq is 20
+the usable is 1
+ ------------------------------------------
+[SEND DATA] 865200 (1400) Seq(619)
+[Ignore ACK] 19
+cur queue front seq is 20
+the usable is 0
+ ------------------------------------------
+[Recv ACK] 20
+cur queue front seq is 21
+the usable is 1
+ ------------------------------------------
+[SEND DATA] 866600 (1400) Seq(620)
+[Ignore ACK] 20
+cur queue front seq is 21
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 20
+[MORE THAN 3 ACK RESEND] 28000 (21)
+cur queue front seq is 21
+the usable is 0
+ ------------------------------------------
+[Recv ACK] 21
+cur queue front seq is 22
+the usable is 1
+ ------------------------------------------
+[SEND DATA] 868000 (1400) Seq(621)
+[Ignore ACK] 21
+cur queue front seq is 22
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 21
+[MORE THAN 3 ACK RESEND] 29400 (22)
+cur queue front seq is 22
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 21
+cur queue front seq is 22
+the usable is 0
+ ------------------------------------------
+[Recv ACK] 22
+cur queue front seq is 23
+the usable is 1
+ ------------------------------------------
+[SEND DATA] 869400 (1400) Seq(622)
+[Ignore ACK] 22
+cur queue front seq is 23
+the usable is 0
+ ------------------------------------------
+[Recv ACK] 23
+cur queue front seq is 24
+the usable is 1
+ ------------------------------------------
+[SEND DATA] 870800 (1400) Seq(623)
+[Ignore ACK] 23
+cur queue front seq is 24
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 23
+[MORE THAN 3 ACK RESEND] 32200 (24)
+cur queue front seq is 24
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 23
+cur queue front seq is 24
+the usable is 0
+ ------------------------------------------
+[Recv ACK] 24
+cur queue front seq is 25
+the usable is 1
+ ------------------------------------------
+[SEND DATA] 872200 (1400) Seq(624)
+[Ignore ACK] 24
+cur queue front seq is 25
+the usable is 0
+ ------------------------------------------
+[Recv ACK] 25
+cur queue front seq is 26
+the usable is 1
+ ------------------------------------------
+[SEND DATA] 873600 (1400) Seq(625)
+[Recv ACK] 26
+cur queue front seq is 27
+the usable is 1
+ ------------------------------------------
+[SEND DATA] 875000 (1400) Seq(626)
+[Recv ACK] 27
+cur queue front seq is 28
+the usable is 1
+ ------------------------------------------
+[SEND DATA] 876400 (1400) Seq(627)
+[Ignore ACK] 27
+cur queue front seq is 28
+the usable is 0
+ ------------------------------------------
+[Recv ACK] 28
+cur queue front seq is 29
+the usable is 1
+ ------------------------------------------
+[SEND DATA] 877800 (1400) Seq(628)
+[Recv ACK] 29
+cur queue front seq is 30
+the usable is 1
+ ------------------------------------------
+[SEND DATA] 879200 (1400) Seq(629)
+[Ignore ACK] 29
+cur queue front seq is 30
+the usable is 0
+ ------------------------------------------
+[Recv ACK] 30
+cur queue front seq is 31
+the usable is 1
+ ------------------------------------------
+[SEND DATA] 880600 (1400) Seq(630)
+[Recv ACK] 31
+cur queue front seq is 32
+the usable is 1
+ ------------------------------------------
+[SEND DATA] 882000 (1400) Seq(631)
+[Ignore ACK] 31
+cur queue front seq is 32
+the usable is 0
+ ------------------------------------------
+[Recv ACK] 32
+cur queue front seq is 33
+the usable is 1
+ ------------------------------------------
+[SEND DATA] 883400 (1400) Seq(632)
+[Recv ACK] 33
+cur queue front seq is 34
+the usable is 1
+ ------------------------------------------
+[SEND DATA] 884800 (1400) Seq(633)
+[Recv ACK] 34
+cur queue front seq is 35
+the usable is 1
+ ------------------------------------------
+[SEND DATA] 886200 (1400) Seq(634)
+[Recv ACK] 35
+cur queue front seq is 36
+the usable is 1
+ ------------------------------------------
+[SEND DATA] 887600 (1400) Seq(635)
+[Recv ACK] 36
+cur queue front seq is 37
+the usable is 1
+ ------------------------------------------
+[SEND DATA] 889000 (1400) Seq(636)
+[Ignore ACK] 36
+cur queue front seq is 37
+the usable is 0
+ ------------------------------------------
+[Recv ACK] 37
+cur queue front seq is 38
+the usable is 1
+ ------------------------------------------
+[SEND DATA] 890400 (1400) Seq(637)
+[Recv ACK] 38
+cur queue front seq is 39
+the usable is 1
+ ------------------------------------------
+[SEND DATA] 891800 (1400) Seq(638)
+[Ignore ACK] 38
+cur queue front seq is 39
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 38
+[MORE THAN 3 ACK RESEND] 53200 (39)
+cur queue front seq is 39
+the usable is 0
+ ------------------------------------------
+[Recv ACK] 39
+cur queue front seq is 40
+the usable is 1
+ ------------------------------------------
+[SEND DATA] 893200 (1400) Seq(639)
+[Recv ACK] 40
+cur queue front seq is 41
+the usable is 1
+ ------------------------------------------
+[SEND DATA] 894600 (1400) Seq(640)
+[Recv ACK] 41
+cur queue front seq is 42
+the usable is 1
+ ------------------------------------------
+[SEND DATA] 896000 (1400) Seq(641)
+[Recv ACK] 42
+cur queue front seq is 43
+the usable is 1
+ ------------------------------------------
+[SEND DATA] 897400 (1400) Seq(642)
+[Ignore ACK] 42
+cur queue front seq is 43
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 42
+[MORE THAN 3 ACK RESEND] 58800 (43)
+cur queue front seq is 43
+the usable is 0
+ ------------------------------------------
+[Recv ACK] 43
+cur queue front seq is 44
+the usable is 1
+ ------------------------------------------
+[SEND DATA] 898800 (1400) Seq(643)
+[Recv ACK] 44
+cur queue front seq is 45
+the usable is 1
+ ------------------------------------------
+[SEND DATA] 900200 (1400) Seq(644)
+[Ignore ACK] 44
+cur queue front seq is 45
+the usable is 0
+ ------------------------------------------
+[Recv ACK] 45
+cur queue front seq is 46
+the usable is 1
+ ------------------------------------------
+[SEND DATA] 901600 (1400) Seq(645)
+[Recv ACK] 46
+cur queue front seq is 47
+the usable is 1
+ ------------------------------------------
+[SEND DATA] 903000 (1400) Seq(646)
+[Ignore ACK] 46
+cur queue front seq is 47
+the usable is 0
+ ------------------------------------------
+[Recv ACK] 47
+cur queue front seq is 48
+the usable is 1
+ ------------------------------------------
+[SEND DATA] 904400 (1400) Seq(647)
+[Recv ACK] 48
+cur queue front seq is 49
+the usable is 1
+ ------------------------------------------
+[SEND DATA] 905800 (1400) Seq(648)
+[Recv ACK] 49
+cur queue front seq is 50
+the usable is 1
+ ------------------------------------------
+[SEND DATA] 907200 (1400) Seq(649)
+[Ignore ACK] 49
+cur queue front seq is 50
+the usable is 0
+ ------------------------------------------
+[Recv ACK] 50
+cur queue front seq is 51
+the usable is 1
+ ------------------------------------------
+[SEND DATA] 908600 (1400) Seq(650)
+[Ignore ACK] 50
+cur queue front seq is 51
+the usable is 0
+ ------------------------------------------
+[Recv ACK] 51
+cur queue front seq is 52
+the usable is 1
+ ------------------------------------------
+[SEND DATA] 910000 (1400) Seq(651)
+[Ignore ACK] 51
+cur queue front seq is 52
+the usable is 0
+ ------------------------------------------
+[Recv ACK] 52
+cur queue front seq is 53
+the usable is 1
+ ------------------------------------------
+[SEND DATA] 911400 (1400) Seq(652)
+[Recv ACK] 53
+cur queue front seq is 54
+the usable is 1
+ ------------------------------------------
+[SEND DATA] 912800 (1400) Seq(653)
+[Recv ACK] 54
+cur queue front seq is 55
+the usable is 1
+ ------------------------------------------
+[SEND DATA] 914200 (1400) Seq(654)
+[Ignore ACK] 54
+cur queue front seq is 55
+the usable is 0
+ ------------------------------------------
+[Recv ACK] 55
+cur queue front seq is 56
+the usable is 1
+ ------------------------------------------
+[SEND DATA] 915600 (1400) Seq(655)
+[Recv ACK] 56
+cur queue front seq is 57
+the usable is 1
+ ------------------------------------------
+[SEND DATA] 917000 (1400) Seq(656)
+[Ignore ACK] 56
+cur queue front seq is 57
+the usable is 0
+ ------------------------------------------
+[Recv ACK] 57
+cur queue front seq is 58
+the usable is 1
+ ------------------------------------------
+[SEND DATA] 918400 (1400) Seq(657)
+[Recv ACK] 58
+cur queue front seq is 59
+the usable is 1
+ ------------------------------------------
+[SEND DATA] 919800 (1400) Seq(658)
+[Recv ACK] 59
+cur queue front seq is 60
+the usable is 1
+ ------------------------------------------
+[SEND DATA] 921200 (1400) Seq(659)
+[Ignore ACK] 59
+cur queue front seq is 60
+the usable is 0
+ ------------------------------------------
+[Recv ACK] 60
+cur queue front seq is 61
+the usable is 1
+ ------------------------------------------
+[SEND DATA] 922600 (1400) Seq(660)
+[Ignore ACK] 60
+cur queue front seq is 61
+the usable is 0
+ ------------------------------------------
+[Recv ACK] 61
+cur queue front seq is 62
+the usable is 1
+ ------------------------------------------
+[SEND DATA] 924000 (1400) Seq(661)
+[Ignore ACK] 61
+cur queue front seq is 62
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 61
+[MORE THAN 3 ACK RESEND] 85400 (62)
+cur queue front seq is 62
+the usable is 0
+ ------------------------------------------
+[Recv ACK] 62
+cur queue front seq is 63
+the usable is 1
+ ------------------------------------------
+[SEND DATA] 925400 (1400) Seq(662)
+[Ignore ACK] 62
+cur queue front seq is 63
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 62
+[MORE THAN 3 ACK RESEND] 86800 (63)
+cur queue front seq is 63
+the usable is 0
+ ------------------------------------------
+[Recv ACK] 63
+cur queue front seq is 64
+the usable is 1
+ ------------------------------------------
+[SEND DATA] 926800 (1400) Seq(663)
+[Ignore ACK] 63
+cur queue front seq is 64
+the usable is 0
+ ------------------------------------------
+[Recv ACK] 64
+cur queue front seq is 65
+the usable is 1
+ ------------------------------------------
+[SEND DATA] 928200 (1400) Seq(664)
+[Recv ACK] 65
+cur queue front seq is 66
+the usable is 1
+ ------------------------------------------
+[SEND DATA] 929600 (1400) Seq(665)
+[Recv ACK] 66
+cur queue front seq is 67
+the usable is 1
+ ------------------------------------------
+[SEND DATA] 931000 (1400) Seq(666)
+[Ignore ACK] 66
+cur queue front seq is 67
+the usable is 0
+ ------------------------------------------
+[Recv ACK] 67
+cur queue front seq is 68
+the usable is 1
+ ------------------------------------------
+[SEND DATA] 932400 (1400) Seq(667)
+[Ignore ACK] 67
+cur queue front seq is 68
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 67
+[MORE THAN 3 ACK RESEND] 93800 (68)
+cur queue front seq is 68
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 67
+cur queue front seq is 68
+the usable is 0
+ ------------------------------------------
+[Recv ACK] 68
+cur queue front seq is 69
+the usable is 1
+ ------------------------------------------
+[SEND DATA] 933800 (1400) Seq(668)
+[Ignore ACK] 68
+cur queue front seq is 69
+the usable is 0
+ ------------------------------------------
+[Recv ACK] 69
+cur queue front seq is 70
+the usable is 1
+ ------------------------------------------
+[SEND DATA] 935200 (1400) Seq(669)
+[Ignore ACK] 69
+cur queue front seq is 70
+the usable is 0
+ ------------------------------------------
+[Recv ACK] 70
+cur queue front seq is 71
+the usable is 1
+ ------------------------------------------
+[SEND DATA] 936600 (1400) Seq(670)
+[Recv ACK] 71
+cur queue front seq is 72
+the usable is 1
+ ------------------------------------------
+[SEND DATA] 938000 (1400) Seq(671)
+[Recv ACK] 72
+cur queue front seq is 73
+the usable is 1
+ ------------------------------------------
+[SEND DATA] 939400 (1400) Seq(672)
+[Recv ACK] 73
+cur queue front seq is 74
+the usable is 1
+ ------------------------------------------
+[SEND DATA] 940800 (1400) Seq(673)
+[Recv ACK] 74
+cur queue front seq is 75
+the usable is 1
+ ------------------------------------------
+[SEND DATA] 942200 (1400) Seq(674)
+[Recv ACK] 75
+cur queue front seq is 76
+the usable is 1
+ ------------------------------------------
+[SEND DATA] 943600 (1400) Seq(675)
+[Ignore ACK] 75
+cur queue front seq is 76
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 75
+[MORE THAN 3 ACK RESEND] 105000 (76)
+cur queue front seq is 76
+the usable is 0
+ ------------------------------------------
+[Recv ACK] 76
+cur queue front seq is 77
+the usable is 1
+ ------------------------------------------
+[SEND DATA] 945000 (1400) Seq(676)
+[Recv ACK] 77
+cur queue front seq is 78
+the usable is 1
+ ------------------------------------------
+[SEND DATA] 946400 (1400) Seq(677)
+[Ignore ACK] 77
+cur queue front seq is 78
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 77
+[MORE THAN 3 ACK RESEND] 107800 (78)
+cur queue front seq is 78
+the usable is 0
+ ------------------------------------------
+[Recv ACK] 78
+cur queue front seq is 79
+the usable is 1
+ ------------------------------------------
+[SEND DATA] 947800 (1400) Seq(678)
+[Ignore ACK] 78
+cur queue front seq is 79
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 78
+[MORE THAN 3 ACK RESEND] 109200 (79)
+cur queue front seq is 79
+the usable is 0
+ ------------------------------------------
+[Recv ACK] 79
+cur queue front seq is 80
+the usable is 1
+ ------------------------------------------
+[SEND DATA] 949200 (1400) Seq(679)
+[Recv ACK] 80
+cur queue front seq is 81
+the usable is 1
+ ------------------------------------------
+[SEND DATA] 950600 (1400) Seq(680)
+[Ignore ACK] 80
+cur queue front seq is 81
+the usable is 0
+ ------------------------------------------
+[Recv ACK] 81
+cur queue front seq is 82
+the usable is 1
+ ------------------------------------------
+[SEND DATA] 952000 (1400) Seq(681)
+[Ignore ACK] 81
+cur queue front seq is 82
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 81
+[MORE THAN 3 ACK RESEND] 113400 (82)
+cur queue front seq is 82
+the usable is 0
+ ------------------------------------------
+[Recv ACK] 82
+cur queue front seq is 83
+the usable is 1
+ ------------------------------------------
+[SEND DATA] 953400 (1400) Seq(682)
+[Recv ACK] 83
+cur queue front seq is 84
+the usable is 1
+ ------------------------------------------
+[SEND DATA] 954800 (1400) Seq(683)
+[Ignore ACK] 83
+cur queue front seq is 84
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 83
+[MORE THAN 3 ACK RESEND] 116200 (84)
+cur queue front seq is 84
+the usable is 0
+ ------------------------------------------
+[Recv ACK] 84
+cur queue front seq is 85
+the usable is 1
+ ------------------------------------------
+[SEND DATA] 956200 (1400) Seq(684)
+[Recv ACK] 85
+cur queue front seq is 86
+the usable is 1
+ ------------------------------------------
+[SEND DATA] 957600 (1400) Seq(685)
+[Ignore ACK] 85
+cur queue front seq is 86
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 85
+[MORE THAN 3 ACK RESEND] 119000 (86)
+cur queue front seq is 86
+the usable is 0
+ ------------------------------------------
+[Recv ACK] 86
+cur queue front seq is 87
+the usable is 1
+ ------------------------------------------
+[SEND DATA] 959000 (1400) Seq(686)
+[Ignore ACK] 86
+cur queue front seq is 87
+the usable is 0
+ ------------------------------------------
+[Recv ACK] 87
+cur queue front seq is 88
+the usable is 1
+ ------------------------------------------
+[SEND DATA] 960400 (1400) Seq(687)
+[Recv ACK] 88
+cur queue front seq is 89
+the usable is 1
+ ------------------------------------------
+[SEND DATA] 961800 (1400) Seq(688)
+[Recv ACK] 89
+cur queue front seq is 90
+the usable is 1
+ ------------------------------------------
+[SEND DATA] 963200 (1400) Seq(689)
+[Ignore ACK] 89
+cur queue front seq is 90
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 89
+[MORE THAN 3 ACK RESEND] 124600 (90)
+cur queue front seq is 90
+the usable is 0
+ ------------------------------------------
+[Recv ACK] 90
+cur queue front seq is 91
+the usable is 1
+ ------------------------------------------
+[SEND DATA] 964600 (1400) Seq(690)
+[Recv ACK] 91
+cur queue front seq is 92
+the usable is 1
+ ------------------------------------------
+[SEND DATA] 966000 (1400) Seq(691)
+[Ignore ACK] 91
+cur queue front seq is 92
+the usable is 0
+ ------------------------------------------
+[Recv ACK] 92
+cur queue front seq is 93
+the usable is 1
+ ------------------------------------------
+[SEND DATA] 967400 (1400) Seq(692)
+[Ignore ACK] 92
+cur queue front seq is 93
+the usable is 0
+ ------------------------------------------
+[Recv ACK] 93
+cur queue front seq is 94
+the usable is 1
+ ------------------------------------------
+[SEND DATA] 968800 (1400) Seq(693)
+[Recv ACK] 94
+cur queue front seq is 95
+the usable is 1
+ ------------------------------------------
+[SEND DATA] 970200 (1400) Seq(694)
+[Recv ACK] 95
+cur queue front seq is 96
+the usable is 1
+ ------------------------------------------
+[SEND DATA] 971600 (1400) Seq(695)
+[Ignore ACK] 95
+cur queue front seq is 96
+the usable is 0
+ ------------------------------------------
+[Recv ACK] 96
+cur queue front seq is 97
+the usable is 1
+ ------------------------------------------
+[SEND DATA] 973000 (1400) Seq(696)
+[Ignore ACK] 96
+cur queue front seq is 97
+the usable is 0
+ ------------------------------------------
+[Recv ACK] 97
+cur queue front seq is 98
+the usable is 1
+ ------------------------------------------
+[SEND DATA] 974400 (1400) Seq(697)
+[Recv ACK] 98
+cur queue front seq is 99
+the usable is 1
+ ------------------------------------------
+[SEND DATA] 975800 (1400) Seq(698)
+[Recv ACK] 99
+cur queue front seq is 100
+the usable is 1
+ ------------------------------------------
+[SEND DATA] 977200 (1400) Seq(699)
+[Ignore ACK] 99
+cur queue front seq is 100
+the usable is 0
+ ------------------------------------------
+[Recv ACK] 100
+cur queue front seq is 101
+the usable is 1
+ ------------------------------------------
+[SEND DATA] 978600 (1400) Seq(700)
+[Ignore ACK] 100
+cur queue front seq is 101
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 100
+[MORE THAN 3 ACK RESEND] 140000 (101)
+cur queue front seq is 101
+the usable is 0
+ ------------------------------------------
+[Recv ACK] 101
+cur queue front seq is 102
+the usable is 1
+ ------------------------------------------
+[SEND DATA] 980000 (1400) Seq(701)
+[Ignore ACK] 101
+cur queue front seq is 102
+the usable is 0
+ ------------------------------------------
+[Recv ACK] 102
+cur queue front seq is 103
+the usable is 1
+ ------------------------------------------
+[SEND DATA] 981400 (1400) Seq(702)
+[Recv ACK] 103
+cur queue front seq is 104
+the usable is 1
+ ------------------------------------------
+[SEND DATA] 982800 (1400) Seq(703)
+[Ignore ACK] 103
+cur queue front seq is 104
+the usable is 0
+ ------------------------------------------
+[Recv ACK] 104
+cur queue front seq is 105
+the usable is 1
+ ------------------------------------------
+[SEND DATA] 984200 (1400) Seq(704)
+[Ignore ACK] 104
+cur queue front seq is 105
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 104
+[MORE THAN 3 ACK RESEND] 145600 (105)
+cur queue front seq is 105
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 104
+cur queue front seq is 105
+the usable is 0
+ ------------------------------------------
+[Recv ACK] 105
+cur queue front seq is 106
+the usable is 1
+ ------------------------------------------
+[SEND DATA] 985600 (1400) Seq(705)
+[Recv ACK] 106
+cur queue front seq is 107
+the usable is 1
+ ------------------------------------------
+[SEND DATA] 987000 (1400) Seq(706)
+[Ignore ACK] 106
+cur queue front seq is 107
+the usable is 0
+ ------------------------------------------
+[Recv ACK] 107
+cur queue front seq is 108
+the usable is 1
+ ------------------------------------------
+[SEND DATA] 988400 (1400) Seq(707)
+[Ignore ACK] 107
+cur queue front seq is 108
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 107
+[MORE THAN 3 ACK RESEND] 149800 (108)
+cur queue front seq is 108
+the usable is 0
+ ------------------------------------------
+[Recv ACK] 108
+cur queue front seq is 109
+the usable is 1
+ ------------------------------------------
+[SEND DATA] 989800 (1400) Seq(708)
+[Recv ACK] 109
+cur queue front seq is 110
+the usable is 1
+ ------------------------------------------
+[SEND DATA] 991200 (1400) Seq(709)
+[Ignore ACK] 109
+cur queue front seq is 110
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 109
+[MORE THAN 3 ACK RESEND] 152600 (110)
+cur queue front seq is 110
+the usable is 0
+ ------------------------------------------
+[Recv ACK] 110
+cur queue front seq is 111
+the usable is 1
+ ------------------------------------------
+[SEND DATA] 992600 (1400) Seq(710)
+[Ignore ACK] 110
+cur queue front seq is 111
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 110
+[MORE THAN 3 ACK RESEND] 154000 (111)
+cur queue front seq is 111
+the usable is 0
+ ------------------------------------------
+[Recv ACK] 111
+cur queue front seq is 112
+the usable is 1
+ ------------------------------------------
+[SEND DATA] 994000 (1400) Seq(711)
+[Ignore ACK] 111
+cur queue front seq is 112
+the usable is 0
+ ------------------------------------------
+[Recv ACK] 112
+cur queue front seq is 113
+the usable is 1
+ ------------------------------------------
+[SEND DATA] 995400 (1400) Seq(712)
+[Ignore ACK] 112
+cur queue front seq is 113
+the usable is 0
+ ------------------------------------------
+[Recv ACK] 113
+cur queue front seq is 114
+the usable is 1
+ ------------------------------------------
+[SEND DATA] 996800 (1400) Seq(713)
+[Ignore ACK] 113
+cur queue front seq is 114
+the usable is 0
+ ------------------------------------------
+[Recv ACK] 114
+cur queue front seq is 115
+the usable is 1
+ ------------------------------------------
+[SEND DATA] 998200 (1400) Seq(714)
+[Ignore ACK] 114
+cur queue front seq is 115
+the usable is 0
+ ------------------------------------------
+[Recv ACK] 115
+cur queue front seq is 116
+the usable is 1
+ ------------------------------------------
+[SEND DATA] 999600 (1400) Seq(715)
+[Ignore ACK] 115
+cur queue front seq is 116
+the usable is 0
+ ------------------------------------------
+[Recv ACK] 116
+cur queue front seq is 117
+the usable is 1
+ ------------------------------------------
+[SEND DATA] 1001000 (1400) Seq(716)
+[Ignore ACK] 116
+cur queue front seq is 117
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 116
+[MORE THAN 3 ACK RESEND] 162400 (117)
+cur queue front seq is 117
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 116
+cur queue front seq is 117
+the usable is 0
+ ------------------------------------------
+[Recv ACK] 117
+cur queue front seq is 118
+the usable is 1
+ ------------------------------------------
+[SEND DATA] 1002400 (1400) Seq(717)
+[Recv ACK] 118
+cur queue front seq is 119
+the usable is 1
+ ------------------------------------------
+[SEND DATA] 1003800 (1400) Seq(718)
+[Ignore ACK] 118
+cur queue front seq is 119
+the usable is 0
+ ------------------------------------------
+[Recv ACK] 119
+cur queue front seq is 120
+the usable is 1
+ ------------------------------------------
+[SEND DATA] 1005200 (1400) Seq(719)
+[Ignore ACK] 119
+cur queue front seq is 120
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 119
+[MORE THAN 3 ACK RESEND] 166600 (120)
+cur queue front seq is 120
+the usable is 0
+ ------------------------------------------
+[Recv ACK] 120
+cur queue front seq is 121
+the usable is 1
+ ------------------------------------------
+[SEND DATA] 1006600 (1400) Seq(720)
+[Ignore ACK] 120
+cur queue front seq is 121
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 120
+[MORE THAN 3 ACK RESEND] 168000 (121)
+cur queue front seq is 121
+the usable is 0
+ ------------------------------------------
+[Recv ACK] 121
+cur queue front seq is 122
+the usable is 1
+ ------------------------------------------
+[SEND DATA] 1008000 (1400) Seq(721)
+[Ignore ACK] 121
+cur queue front seq is 122
+the usable is 0
+ ------------------------------------------
+[Recv ACK] 122
+cur queue front seq is 123
+the usable is 1
+ ------------------------------------------
+[SEND DATA] 1009400 (1400) Seq(722)
+[Ignore ACK] 122
+cur queue front seq is 123
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 122
+[MORE THAN 3 ACK RESEND] 170800 (123)
+cur queue front seq is 123
+the usable is 0
+ ------------------------------------------
+[Recv ACK] 123
+cur queue front seq is 124
+the usable is 1
+ ------------------------------------------
+[SEND DATA] 1010800 (1400) Seq(723)
+[Recv ACK] 124
+cur queue front seq is 125
+the usable is 1
+ ------------------------------------------
+[SEND DATA] 1012200 (1400) Seq(724)
+[Ignore ACK] 124
+cur queue front seq is 125
+the usable is 0
+ ------------------------------------------
+[Recv ACK] 125
+cur queue front seq is 126
+the usable is 1
+ ------------------------------------------
+[SEND DATA] 1013600 (1400) Seq(725)
+[Recv ACK] 126
+cur queue front seq is 127
+the usable is 1
+ ------------------------------------------
+[SEND DATA] 1015000 (1400) Seq(726)
+[Ignore ACK] 126
+cur queue front seq is 127
+the usable is 0
+ ------------------------------------------
+[Recv ACK] 127
+cur queue front seq is 128
+the usable is 1
+ ------------------------------------------
+[SEND DATA] 1016400 (1400) Seq(727)
+[Ignore ACK] 127
+cur queue front seq is 128
+the usable is 0
+ ------------------------------------------
+[Recv ACK] 128
+cur queue front seq is 129
+the usable is 1
+ ------------------------------------------
+[SEND DATA] 1017800 (1400) Seq(728)
+[Ignore ACK] 128
+cur queue front seq is 129
+the usable is 0
+ ------------------------------------------
+[Recv ACK] 129
+cur queue front seq is 130
+the usable is 1
+ ------------------------------------------
+[SEND DATA] 1019200 (1400) Seq(729)
+[Ignore ACK] 129
+cur queue front seq is 130
+the usable is 0
+ ------------------------------------------
+[Recv ACK] 213
+cur queue front seq is 214
+the usable is 84
+ ------------------------------------------
+[SEND DATA] 1020600 (1400) Seq(730)
+[SEND DATA] 1022000 (1400) Seq(731)
+[SEND DATA] 1023400 (1400) Seq(732)
+[SEND DATA] 1024800 (1400) Seq(733)
+[SEND DATA] 1026200 (1400) Seq(734)
+[SEND DATA] 1027600 (1400) Seq(735)
+[SEND DATA] 1029000 (1400) Seq(736)
+[SEND DATA] 1030400 (1400) Seq(737)
+[SEND DATA] 1031800 (1400) Seq(738)
+[SEND DATA] 1033200 (1400) Seq(739)
+[SEND DATA] 1034600 (1400) Seq(740)
+[SEND DATA] 1036000 (1400) Seq(741)
+[SEND DATA] 1037400 (1400) Seq(742)
+[SEND DATA] 1038800 (1400) Seq(743)
+[SEND DATA] 1040200 (1400) Seq(744)
+[SEND DATA] 1041600 (1400) Seq(745)
+[SEND DATA] 1043000 (1400) Seq(746)
+[SEND DATA] 1044400 (1400) Seq(747)
+[SEND DATA] 1045800 (1400) Seq(748)
+[SEND DATA] 1047200 (1400) Seq(749)
+[SEND DATA] 1048600 (1400) Seq(750)
+[SEND DATA] 1050000 (1400) Seq(751)
+[SEND DATA] 1051400 (1400) Seq(752)
+[SEND DATA] 1052800 (1400) Seq(753)
+[SEND DATA] 1054200 (1400) Seq(754)
+[SEND DATA] 1055600 (1400) Seq(755)
+[SEND DATA] 1057000 (1400) Seq(756)
+[SEND DATA] 1058400 (1400) Seq(757)
+[SEND DATA] 1059800 (1400) Seq(758)
+[SEND DATA] 1061200 (1400) Seq(759)
+[SEND DATA] 1062600 (1400) Seq(760)
+[SEND DATA] 1064000 (1400) Seq(761)
+[SEND DATA] 1065400 (1400) Seq(762)
+[SEND DATA] 1066800 (1400) Seq(763)
+[SEND DATA] 1068200 (1400) Seq(764)
+[SEND DATA] 1069600 (1400) Seq(765)
+[SEND DATA] 1071000 (1400) Seq(766)
+[SEND DATA] 1072400 (1400) Seq(767)
+[SEND DATA] 1073800 (1400) Seq(768)
+[SEND DATA] 1075200 (1400) Seq(769)
+[SEND DATA] 1076600 (1400) Seq(770)
+[SEND DATA] 1078000 (1400) Seq(771)
+[SEND DATA] 1079400 (1400) Seq(772)
+[SEND DATA] 1080800 (1400) Seq(773)
+[SEND DATA] 1082200 (1400) Seq(774)
+[SEND DATA] 1083600 (1400) Seq(775)
+[SEND DATA] 1085000 (1400) Seq(776)
+[SEND DATA] 1086400 (1400) Seq(777)
+[SEND DATA] 1087800 (1400) Seq(778)
+[SEND DATA] 1089200 (1400) Seq(779)
+[SEND DATA] 1090600 (1400) Seq(780)
+[SEND DATA] 1092000 (1400) Seq(781)
+[SEND DATA] 1093400 (1400) Seq(782)
+[SEND DATA] 1094800 (1400) Seq(783)
+[SEND DATA] 1096200 (1400) Seq(784)
+[SEND DATA] 1097600 (1400) Seq(785)
+[SEND DATA] 1099000 (1400) Seq(786)
+[SEND DATA] 1100400 (1400) Seq(787)
+[SEND DATA] 1101800 (1400) Seq(788)
+[SEND DATA] 1103200 (1400) Seq(789)
+[SEND DATA] 1104600 (1400) Seq(790)
+[SEND DATA] 1106000 (1400) Seq(791)
+[SEND DATA] 1107400 (1400) Seq(792)
+[SEND DATA] 1108800 (1400) Seq(793)
+[SEND DATA] 1110200 (1400) Seq(794)
+[SEND DATA] 1111600 (1400) Seq(795)
+[SEND DATA] 1113000 (1400) Seq(796)
+[SEND DATA] 1114400 (1400) Seq(797)
+[SEND DATA] 1115800 (1400) Seq(798)
+[SEND DATA] 1117200 (1400) Seq(799)
+[SEND DATA] 1118600 (1400) Seq(800)
+[SEND DATA] 1120000 (1400) Seq(801)
+[SEND DATA] 1121400 (1400) Seq(802)
+[SEND DATA] 1122800 (1400) Seq(803)
+[SEND DATA] 1124200 (1400) Seq(804)
+[SEND DATA] 1125600 (1400) Seq(805)
+[SEND DATA] 1127000 (1400) Seq(806)
+[SEND DATA] 1128400 (1400) Seq(807)
+[SEND DATA] 1129800 (1400) Seq(808)
+[SEND DATA] 1131200 (1400) Seq(809)
+[SEND DATA] 1132600 (1400) Seq(810)
+[SEND DATA] 1134000 (1400) Seq(811)
+[SEND DATA] 1135400 (1400) Seq(812)
+[SEND DATA] 1136800 (1400) Seq(813)
+[Ignore ACK] 213
+cur queue front seq is 214
+the usable is 0
+ ------------------------------------------
+[Recv ACK] 214
+cur queue front seq is 215
+the usable is 1
+ ------------------------------------------
+[SEND DATA] 1138200 (1400) Seq(814)
+[Ignore ACK] 214
+cur queue front seq is 215
+the usable is 0
+ ------------------------------------------
+[Recv ACK] 215
+cur queue front seq is 216
+the usable is 1
+ ------------------------------------------
+[SEND DATA] 1139600 (1400) Seq(815)
+[Ignore ACK] 215
+cur queue front seq is 216
+the usable is 0
+ ------------------------------------------
+[Recv ACK] 216
+cur queue front seq is 217
+the usable is 1
+ ------------------------------------------
+[SEND DATA] 1141000 (1400) Seq(816)
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+[MORE THAN 3 ACK RESEND] 302400 (217)
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+[MORE THAN 3 ACK RESEND] 302400 (217)
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+[MORE THAN 3 ACK RESEND] 302400 (217)
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+[MORE THAN 3 ACK RESEND] 302400 (217)
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+[MORE THAN 3 ACK RESEND] 302400 (217)
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+[MORE THAN 3 ACK RESEND] 302400 (217)
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+[MORE THAN 3 ACK RESEND] 302400 (217)
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+[MORE THAN 3 ACK RESEND] 302400 (217)
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+[MORE THAN 3 ACK RESEND] 302400 (217)
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+[MORE THAN 3 ACK RESEND] 302400 (217)
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+[MORE THAN 3 ACK RESEND] 302400 (217)
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+[MORE THAN 3 ACK RESEND] 302400 (217)
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+[MORE THAN 3 ACK RESEND] 302400 (217)
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+[MORE THAN 3 ACK RESEND] 302400 (217)
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+[MORE THAN 3 ACK RESEND] 302400 (217)
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+[MORE THAN 3 ACK RESEND] 302400 (217)
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+[MORE THAN 3 ACK RESEND] 302400 (217)
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+[MORE THAN 3 ACK RESEND] 302400 (217)
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+[MORE THAN 3 ACK RESEND] 302400 (217)
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+[MORE THAN 3 ACK RESEND] 302400 (217)
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+[MORE THAN 3 ACK RESEND] 302400 (217)
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+[MORE THAN 3 ACK RESEND] 302400 (217)
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+[MORE THAN 3 ACK RESEND] 302400 (217)
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+[MORE THAN 3 ACK RESEND] 302400 (217)
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+[MORE THAN 3 ACK RESEND] 302400 (217)
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+[MORE THAN 3 ACK RESEND] 302400 (217)
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+[MORE THAN 3 ACK RESEND] 302400 (217)
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+[MORE THAN 3 ACK RESEND] 302400 (217)
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+[MORE THAN 3 ACK RESEND] 302400 (217)
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+[MORE THAN 3 ACK RESEND] 302400 (217)
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+[MORE THAN 3 ACK RESEND] 302400 (217)
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+[MORE THAN 3 ACK RESEND] 302400 (217)
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+[MORE THAN 3 ACK RESEND] 302400 (217)
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+[MORE THAN 3 ACK RESEND] 302400 (217)
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+[MORE THAN 3 ACK RESEND] 302400 (217)
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+[MORE THAN 3 ACK RESEND] 302400 (217)
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+[MORE THAN 3 ACK RESEND] 302400 (217)
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+[MORE THAN 3 ACK RESEND] 302400 (217)
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+[MORE THAN 3 ACK RESEND] 302400 (217)
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+[MORE THAN 3 ACK RESEND] 302400 (217)
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+[MORE THAN 3 ACK RESEND] 302400 (217)
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+[MORE THAN 3 ACK RESEND] 302400 (217)
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+[MORE THAN 3 ACK RESEND] 302400 (217)
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+[MORE THAN 3 ACK RESEND] 302400 (217)
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+[MORE THAN 3 ACK RESEND] 302400 (217)
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+[MORE THAN 3 ACK RESEND] 302400 (217)
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+[MORE THAN 3 ACK RESEND] 302400 (217)
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+[MORE THAN 3 ACK RESEND] 302400 (217)
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+[MORE THAN 3 ACK RESEND] 302400 (217)
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+[MORE THAN 3 ACK RESEND] 302400 (217)
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+[MORE THAN 3 ACK RESEND] 302400 (217)
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+[MORE THAN 3 ACK RESEND] 302400 (217)
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+[MORE THAN 3 ACK RESEND] 302400 (217)
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+[MORE THAN 3 ACK RESEND] 302400 (217)
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+[MORE THAN 3 ACK RESEND] 302400 (217)
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+[MORE THAN 3 ACK RESEND] 302400 (217)
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+[MORE THAN 3 ACK RESEND] 302400 (217)
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+[MORE THAN 3 ACK RESEND] 302400 (217)
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+[MORE THAN 3 ACK RESEND] 302400 (217)
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+[MORE THAN 3 ACK RESEND] 302400 (217)
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+[MORE THAN 3 ACK RESEND] 302400 (217)
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+[MORE THAN 3 ACK RESEND] 302400 (217)
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+[MORE THAN 3 ACK RESEND] 302400 (217)
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+[MORE THAN 3 ACK RESEND] 302400 (217)
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+[MORE THAN 3 ACK RESEND] 302400 (217)
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+[MORE THAN 3 ACK RESEND] 302400 (217)
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+[MORE THAN 3 ACK RESEND] 302400 (217)
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+[MORE THAN 3 ACK RESEND] 302400 (217)
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+[MORE THAN 3 ACK RESEND] 302400 (217)
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+[MORE THAN 3 ACK RESEND] 302400 (217)
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+[MORE THAN 3 ACK RESEND] 302400 (217)
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+[MORE THAN 3 ACK RESEND] 302400 (217)
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+[MORE THAN 3 ACK RESEND] 302400 (217)
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+[MORE THAN 3 ACK RESEND] 302400 (217)
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+[MORE THAN 3 ACK RESEND] 302400 (217)
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+[MORE THAN 3 ACK RESEND] 302400 (217)
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+[MORE THAN 3 ACK RESEND] 302400 (217)
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+[MORE THAN 3 ACK RESEND] 302400 (217)
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+[MORE THAN 3 ACK RESEND] 302400 (217)
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+[MORE THAN 3 ACK RESEND] 302400 (217)
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+[MORE THAN 3 ACK RESEND] 302400 (217)
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+[MORE THAN 3 ACK RESEND] 302400 (217)
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+[MORE THAN 3 ACK RESEND] 302400 (217)
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+[MORE THAN 3 ACK RESEND] 302400 (217)
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+[MORE THAN 3 ACK RESEND] 302400 (217)
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+[MORE THAN 3 ACK RESEND] 302400 (217)
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+[MORE THAN 3 ACK RESEND] 302400 (217)
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+[MORE THAN 3 ACK RESEND] 302400 (217)
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+[MORE THAN 3 ACK RESEND] 302400 (217)
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+[MORE THAN 3 ACK RESEND] 302400 (217)
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+[MORE THAN 3 ACK RESEND] 302400 (217)
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+[MORE THAN 3 ACK RESEND] 302400 (217)
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+[MORE THAN 3 ACK RESEND] 302400 (217)
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+[MORE THAN 3 ACK RESEND] 302400 (217)
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+[MORE THAN 3 ACK RESEND] 302400 (217)
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+[MORE THAN 3 ACK RESEND] 302400 (217)
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+[MORE THAN 3 ACK RESEND] 302400 (217)
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+[MORE THAN 3 ACK RESEND] 302400 (217)
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+[MORE THAN 3 ACK RESEND] 302400 (217)
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+[MORE THAN 3 ACK RESEND] 302400 (217)
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+[MORE THAN 3 ACK RESEND] 302400 (217)
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+[MORE THAN 3 ACK RESEND] 302400 (217)
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+[MORE THAN 3 ACK RESEND] 302400 (217)
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+[MORE THAN 3 ACK RESEND] 302400 (217)
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+[MORE THAN 3 ACK RESEND] 302400 (217)
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+[MORE THAN 3 ACK RESEND] 302400 (217)
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+[MORE THAN 3 ACK RESEND] 302400 (217)
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+[MORE THAN 3 ACK RESEND] 302400 (217)
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+[MORE THAN 3 ACK RESEND] 302400 (217)
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+[MORE THAN 3 ACK RESEND] 302400 (217)
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+[MORE THAN 3 ACK RESEND] 302400 (217)
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+[MORE THAN 3 ACK RESEND] 302400 (217)
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+[MORE THAN 3 ACK RESEND] 302400 (217)
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+[MORE THAN 3 ACK RESEND] 302400 (217)
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+[MORE THAN 3 ACK RESEND] 302400 (217)
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+[MORE THAN 3 ACK RESEND] 302400 (217)
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+[MORE THAN 3 ACK RESEND] 302400 (217)
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+[MORE THAN 3 ACK RESEND] 302400 (217)
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+[MORE THAN 3 ACK RESEND] 302400 (217)
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+[MORE THAN 3 ACK RESEND] 302400 (217)
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+[MORE THAN 3 ACK RESEND] 302400 (217)
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+[MORE THAN 3 ACK RESEND] 302400 (217)
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+[MORE THAN 3 ACK RESEND] 302400 (217)
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+[MORE THAN 3 ACK RESEND] 302400 (217)
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+[MORE THAN 3 ACK RESEND] 302400 (217)
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+[MORE THAN 3 ACK RESEND] 302400 (217)
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+[MORE THAN 3 ACK RESEND] 302400 (217)
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+[MORE THAN 3 ACK RESEND] 302400 (217)
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+[MORE THAN 3 ACK RESEND] 302400 (217)
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 216
+[MORE THAN 3 ACK RESEND] 302400 (217)
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+cur queue front seq is 217
+the usable is 0
+ ------------------------------------------
+[Recv ACK] 217
+cur queue front seq is 218
+the usable is 1
+ ------------------------------------------
+[SEND DATA] 1142400 (1400) Seq(817)
+[Ignore ACK] 217
+cur queue front seq is 218
+the usable is 0
+ ------------------------------------------
+cur queue front seq is 218
+the usable is 0
+ ------------------------------------------
+[Recv ACK] 218
+cur queue front seq is 219
+the usable is 1
+ ------------------------------------------
+[SEND DATA] 1143800 (1400) Seq(818)
+[Ignore ACK] 218
+cur queue front seq is 219
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 218
+[MORE THAN 3 ACK RESEND] 305200 (219)
+cur queue front seq is 219
+the usable is 0
+ ------------------------------------------
+cur queue front seq is 219
+the usable is 0
+ ------------------------------------------
+[Recv ACK] 219
+cur queue front seq is 220
+the usable is 1
+ ------------------------------------------
+[SEND DATA] 1145200 (1400) Seq(819)
+[Ignore ACK] 219
+cur queue front seq is 220
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 219
+[MORE THAN 3 ACK RESEND] 306600 (220)
+cur queue front seq is 220
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 219
+cur queue front seq is 220
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 219
+cur queue front seq is 220
+the usable is 0
+ ------------------------------------------
+cur queue front seq is 220
+the usable is 0
+ ------------------------------------------
+[Recv ACK] 220
+cur queue front seq is 221
+the usable is 1
+ ------------------------------------------
+[SEND DATA] 1146600 (1400) Seq(820)
+[Ignore ACK] 220
+cur queue front seq is 221
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 220
+[MORE THAN 3 ACK RESEND] 308000 (221)
+cur queue front seq is 221
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 220
+cur queue front seq is 221
+the usable is 0
+ ------------------------------------------
+cur queue front seq is 221
+the usable is 0
+ ------------------------------------------
+[Recv ACK] 221
+cur queue front seq is 222
+the usable is 1
+ ------------------------------------------
+[SEND DATA] 1148000 (1400) Seq(821)
+[Ignore ACK] 221
+cur queue front seq is 222
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 221
+[MORE THAN 3 ACK RESEND] 309400 (222)
+cur queue front seq is 222
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 221
+cur queue front seq is 222
+the usable is 0
+ ------------------------------------------
+cur queue front seq is 222
+the usable is 0
+ ------------------------------------------
+[Recv ACK] 222
+cur queue front seq is 223
+the usable is 1
+ ------------------------------------------
+[SEND DATA] 1149400 (1400) Seq(822)
+[Ignore ACK] 222
+cur queue front seq is 223
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 222
+[MORE THAN 3 ACK RESEND] 310800 (223)
+cur queue front seq is 223
+the usable is 0
+ ------------------------------------------
+cur queue front seq is 223
+the usable is 0
+ ------------------------------------------
+[Recv ACK] 223
+cur queue front seq is 224
+the usable is 1
+ ------------------------------------------
+[SEND DATA] 1150800 (1400) Seq(823)
+[Ignore ACK] 223
+cur queue front seq is 224
+the usable is 0
+ ------------------------------------------
+cur queue front seq is 224
+the usable is 0
+ ------------------------------------------
+[Recv ACK] 224
+cur queue front seq is 225
+the usable is 1
+ ------------------------------------------
+[SEND DATA] 1152200 (1400) Seq(824)
+[Ignore ACK] 224
+cur queue front seq is 225
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 224
+[MORE THAN 3 ACK RESEND] 313600 (225)
+cur queue front seq is 225
+the usable is 0
+ ------------------------------------------
+cur queue front seq is 225
+the usable is 0
+ ------------------------------------------
+[Recv ACK] 225
+cur queue front seq is 226
+the usable is 1
+ ------------------------------------------
+[SEND DATA] 1153600 (1400) Seq(825)
+[Ignore ACK] 225
+cur queue front seq is 226
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 225
+[MORE THAN 3 ACK RESEND] 315000 (226)
+cur queue front seq is 226
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 225
+cur queue front seq is 226
+the usable is 0
+ ------------------------------------------
+cur queue front seq is 226
+the usable is 0
+ ------------------------------------------
+[Recv ACK] 226
+cur queue front seq is 227
+the usable is 1
+ ------------------------------------------
+[SEND DATA] 1155000 (1400) Seq(826)
+[Ignore ACK] 226
+cur queue front seq is 227
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 226
+[MORE THAN 3 ACK RESEND] 316400 (227)
+cur queue front seq is 227
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 226
+cur queue front seq is 227
+the usable is 0
+ ------------------------------------------
+cur queue front seq is 227
+the usable is 0
+ ------------------------------------------
+[Recv ACK] 227
+cur queue front seq is 228
+the usable is 1
+ ------------------------------------------
+[SEND DATA] 1156400 (1400) Seq(827)
+[Ignore ACK] 227
+cur queue front seq is 228
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 227
+[MORE THAN 3 ACK RESEND] 317800 (228)
+cur queue front seq is 228
+the usable is 0
+ ------------------------------------------
+cur queue front seq is 228
+the usable is 0
+ ------------------------------------------
+[Recv ACK] 228
+cur queue front seq is 229
+the usable is 1
+ ------------------------------------------
+[SEND DATA] 1157800 (1400) Seq(828)
+[Ignore ACK] 228
+cur queue front seq is 229
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 228
+[MORE THAN 3 ACK RESEND] 319200 (229)
+cur queue front seq is 229
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 228
+cur queue front seq is 229
+the usable is 0
+ ------------------------------------------
+cur queue front seq is 229
+the usable is 0
+ ------------------------------------------
+[Recv ACK] 229
+cur queue front seq is 230
+the usable is 1
+ ------------------------------------------
+[SEND DATA] 1159200 (1400) Seq(829)
+[Ignore ACK] 229
+cur queue front seq is 230
+the usable is 0
+ ------------------------------------------
+cur queue front seq is 230
+the usable is 0
+ ------------------------------------------
+[Recv ACK] 230
+cur queue front seq is 231
+the usable is 1
+ ------------------------------------------
+[SEND DATA] 1160600 (1400) Seq(830)
+[Ignore ACK] 230
+cur queue front seq is 231
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 230
+[MORE THAN 3 ACK RESEND] 322000 (231)
+cur queue front seq is 231
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 230
+cur queue front seq is 231
+the usable is 0
+ ------------------------------------------
+cur queue front seq is 231
+the usable is 0
+ ------------------------------------------
+[Recv ACK] 231
+cur queue front seq is 232
+the usable is 1
+ ------------------------------------------
+[SEND DATA] 1162000 (1400) Seq(831)
+[Ignore ACK] 231
+cur queue front seq is 232
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 231
+[MORE THAN 3 ACK RESEND] 323400 (232)
+cur queue front seq is 232
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 231
+cur queue front seq is 232
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 231
+cur queue front seq is 232
+the usable is 0
+ ------------------------------------------
+cur queue front seq is 232
+the usable is 0
+ ------------------------------------------
+[Recv ACK] 232
+cur queue front seq is 233
+the usable is 1
+ ------------------------------------------
+[SEND DATA] 1163400 (1400) Seq(832)
+[Ignore ACK] 232
+cur queue front seq is 233
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 232
+[MORE THAN 3 ACK RESEND] 324800 (233)
+cur queue front seq is 233
+the usable is 0
+ ------------------------------------------
+cur queue front seq is 233
+the usable is 0
+ ------------------------------------------
+[Recv ACK] 233
+cur queue front seq is 234
+the usable is 1
+ ------------------------------------------
+[SEND DATA] 1164800 (1400) Seq(833)
+[Ignore ACK] 233
+cur queue front seq is 234
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 233
+[MORE THAN 3 ACK RESEND] 326200 (234)
+cur queue front seq is 234
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 233
+cur queue front seq is 234
+the usable is 0
+ ------------------------------------------
+cur queue front seq is 234
+the usable is 0
+ ------------------------------------------
+[Recv ACK] 234
+cur queue front seq is 235
+the usable is 1
+ ------------------------------------------
+[SEND DATA] 1166200 (1400) Seq(834)
+[Ignore ACK] 234
+cur queue front seq is 235
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 234
+[MORE THAN 3 ACK RESEND] 327600 (235)
+cur queue front seq is 235
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 234
+cur queue front seq is 235
+the usable is 0
+ ------------------------------------------
+cur queue front seq is 235
+the usable is 0
+ ------------------------------------------
+[Recv ACK] 235
+cur queue front seq is 236
+the usable is 1
+ ------------------------------------------
+[SEND DATA] 1167600 (1400) Seq(835)
+[Ignore ACK] 235
+cur queue front seq is 236
+the usable is 0
+ ------------------------------------------
+cur queue front seq is 236
+the usable is 0
+ ------------------------------------------
+[Recv ACK] 236
+cur queue front seq is 237
+the usable is 1
+ ------------------------------------------
+[SEND DATA] 1169000 (1400) Seq(836)
+[Ignore ACK] 236
+cur queue front seq is 237
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 236
+[MORE THAN 3 ACK RESEND] 330400 (237)
+cur queue front seq is 237
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 236
+cur queue front seq is 237
+the usable is 0
+ ------------------------------------------
+cur queue front seq is 237
+the usable is 0
+ ------------------------------------------
+[Recv ACK] 237
+cur queue front seq is 238
+the usable is 1
+ ------------------------------------------
+[SEND DATA] 1170400 (1400) Seq(837)
+[Ignore ACK] 237
+cur queue front seq is 238
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 237
+[MORE THAN 3 ACK RESEND] 331800 (238)
+cur queue front seq is 238
+the usable is 0
+ ------------------------------------------
+cur queue front seq is 238
+the usable is 0
+ ------------------------------------------
+[Recv ACK] 238
+cur queue front seq is 239
+the usable is 1
+ ------------------------------------------
+[SEND DATA] 1171800 (1400) Seq(838)
+[Ignore ACK] 238
+cur queue front seq is 239
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 238
+[MORE THAN 3 ACK RESEND] 333200 (239)
+cur queue front seq is 239
+the usable is 0
+ ------------------------------------------
+cur queue front seq is 239
+the usable is 0
+ ------------------------------------------
+[Recv ACK] 239
+cur queue front seq is 240
+the usable is 1
+ ------------------------------------------
+[SEND DATA] 1173200 (1400) Seq(839)
+[Ignore ACK] 239
+cur queue front seq is 240
+the usable is 0
+ ------------------------------------------
+cur queue front seq is 240
+the usable is 0
+ ------------------------------------------
+[Recv ACK] 240
+cur queue front seq is 241
+the usable is 1
+ ------------------------------------------
+[SEND DATA] 1174600 (1400) Seq(840)
+[Ignore ACK] 240
+cur queue front seq is 241
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 240
+[MORE THAN 3 ACK RESEND] 336000 (241)
+cur queue front seq is 241
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 240
+cur queue front seq is 241
+the usable is 0
+ ------------------------------------------
+cur queue front seq is 241
+the usable is 0
+ ------------------------------------------
+[Recv ACK] 241
+cur queue front seq is 242
+the usable is 1
+ ------------------------------------------
+[SEND DATA] 1176000 (1400) Seq(841)
+[Ignore ACK] 241
+cur queue front seq is 242
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 241
+[MORE THAN 3 ACK RESEND] 337400 (242)
+cur queue front seq is 242
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 241
+cur queue front seq is 242
+the usable is 0
+ ------------------------------------------
+cur queue front seq is 242
+the usable is 0
+ ------------------------------------------
+[Recv ACK] 242
+cur queue front seq is 243
+the usable is 1
+ ------------------------------------------
+[SEND DATA] 1177400 (1400) Seq(842)
+[Ignore ACK] 242
+cur queue front seq is 243
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 242
+[MORE THAN 3 ACK RESEND] 338800 (243)
+cur queue front seq is 243
+the usable is 0
+ ------------------------------------------
+cur queue front seq is 243
+the usable is 0
+ ------------------------------------------
+[Recv ACK] 243
+cur queue front seq is 244
+the usable is 1
+ ------------------------------------------
+[SEND DATA] 1178800 (1400) Seq(843)
+[Ignore ACK] 243
+cur queue front seq is 244
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 243
+[MORE THAN 3 ACK RESEND] 340200 (244)
+cur queue front seq is 244
+the usable is 0
+ ------------------------------------------
+cur queue front seq is 244
+the usable is 0
+ ------------------------------------------
+[Recv ACK] 244
+cur queue front seq is 245
+the usable is 1
+ ------------------------------------------
+[SEND DATA] 1180200 (1400) Seq(844)
+[Ignore ACK] 244
+cur queue front seq is 245
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 244
+[MORE THAN 3 ACK RESEND] 341600 (245)
+cur queue front seq is 245
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 244
+cur queue front seq is 245
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 244
+cur queue front seq is 245
+the usable is 0
+ ------------------------------------------
+cur queue front seq is 245
+the usable is 0
+ ------------------------------------------
+[Recv ACK] 245
+cur queue front seq is 246
+the usable is 1
+ ------------------------------------------
+[SEND DATA] 1181600 (1400) Seq(845)
+[Ignore ACK] 245
+cur queue front seq is 246
+the usable is 0
+ ------------------------------------------
+cur queue front seq is 246
+the usable is 0
+ ------------------------------------------
+[Recv ACK] 246
+cur queue front seq is 247
+the usable is 1
+ ------------------------------------------
+[SEND DATA] 1183000 (1400) Seq(846)
+[Ignore ACK] 246
+cur queue front seq is 247
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 246
+[MORE THAN 3 ACK RESEND] 344400 (247)
+cur queue front seq is 247
+the usable is 0
+ ------------------------------------------
+cur queue front seq is 247
+the usable is 0
+ ------------------------------------------
+[Recv ACK] 247
+cur queue front seq is 248
+the usable is 1
+ ------------------------------------------
+[SEND DATA] 1184400 (1400) Seq(847)
+[Ignore ACK] 247
+cur queue front seq is 248
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 247
+[MORE THAN 3 ACK RESEND] 345800 (248)
+cur queue front seq is 248
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 247
+cur queue front seq is 248
+the usable is 0
+ ------------------------------------------
+cur queue front seq is 248
+the usable is 0
+ ------------------------------------------
+[Recv ACK] 248
+cur queue front seq is 249
+the usable is 1
+ ------------------------------------------
+[SEND DATA] 1185800 (1400) Seq(848)
+[Ignore ACK] 248
+cur queue front seq is 249
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 248
+[MORE THAN 3 ACK RESEND] 347200 (249)
+cur queue front seq is 249
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 248
+cur queue front seq is 249
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 248
+cur queue front seq is 249
+the usable is 0
+ ------------------------------------------
+cur queue front seq is 249
+the usable is 0
+ ------------------------------------------
+[Recv ACK] 249
+cur queue front seq is 250
+the usable is 1
+ ------------------------------------------
+[SEND DATA] 1187200 (1400) Seq(849)
+[Ignore ACK] 249
+cur queue front seq is 250
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 249
+[MORE THAN 3 ACK RESEND] 348600 (250)
+cur queue front seq is 250
+the usable is 0
+ ------------------------------------------
+cur queue front seq is 250
+the usable is 0
+ ------------------------------------------
+[Recv ACK] 250
+cur queue front seq is 251
+the usable is 1
+ ------------------------------------------
+[SEND DATA] 1188600 (1400) Seq(850)
+[Ignore ACK] 250
+cur queue front seq is 251
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 250
+[MORE THAN 3 ACK RESEND] 350000 (251)
+cur queue front seq is 251
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 250
+cur queue front seq is 251
+the usable is 0
+ ------------------------------------------
+cur queue front seq is 251
+the usable is 0
+ ------------------------------------------
+[Recv ACK] 251
+cur queue front seq is 252
+the usable is 1
+ ------------------------------------------
+[SEND DATA] 1190000 (1400) Seq(851)
+[Ignore ACK] 251
+cur queue front seq is 252
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 251
+[MORE THAN 3 ACK RESEND] 351400 (252)
+cur queue front seq is 252
+the usable is 0
+ ------------------------------------------
+cur queue front seq is 252
+the usable is 0
+ ------------------------------------------
+[Recv ACK] 252
+cur queue front seq is 253
+the usable is 1
+ ------------------------------------------
+[SEND DATA] 1191400 (1400) Seq(852)
+[Ignore ACK] 252
+cur queue front seq is 253
+the usable is 0
+ ------------------------------------------
+cur queue front seq is 253
+the usable is 0
+ ------------------------------------------
+[Recv ACK] 253
+cur queue front seq is 254
+the usable is 1
+ ------------------------------------------
+[SEND DATA] 1192800 (1400) Seq(853)
+[Ignore ACK] 253
+cur queue front seq is 254
+the usable is 0
+ ------------------------------------------
+cur queue front seq is 254
+the usable is 0
+ ------------------------------------------
+[Recv ACK] 254
+cur queue front seq is 255
+the usable is 1
+ ------------------------------------------
+[SEND DATA] 1194200 (1400) Seq(854)
+[Ignore ACK] 254
+cur queue front seq is 255
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 254
+[MORE THAN 3 ACK RESEND] 355600 (255)
+cur queue front seq is 255
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 254
+cur queue front seq is 255
+the usable is 0
+ ------------------------------------------
+cur queue front seq is 255
+the usable is 0
+ ------------------------------------------
+[Recv ACK] 255
+cur queue front seq is 256
+the usable is 1
+ ------------------------------------------
+[SEND DATA] 1195600 (1400) Seq(855)
+[Ignore ACK] 255
+cur queue front seq is 256
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 255
+[MORE THAN 3 ACK RESEND] 357000 (256)
+cur queue front seq is 256
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 255
+cur queue front seq is 256
+the usable is 0
+ ------------------------------------------
+cur queue front seq is 256
+the usable is 0
+ ------------------------------------------
+[Recv ACK] 256
+cur queue front seq is 257
+the usable is 1
+ ------------------------------------------
+[SEND DATA] 1197000 (1400) Seq(856)
+[Ignore ACK] 256
+cur queue front seq is 257
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 256
+[MORE THAN 3 ACK RESEND] 358400 (257)
+cur queue front seq is 257
+the usable is 0
+ ------------------------------------------
+cur queue front seq is 257
+the usable is 0
+ ------------------------------------------
+[Recv ACK] 257
+cur queue front seq is 258
+the usable is 1
+ ------------------------------------------
+[SEND DATA] 1198400 (1400) Seq(857)
+[Ignore ACK] 257
+cur queue front seq is 258
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 257
+[MORE THAN 3 ACK RESEND] 359800 (258)
+cur queue front seq is 258
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 257
+cur queue front seq is 258
+the usable is 0
+ ------------------------------------------
+cur queue front seq is 258
+the usable is 0
+ ------------------------------------------
+[Recv ACK] 258
+cur queue front seq is 259
+the usable is 1
+ ------------------------------------------
+[SEND DATA] 1199800 (1400) Seq(858)
+[Ignore ACK] 258
+cur queue front seq is 259
+the usable is 0
+ ------------------------------------------
+cur queue front seq is 259
+the usable is 0
+ ------------------------------------------
+[Recv ACK] 259
+cur queue front seq is 260
+the usable is 1
+ ------------------------------------------
+[SEND DATA] 1201200 (1400) Seq(859)
+[Ignore ACK] 259
+cur queue front seq is 260
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 259
+[MORE THAN 3 ACK RESEND] 362600 (260)
+cur queue front seq is 260
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 259
+cur queue front seq is 260
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 259
+cur queue front seq is 260
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 259
+[MORE THAN 3 ACK RESEND] 362600 (260)
+cur queue front seq is 260
+the usable is 0
+ ------------------------------------------
+cur queue front seq is 260
+the usable is 0
+ ------------------------------------------
+[Recv ACK] 260
+cur queue front seq is 261
+the usable is 1
+ ------------------------------------------
+[SEND DATA] 1202600 (1400) Seq(860)
+[Ignore ACK] 260
+cur queue front seq is 261
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 260
+[MORE THAN 3 ACK RESEND] 364000 (261)
+cur queue front seq is 261
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 260
+cur queue front seq is 261
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 260
+cur queue front seq is 261
+the usable is 0
+ ------------------------------------------
+cur queue front seq is 261
+the usable is 0
+ ------------------------------------------
+[Recv ACK] 261
+cur queue front seq is 262
+the usable is 1
+ ------------------------------------------
+[SEND DATA] 1204000 (1400) Seq(861)
+[Ignore ACK] 261
+cur queue front seq is 262
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 261
+[MORE THAN 3 ACK RESEND] 365400 (262)
+cur queue front seq is 262
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 261
+cur queue front seq is 262
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 261
+cur queue front seq is 262
+the usable is 0
+ ------------------------------------------
+cur queue front seq is 262
+the usable is 0
+ ------------------------------------------
+[Recv ACK] 262
+cur queue front seq is 263
+the usable is 1
+ ------------------------------------------
+[SEND DATA] 1205400 (1400) Seq(862)
+[Ignore ACK] 262
+cur queue front seq is 263
+the usable is 0
+ ------------------------------------------
+cur queue front seq is 263
+the usable is 0
+ ------------------------------------------
+[Recv ACK] 263
+cur queue front seq is 264
+the usable is 1
+ ------------------------------------------
+[SEND DATA] 1206800 (1400) Seq(863)
+[Ignore ACK] 263
+cur queue front seq is 264
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 263
+[MORE THAN 3 ACK RESEND] 368200 (264)
+cur queue front seq is 264
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 263
+cur queue front seq is 264
+the usable is 0
+ ------------------------------------------
+cur queue front seq is 264
+the usable is 0
+ ------------------------------------------
+[Recv ACK] 264
+cur queue front seq is 265
+the usable is 1
+ ------------------------------------------
+[SEND DATA] 1208200 (1400) Seq(864)
+[Ignore ACK] 264
+cur queue front seq is 265
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 264
+[MORE THAN 3 ACK RESEND] 369600 (265)
+cur queue front seq is 265
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 264
+cur queue front seq is 265
+the usable is 0
+ ------------------------------------------
+cur queue front seq is 265
+the usable is 0
+ ------------------------------------------
+[Recv ACK] 265
+cur queue front seq is 266
+the usable is 1
+ ------------------------------------------
+[SEND DATA] 1209600 (1400) Seq(865)
+[Ignore ACK] 265
+cur queue front seq is 266
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 265
+[MORE THAN 3 ACK RESEND] 371000 (266)
+cur queue front seq is 266
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 265
+cur queue front seq is 266
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 265
+cur queue front seq is 266
+the usable is 0
+ ------------------------------------------
+cur queue front seq is 266
+the usable is 0
+ ------------------------------------------
+[Recv ACK] 266
+cur queue front seq is 267
+the usable is 1
+ ------------------------------------------
+[SEND DATA] 1211000 (1400) Seq(866)
+[Ignore ACK] 266
+cur queue front seq is 267
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 266
+[MORE THAN 3 ACK RESEND] 372400 (267)
+cur queue front seq is 267
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 266
+cur queue front seq is 267
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 266
+cur queue front seq is 267
+the usable is 0
+ ------------------------------------------
+cur queue front seq is 267
+the usable is 0
+ ------------------------------------------
+[Recv ACK] 267
+cur queue front seq is 268
+the usable is 1
+ ------------------------------------------
+[SEND DATA] 1212400 (1400) Seq(867)
+[Ignore ACK] 267
+cur queue front seq is 268
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 267
+[MORE THAN 3 ACK RESEND] 373800 (268)
+cur queue front seq is 268
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 267
+cur queue front seq is 268
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 267
+cur queue front seq is 268
+the usable is 0
+ ------------------------------------------
+cur queue front seq is 268
+the usable is 0
+ ------------------------------------------
+[Recv ACK] 268
+cur queue front seq is 269
+the usable is 1
+ ------------------------------------------
+[SEND DATA] 1213800 (1400) Seq(868)
+[Ignore ACK] 268
+cur queue front seq is 269
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 268
+[MORE THAN 3 ACK RESEND] 375200 (269)
+cur queue front seq is 269
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 268
+cur queue front seq is 269
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 268
+cur queue front seq is 269
+the usable is 0
+ ------------------------------------------
+cur queue front seq is 269
+the usable is 0
+ ------------------------------------------
+[Recv ACK] 269
+cur queue front seq is 270
+the usable is 1
+ ------------------------------------------
+[SEND DATA] 1215200 (1400) Seq(869)
+[Ignore ACK] 269
+cur queue front seq is 270
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 269
+[MORE THAN 3 ACK RESEND] 376600 (270)
+cur queue front seq is 270
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 269
+cur queue front seq is 270
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 269
+cur queue front seq is 270
+the usable is 0
+ ------------------------------------------
+cur queue front seq is 270
+the usable is 0
+ ------------------------------------------
+[Recv ACK] 270
+cur queue front seq is 271
+the usable is 1
+ ------------------------------------------
+[SEND DATA] 1216600 (1400) Seq(870)
+[Ignore ACK] 270
+cur queue front seq is 271
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 270
+[MORE THAN 3 ACK RESEND] 378000 (271)
+cur queue front seq is 271
+the usable is 0
+ ------------------------------------------
+cur queue front seq is 271
+the usable is 0
+ ------------------------------------------
+[Recv ACK] 271
+cur queue front seq is 272
+the usable is 1
+ ------------------------------------------
+[SEND DATA] 1218000 (1400) Seq(871)
+[Ignore ACK] 271
+cur queue front seq is 272
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 271
+[MORE THAN 3 ACK RESEND] 379400 (272)
+cur queue front seq is 272
+the usable is 0
+ ------------------------------------------
+cur queue front seq is 272
+the usable is 0
+ ------------------------------------------
+[Recv ACK] 272
+cur queue front seq is 273
+the usable is 1
+ ------------------------------------------
+[SEND DATA] 1219400 (1400) Seq(872)
+[Ignore ACK] 272
+cur queue front seq is 273
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 272
+[MORE THAN 3 ACK RESEND] 380800 (273)
+cur queue front seq is 273
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 272
+cur queue front seq is 273
+the usable is 0
+ ------------------------------------------
+cur queue front seq is 273
+the usable is 0
+ ------------------------------------------
+[Recv ACK] 273
+cur queue front seq is 274
+the usable is 1
+ ------------------------------------------
+[SEND DATA] 1220800 (1400) Seq(873)
+[Ignore ACK] 273
+cur queue front seq is 274
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 273
+[MORE THAN 3 ACK RESEND] 382200 (274)
+cur queue front seq is 274
+the usable is 0
+ ------------------------------------------
+cur queue front seq is 274
+the usable is 0
+ ------------------------------------------
+[Recv ACK] 274
+cur queue front seq is 275
+the usable is 1
+ ------------------------------------------
+[SEND DATA] 1222200 (1400) Seq(874)
+[Ignore ACK] 274
+cur queue front seq is 275
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 274
+[MORE THAN 3 ACK RESEND] 383600 (275)
+cur queue front seq is 275
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 274
+cur queue front seq is 275
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 274
+cur queue front seq is 275
+the usable is 0
+ ------------------------------------------
+cur queue front seq is 275
+the usable is 0
+ ------------------------------------------
+[Recv ACK] 275
+cur queue front seq is 276
+the usable is 1
+ ------------------------------------------
+[SEND DATA] 1223600 (1400) Seq(875)
+[Ignore ACK] 275
+cur queue front seq is 276
+the usable is 0
+ ------------------------------------------
+cur queue front seq is 276
+the usable is 0
+ ------------------------------------------
+[Recv ACK] 276
+cur queue front seq is 277
+the usable is 1
+ ------------------------------------------
+[SEND DATA] 1225000 (1400) Seq(876)
+[Ignore ACK] 276
+cur queue front seq is 277
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 276
+[MORE THAN 3 ACK RESEND] 386400 (277)
+cur queue front seq is 277
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 276
+cur queue front seq is 277
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 276
+cur queue front seq is 277
+the usable is 0
+ ------------------------------------------
+cur queue front seq is 277
+the usable is 0
+ ------------------------------------------
+[Recv ACK] 277
+cur queue front seq is 278
+the usable is 1
+ ------------------------------------------
+[SEND DATA] 1226400 (1400) Seq(877)
+[Ignore ACK] 277
+cur queue front seq is 278
+the usable is 0
+ ------------------------------------------
+cur queue front seq is 278
+the usable is 0
+ ------------------------------------------
+[Recv ACK] 278
+cur queue front seq is 279
+the usable is 1
+ ------------------------------------------
+[SEND DATA] 1227800 (1400) Seq(878)
+[Ignore ACK] 278
+cur queue front seq is 279
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 278
+[MORE THAN 3 ACK RESEND] 389200 (279)
+cur queue front seq is 279
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 278
+cur queue front seq is 279
+the usable is 0
+ ------------------------------------------
+cur queue front seq is 279
+the usable is 0
+ ------------------------------------------
+[Recv ACK] 279
+cur queue front seq is 280
+the usable is 1
+ ------------------------------------------
+[SEND DATA] 1229200 (1400) Seq(879)
+[Ignore ACK] 279
+cur queue front seq is 280
+the usable is 0
+ ------------------------------------------
+cur queue front seq is 280
+the usable is 0
+ ------------------------------------------
+[Recv ACK] 280
+cur queue front seq is 281
+the usable is 1
+ ------------------------------------------
+[SEND DATA] 1230600 (1400) Seq(880)
+[Ignore ACK] 280
+cur queue front seq is 281
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 280
+[MORE THAN 3 ACK RESEND] 392000 (281)
+cur queue front seq is 281
+the usable is 0
+ ------------------------------------------
+cur queue front seq is 281
+the usable is 0
+ ------------------------------------------
+[Recv ACK] 281
+cur queue front seq is 282
+the usable is 1
+ ------------------------------------------
+[SEND DATA] 1232000 (1400) Seq(881)
+[Ignore ACK] 281
+cur queue front seq is 282
+the usable is 0
+ ------------------------------------------
+cur queue front seq is 282
+the usable is 0
+ ------------------------------------------
+[Recv ACK] 282
+cur queue front seq is 283
+the usable is 1
+ ------------------------------------------
+[SEND DATA] 1233400 (1400) Seq(882)
+[Ignore ACK] 282
+cur queue front seq is 283
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 282
+[MORE THAN 3 ACK RESEND] 394800 (283)
+cur queue front seq is 283
+the usable is 0
+ ------------------------------------------
+cur queue front seq is 283
+the usable is 0
+ ------------------------------------------
+[Recv ACK] 283
+cur queue front seq is 284
+the usable is 1
+ ------------------------------------------
+[SEND DATA] 1234800 (1400) Seq(883)
+[Ignore ACK] 283
+cur queue front seq is 284
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 283
+[MORE THAN 3 ACK RESEND] 396200 (284)
+cur queue front seq is 284
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 283
+cur queue front seq is 284
+the usable is 0
+ ------------------------------------------
+cur queue front seq is 284
+the usable is 0
+ ------------------------------------------
+[Recv ACK] 284
+cur queue front seq is 285
+the usable is 1
+ ------------------------------------------
+[SEND DATA] 1236200 (1400) Seq(884)
+[Ignore ACK] 284
+cur queue front seq is 285
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 284
+[MORE THAN 3 ACK RESEND] 397600 (285)
+cur queue front seq is 285
+the usable is 0
+ ------------------------------------------
+cur queue front seq is 285
+the usable is 0
+ ------------------------------------------
+[Recv ACK] 285
+cur queue front seq is 286
+the usable is 1
+ ------------------------------------------
+[SEND DATA] 1237600 (1400) Seq(885)
+[Ignore ACK] 285
+cur queue front seq is 286
+the usable is 0
+ ------------------------------------------
+cur queue front seq is 286
+the usable is 0
+ ------------------------------------------
+[Recv ACK] 286
+cur queue front seq is 287
+the usable is 1
+ ------------------------------------------
+[SEND DATA] 1239000 (1400) Seq(886)
+[Ignore ACK] 286
+cur queue front seq is 287
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 286
+[MORE THAN 3 ACK RESEND] 400400 (287)
+cur queue front seq is 287
+the usable is 0
+ ------------------------------------------
+cur queue front seq is 287
+the usable is 0
+ ------------------------------------------
+[Recv ACK] 287
+cur queue front seq is 288
+the usable is 1
+ ------------------------------------------
+[SEND DATA] 1240400 (1400) Seq(887)
+[Ignore ACK] 287
+cur queue front seq is 288
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 287
+[MORE THAN 3 ACK RESEND] 401800 (288)
+cur queue front seq is 288
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 287
+cur queue front seq is 288
+the usable is 0
+ ------------------------------------------
+cur queue front seq is 288
+the usable is 0
+ ------------------------------------------
+[Recv ACK] 288
+cur queue front seq is 289
+the usable is 1
+ ------------------------------------------
+[SEND DATA] 1241800 (1400) Seq(888)
+[Ignore ACK] 288
+cur queue front seq is 289
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 288
+[MORE THAN 3 ACK RESEND] 403200 (289)
+cur queue front seq is 289
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 288
+cur queue front seq is 289
+the usable is 0
+ ------------------------------------------
+cur queue front seq is 289
+the usable is 0
+ ------------------------------------------
+[Recv ACK] 289
+cur queue front seq is 290
+the usable is 1
+ ------------------------------------------
+[SEND DATA] 1243200 (1400) Seq(889)
+[Ignore ACK] 289
+cur queue front seq is 290
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 289
+[MORE THAN 3 ACK RESEND] 404600 (290)
+cur queue front seq is 290
+the usable is 0
+ ------------------------------------------
+cur queue front seq is 290
+the usable is 0
+ ------------------------------------------
+[Recv ACK] 290
+cur queue front seq is 291
+the usable is 1
+ ------------------------------------------
+[SEND DATA] 1244600 (1400) Seq(890)
+[Ignore ACK] 290
+cur queue front seq is 291
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 290
+[MORE THAN 3 ACK RESEND] 406000 (291)
+cur queue front seq is 291
+the usable is 0
+ ------------------------------------------
+[Ignore ACK] 290
+cur queue front seq is 291
+the usable is 0
+ ------------------------------------------
+cur queue front seq is 291
+the usable is 0
+ ------------------------------------------
+[Recv ACK] 890
+cur queue front seq is 291
+the usable is 600
+ ------------------------------------------
+[SEND DATA] 1246000 (1400) Seq(891)
+[SEND DATA] 1247400 (1400) Seq(892)
+[SEND DATA] 1248800 (1400) Seq(893)
+[SEND DATA] 1250200 (1400) Seq(894)
+[SEND DATA] 1251600 (1400) Seq(895)
+[SEND DATA] 1253000 (1400) Seq(896)
+[SEND DATA] 1254400 (1400) Seq(897)
+[SEND DATA] 1255800 (1400) Seq(898)
+[SEND DATA] 1257200 (1400) Seq(899)
+[SEND DATA] 1258600 (1400) Seq(900)
+[SEND DATA] 1260000 (1400) Seq(901)
+[SEND DATA] 1261400 (1400) Seq(902)
+[SEND DATA] 1262800 (1400) Seq(903)
+[SEND DATA] 1264200 (1400) Seq(904)
+[SEND DATA] 1265600 (1400) Seq(905)
+[SEND DATA] 1267000 (1400) Seq(906)
+[SEND DATA] 1268400 (1400) Seq(907)
+[SEND DATA] 1269800 (1400) Seq(908)
+[SEND DATA] 1271200 (1400) Seq(909)
+[SEND DATA] 1272600 (1400) Seq(910)
+[SEND DATA] 1274000 (1400) Seq(911)
+[SEND DATA] 1275400 (1400) Seq(912)
+[SEND DATA] 1276800 (1400) Seq(913)
+[SEND DATA] 1278200 (1400) Seq(914)
+[SEND DATA] 1279600 (1400) Seq(915)
+[SEND DATA] 1281000 (1400) Seq(916)
+[SEND DATA] 1282400 (1400) Seq(917)
+[SEND DATA] 1283800 (1400) Seq(918)
+[SEND DATA] 1285200 (1400) Seq(919)
+[SEND DATA] 1286600 (1400) Seq(920)
+[SEND DATA] 1288000 (890) Seq(921)
+[Ignore ACK] 890
+cur queue front seq is 891
+the usable is 569
+ ------------------------------------------
+[Ignore ACK] 890
+[MORE THAN 3 ACK RESEND] 1246000 (891)
+cur queue front seq is 891
+the usable is 569
+ ------------------------------------------
+[Recv ACK] 891
+cur queue front seq is 892
+the usable is 570
+ ------------------------------------------
+[Ignore ACK] 891
+cur queue front seq is 892
+the usable is 570
+ ------------------------------------------
+[Recv ACK] 892
+cur queue front seq is 893
+the usable is 571
+ ------------------------------------------
+[Ignore ACK] 892
+cur queue front seq is 893
+the usable is 571
+ ------------------------------------------
+[Recv ACK] 893
+cur queue front seq is 894
+the usable is 572
+ ------------------------------------------
+[Recv ACK] 894
+cur queue front seq is 895
+the usable is 573
+ ------------------------------------------
+[Ignore ACK] 894
+cur queue front seq is 895
+the usable is 573
+ ------------------------------------------
+[Ignore ACK] 894
+[MORE THAN 3 ACK RESEND] 1251600 (895)
+cur queue front seq is 895
+the usable is 573
+ ------------------------------------------
+[Recv ACK] 895
+cur queue front seq is 896
+the usable is 574
+ ------------------------------------------
+[Ignore ACK] 895
+cur queue front seq is 896
+the usable is 574
+ ------------------------------------------
+[Recv ACK] 896
+cur queue front seq is 897
+the usable is 575
+ ------------------------------------------
+[Ignore ACK] 896
+cur queue front seq is 897
+the usable is 575
+ ------------------------------------------
+[Recv ACK] 897
+cur queue front seq is 898
+the usable is 576
+ ------------------------------------------
+[Ignore ACK] 897
+cur queue front seq is 898
+the usable is 576
+ ------------------------------------------
+[Recv ACK] 898
+cur queue front seq is 899
+the usable is 577
+ ------------------------------------------
+[Ignore ACK] 898
+cur queue front seq is 899
+the usable is 577
+ ------------------------------------------
+[Recv ACK] 899
+cur queue front seq is 900
+the usable is 578
+ ------------------------------------------
+[Ignore ACK] 899
+cur queue front seq is 900
+the usable is 578
+ ------------------------------------------
+[Recv ACK] 900
+cur queue front seq is 901
+the usable is 579
+ ------------------------------------------
+[Ignore ACK] 900
+cur queue front seq is 901
+the usable is 579
+ ------------------------------------------
+[Recv ACK] 901
+cur queue front seq is 902
+the usable is 580
+ ------------------------------------------
+[Ignore ACK] 901
+cur queue front seq is 902
+the usable is 580
+ ------------------------------------------
+[Ignore ACK] 901
+[MORE THAN 3 ACK RESEND] 1261400 (902)
+cur queue front seq is 902
+the usable is 580
+ ------------------------------------------
+[Recv ACK] 902
+cur queue front seq is 903
+the usable is 581
+ ------------------------------------------
+[Ignore ACK] 902
+cur queue front seq is 903
+the usable is 581
+ ------------------------------------------
+[Recv ACK] 903
+cur queue front seq is 904
+the usable is 582
+ ------------------------------------------
+[Recv ACK] 904
+cur queue front seq is 905
+the usable is 583
+ ------------------------------------------
+[Recv ACK] 905
+cur queue front seq is 906
+the usable is 584
+ ------------------------------------------
+[Recv ACK] 906
+cur queue front seq is 907
+the usable is 585
+ ------------------------------------------
+[Ignore ACK] 906
+cur queue front seq is 907
+the usable is 585
+ ------------------------------------------
+[Ignore ACK] 906
+[MORE THAN 3 ACK RESEND] 1268400 (907)
+cur queue front seq is 907
+the usable is 585
+ ------------------------------------------
+[Recv ACK] 907
+cur queue front seq is 908
+the usable is 586
+ ------------------------------------------
+[Recv ACK] 908
+cur queue front seq is 909
+the usable is 587
+ ------------------------------------------
+[Recv ACK] 909
+cur queue front seq is 910
+the usable is 588
+ ------------------------------------------
+[Recv ACK] 910
+cur queue front seq is 911
+the usable is 589
+ ------------------------------------------
+[Ignore ACK] 910
+cur queue front seq is 911
+the usable is 589
+ ------------------------------------------
+[Ignore ACK] 910
+[MORE THAN 3 ACK RESEND] 1274000 (911)
+cur queue front seq is 911
+the usable is 589
+ ------------------------------------------
+[Recv ACK] 911
+cur queue front seq is 912
+the usable is 590
+ ------------------------------------------
+[Ignore ACK] 911
+cur queue front seq is 912
+the usable is 590
+ ------------------------------------------
+[Ignore ACK] 911
+[MORE THAN 3 ACK RESEND] 1275400 (912)
+cur queue front seq is 912
+the usable is 590
+ ------------------------------------------
+[Recv ACK] 912
+cur queue front seq is 913
+the usable is 591
+ ------------------------------------------
+[Ignore ACK] 912
+cur queue front seq is 913
+the usable is 591
+ ------------------------------------------
+[Ignore ACK] 912
+[MORE THAN 3 ACK RESEND] 1276800 (913)
+cur queue front seq is 913
+the usable is 591
+ ------------------------------------------
+[Ignore ACK] 912
+cur queue front seq is 913
+the usable is 591
+ ------------------------------------------
+[Recv ACK] 913
+cur queue front seq is 914
+the usable is 592
+ ------------------------------------------
+[Ignore ACK] 913
+cur queue front seq is 914
+the usable is 592
+ ------------------------------------------
+[Recv ACK] 914
+cur queue front seq is 915
+the usable is 593
+ ------------------------------------------
+[Recv ACK] 915
+cur queue front seq is 916
+the usable is 594
+ ------------------------------------------
+[Recv ACK] 916
+cur queue front seq is 917
+the usable is 595
+ ------------------------------------------
+[Ignore ACK] 916
+cur queue front seq is 917
+the usable is 595
+ ------------------------------------------
+[Recv ACK] 917
+cur queue front seq is 918
+the usable is 596
+ ------------------------------------------
+[Recv ACK] 918
+cur queue front seq is 919
+the usable is 597
+ ------------------------------------------
+[Ignore ACK] 918
+cur queue front seq is 919
+the usable is 597
+ ------------------------------------------
+[Ignore ACK] 918
+[MORE THAN 3 ACK RESEND] 1285200 (919)
+cur queue front seq is 919
+the usable is 597
+ ------------------------------------------
+[Recv ACK] 919
+cur queue front seq is 920
+the usable is 598
+ ------------------------------------------
+[Recv ACK] 920
+cur queue front seq is 921
+the usable is 599
+ ------------------------------------------
+[Recv ACK] 921
+cur queue front seq is 322
+the usable is 600
+ ------------------------------------------
+Sending file successfully, using 7.000000$
+$
+$

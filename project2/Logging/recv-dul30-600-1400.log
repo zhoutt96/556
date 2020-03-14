@@ -1,0 +1,2460 @@
+[tz16@amber project2]$ ./recvfile -p 18004
+receive the filename successfully
+Successful create file: data/data1M.txt.recv
+window size is 600
+[recv data] 0 (1400) 1 ACCEPTED(in-order)
+[send ack] 1
+[recv data] 1400 (1400) 2 ACCEPTED(in-order)
+[send ack] 2
+[recv data] 2800 (1400) 3 ACCEPTED(in-order)
+[send ack] 3
+[recv data] 4200 (1400) 4 ACCEPTED(in-order)
+[send ack] 4
+[recv data] 5600 (1400) 5 ACCEPTED(in-order)
+[send ack] 5
+[recv data] 7000 (1400) 6 ACCEPTED(in-order)
+[send ack] 6
+[recv data] 8400 (1400) 7 ACCEPTED(in-order)
+[send ack] 7
+[recv data] 9800 (1400) 8 ACCEPTED(in-order)
+[send ack] 8
+[recv data] 11200 (1400) 9 ACCEPTED(in-order)
+[send ack] 9
+[recv data] 11200 (1400) 9 IGNORED
+[send ack] 9
+[recv data] 12600 (1400) 10 ACCEPTED(in-order)
+[send ack] 10
+[recv data] 14000 (1400) 11 ACCEPTED(in-order)
+[send ack] 11
+[recv data] 15400 (1400) 12 ACCEPTED(in-order)
+[send ack] 12
+[recv data] 16800 (1400) 13 ACCEPTED(in-order)
+[send ack] 13
+[recv data] 18200 (1400) 14 ACCEPTED(in-order)
+[send ack] 14
+[recv data] 19600 (1400) 15 ACCEPTED(in-order)
+[send ack] 15
+[recv data] 21000 (1400) 16 ACCEPTED(in-order)
+[send ack] 16
+[recv data] 22400 (1400) 17 ACCEPTED(in-order)
+[send ack] 17
+[recv data] 22400 (1400) 17 IGNORED
+[send ack] 17
+[recv data] 23800 (1400) 18 ACCEPTED(in-order)
+[send ack] 18
+[recv data] 23800 (1400) 18 IGNORED
+[send ack] 18
+[recv data] 25200 (1400) 19 ACCEPTED(in-order)
+[send ack] 19
+[recv data] 26600 (1400) 20 ACCEPTED(in-order)
+[send ack] 20
+[recv data] 26600 (1400) 20 IGNORED
+[send ack] 20
+[recv data] 28000 (1400) 21 ACCEPTED(in-order)
+[send ack] 21
+[recv data] 28000 (1400) 21 IGNORED
+[send ack] 21
+[recv data] 29400 (1400) 22 ACCEPTED(in-order)
+[send ack] 22
+[recv data] 30800 (1400) 23 ACCEPTED(in-order)
+[send ack] 23
+[recv data] 30800 (1400) 23 IGNORED
+[send ack] 23
+[recv data] 32200 (1400) 24 ACCEPTED(in-order)
+[send ack] 24
+[recv data] 33600 (1400) 25 ACCEPTED(in-order)
+[send ack] 25
+[recv data] 35000 (1400) 26 ACCEPTED(in-order)
+[send ack] 26
+[recv data] 36400 (1400) 27 ACCEPTED(in-order)
+[send ack] 27
+[recv data] 36400 (1400) 27 IGNORED
+[send ack] 27
+[recv data] 37800 (1400) 28 ACCEPTED(in-order)
+[send ack] 28
+[recv data] 39200 (1400) 29 ACCEPTED(in-order)
+[send ack] 29
+[recv data] 39200 (1400) 29 IGNORED
+[send ack] 29
+[recv data] 40600 (1400) 30 ACCEPTED(in-order)
+[send ack] 30
+[recv data] 42000 (1400) 31 ACCEPTED(in-order)
+[send ack] 31
+[recv data] 42000 (1400) 31 IGNORED
+[send ack] 31
+[recv data] 43400 (1400) 32 ACCEPTED(in-order)
+[send ack] 32
+[recv data] 44800 (1400) 33 ACCEPTED(in-order)
+[send ack] 33
+[recv data] 46200 (1400) 34 ACCEPTED(in-order)
+[send ack] 34
+[recv data] 47600 (1400) 35 ACCEPTED(in-order)
+[send ack] 35
+[recv data] 49000 (1400) 36 ACCEPTED(in-order)
+[send ack] 36
+[recv data] 50400 (1400) 37 ACCEPTED(in-order)
+[send ack] 37
+[recv data] 51800 (1400) 38 ACCEPTED(in-order)
+[send ack] 38
+[recv data] 51800 (1400) 38 IGNORED
+[send ack] 38
+[recv data] 53200 (1400) 39 ACCEPTED(in-order)
+[send ack] 39
+[recv data] 54600 (1400) 40 ACCEPTED(in-order)
+[send ack] 40
+[recv data] 56000 (1400) 41 ACCEPTED(in-order)
+[send ack] 41
+[recv data] 57400 (1400) 42 ACCEPTED(in-order)
+[send ack] 42
+[recv data] 57400 (1400) 42 IGNORED
+[send ack] 42
+[recv data] 58800 (1400) 43 ACCEPTED(in-order)
+[send ack] 43
+[recv data] 60200 (1400) 44 ACCEPTED(in-order)
+[send ack] 44
+[recv data] 61600 (1400) 45 ACCEPTED(in-order)
+[send ack] 45
+[recv data] 63000 (1400) 46 ACCEPTED(in-order)
+[send ack] 46
+[recv data] 64400 (1400) 47 ACCEPTED(in-order)
+[send ack] 47
+[recv data] 65800 (1400) 48 ACCEPTED(in-order)
+[send ack] 48
+[recv data] 67200 (1400) 49 ACCEPTED(in-order)
+[send ack] 49
+[recv data] 67200 (1400) 49 IGNORED
+[send ack] 49
+[recv data] 68600 (1400) 50 ACCEPTED(in-order)
+[send ack] 50
+[recv data] 68600 (1400) 50 IGNORED
+[send ack] 50
+[recv data] 70000 (1400) 51 ACCEPTED(in-order)
+[send ack] 51
+[recv data] 70000 (1400) 51 IGNORED
+[send ack] 51
+[recv data] 71400 (1400) 52 ACCEPTED(in-order)
+[send ack] 52
+[recv data] 72800 (1400) 53 ACCEPTED(in-order)
+[send ack] 53
+[recv data] 74200 (1400) 54 ACCEPTED(in-order)
+[send ack] 54
+[recv data] 74200 (1400) 54 IGNORED
+[send ack] 54
+[recv data] 75600 (1400) 55 ACCEPTED(in-order)
+[send ack] 55
+[recv data] 77000 (1400) 56 ACCEPTED(in-order)
+[send ack] 56
+[recv data] 78400 (1400) 57 ACCEPTED(in-order)
+[send ack] 57
+[recv data] 79800 (1400) 58 ACCEPTED(in-order)
+[send ack] 58
+[recv data] 81200 (1400) 59 ACCEPTED(in-order)
+[send ack] 59
+[recv data] 81200 (1400) 59 IGNORED
+[send ack] 59
+[recv data] 82600 (1400) 60 ACCEPTED(in-order)
+[send ack] 60
+[recv data] 82600 (1400) 60 IGNORED
+[send ack] 60
+[recv data] 84000 (1400) 61 ACCEPTED(in-order)
+[send ack] 61
+[recv data] 84000 (1400) 61 IGNORED
+[send ack] 61
+[recv data] 85400 (1400) 62 ACCEPTED(in-order)
+[send ack] 62
+[recv data] 85400 (1400) 62 IGNORED
+[send ack] 62
+[recv data] 86800 (1400) 63 ACCEPTED(in-order)
+[send ack] 63
+[recv data] 88200 (1400) 64 ACCEPTED(in-order)
+[send ack] 64
+[recv data] 89600 (1400) 65 ACCEPTED(in-order)
+[send ack] 65
+[recv data] 91000 (1400) 66 ACCEPTED(in-order)
+[send ack] 66
+[recv data] 91000 (1400) 66 IGNORED
+[send ack] 66
+[recv data] 92400 (1400) 67 ACCEPTED(in-order)
+[send ack] 67
+[recv data] 92400 (1400) 67 IGNORED
+[send ack] 67
+[recv data] 93800 (1400) 68 ACCEPTED(in-order)
+[send ack] 68
+[recv data] 95200 (1400) 69 ACCEPTED(in-order)
+[send ack] 69
+[recv data] 96600 (1400) 70 ACCEPTED(in-order)
+[send ack] 70
+[recv data] 98000 (1400) 71 ACCEPTED(in-order)
+[send ack] 71
+[recv data] 99400 (1400) 72 ACCEPTED(in-order)
+[send ack] 72
+[recv data] 100800 (1400) 73 ACCEPTED(in-order)
+[send ack] 73
+[recv data] 102200 (1400) 74 ACCEPTED(in-order)
+[send ack] 74
+[recv data] 103600 (1400) 75 ACCEPTED(in-order)
+[send ack] 75
+[recv data] 103600 (1400) 75 IGNORED
+[send ack] 75
+[recv data] 105000 (1400) 76 ACCEPTED(in-order)
+[send ack] 76
+[recv data] 106400 (1400) 77 ACCEPTED(in-order)
+[send ack] 77
+[recv data] 106400 (1400) 77 IGNORED
+[send ack] 77
+[recv data] 107800 (1400) 78 ACCEPTED(in-order)
+[send ack] 78
+[recv data] 107800 (1400) 78 IGNORED
+[send ack] 78
+[recv data] 109200 (1400) 79 ACCEPTED(in-order)
+[send ack] 79
+[recv data] 110600 (1400) 80 ACCEPTED(in-order)
+[send ack] 80
+[recv data] 110600 (1400) 80 IGNORED
+[send ack] 80
+[recv data] 112000 (1400) 81 ACCEPTED(in-order)
+[send ack] 81
+[recv data] 112000 (1400) 81 IGNORED
+[send ack] 81
+[recv data] 113400 (1400) 82 ACCEPTED(in-order)
+[send ack] 82
+[recv data] 114800 (1400) 83 ACCEPTED(in-order)
+[send ack] 83
+[recv data] 114800 (1400) 83 IGNORED
+[send ack] 83
+[recv data] 116200 (1400) 84 ACCEPTED(in-order)
+[send ack] 84
+[recv data] 117600 (1400) 85 ACCEPTED(in-order)
+[send ack] 85
+[recv data] 117600 (1400) 85 IGNORED
+[send ack] 85
+[recv data] 119000 (1400) 86 ACCEPTED(in-order)
+[send ack] 86
+[recv data] 120400 (1400) 87 ACCEPTED(in-order)
+[send ack] 87
+[recv data] 121800 (1400) 88 ACCEPTED(in-order)
+[send ack] 88
+[recv data] 123200 (1400) 89 ACCEPTED(in-order)
+[send ack] 89
+[recv data] 123200 (1400) 89 IGNORED
+[send ack] 89
+[recv data] 124600 (1400) 90 ACCEPTED(in-order)
+[send ack] 90
+[recv data] 126000 (1400) 91 ACCEPTED(in-order)
+[send ack] 91
+[recv data] 127400 (1400) 92 ACCEPTED(in-order)
+[send ack] 92
+[recv data] 127400 (1400) 92 IGNORED
+[send ack] 92
+[recv data] 128800 (1400) 93 ACCEPTED(in-order)
+[send ack] 93
+[recv data] 130200 (1400) 94 ACCEPTED(in-order)
+[send ack] 94
+[recv data] 131600 (1400) 95 ACCEPTED(in-order)
+[send ack] 95
+[recv data] 131600 (1400) 95 IGNORED
+[send ack] 95
+[recv data] 133000 (1400) 96 ACCEPTED(in-order)
+[send ack] 96
+[recv data] 134400 (1400) 97 ACCEPTED(in-order)
+[send ack] 97
+[recv data] 135800 (1400) 98 ACCEPTED(in-order)
+[send ack] 98
+[recv data] 137200 (1400) 99 ACCEPTED(in-order)
+[send ack] 99
+[recv data] 138600 (1400) 100 ACCEPTED(in-order)
+[send ack] 100
+[recv data] 138600 (1400) 100 IGNORED
+[send ack] 100
+[recv data] 140000 (1400) 101 ACCEPTED(in-order)
+[send ack] 101
+[recv data] 140000 (1400) 101 IGNORED
+[send ack] 101
+[recv data] 141400 (1400) 102 ACCEPTED(in-order)
+[send ack] 102
+[recv data] 142800 (1400) 103 ACCEPTED(in-order)
+[send ack] 103
+[recv data] 144200 (1400) 104 ACCEPTED(in-order)
+[send ack] 104
+[recv data] 144200 (1400) 104 IGNORED
+[send ack] 104
+[recv data] 145600 (1400) 105 ACCEPTED(in-order)
+[send ack] 105
+[recv data] 147000 (1400) 106 ACCEPTED(in-order)
+[send ack] 106
+[recv data] 148400 (1400) 107 ACCEPTED(in-order)
+[send ack] 107
+[recv data] 148400 (1400) 107 IGNORED
+[send ack] 107
+[recv data] 149800 (1400) 108 ACCEPTED(in-order)
+[send ack] 108
+[recv data] 151200 (1400) 109 ACCEPTED(in-order)
+[send ack] 109
+[recv data] 151200 (1400) 109 IGNORED
+[send ack] 109
+[recv data] 152600 (1400) 110 ACCEPTED(in-order)
+[send ack] 110
+[recv data] 152600 (1400) 110 IGNORED
+[send ack] 110
+[recv data] 154000 (1400) 111 ACCEPTED(in-order)
+[send ack] 111
+[recv data] 154000 (1400) 111 IGNORED
+[send ack] 111
+[recv data] 155400 (1400) 112 ACCEPTED(in-order)
+[send ack] 112
+[recv data] 156800 (1400) 113 ACCEPTED(in-order)
+[send ack] 113
+[recv data] 158200 (1400) 114 ACCEPTED(in-order)
+[send ack] 114
+[recv data] 158200 (1400) 114 IGNORED
+[send ack] 114
+[recv data] 159600 (1400) 115 ACCEPTED(in-order)
+[send ack] 115
+[recv data] 161000 (1400) 116 ACCEPTED(in-order)
+[send ack] 116
+[recv data] 161000 (1400) 116 IGNORED
+[send ack] 116
+[recv data] 162400 (1400) 117 ACCEPTED(in-order)
+[send ack] 117
+[recv data] 163800 (1400) 118 ACCEPTED(in-order)
+[send ack] 118
+[recv data] 165200 (1400) 119 ACCEPTED(in-order)
+[send ack] 119
+[recv data] 165200 (1400) 119 IGNORED
+[send ack] 119
+[recv data] 166600 (1400) 120 ACCEPTED(in-order)
+[send ack] 120
+[recv data] 166600 (1400) 120 IGNORED
+[send ack] 120
+[recv data] 168000 (1400) 121 ACCEPTED(in-order)
+[send ack] 121
+[recv data] 169400 (1400) 122 ACCEPTED(in-order)
+[send ack] 122
+[recv data] 169400 (1400) 122 IGNORED
+[send ack] 122
+[recv data] 170800 (1400) 123 ACCEPTED(in-order)
+[send ack] 123
+[recv data] 172200 (1400) 124 ACCEPTED(in-order)
+[send ack] 124
+[recv data] 173600 (1400) 125 ACCEPTED(in-order)
+[send ack] 125
+[recv data] 175000 (1400) 126 ACCEPTED(in-order)
+[send ack] 126
+[recv data] 176400 (1400) 127 ACCEPTED(in-order)
+[send ack] 127
+[recv data] 177800 (1400) 128 ACCEPTED(in-order)
+[send ack] 128
+[recv data] 179200 (1400) 129 ACCEPTED(in-order)
+[send ack] 129
+[recv data] 179200 (1400) 129 IGNORED
+[send ack] 129
+[recv data] 180600 (1400) 130 ACCEPTED(in-order)
+[send ack] 130
+[recv data] 182000 (1400) 131 ACCEPTED(in-order)
+[send ack] 131
+[recv data] 183400 (1400) 132 ACCEPTED(in-order)
+[send ack] 132
+[recv data] 183400 (1400) 132 IGNORED
+[send ack] 132
+[recv data] 184800 (1400) 133 ACCEPTED(in-order)
+[send ack] 133
+[recv data] 186200 (1400) 134 ACCEPTED(in-order)
+[send ack] 134
+[recv data] 186200 (1400) 134 IGNORED
+[send ack] 134
+[recv data] 187600 (1400) 135 ACCEPTED(in-order)
+[send ack] 135
+[recv data] 189000 (1400) 136 ACCEPTED(in-order)
+[send ack] 136
+[recv data] 190400 (1400) 137 ACCEPTED(in-order)
+[send ack] 137
+[recv data] 190400 (1400) 137 IGNORED
+[send ack] 137
+[recv data] 191800 (1400) 138 ACCEPTED(in-order)
+[send ack] 138
+[recv data] 193200 (1400) 139 ACCEPTED(in-order)
+[send ack] 139
+[recv data] 194600 (1400) 140 ACCEPTED(in-order)
+[send ack] 140
+[recv data] 196000 (1400) 141 ACCEPTED(in-order)
+[send ack] 141
+[recv data] 197400 (1400) 142 ACCEPTED(in-order)
+[send ack] 142
+[recv data] 198800 (1400) 143 ACCEPTED(in-order)
+[send ack] 143
+[recv data] 200200 (1400) 144 ACCEPTED(in-order)
+[send ack] 144
+[recv data] 200200 (1400) 144 IGNORED
+[send ack] 144
+[recv data] 201600 (1400) 145 ACCEPTED(in-order)
+[send ack] 145
+[recv data] 201600 (1400) 145 IGNORED
+[send ack] 145
+[recv data] 203000 (1400) 146 ACCEPTED(in-order)
+[send ack] 146
+[recv data] 203000 (1400) 146 IGNORED
+[send ack] 146
+[recv data] 204400 (1400) 147 ACCEPTED(in-order)
+[send ack] 147
+[recv data] 205800 (1400) 148 ACCEPTED(in-order)
+[send ack] 148
+[recv data] 205800 (1400) 148 IGNORED
+[send ack] 148
+[recv data] 207200 (1400) 149 ACCEPTED(in-order)
+[send ack] 149
+[recv data] 208600 (1400) 150 ACCEPTED(in-order)
+[send ack] 150
+[recv data] 210000 (1400) 151 ACCEPTED(in-order)
+[send ack] 151
+[recv data] 211400 (1400) 152 ACCEPTED(in-order)
+[send ack] 152
+[recv data] 211400 (1400) 152 IGNORED
+[send ack] 152
+[recv data] 212800 (1400) 153 ACCEPTED(in-order)
+[send ack] 153
+[recv data] 212800 (1400) 153 IGNORED
+[send ack] 153
+[recv data] 214200 (1400) 154 ACCEPTED(in-order)
+[send ack] 154
+[recv data] 215600 (1400) 155 ACCEPTED(in-order)
+[send ack] 155
+[recv data] 217000 (1400) 156 ACCEPTED(in-order)
+[send ack] 156
+[recv data] 217000 (1400) 156 IGNORED
+[send ack] 156
+[recv data] 218400 (1400) 157 ACCEPTED(in-order)
+[send ack] 157
+[recv data] 218400 (1400) 157 IGNORED
+[send ack] 157
+[recv data] 219800 (1400) 158 ACCEPTED(in-order)
+[send ack] 158
+[recv data] 219800 (1400) 158 IGNORED
+[send ack] 158
+[recv data] 221200 (1400) 159 ACCEPTED(in-order)
+[send ack] 159
+[recv data] 222600 (1400) 160 ACCEPTED(in-order)
+[send ack] 160
+[recv data] 224000 (1400) 161 ACCEPTED(in-order)
+[send ack] 161
+[recv data] 225400 (1400) 162 ACCEPTED(in-order)
+[send ack] 162
+[recv data] 225400 (1400) 162 IGNORED
+[send ack] 162
+[recv data] 226800 (1400) 163 ACCEPTED(in-order)
+[send ack] 163
+[recv data] 226800 (1400) 163 IGNORED
+[send ack] 163
+[recv data] 228200 (1400) 164 ACCEPTED(in-order)
+[send ack] 164
+[recv data] 229600 (1400) 165 ACCEPTED(in-order)
+[send ack] 165
+[recv data] 231000 (1400) 166 ACCEPTED(in-order)
+[send ack] 166
+[recv data] 232400 (1400) 167 ACCEPTED(in-order)
+[send ack] 167
+[recv data] 232400 (1400) 167 IGNORED
+[send ack] 167
+[recv data] 233800 (1400) 168 ACCEPTED(in-order)
+[send ack] 168
+[recv data] 235200 (1400) 169 ACCEPTED(in-order)
+[send ack] 169
+[recv data] 236600 (1400) 170 ACCEPTED(in-order)
+[send ack] 170
+[recv data] 236600 (1400) 170 IGNORED
+[send ack] 170
+[recv data] 238000 (1400) 171 ACCEPTED(in-order)
+[send ack] 171
+[recv data] 239400 (1400) 172 ACCEPTED(in-order)
+[send ack] 172
+[recv data] 239400 (1400) 172 IGNORED
+[send ack] 172
+[recv data] 240800 (1400) 173 ACCEPTED(in-order)
+[send ack] 173
+[recv data] 240800 (1400) 173 IGNORED
+[send ack] 173
+[recv data] 242200 (1400) 174 ACCEPTED(in-order)
+[send ack] 174
+[recv data] 243600 (1400) 175 ACCEPTED(in-order)
+[send ack] 175
+[recv data] 243600 (1400) 175 IGNORED
+[send ack] 175
+[recv data] 245000 (1400) 176 ACCEPTED(in-order)
+[send ack] 176
+[recv data] 246400 (1400) 177 ACCEPTED(in-order)
+[send ack] 177
+[recv data] 247800 (1400) 178 ACCEPTED(in-order)
+[send ack] 178
+[recv data] 249200 (1400) 179 ACCEPTED(in-order)
+[send ack] 179
+[recv data] 250600 (1400) 180 ACCEPTED(in-order)
+[send ack] 180
+[recv data] 250600 (1400) 180 IGNORED
+[send ack] 180
+[recv data] 252000 (1400) 181 ACCEPTED(in-order)
+[send ack] 181
+[recv data] 252000 (1400) 181 IGNORED
+[send ack] 181
+[recv data] 253400 (1400) 182 ACCEPTED(in-order)
+[send ack] 182
+[recv data] 253400 (1400) 182 IGNORED
+[send ack] 182
+[recv data] 254800 (1400) 183 ACCEPTED(in-order)
+[send ack] 183
+[recv data] 254800 (1400) 183 IGNORED
+[send ack] 183
+[recv data] 256200 (1400) 184 ACCEPTED(in-order)
+[send ack] 184
+[recv data] 256200 (1400) 184 IGNORED
+[send ack] 184
+[recv data] 257600 (1400) 185 ACCEPTED(in-order)
+[send ack] 185
+[recv data] 257600 (1400) 185 IGNORED
+[send ack] 185
+[recv data] 259000 (1400) 186 ACCEPTED(in-order)
+[send ack] 186
+[recv data] 259000 (1400) 186 IGNORED
+[send ack] 186
+[recv data] 260400 (1400) 187 ACCEPTED(in-order)
+[send ack] 187
+[recv data] 261800 (1400) 188 ACCEPTED(in-order)
+[send ack] 188
+[recv data] 263200 (1400) 189 ACCEPTED(in-order)
+[send ack] 189
+[recv data] 264600 (1400) 190 ACCEPTED(in-order)
+[send ack] 190
+[recv data] 264600 (1400) 190 IGNORED
+[send ack] 190
+[recv data] 266000 (1400) 191 ACCEPTED(in-order)
+[send ack] 191
+[recv data] 267400 (1400) 192 ACCEPTED(in-order)
+[send ack] 192
+[recv data] 268800 (1400) 193 ACCEPTED(in-order)
+[send ack] 193
+[recv data] 270200 (1400) 194 ACCEPTED(in-order)
+[send ack] 194
+[recv data] 271600 (1400) 195 ACCEPTED(in-order)
+[send ack] 195
+[recv data] 273000 (1400) 196 ACCEPTED(in-order)
+[send ack] 196
+[recv data] 273000 (1400) 196 IGNORED
+[send ack] 196
+[recv data] 274400 (1400) 197 ACCEPTED(in-order)
+[send ack] 197
+[recv data] 274400 (1400) 197 IGNORED
+[send ack] 197
+[recv data] 275800 (1400) 198 ACCEPTED(in-order)
+[send ack] 198
+[recv data] 275800 (1400) 198 IGNORED
+[send ack] 198
+[recv data] 277200 (1400) 199 ACCEPTED(in-order)
+[send ack] 199
+[recv data] 278600 (1400) 200 ACCEPTED(in-order)
+[send ack] 200
+[recv data] 280000 (1400) 201 ACCEPTED(in-order)
+[send ack] 201
+[recv data] 281400 (1400) 202 ACCEPTED(in-order)
+[send ack] 202
+[recv data] 282800 (1400) 203 ACCEPTED(in-order)
+[send ack] 203
+[recv data] 284200 (1400) 204 ACCEPTED(in-order)
+[send ack] 204
+[recv data] 285600 (1400) 205 ACCEPTED(in-order)
+[send ack] 205
+[recv data] 285600 (1400) 205 IGNORED
+[send ack] 205
+[recv data] 287000 (1400) 206 ACCEPTED(in-order)
+[send ack] 206
+[recv data] 288400 (1400) 207 ACCEPTED(in-order)
+[send ack] 207
+[recv data] 288400 (1400) 207 IGNORED
+[send ack] 207
+[recv data] 289800 (1400) 208 ACCEPTED(in-order)
+[send ack] 208
+[recv data] 291200 (1400) 209 ACCEPTED(in-order)
+[send ack] 209
+[recv data] 291200 (1400) 209 IGNORED
+[send ack] 209
+[recv data] 292600 (1400) 210 ACCEPTED(in-order)
+[send ack] 210
+[recv data] 292600 (1400) 210 IGNORED
+[send ack] 210
+[recv data] 294000 (1400) 211 ACCEPTED(in-order)
+[send ack] 211
+[recv data] 295400 (1400) 212 ACCEPTED(in-order)
+[send ack] 212
+[recv data] 296800 (1400) 213 ACCEPTED(in-order)
+[send ack] 213
+[recv data] 298200 (1400) 214 ACCEPTED(in-order)
+[send ack] 214
+[recv data] 299600 (1400) 215 ACCEPTED(in-order)
+[send ack] 215
+[recv data] 301000 (1400) 216 ACCEPTED(in-order)
+[send ack] 216
+[recv data] 301000 (1400) 216 IGNORED
+[send ack] 216
+[recv data] 407400 (1400) 292 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 408800 (1400) 293 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 410200 (1400) 294 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 411600 (1400) 295 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 411600 (1400) 295 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 413000 (1400) 296 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 413000 (1400) 296 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 414400 (1400) 297 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 414400 (1400) 297 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 415800 (1400) 298 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 417200 (1400) 299 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 418600 (1400) 300 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 418600 (1400) 300 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 420000 (1400) 301 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 421400 (1400) 302 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 422800 (1400) 303 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 424200 (1400) 304 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 425600 (1400) 305 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 427000 (1400) 306 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 428400 (1400) 307 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 429800 (1400) 308 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 431200 (1400) 309 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 432600 (1400) 310 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 434000 (1400) 311 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 435400 (1400) 312 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 436800 (1400) 313 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 438200 (1400) 314 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 439600 (1400) 315 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 441000 (1400) 316 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 442400 (1400) 317 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 443800 (1400) 318 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 445200 (1400) 319 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 445200 (1400) 319 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 446600 (1400) 320 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 446600 (1400) 320 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 448000 (1400) 321 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 449400 (1400) 322 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 449400 (1400) 322 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 450800 (1400) 323 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 452200 (1400) 324 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 453600 (1400) 325 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 455000 (1400) 326 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 455000 (1400) 326 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 456400 (1400) 327 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 457800 (1400) 328 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 459200 (1400) 329 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 459200 (1400) 329 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 460600 (1400) 330 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 462000 (1400) 331 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 463400 (1400) 332 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 464800 (1400) 333 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 464800 (1400) 333 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 466200 (1400) 334 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 466200 (1400) 334 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 467600 (1400) 335 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 469000 (1400) 336 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 470400 (1400) 337 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 471800 (1400) 338 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 473200 (1400) 339 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 474600 (1400) 340 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 476000 (1400) 341 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 477400 (1400) 342 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 478800 (1400) 343 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 480200 (1400) 344 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 481600 (1400) 345 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 483000 (1400) 346 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 484400 (1400) 347 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 484400 (1400) 347 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 485800 (1400) 348 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 487200 (1400) 349 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 488600 (1400) 350 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 490000 (1400) 351 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 490000 (1400) 351 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 491400 (1400) 352 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 491400 (1400) 352 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 492800 (1400) 353 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 492800 (1400) 353 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 494200 (1400) 354 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 494200 (1400) 354 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 495600 (1400) 355 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 497000 (1400) 356 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 498400 (1400) 357 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 498400 (1400) 357 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 499800 (1400) 358 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 499800 (1400) 358 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 501200 (1400) 359 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 501200 (1400) 359 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 502600 (1400) 360 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 504000 (1400) 361 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 505400 (1400) 362 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 506800 (1400) 363 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 508200 (1400) 364 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 509600 (1400) 365 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 511000 (1400) 366 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 512400 (1400) 367 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 513800 (1400) 368 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 515200 (1400) 369 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 515200 (1400) 369 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 516600 (1400) 370 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 518000 (1400) 371 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 519400 (1400) 372 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 520800 (1400) 373 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 520800 (1400) 373 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 522200 (1400) 374 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 523600 (1400) 375 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 525000 (1400) 376 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 525000 (1400) 376 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 526400 (1400) 377 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 526400 (1400) 377 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 527800 (1400) 378 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 527800 (1400) 378 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 529200 (1400) 379 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 529200 (1400) 379 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 530600 (1400) 380 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 532000 (1400) 381 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 532000 (1400) 381 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 533400 (1400) 382 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 534800 (1400) 383 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 536200 (1400) 384 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 537600 (1400) 385 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 537600 (1400) 385 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 539000 (1400) 386 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 540400 (1400) 387 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 541800 (1400) 388 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 543200 (1400) 389 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 543200 (1400) 389 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 544600 (1400) 390 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 544600 (1400) 390 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 546000 (1400) 391 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 547400 (1400) 392 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 548800 (1400) 393 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 550200 (1400) 394 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 550200 (1400) 394 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 551600 (1400) 395 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 551600 (1400) 395 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 553000 (1400) 396 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 554400 (1400) 397 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 555800 (1400) 398 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 555800 (1400) 398 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 557200 (1400) 399 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 558600 (1400) 400 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 558600 (1400) 400 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 560000 (1400) 401 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 561400 (1400) 402 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 562800 (1400) 403 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 564200 (1400) 404 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 565600 (1400) 405 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 565600 (1400) 405 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 567000 (1400) 406 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 567000 (1400) 406 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 568400 (1400) 407 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 569800 (1400) 408 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 571200 (1400) 409 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 572600 (1400) 410 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 574000 (1400) 411 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 575400 (1400) 412 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 576800 (1400) 413 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 576800 (1400) 413 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 578200 (1400) 414 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 579600 (1400) 415 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 579600 (1400) 415 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 581000 (1400) 416 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 582400 (1400) 417 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 583800 (1400) 418 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 585200 (1400) 419 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 586600 (1400) 420 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 588000 (1400) 421 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 589400 (1400) 422 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 589400 (1400) 422 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 590800 (1400) 423 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 592200 (1400) 424 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 592200 (1400) 424 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 593600 (1400) 425 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 595000 (1400) 426 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 596400 (1400) 427 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 596400 (1400) 427 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 597800 (1400) 428 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 597800 (1400) 428 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 599200 (1400) 429 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 599200 (1400) 429 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 600600 (1400) 430 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 602000 (1400) 431 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 602000 (1400) 431 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 603400 (1400) 432 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 604800 (1400) 433 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 606200 (1400) 434 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 607600 (1400) 435 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 607600 (1400) 435 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 609000 (1400) 436 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 610400 (1400) 437 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 611800 (1400) 438 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 613200 (1400) 439 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 613200 (1400) 439 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 614600 (1400) 440 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 616000 (1400) 441 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 616000 (1400) 441 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 617400 (1400) 442 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 617400 (1400) 442 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 618800 (1400) 443 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 620200 (1400) 444 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 621600 (1400) 445 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 623000 (1400) 446 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 624400 (1400) 447 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 625800 (1400) 448 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 627200 (1400) 449 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 628600 (1400) 450 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 628600 (1400) 450 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 630000 (1400) 451 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 630000 (1400) 451 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 631400 (1400) 452 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 632800 (1400) 453 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 634200 (1400) 454 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 634200 (1400) 454 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 635600 (1400) 455 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 637000 (1400) 456 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 637000 (1400) 456 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 638400 (1400) 457 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 638400 (1400) 457 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 639800 (1400) 458 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 641200 (1400) 459 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 641200 (1400) 459 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 642600 (1400) 460 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 644000 (1400) 461 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 645400 (1400) 462 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 646800 (1400) 463 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 646800 (1400) 463 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 648200 (1400) 464 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 649600 (1400) 465 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 651000 (1400) 466 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 652400 (1400) 467 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 653800 (1400) 468 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 653800 (1400) 468 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 655200 (1400) 469 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 655200 (1400) 469 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 656600 (1400) 470 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 658000 (1400) 471 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 659400 (1400) 472 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 660800 (1400) 473 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 660800 (1400) 473 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 662200 (1400) 474 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 663600 (1400) 475 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 665000 (1400) 476 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 666400 (1400) 477 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 666400 (1400) 477 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 667800 (1400) 478 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 667800 (1400) 478 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 669200 (1400) 479 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 670600 (1400) 480 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 670600 (1400) 480 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 672000 (1400) 481 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 673400 (1400) 482 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 674800 (1400) 483 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 676200 (1400) 484 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 677600 (1400) 485 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 679000 (1400) 486 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 680400 (1400) 487 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 680400 (1400) 487 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 681800 (1400) 488 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 683200 (1400) 489 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 684600 (1400) 490 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 684600 (1400) 490 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 686000 (1400) 491 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 686000 (1400) 491 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 687400 (1400) 492 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 688800 (1400) 493 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 690200 (1400) 494 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 690200 (1400) 494 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 691600 (1400) 495 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 693000 (1400) 496 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 693000 (1400) 496 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 694400 (1400) 497 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 694400 (1400) 497 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 695800 (1400) 498 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 697200 (1400) 499 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 697200 (1400) 499 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 698600 (1400) 500 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 700000 (1400) 501 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 701400 (1400) 502 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 702800 (1400) 503 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 704200 (1400) 504 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 704200 (1400) 504 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 705600 (1400) 505 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 707000 (1400) 506 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 708400 (1400) 507 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 709800 (1400) 508 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 709800 (1400) 508 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 711200 (1400) 509 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 712600 (1400) 510 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 714000 (1400) 511 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 715400 (1400) 512 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 715400 (1400) 512 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 716800 (1400) 513 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 718200 (1400) 514 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 719600 (1400) 515 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 721000 (1400) 516 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 721000 (1400) 516 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 722400 (1400) 517 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 723800 (1400) 518 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 725200 (1400) 519 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 726600 (1400) 520 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 728000 (1400) 521 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 729400 (1400) 522 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 729400 (1400) 522 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 730800 (1400) 523 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 732200 (1400) 524 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 732200 (1400) 524 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 733600 (1400) 525 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 735000 (1400) 526 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 736400 (1400) 527 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 736400 (1400) 527 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 737800 (1400) 528 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 739200 (1400) 529 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 740600 (1400) 530 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 740600 (1400) 530 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 742000 (1400) 531 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 742000 (1400) 531 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 743400 (1400) 532 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 744800 (1400) 533 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 744800 (1400) 533 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 746200 (1400) 534 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 746200 (1400) 534 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 747600 (1400) 535 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 749000 (1400) 536 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 749000 (1400) 536 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 750400 (1400) 537 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 751800 (1400) 538 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 753200 (1400) 539 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 754600 (1400) 540 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 756000 (1400) 541 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 756000 (1400) 541 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 757400 (1400) 542 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 758800 (1400) 543 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 760200 (1400) 544 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 761600 (1400) 545 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 761600 (1400) 545 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 763000 (1400) 546 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 764400 (1400) 547 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 765800 (1400) 548 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 767200 (1400) 549 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 768600 (1400) 550 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 770000 (1400) 551 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 771400 (1400) 552 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 772800 (1400) 553 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 772800 (1400) 553 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 774200 (1400) 554 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 775600 (1400) 555 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 777000 (1400) 556 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 777000 (1400) 556 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 778400 (1400) 557 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 779800 (1400) 558 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 781200 (1400) 559 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 782600 (1400) 560 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 784000 (1400) 561 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 785400 (1400) 562 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 785400 (1400) 562 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 786800 (1400) 563 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 786800 (1400) 563 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 788200 (1400) 564 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 788200 (1400) 564 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 789600 (1400) 565 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 791000 (1400) 566 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 792400 (1400) 567 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 792400 (1400) 567 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 793800 (1400) 568 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 795200 (1400) 569 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 796600 (1400) 570 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 798000 (1400) 571 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 799400 (1400) 572 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 800800 (1400) 573 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 802200 (1400) 574 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 802200 (1400) 574 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 803600 (1400) 575 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 805000 (1400) 576 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 805000 (1400) 576 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 806400 (1400) 577 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 806400 (1400) 577 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 807800 (1400) 578 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 807800 (1400) 578 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 809200 (1400) 579 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 809200 (1400) 579 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 810600 (1400) 580 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 812000 (1400) 581 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 813400 (1400) 582 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 813400 (1400) 582 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 814800 (1400) 583 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 814800 (1400) 583 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 816200 (1400) 584 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 817600 (1400) 585 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 819000 (1400) 586 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 819000 (1400) 586 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 820400 (1400) 587 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 821800 (1400) 588 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 821800 (1400) 588 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 823200 (1400) 589 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 824600 (1400) 590 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 824600 (1400) 590 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 826000 (1400) 591 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 827400 (1400) 592 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 828800 (1400) 593 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 830200 (1400) 594 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 831600 (1400) 595 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 833000 (1400) 596 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 834400 (1400) 597 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 834400 (1400) 597 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 835800 (1400) 598 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 837200 (1400) 599 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 838600 (1400) 600 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 838600 (1400) 600 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 840000 (1400) 601 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 841400 (1400) 602 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 842800 (1400) 603 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 842800 (1400) 603 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 844200 (1400) 604 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 845600 (1400) 605 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 847000 (1400) 606 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 848400 (1400) 607 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 849800 (1400) 608 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 851200 (1400) 609 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 852600 (1400) 610 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 854000 (1400) 611 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 855400 (1400) 612 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 856800 (1400) 613 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 858200 (1400) 614 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 859600 (1400) 615 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 861000 (1400) 616 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 862400 (1400) 617 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 863800 (1400) 618 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 863800 (1400) 618 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 865200 (1400) 619 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 866600 (1400) 620 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 868000 (1400) 621 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 869400 (1400) 622 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 870800 (1400) 623 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 870800 (1400) 623 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 872200 (1400) 624 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 872200 (1400) 624 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 873600 (1400) 625 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 875000 (1400) 626 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 875000 (1400) 626 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 876400 (1400) 627 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 877800 (1400) 628 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 879200 (1400) 629 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 880600 (1400) 630 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 882000 (1400) 631 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 883400 (1400) 632 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 883400 (1400) 632 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 884800 (1400) 633 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 886200 (1400) 634 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 887600 (1400) 635 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 889000 (1400) 636 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 890400 (1400) 637 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 891800 (1400) 638 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 893200 (1400) 639 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 893200 (1400) 639 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 894600 (1400) 640 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 894600 (1400) 640 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 896000 (1400) 641 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 897400 (1400) 642 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 898800 (1400) 643 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 898800 (1400) 643 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 900200 (1400) 644 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 900200 (1400) 644 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 901600 (1400) 645 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 901600 (1400) 645 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 903000 (1400) 646 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 903000 (1400) 646 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 904400 (1400) 647 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 905800 (1400) 648 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 907200 (1400) 649 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 70000 (1400) 51 IGNORED
+[send ack] 216
+[recv data] 908600 (1400) 650 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 910000 (1400) 651 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 911400 (1400) 652 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 911400 (1400) 652 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 912800 (1400) 653 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 914200 (1400) 654 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 914200 (1400) 654 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 915600 (1400) 655 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 917000 (1400) 656 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 918400 (1400) 657 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 919800 (1400) 658 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 921200 (1400) 659 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 922600 (1400) 660 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 924000 (1400) 661 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 925400 (1400) 662 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 926800 (1400) 663 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 928200 (1400) 664 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 929600 (1400) 665 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 929600 (1400) 665 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 931000 (1400) 666 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 931000 (1400) 666 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 932400 (1400) 667 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 933800 (1400) 668 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 935200 (1400) 669 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 936600 (1400) 670 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 938000 (1400) 671 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 938000 (1400) 671 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 939400 (1400) 672 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 939400 (1400) 672 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 940800 (1400) 673 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 942200 (1400) 674 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 942200 (1400) 674 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 943600 (1400) 675 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 943600 (1400) 675 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 945000 (1400) 676 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 946400 (1400) 677 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 946400 (1400) 677 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 947800 (1400) 678 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 947800 (1400) 678 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 949200 (1400) 679 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 950600 (1400) 680 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 952000 (1400) 681 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 953400 (1400) 682 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 953400 (1400) 682 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 954800 (1400) 683 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 954800 (1400) 683 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 956200 (1400) 684 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 957600 (1400) 685 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 957600 (1400) 685 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 959000 (1400) 686 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 960400 (1400) 687 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 961800 (1400) 688 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 963200 (1400) 689 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 963200 (1400) 689 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 964600 (1400) 690 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 966000 (1400) 691 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 967400 (1400) 692 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 967400 (1400) 692 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 968800 (1400) 693 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 968800 (1400) 693 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 970200 (1400) 694 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 970200 (1400) 694 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 971600 (1400) 695 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 971600 (1400) 695 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 973000 (1400) 696 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 974400 (1400) 697 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 975800 (1400) 698 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 977200 (1400) 699 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 977200 (1400) 699 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 978600 (1400) 700 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 980000 (1400) 701 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 980000 (1400) 701 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 981400 (1400) 702 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 982800 (1400) 703 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 982800 (1400) 703 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 984200 (1400) 704 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 985600 (1400) 705 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 985600 (1400) 705 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 987000 (1400) 706 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 987000 (1400) 706 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 988400 (1400) 707 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 989800 (1400) 708 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 991200 (1400) 709 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 992600 (1400) 710 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 994000 (1400) 711 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 995400 (1400) 712 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 996800 (1400) 713 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 996800 (1400) 713 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 998200 (1400) 714 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 999600 (1400) 715 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 1001000 (1400) 716 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 1001000 (1400) 716 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 1002400 (1400) 717 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 1003800 (1400) 718 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 1005200 (1400) 719 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 1005200 (1400) 719 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 1006600 (1400) 720 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 1006600 (1400) 720 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 1008000 (1400) 721 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 1009400 (1400) 722 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 1009400 (1400) 722 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 1010800 (1400) 723 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 1012200 (1400) 724 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 1013600 (1400) 725 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 1013600 (1400) 725 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 1015000 (1400) 726 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 1016400 (1400) 727 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 1017800 (1400) 728 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 1017800 (1400) 728 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 1019200 (1400) 729 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 1020600 (1400) 730 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 1022000 (1400) 731 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 1022000 (1400) 731 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 1023400 (1400) 732 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 1024800 (1400) 733 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 1026200 (1400) 734 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 1027600 (1400) 735 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 1029000 (1400) 736 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 1030400 (1400) 737 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 1031800 (1400) 738 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 1033200 (1400) 739 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 1034600 (1400) 740 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 1034600 (1400) 740 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 1036000 (1400) 741 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 1037400 (1400) 742 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 1038800 (1400) 743 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 1040200 (1400) 744 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 1041600 (1400) 745 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 1043000 (1400) 746 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 1044400 (1400) 747 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 1044400 (1400) 747 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 1045800 (1400) 748 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 1047200 (1400) 749 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 1047200 (1400) 749 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 1048600 (1400) 750 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 1050000 (1400) 751 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 1051400 (1400) 752 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 1052800 (1400) 753 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 1052800 (1400) 753 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 1054200 (1400) 754 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 1055600 (1400) 755 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 1055600 (1400) 755 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 1057000 (1400) 756 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 1057000 (1400) 756 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 1058400 (1400) 757 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 1059800 (1400) 758 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 1061200 (1400) 759 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 1062600 (1400) 760 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 1064000 (1400) 761 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 1065400 (1400) 762 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 1065400 (1400) 762 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 1066800 (1400) 763 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 1068200 (1400) 764 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 1069600 (1400) 765 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 1069600 (1400) 765 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 1071000 (1400) 766 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 1072400 (1400) 767 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 1073800 (1400) 768 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 1075200 (1400) 769 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 1076600 (1400) 770 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 1078000 (1400) 771 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 1079400 (1400) 772 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 1080800 (1400) 773 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 1082200 (1400) 774 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 1083600 (1400) 775 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 1085000 (1400) 776 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 1086400 (1400) 777 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 1087800 (1400) 778 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 1089200 (1400) 779 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 1090600 (1400) 780 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 1092000 (1400) 781 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 1092000 (1400) 781 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 1093400 (1400) 782 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 1094800 (1400) 783 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 1096200 (1400) 784 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 1096200 (1400) 784 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 1097600 (1400) 785 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 1099000 (1400) 786 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 1100400 (1400) 787 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 1101800 (1400) 788 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 1101800 (1400) 788 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 1103200 (1400) 789 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 1103200 (1400) 789 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 1104600 (1400) 790 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 1106000 (1400) 791 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 1107400 (1400) 792 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 1108800 (1400) 793 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 1110200 (1400) 794 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 1111600 (1400) 795 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 1113000 (1400) 796 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 1114400 (1400) 797 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 1114400 (1400) 797 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 1115800 (1400) 798 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 1117200 (1400) 799 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 1117200 (1400) 799 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 1118600 (1400) 800 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 1120000 (1400) 801 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 1121400 (1400) 802 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 1122800 (1400) 803 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 1122800 (1400) 803 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 1124200 (1400) 804 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 1125600 (1400) 805 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 1127000 (1400) 806 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 1128400 (1400) 807 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 1128400 (1400) 807 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 1129800 (1400) 808 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 1129800 (1400) 808 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 1131200 (1400) 809 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 1132600 (1400) 810 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 1134000 (1400) 811 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 1135400 (1400) 812 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 1135400 (1400) 812 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 1136800 (1400) 813 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 1138200 (1400) 814 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 1139600 (1400) 815 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 1141000 (1400) 816 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 1141000 (1400) 816 ACCEPTED(out-of-order)
+[send ack] 216
+[recv data] 302400 (1400) 217 ACCEPTED(out-of-order)
+[send ack] 217
+[recv data] 1142400 (1400) 817 ACCEPTED(out-of-order)
+[send ack] 217
+[recv data] 303800 (1400) 218 ACCEPTED(out-of-order)
+[send ack] 218
+[recv data] 303800 (1400) 218 IGNORED
+[send ack] 218
+[recv data] 1143800 (1400) 818 ACCEPTED(out-of-order)
+[send ack] 218
+[recv data] 305200 (1400) 219 ACCEPTED(out-of-order)
+[send ack] 219
+[recv data] 305200 (1400) 219 IGNORED
+[send ack] 219
+[recv data] 1145200 (1400) 819 ACCEPTED(out-of-order)
+[send ack] 219
+[recv data] 306600 (1400) 220 ACCEPTED(out-of-order)
+[send ack] 220
+[recv data] 306600 (1400) 220 IGNORED
+[send ack] 220
+[recv data] 1146600 (1400) 820 ACCEPTED(out-of-order)
+[send ack] 220
+[recv data] 308000 (1400) 221 ACCEPTED(out-of-order)
+[send ack] 221
+[recv data] 308000 (1400) 221 IGNORED
+[send ack] 221
+[recv data] 1148000 (1400) 821 ACCEPTED(out-of-order)
+[send ack] 221
+[recv data] 309400 (1400) 222 ACCEPTED(out-of-order)
+[send ack] 222
+[recv data] 1149400 (1400) 822 ACCEPTED(out-of-order)
+[send ack] 222
+[recv data] 310800 (1400) 223 ACCEPTED(out-of-order)
+[send ack] 223
+[recv data] 1150800 (1400) 823 ACCEPTED(out-of-order)
+[send ack] 223
+[recv data] 312200 (1400) 224 ACCEPTED(out-of-order)
+[send ack] 224
+[recv data] 312200 (1400) 224 IGNORED
+[send ack] 224
+[recv data] 1152200 (1400) 824 ACCEPTED(out-of-order)
+[send ack] 224
+[recv data] 313600 (1400) 225 ACCEPTED(out-of-order)
+[send ack] 225
+[recv data] 313600 (1400) 225 IGNORED
+[send ack] 225
+[recv data] 1153600 (1400) 825 ACCEPTED(out-of-order)
+[send ack] 225
+[recv data] 1153600 (1400) 825 ACCEPTED(out-of-order)
+[send ack] 225
+[recv data] 315000 (1400) 226 ACCEPTED(out-of-order)
+[send ack] 226
+[recv data] 1155000 (1400) 826 ACCEPTED(out-of-order)
+[send ack] 226
+[recv data] 1155000 (1400) 826 ACCEPTED(out-of-order)
+[send ack] 226
+[recv data] 316400 (1400) 227 ACCEPTED(out-of-order)
+[send ack] 227
+[recv data] 316400 (1400) 227 IGNORED
+[send ack] 227
+[recv data] 1156400 (1400) 827 ACCEPTED(out-of-order)
+[send ack] 227
+[recv data] 317800 (1400) 228 ACCEPTED(out-of-order)
+[send ack] 228
+[recv data] 1157800 (1400) 828 ACCEPTED(out-of-order)
+[send ack] 228
+[recv data] 1157800 (1400) 828 ACCEPTED(out-of-order)
+[send ack] 228
+[recv data] 319200 (1400) 229 ACCEPTED(out-of-order)
+[send ack] 229
+[recv data] 1159200 (1400) 829 ACCEPTED(out-of-order)
+[send ack] 229
+[recv data] 320600 (1400) 230 ACCEPTED(out-of-order)
+[send ack] 230
+[recv data] 320600 (1400) 230 IGNORED
+[send ack] 230
+[recv data] 1160600 (1400) 830 ACCEPTED(out-of-order)
+[send ack] 230
+[recv data] 322000 (1400) 231 ACCEPTED(out-of-order)
+[send ack] 231
+[recv data] 322000 (1400) 231 IGNORED
+[send ack] 231
+[recv data] 1162000 (1400) 831 ACCEPTED(out-of-order)
+[send ack] 231
+[recv data] 323400 (1400) 232 ACCEPTED(out-of-order)
+[send ack] 232
+[recv data] 1163400 (1400) 832 ACCEPTED(out-of-order)
+[send ack] 232
+[recv data] 324800 (1400) 233 ACCEPTED(out-of-order)
+[send ack] 233
+[recv data] 324800 (1400) 233 IGNORED
+[send ack] 233
+[recv data] 1164800 (1400) 833 ACCEPTED(out-of-order)
+[send ack] 233
+[recv data] 1164800 (1400) 833 ACCEPTED(out-of-order)
+[send ack] 233
+[recv data] 326200 (1400) 234 ACCEPTED(out-of-order)
+[send ack] 234
+[recv data] 1166200 (1400) 834 ACCEPTED(out-of-order)
+[send ack] 234
+[recv data] 327600 (1400) 235 ACCEPTED(out-of-order)
+[send ack] 235
+[recv data] 1167600 (1400) 835 ACCEPTED(out-of-order)
+[send ack] 235
+[recv data] 329000 (1400) 236 ACCEPTED(out-of-order)
+[send ack] 236
+[recv data] 1169000 (1400) 836 ACCEPTED(out-of-order)
+[send ack] 236
+[recv data] 330400 (1400) 237 ACCEPTED(out-of-order)
+[send ack] 237
+[recv data] 1170400 (1400) 837 ACCEPTED(out-of-order)
+[send ack] 237
+[recv data] 1170400 (1400) 837 ACCEPTED(out-of-order)
+[send ack] 237
+[recv data] 331800 (1400) 238 ACCEPTED(out-of-order)
+[send ack] 238
+[recv data] 1171800 (1400) 838 ACCEPTED(out-of-order)
+[send ack] 238
+[recv data] 333200 (1400) 239 ACCEPTED(out-of-order)
+[send ack] 239
+[recv data] 1173200 (1400) 839 ACCEPTED(out-of-order)
+[send ack] 239
+[recv data] 334600 (1400) 240 ACCEPTED(out-of-order)
+[send ack] 240
+[recv data] 334600 (1400) 240 IGNORED
+[send ack] 240
+[recv data] 1174600 (1400) 840 ACCEPTED(out-of-order)
+[send ack] 240
+[recv data] 336000 (1400) 241 ACCEPTED(out-of-order)
+[send ack] 241
+[recv data] 336000 (1400) 241 IGNORED
+[send ack] 241
+[recv data] 1176000 (1400) 841 ACCEPTED(out-of-order)
+[send ack] 241
+[recv data] 337400 (1400) 242 ACCEPTED(out-of-order)
+[send ack] 242
+[recv data] 1177400 (1400) 842 ACCEPTED(out-of-order)
+[send ack] 242
+[recv data] 338800 (1400) 243 ACCEPTED(out-of-order)
+[send ack] 243
+[recv data] 1178800 (1400) 843 ACCEPTED(out-of-order)
+[send ack] 243
+[recv data] 340200 (1400) 244 ACCEPTED(out-of-order)
+[send ack] 244
+[recv data] 340200 (1400) 244 IGNORED
+[send ack] 244
+[recv data] 1180200 (1400) 844 ACCEPTED(out-of-order)
+[send ack] 244
+[recv data] 341600 (1400) 245 ACCEPTED(out-of-order)
+[send ack] 245
+[recv data] 1181600 (1400) 845 ACCEPTED(out-of-order)
+[send ack] 245
+[recv data] 343000 (1400) 246 ACCEPTED(out-of-order)
+[send ack] 246
+[recv data] 343000 (1400) 246 IGNORED
+[send ack] 246
+[recv data] 1183000 (1400) 846 ACCEPTED(out-of-order)
+[send ack] 246
+[recv data] 344400 (1400) 247 ACCEPTED(out-of-order)
+[send ack] 247
+[recv data] 344400 (1400) 247 IGNORED
+[send ack] 247
+[recv data] 1184400 (1400) 847 ACCEPTED(out-of-order)
+[send ack] 247
+[recv data] 345800 (1400) 248 ACCEPTED(out-of-order)
+[send ack] 248
+[recv data] 1185800 (1400) 848 ACCEPTED(out-of-order)
+[send ack] 248
+[recv data] 1185800 (1400) 848 ACCEPTED(out-of-order)
+[send ack] 248
+[recv data] 347200 (1400) 249 ACCEPTED(out-of-order)
+[send ack] 249
+[recv data] 1187200 (1400) 849 ACCEPTED(out-of-order)
+[send ack] 249
+[recv data] 348600 (1400) 250 ACCEPTED(out-of-order)
+[send ack] 250
+[recv data] 348600 (1400) 250 IGNORED
+[send ack] 250
+[recv data] 1188600 (1400) 850 ACCEPTED(out-of-order)
+[send ack] 250
+[recv data] 350000 (1400) 251 ACCEPTED(out-of-order)
+[send ack] 251
+[recv data] 1190000 (1400) 851 ACCEPTED(out-of-order)
+[send ack] 251
+[recv data] 351400 (1400) 252 ACCEPTED(out-of-order)
+[send ack] 252
+[recv data] 1191400 (1400) 852 ACCEPTED(out-of-order)
+[send ack] 252
+[recv data] 352800 (1400) 253 ACCEPTED(out-of-order)
+[send ack] 253
+[recv data] 1192800 (1400) 853 ACCEPTED(out-of-order)
+[send ack] 253
+[recv data] 354200 (1400) 254 ACCEPTED(out-of-order)
+[send ack] 254
+[recv data] 1194200 (1400) 854 ACCEPTED(out-of-order)
+[send ack] 254
+[recv data] 1194200 (1400) 854 ACCEPTED(out-of-order)
+[send ack] 254
+[recv data] 355600 (1400) 255 ACCEPTED(out-of-order)
+[send ack] 255
+[recv data] 355600 (1400) 255 IGNORED
+[send ack] 255
+[recv data] 1195600 (1400) 855 ACCEPTED(out-of-order)
+[send ack] 255
+[recv data] 357000 (1400) 256 ACCEPTED(out-of-order)
+[send ack] 256
+[recv data] 1197000 (1400) 856 ACCEPTED(out-of-order)
+[send ack] 256
+[recv data] 358400 (1400) 257 ACCEPTED(out-of-order)
+[send ack] 257
+[recv data] 358400 (1400) 257 IGNORED
+[send ack] 257
+[recv data] 1198400 (1400) 857 ACCEPTED(out-of-order)
+[send ack] 257
+[recv data] 359800 (1400) 258 ACCEPTED(out-of-order)
+[send ack] 258
+[recv data] 1199800 (1400) 858 ACCEPTED(out-of-order)
+[send ack] 258
+[recv data] 361200 (1400) 259 ACCEPTED(out-of-order)
+[send ack] 259
+[recv data] 361200 (1400) 259 IGNORED
+[send ack] 259
+[recv data] 1201200 (1400) 859 ACCEPTED(out-of-order)
+[send ack] 259
+[recv data] 1201200 (1400) 859 ACCEPTED(out-of-order)
+[send ack] 259
+[recv data] 362600 (1400) 260 ACCEPTED(out-of-order)
+[send ack] 260
+[recv data] 1202600 (1400) 860 ACCEPTED(out-of-order)
+[send ack] 260
+[recv data] 1202600 (1400) 860 ACCEPTED(out-of-order)
+[send ack] 260
+[recv data] 364000 (1400) 261 ACCEPTED(out-of-order)
+[send ack] 261
+[recv data] 364000 (1400) 261 IGNORED
+[send ack] 261
+[recv data] 1204000 (1400) 861 ACCEPTED(out-of-order)
+[send ack] 261
+[recv data] 1204000 (1400) 861 ACCEPTED(out-of-order)
+[send ack] 261
+[recv data] 365400 (1400) 262 ACCEPTED(out-of-order)
+[send ack] 262
+[recv data] 1205400 (1400) 862 ACCEPTED(out-of-order)
+[send ack] 262
+[recv data] 366800 (1400) 263 ACCEPTED(out-of-order)
+[send ack] 263
+[recv data] 1206800 (1400) 863 ACCEPTED(out-of-order)
+[send ack] 263
+[recv data] 1206800 (1400) 863 ACCEPTED(out-of-order)
+[send ack] 263
+[recv data] 368200 (1400) 264 ACCEPTED(out-of-order)
+[send ack] 264
+[recv data] 368200 (1400) 264 IGNORED
+[send ack] 264
+[recv data] 1208200 (1400) 864 ACCEPTED(out-of-order)
+[send ack] 264
+[recv data] 369600 (1400) 265 ACCEPTED(out-of-order)
+[send ack] 265
+[recv data] 369600 (1400) 265 IGNORED
+[send ack] 265
+[recv data] 1209600 (1400) 865 ACCEPTED(out-of-order)
+[send ack] 265
+[recv data] 1209600 (1400) 865 ACCEPTED(out-of-order)
+[send ack] 265
+[recv data] 371000 (1400) 266 ACCEPTED(out-of-order)
+[send ack] 266
+[recv data] 371000 (1400) 266 IGNORED
+[send ack] 266
+[recv data] 1211000 (1400) 866 ACCEPTED(out-of-order)
+[send ack] 266
+[recv data] 1211000 (1400) 866 ACCEPTED(out-of-order)
+[send ack] 266
+[recv data] 372400 (1400) 267 ACCEPTED(out-of-order)
+[send ack] 267
+[recv data] 1212400 (1400) 867 ACCEPTED(out-of-order)
+[send ack] 267
+[recv data] 1212400 (1400) 867 ACCEPTED(out-of-order)
+[send ack] 267
+[recv data] 373800 (1400) 268 ACCEPTED(out-of-order)
+[send ack] 268
+[recv data] 1213800 (1400) 868 ACCEPTED(out-of-order)
+[send ack] 268
+[recv data] 1213800 (1400) 868 ACCEPTED(out-of-order)
+[send ack] 268
+[recv data] 375200 (1400) 269 ACCEPTED(out-of-order)
+[send ack] 269
+[recv data] 1215200 (1400) 869 ACCEPTED(out-of-order)
+[send ack] 269
+[recv data] 1215200 (1400) 869 ACCEPTED(out-of-order)
+[send ack] 269
+[recv data] 376600 (1400) 270 ACCEPTED(out-of-order)
+[send ack] 270
+[recv data] 376600 (1400) 270 IGNORED
+[send ack] 270
+[recv data] 1216600 (1400) 870 ACCEPTED(out-of-order)
+[send ack] 270
+[recv data] 378000 (1400) 271 ACCEPTED(out-of-order)
+[send ack] 271
+[recv data] 1218000 (1400) 871 ACCEPTED(out-of-order)
+[send ack] 271
+[recv data] 379400 (1400) 272 ACCEPTED(out-of-order)
+[send ack] 272
+[recv data] 1219400 (1400) 872 ACCEPTED(out-of-order)
+[send ack] 272
+[recv data] 1219400 (1400) 872 ACCEPTED(out-of-order)
+[send ack] 272
+[recv data] 380800 (1400) 273 ACCEPTED(out-of-order)
+[send ack] 273
+[recv data] 1220800 (1400) 873 ACCEPTED(out-of-order)
+[send ack] 273
+[recv data] 382200 (1400) 274 ACCEPTED(out-of-order)
+[send ack] 274
+[recv data] 1222200 (1400) 874 ACCEPTED(out-of-order)
+[send ack] 274
+[recv data] 1222200 (1400) 874 ACCEPTED(out-of-order)
+[send ack] 274
+[recv data] 383600 (1400) 275 ACCEPTED(out-of-order)
+[send ack] 275
+[recv data] 1223600 (1400) 875 ACCEPTED(out-of-order)
+[send ack] 275
+[recv data] 385000 (1400) 276 ACCEPTED(out-of-order)
+[send ack] 276
+[recv data] 385000 (1400) 276 IGNORED
+[send ack] 276
+[recv data] 1225000 (1400) 876 ACCEPTED(out-of-order)
+[send ack] 276
+[recv data] 386400 (1400) 277 ACCEPTED(out-of-order)
+[send ack] 277
+[recv data] 1226400 (1400) 877 ACCEPTED(out-of-order)
+[send ack] 277
+[recv data] 387800 (1400) 278 ACCEPTED(out-of-order)
+[send ack] 278
+[recv data] 1227800 (1400) 878 ACCEPTED(out-of-order)
+[send ack] 278
+[recv data] 1227800 (1400) 878 ACCEPTED(out-of-order)
+[send ack] 278
+[recv data] 389200 (1400) 279 ACCEPTED(out-of-order)
+[send ack] 279
+[recv data] 1229200 (1400) 879 ACCEPTED(out-of-order)
+[send ack] 279
+[recv data] 390600 (1400) 280 ACCEPTED(out-of-order)
+[send ack] 280
+[recv data] 1230600 (1400) 880 ACCEPTED(out-of-order)
+[send ack] 280
+[recv data] 1230600 (1400) 880 ACCEPTED(out-of-order)
+[send ack] 280
+[recv data] 392000 (1400) 281 ACCEPTED(out-of-order)
+[send ack] 281
+[recv data] 1232000 (1400) 881 ACCEPTED(out-of-order)
+[send ack] 281
+[recv data] 393400 (1400) 282 ACCEPTED(out-of-order)
+[send ack] 282
+[recv data] 1233400 (1400) 882 ACCEPTED(out-of-order)
+[send ack] 282
+[recv data] 1233400 (1400) 882 ACCEPTED(out-of-order)
+[send ack] 282
+[recv data] 394800 (1400) 283 ACCEPTED(out-of-order)
+[send ack] 283
+[recv data] 1234800 (1400) 883 ACCEPTED(out-of-order)
+[send ack] 283
+[recv data] 1234800 (1400) 883 ACCEPTED(out-of-order)
+[send ack] 283
+[recv data] 396200 (1400) 284 ACCEPTED(out-of-order)
+[send ack] 284
+[recv data] 396200 (1400) 284 IGNORED
+[send ack] 284
+[recv data] 1236200 (1400) 884 ACCEPTED(out-of-order)
+[send ack] 284
+[recv data] 397600 (1400) 285 ACCEPTED(out-of-order)
+[send ack] 285
+[recv data] 1237600 (1400) 885 ACCEPTED(out-of-order)
+[send ack] 285
+[recv data] 399000 (1400) 286 ACCEPTED(out-of-order)
+[send ack] 286
+[recv data] 1239000 (1400) 886 ACCEPTED(out-of-order)
+[send ack] 286
+[recv data] 400400 (1400) 287 ACCEPTED(out-of-order)
+[send ack] 287
+[recv data] 1240400 (1400) 887 ACCEPTED(out-of-order)
+[send ack] 287
+[recv data] 1240400 (1400) 887 ACCEPTED(out-of-order)
+[send ack] 287
+[recv data] 401800 (1400) 288 ACCEPTED(out-of-order)
+[send ack] 288
+[recv data] 401800 (1400) 288 IGNORED
+[send ack] 288
+[recv data] 1241800 (1400) 888 ACCEPTED(out-of-order)
+[send ack] 288
+[recv data] 403200 (1400) 289 ACCEPTED(out-of-order)
+[send ack] 289
+[recv data] 403200 (1400) 289 IGNORED
+[send ack] 289
+[recv data] 1243200 (1400) 889 ACCEPTED(out-of-order)
+[send ack] 289
+[recv data] 404600 (1400) 290 ACCEPTED(out-of-order)
+[send ack] 290
+[recv data] 1244600 (1400) 890 ACCEPTED(out-of-order)
+[send ack] 290
+[recv data] 1244600 (1400) 890 ACCEPTED(out-of-order)
+[send ack] 290
+[recv data] 406000 (1400) 291 ACCEPTED(out-of-order)
+[send ack] 890
+[recv data] 406000 (1400) 291 IGNORED
+[send ack] 890
+[recv data] 1246000 (1400) 891 ACCEPTED(in-order)
+[send ack] 891
+[recv data] 1246000 (1400) 891 IGNORED
+[send ack] 891
+[recv data] 1247400 (1400) 892 ACCEPTED(in-order)
+[send ack] 892
+[recv data] 1248800 (1400) 893 ACCEPTED(in-order)
+[send ack] 893
+[recv data] 1250200 (1400) 894 ACCEPTED(in-order)
+[send ack] 894
+[recv data] 1250200 (1400) 894 IGNORED
+[send ack] 894
+[recv data] 1251600 (1400) 895 ACCEPTED(in-order)
+[send ack] 895
+[recv data] 1253000 (1400) 896 ACCEPTED(in-order)
+[send ack] 896
+[recv data] 1254400 (1400) 897 ACCEPTED(in-order)
+[send ack] 897
+[recv data] 1255800 (1400) 898 ACCEPTED(in-order)
+[send ack] 898
+[recv data] 1255800 (1400) 898 IGNORED
+[send ack] 898
+[recv data] 1257200 (1400) 899 ACCEPTED(in-order)
+[send ack] 899
+[recv data] 1257200 (1400) 899 IGNORED
+[send ack] 899
+[recv data] 1258600 (1400) 900 ACCEPTED(in-order)
+[send ack] 900
+[recv data] 1260000 (1400) 901 ACCEPTED(in-order)
+[send ack] 901
+[recv data] 1260000 (1400) 901 IGNORED
+[send ack] 901
+[recv data] 1261400 (1400) 902 ACCEPTED(in-order)
+[send ack] 902
+[recv data] 1262800 (1400) 903 ACCEPTED(in-order)
+[send ack] 903
+[recv data] 1264200 (1400) 904 ACCEPTED(in-order)
+[send ack] 904
+[recv data] 1265600 (1400) 905 ACCEPTED(in-order)
+[send ack] 905
+[recv data] 1267000 (1400) 906 ACCEPTED(in-order)
+[send ack] 906
+[recv data] 1267000 (1400) 906 IGNORED
+[send ack] 906
+[recv data] 1268400 (1400) 907 ACCEPTED(in-order)
+[send ack] 907
+[recv data] 1269800 (1400) 908 ACCEPTED(in-order)
+[send ack] 908
+[recv data] 1271200 (1400) 909 ACCEPTED(in-order)
+[send ack] 909
+[recv data] 1272600 (1400) 910 ACCEPTED(in-order)
+[send ack] 910
+[recv data] 1272600 (1400) 910 IGNORED
+[send ack] 910
+[recv data] 1274000 (1400) 911 ACCEPTED(in-order)
+[send ack] 911
+[recv data] 1274000 (1400) 911 IGNORED
+[send ack] 911
+[recv data] 1275400 (1400) 912 ACCEPTED(in-order)
+[send ack] 912
+[recv data] 1275400 (1400) 912 IGNORED
+[send ack] 912
+[recv data] 1276800 (1400) 913 ACCEPTED(in-order)
+[send ack] 913
+[recv data] 1276800 (1400) 913 IGNORED
+[send ack] 913
+[recv data] 1278200 (1400) 914 ACCEPTED(in-order)
+[send ack] 914
+[recv data] 1279600 (1400) 915 ACCEPTED(in-order)
+[send ack] 915
+[recv data] 1281000 (1400) 916 ACCEPTED(in-order)
+[send ack] 916
+[recv data] 1281000 (1400) 916 IGNORED
+[send ack] 916
+[recv data] 1282400 (1400) 917 ACCEPTED(in-order)
+[send ack] 917
+[recv data] 1283800 (1400) 918 ACCEPTED(in-order)
+[send ack] 918
+[recv data] 1283800 (1400) 918 IGNORED
+[send ack] 918
+[recv data] 1285200 (1400) 919 ACCEPTED(in-order)
+[send ack] 919
+[recv data] 1286600 (1400) 920 ACCEPTED(in-order)
+[send ack] 920
+[recv data] 1288000 (890) 921 ACCEPTED(in-order)
+[send ack] 921
+[completed]
+[tz16@amber project2]$
