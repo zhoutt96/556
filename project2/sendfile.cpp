@@ -241,9 +241,9 @@ int main(int argc, char** argv) {
     __uint32_t offset = 0;
     long latency;
 
-    struct timeval tv_out;
-    tv_out.tv_sec = 3;//等待3秒
-    tv_out.tv_usec = 0;
+//    struct timeval tv_out;
+//    tv_out.tv_sec = 3;//等待3秒
+//    tv_out.tv_usec = 0;
 
 //    setsockopt(sock,SOL_SOCKET,SO_RCVTIMEO,&sin, sizeof(sin));
 
@@ -346,7 +346,8 @@ int main(int argc, char** argv) {
                     printf("[Recv ACK] %u \n", ack_checksum);
                     initAck.ackNum = ack_checksum;
                     initAck.count = 1;
-                    while (ack_checksum >= Front(queue)->seq_num){
+                    while (queue->size>0 && ack_checksum >= Front(queue)->seq_num){
+                        printf("Pop the seq_num %u \n", Front(queue)->seq_num);
                         Dequeue(queue);
                         send_window.usable ++;
                     }
@@ -388,10 +389,9 @@ int main(int argc, char** argv) {
         }
 
         printf("cur queue front seq is %u \n", Front(queue)->seq_num);
+        printf("the rear is %d, the front is %d \n", queue->rear, queue->front);
         printf("the size of queue %d \n", queue->size);
         printf("the usable is %d \n", send_window.usable);
-        printf(" ------------------------------------------ ");
+        printf(" ------------------------------------------ \n");
     }
 }
-
-//./sendfile -r onyx.clear.rice.edu:18004 -f data/data.txt
