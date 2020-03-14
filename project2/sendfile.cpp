@@ -75,10 +75,10 @@ void helpMenu()
 {
     printf("------------------------            Menu for COMP 556 Project 2         ------------------------|\n");
     printf("|./sendfile -h:                                                               show help menu    |\n");
-    printf("|./sendfile -r <recv host>:<recv port> -f <subdir>/<filename>                                   |\n");
-    printf("|        <recv host> (Required):                                                                |\n"
+    printf("|./sendfile -r <recv-drop30-400-1400.log host>:<recv-drop30-400-1400.log port> -f <subdir>/<filename>                                   |\n");
+    printf("|        <recv-drop30-400-1400.log host> (Required):                                                                |\n"
            "|               The IP address of the remote host in a.b.c.d format.                            |\n" );
-    printf("|        <recv port> (Required):                                                                |\n"
+    printf("|        <recv-drop30-400-1400.log port> (Required):                                                                |\n"
            "|               The UDP port of the remote host.                                                |\n");
     printf("|        <subdir> (Required):                                                                   |\n"
            "|               The local subdirectory where the file is located.                               |\n");

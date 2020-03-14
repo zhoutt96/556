@@ -13,6 +13,7 @@
 #include <dirent.h>
 //#include <jmorecfg.h>
 //#include "checksum.h"
+#include "linkList.h"
 #include <queue>
 using namespace std;
 
@@ -103,7 +104,9 @@ int main(int argc, char **argv) {
         recvfrom(sock, buffer, sizeof(packet), 0, (struct sockaddr *)&addr, &addrlen);
         u_short checksum = recv_packet->checksum;
         recv_packet->checksum = 0;
-        u_short newCheckSum = cksum((u_short*)buffer, (DATASIZE+10)/2);
+        u_short newCheckSum = cksum((u_short*)buffer, sizeof(*recv_packet)/2);
+//        u_short newCheckSum = cksum((u_short*)buffer, sizeof((DATASIZE+10)/2));
+
         if (checksum == newCheckSum)  //modify
         {
             // send a ack back to the client
@@ -147,61 +150,58 @@ int main(int argc, char **argv) {
         exit(0);
     }
     unsigned int ack = 0;
-    int window_size = 20;
+    int window_size = 600;
+    printf("window size is %d \n", window_size);
     short endFile = 0;
-    priority_queue <unsigned int,vector<unsigned int>,greater<unsigned int> > q;
-//    while(endFile == 0 || !q.empty()){
-    while(endFile == 0 || !q.empty()){
+    LinkList list;
+    unsigned long offset = 0;
+    unsigned long length = 0;
+    while(endFile == 0 || !list.isEmpty()){
         num = recvfrom(sock, buffer, sizeof(packet), 0, (struct sockaddr *)&addr, &addrlen);
         if(num>0){
             recv_packet = (packet*)buffer;
             unsigned int checksum = recv_packet->checksum;
             recv_packet->checksum = 0;
             if (checksum == cksum((unsigned short*)recv_packet, sizeof(*recv_packet)/2)){
-                unsigned long offset = (recv_packet->seq_num-1)*sizeof(recv_packet->data);
-                unsigned long length = sizeof(recv_packet->data);
+                offset = (recv_packet->seq_num-1)*sizeof(recv_packet->data);
+                length = recv_packet->payload_size;
 
                 if(recv_packet->seq_num<= ack || recv_packet->seq_num>(ack+window_size)){
                     printf("[recv data] %lu (%lu) %u %s \n",offset, length, recv_packet->seq_num,"IGNORED");
-                    ack_packet->ack_num = ack;
-                    ack_packet->ack_checksum = ack;
-                    sendto(sock, ack_packet, sizeof(*ack_packet), 0, (const struct sockaddr *) &addr, sizeof(addr));
+
                 }else{
                     if(endFile==0){
                         endFile = recv_packet->isEnd;
-//                        printf("endfile %d \n", endFile);
                     }
-                    if(recv_packet->seq_num == ack+1 && q.empty()){
+                    if(recv_packet->seq_num == ack+1 && list.isEmpty()){
                         printf("[recv data] %lu (%lu) %u %s \n",offset, length, recv_packet->seq_num, "ACCEPTED(in-order)");
+                        fwrite(recv_packet->data,1,length,fp);
                         ack++;
                     }else {
-                        printf("[recv data] %lu (%lu) %u %s \n", offset, length,recv_packet->seq_num, "ACCEPTED(out-of-order)");
-                        q.push(recv_packet->seq_num);
-                        while (!q.empty()) {
-                            if (ack == q.top() - 1 || ack == q.top()) {
-                                ack = q.top();
-                                q.pop();
-                            } else {
-                                break;
-                            }
+                        printf("[recv data] %lu (%lu) %u %s \n", offset, length, recv_packet->seq_num, "ACCEPTED(out-of-order)");
+                        list.add(recv_packet->seq_num,recv_packet->data,length);
+                        ListNode* content = list.pop(ack);
+                        while(content!=NULL){
+                            fwrite(content->data,1,length,fp);
+                            ack = content->seq;
+                            ListNode* temp = content;
+                            content = content->next;
+                            delete temp;
                         }
                     }
-                    fseek(fp,offset,SEEK_SET);
-                    fwrite(recv_packet->data,1,length,fp);
-                    ack_packet->ack_num = ack;
-                    ack_packet->ack_checksum = ack;
-//                    ack_packet->ack_checksum = recv_packet->seq_num;
-//                    sendto(sock, &ack_packet, sizeof(*ack_packet), 0, (const struct sockaddr *) &sin, sizeof(sin));
-                    sendto(sock, ack_packet, sizeof(*ack_packet), 0, (const struct sockaddr *) &addr, sizeof(addr));
                 }
             }else{
-                printf("[recv corrupt packet]\n");
-                ack_packet->ack_num = ack;
-                ack_packet->ack_checksum = ack;
-//                ack_packet->ack_checksum = recv_packet->seq_num;
-//                sendto(sock, &ack_packet, sizeof(*ack_packet), 0, (const struct sockaddr *) &sin, sizeof(sin));
-                sendto(sock, ack_packet, sizeof(*ack_packet), 0, (const struct sockaddr *) &addr, sizeof(addr));
+//                printf("size if %lu", sizeof(*recv_packet)/2);
+                printf("[recv corrupt packet], seq %u, checksum %d  \n", recv_packet->seq_num, checksum);
+//                printf("queue rear is %d \n", );
+//                printf("data size i")
+//                printf("[recv corrupt packet]\n");
             }
+
+            ack_packet->ack_num = ack;
+            ack_packet->ack_checksum = ack;
+            printf("[send ack] %u \n", ack);
+            sendto(sock, ack_packet, sizeof(*ack_packet), 0, (const struct sockaddr *) &addr, sizeof(addr));
         }
     }
     fclose(fp);

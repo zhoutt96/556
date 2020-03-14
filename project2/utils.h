@@ -11,8 +11,8 @@
 
 #ifndef PROJECT2_UTILS_H
 #define PROJECT2_UTILS_H
-#define DEFAULTMAXWINDOWSIZE 40
-#define DATASIZE 50  // The size of the payload part of sending packet
+#define DEFAULTMAXWINDOWSIZE 600
+#define DATASIZE 1400  // The size of the payload part of sending packet
 #define RESENDLIMIT 3
 
 typedef struct window{
@@ -23,6 +23,7 @@ typedef struct window{
 } sendwindow;
 
 typedef struct packet{
+    // 4+2+2+2 = 10
     __uint32_t seq_num;
     __uint16_t payload_size;
     __uint16_t checksum;
