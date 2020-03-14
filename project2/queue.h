@@ -47,6 +47,7 @@
 
 typedef struct Queue
 {
+    int size;
     packet* data[QUEUE_SIZE];
     int front;
     int rear;
@@ -55,6 +56,7 @@ typedef struct Queue
 void InitQueue(Queue* queue){
     queue->front = 0;
     queue->rear = 0;
+    queue->size = 0;
     int i;
     for (i=0; i<QUEUE_SIZE;i++){
         queue->data[i] = (packet*) malloc(sizeof(packet));
@@ -75,14 +77,21 @@ void InitQueue(Queue* queue){
 //    return q;
 //}
 
-int IsFull(Queue *q)
-{
-    return ((q->rear+1)%QUEUE_SIZE == q->front);
-}
+//int IsFull(Queue *q)
+//{
+//    return ((q->rear+1)%QUEUE_SIZE == q->front);
+//}
+//
 
 int IsEmpty(Queue *q)
 {
+
     return (q->front == q->rear);
+}
+
+int IsFull(Queue *q)
+{
+    return ((q->rear)%QUEUE_SIZE == q->front);
 }
 
 //__uint32_t seq_num;
@@ -110,16 +119,16 @@ int IsEmpty(Queue *q)
 //void Enqueue(Queue *q, __uint32_t seq_num, __uint16_t header_checksum, __uint16_t payload_size,  __uint16_t payload_checksum)
 void Enqueue(Queue *q)
 {
-    if(IsFull(q))
-    {
-        return;
-    }
+//    if(IsFull(q))
+//    {
+//        return;
+//    }
 
 //    q->data[q->rear]->seq_num = seq_num;
 //    q->data[q->rear]->header_checksum = header_checksum;
 //    q->data[q->rear]->payload_size = payload_size;
 //    q->data[q->rear]->payload_checksum = header_checksum;
-
+    q->size ++;
     q->rear = (q->rear+1)%QUEUE_SIZE;
 }
 
@@ -141,11 +150,12 @@ packet* Rear(Queue *q){
 
 packet* Dequeue(Queue *q)
 {
-    if(IsEmpty(q))
-    {
-        return 0;
-    }
+//    if(IsEmpty(q))
+//    {
+//        return 0;
+//    }
 
+    q->size -- ;
     packet* tmp = q->data[q->front];
     q->front = (q->front+1)%QUEUE_SIZE;
     return tmp;
