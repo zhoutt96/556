@@ -133,7 +133,7 @@ void fillPacket(FILE *fp, packet* sendbuffer, struct window* send_window, __uint
 
     sendbuffer->checksum = 0;
     sendbuffer->seq_num = send_window->to_be_send;
-    new_checksum = cksum((u_short*) sendbuffer, (DATASIZE+10)/2);
+    new_checksum = cksum((u_short*) sendbuffer, sizeof(packet)/2);
     sendbuffer->checksum = new_checksum;
 }
 
@@ -143,11 +143,14 @@ void fillFilePacket(packet* sendbuffer, __uint16_t filename_path_len){
     sendbuffer->isEnd = 2;
     sendbuffer->payload_size = filename_path_len;
     sendbuffer->checksum = 0;
-    new_checksum = cksum((u_short*) sendbuffer, (DATASIZE+10)/2);
+    new_checksum = cksum((u_short*) sendbuffer, sizeof(packet)/2);
     sendbuffer->checksum = new_checksum;
 }
 
 int main(int argc, char** argv) {
+    struct timeval send_start_time, send_end_time;
+    gettimeofday(&send_start_time, NULL);
+
 
     if (strcmp(argv[1], "-h") == 0)
     {
@@ -241,12 +244,6 @@ int main(int argc, char** argv) {
     __uint32_t offset = 0;
     long latency;
 
-//    struct timeval tv_out;
-//    tv_out.tv_sec = 3;//等待3秒
-//    tv_out.tv_usec = 0;
-
-//    setsockopt(sock,SOL_SOCKET,SO_RCVTIMEO,&sin, sizeof(sin));
-
     /*
      * send the packet which contains the filename and directory name, in the format of filepath/filename
      */
@@ -299,7 +296,7 @@ int main(int argc, char** argv) {
     }
 
     printf("-------- [BEGIN TRANSFERRING] -------- \n");
-
+    __uint32_t ack_checksum;
     while (send_window.to_be_send <= total_count || queue->size>0){
         while(send_window.usable > 0 && send_window.to_be_send<=total_count){
             /*
@@ -322,14 +319,11 @@ int main(int argc, char** argv) {
         }
 
 
-        gettimeofday(&cur_timestamp, NULL);
-
-
         /*
          * if there is no available data, then begin to wait for the ack and free the data
          */
         recv_num = recvfrom(sock, recv_packet, sizeof(ackpacket), 0, (struct sockaddr *)&sin, &sinlen);
-        __uint32_t ack_checksum = recv_packet->ack_checksum;
+        ack_checksum = recv_packet->ack_checksum;
 
         /*
          * if the ack is correct, and it is equal to the smallest ack in queue, accept it, otherwise, ignore it
@@ -347,12 +341,10 @@ int main(int argc, char** argv) {
                     initAck.ackNum = ack_checksum;
                     initAck.count = 1;
                     while (queue->size>0 && ack_checksum >= Front(queue)->seq_num){
-                        printf("Pop the seq_num %u \n", Front(queue)->seq_num);
                         Dequeue(queue);
                         send_window.usable ++;
                     }
                 }else{
-
                     printf("[Ignore ACK] %u \n", ack_checksum);
                     if (ack_checksum == initAck.ackNum){
                         initAck.count += 1;
@@ -365,8 +357,10 @@ int main(int argc, char** argv) {
                                 send_num = sendto(sock, send_packet, sizeof(*send_packet), 0, (const struct sockaddr *) &sin, sizeof(sin));
                             }
                             offset = (Front(queue)->seq_num-1)*DATASIZE;
-                            printf("[MORE THAN 3 ACK RESEND] %u (%u)\n", offset, send_packet->payload_size);
+
+                            printf("[MORE THAN 3 ACK RESEND] %u (%u)\n", offset, send_packet->seq_num);
                             initAck.count = 0;
+                            gettimeofday(&last_send_tstamp, NULL);
                         }
                     }else{
                         initAck.ackNum = ack_checksum;
@@ -378,6 +372,7 @@ int main(int argc, char** argv) {
             }
         }
 
+        gettimeofday(&cur_timestamp, NULL);
         latency = getLatency(&last_send_tstamp, &cur_timestamp);
         if (latency >= TIMEEXCEEDLIMIT){
             /*
@@ -389,9 +384,11 @@ int main(int argc, char** argv) {
         }
 
         printf("cur queue front seq is %u \n", Front(queue)->seq_num);
-        printf("the rear is %d, the front is %d \n", queue->rear, queue->front);
-        printf("the size of queue %d \n", queue->size);
         printf("the usable is %d \n", send_window.usable);
         printf(" ------------------------------------------ \n");
     }
+
+    gettimeofday(&send_end_time, NULL);
+    double total_travel_time = getLatency(&send_start_time, &send_end_time)/10000000;
+    printf("Sending file successfully, using %f", total_travel_time);
 }
