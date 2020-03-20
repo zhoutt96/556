@@ -16,12 +16,14 @@ public:
     unsigned int seq;
     char* data;
     ListNode* next;
+    unsigned long payload_size;
 
     ListNode(int seq_num,char* content, unsigned long length){
         seq = seq_num;
         data = (char*)malloc(length);
         memcpy(data,content,length);
         next = NULL;
+        payload_size = length;
     }
     ListNode(){
         seq = 0;
