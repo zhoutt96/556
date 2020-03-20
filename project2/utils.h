@@ -11,9 +11,11 @@
 
 #ifndef PROJECT2_UTILS_H
 #define PROJECT2_UTILS_H
-#define DEFAULTMAXWINDOWSIZE 600
+#define DEFAULTMAXWINDOWSIZE 100
 #define DATASIZE 1400  // The size of the payload part of sending packet
 #define RESENDLIMIT 3
+#define ERROR_NUM 65534
+#define IGNORE_CODE -1
 
 typedef struct window{
     __uint16_t usable; // total available window
@@ -29,11 +31,13 @@ typedef struct packet{
     __uint16_t checksum;
     __uint16_t isEnd; // 0 -> has not reached to end, 1->the last packet, 2->filename
     char data[DATASIZE];
+
 } packet;
 
 typedef struct ackpacket{
     __uint32_t ack_num;
-    __uint32_t ack_checksum;
+    __uint32_t last_inorder_ack;
+    __uint16_t ack_checksum;
 } ackpacket;
 
 FILE* openFile(char* fullFilePath);
@@ -43,5 +47,9 @@ int getFileLength(char* fullFilePath);
 u_short cksum(u_short *buf, int count);
 void createFile(char* filename);
 long double calLatency(struct timeval* start, struct timeval* end);
+void fillackPacket(ackpacket* ack_packet);
+
+
+
 
 #endif //PROJECT2_UTILS_H
