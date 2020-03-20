@@ -70,7 +70,6 @@ int main(int argc, char **argv) {
     struct sockaddr_in sin, addr; // the server address and the client address
     socklen_t addrlen = sizeof(addr);
 
-
     // create socket file descripter
     if ((sock=socket(AF_INET, SOCK_DGRAM, 0)) < 0){
         perror("Can not create UDP socket");
@@ -104,6 +103,7 @@ int main(int argc, char **argv) {
         recvfrom(sock, buffer, sizeof(packet), 0, (struct sockaddr *)&addr, &addrlen);
         u_short checksum = recv_packet->checksum;
         recv_packet->checksum = 0;
+        //debug，长度
         u_short newCheckSum = cksum((u_short*)buffer, sizeof(*recv_packet)/2);
 //        u_short newCheckSum = cksum((u_short*)buffer, sizeof((DATASIZE+10)/2));
 
@@ -113,7 +113,7 @@ int main(int argc, char **argv) {
             printf("receive the filename successfully \n");
             receive_correct_file = 1;
             ack_packet->ack_num = recv_packet->seq_num;
-            ack_packet->ack_checksum = recv_packet->seq_num;
+            ack_packet->last_inorder_ack = recv_packet->seq_num;
             sendto(sock, ack_packet, sizeof(*ack_packet), 0, (const struct sockaddr *) &addr, sizeof(addr));
         }else{
             printf("recv corrupt packet\n");
@@ -150,7 +150,8 @@ int main(int argc, char **argv) {
         exit(0);
     }
     unsigned int ack = 0;
-    int window_size = 600;
+    //debug，注意接收窗口
+    int window_size = DEFAULTMAXWINDOWSIZE;
     printf("window size is %d \n", window_size);
     short endFile = 0;
     LinkList list;
@@ -162,45 +163,61 @@ int main(int argc, char **argv) {
             recv_packet = (packet*)buffer;
             unsigned int checksum = recv_packet->checksum;
             recv_packet->checksum = 0;
+            //debug
             if (checksum == cksum((unsigned short*)recv_packet, sizeof(*recv_packet)/2)){
                 offset = (recv_packet->seq_num-1)*sizeof(recv_packet->data);
                 length = recv_packet->payload_size;
-
+                //debug，ack是当前接收到数据的最小包号，这部分已发送了ACK
                 if(recv_packet->seq_num<= ack || recv_packet->seq_num>(ack+window_size)){
                     printf("[recv data] %lu (%lu) %u %s \n",offset, length, recv_packet->seq_num,"IGNORED");
-
+//                    ack_packet->ack_num = recv_packet->seq_num;
+                    ack_packet->ack_num = IGNORE_CODE;
+                    ack_packet->last_inorder_ack = ack;
                 }else{
                     if(endFile==0){
                         endFile = recv_packet->isEnd;
+                        if (endFile && list.isEmpty()){
+                            break;
+                        }
                     }
+                    //debug,按顺序接收
                     if(recv_packet->seq_num == ack+1 && list.isEmpty()){
                         printf("[recv data] %lu (%lu) %u %s \n",offset, length, recv_packet->seq_num, "ACCEPTED(in-order)");
                         fwrite(recv_packet->data,1,length,fp);
+//                        printf("write seq %u, length is \n", recv_packet->seq_num, recv_packet->payload_size);
                         ack++;
+                        ack_packet->ack_num = ack;
+                        ack_packet->last_inorder_ack = ack;
                     }else {
                         printf("[recv data] %lu (%lu) %u %s \n", offset, length, recv_packet->seq_num, "ACCEPTED(out-of-order)");
                         list.add(recv_packet->seq_num,recv_packet->data,length);
                         ListNode* content = list.pop(ack);
                         while(content!=NULL){
-                            fwrite(content->data,1,length,fp);
+                            printf("write seq %u \n", content->seq);
+                            fwrite(content->data,1,content->payload_size,fp);
                             ack = content->seq;
                             ListNode* temp = content;
                             content = content->next;
                             delete temp;
                         }
+                        ack_packet->ack_num = recv_packet->seq_num;
+                        ack_packet->last_inorder_ack = ack;
                     }
                 }
             }else{
-//                printf("size if %lu", sizeof(*recv_packet)/2);
                 printf("[recv corrupt packet], seq %u, checksum %d  \n", recv_packet->seq_num, checksum);
+//                ack_packet->ack_num = ERROR_NUM;
+                ack_packet->ack_num = IGNORE_CODE;
+                ack_packet->last_inorder_ack = ack;
+//                printf("size if %lu", sizeof(*recv_packet)/2);
 //                printf("queue rear is %d \n", );
 //                printf("data size i")
 //                printf("[recv corrupt packet]\n");
             }
 
-            ack_packet->ack_num = ack;
-            ack_packet->ack_checksum = ack;
-            printf("[send ack] %u \n", ack);
+            //ack_packet->ack_num = ack;
+            //ack_packet->last_inorder_ack = ack;
+            printf("[send ack] %u %u \n", ack_packet->ack_num, ack);
             sendto(sock, ack_packet, sizeof(*ack_packet), 0, (const struct sockaddr *) &addr, sizeof(addr));
         }
     }
