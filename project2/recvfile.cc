@@ -176,9 +176,6 @@ int main(int argc, char **argv) {
                 }else{
                     if(endFile==0){
                         endFile = recv_packet->isEnd;
-                        if (endFile && list.isEmpty()){
-                            break;
-                        }
                     }
                     //debug,按顺序接收
                     if(recv_packet->seq_num == ack+1 && list.isEmpty()){
@@ -218,6 +215,7 @@ int main(int argc, char **argv) {
             //ack_packet->ack_num = ack;
             //ack_packet->last_inorder_ack = ack;
             printf("[send ack] %u %u \n", ack_packet->ack_num, ack);
+            fillackPacket(ack_packet);
             sendto(sock, ack_packet, sizeof(*ack_packet), 0, (const struct sockaddr *) &addr, sizeof(addr));
         }
     }
