@@ -313,6 +313,7 @@ int main(int argc, char** argv) {
 
     printf("-------- [BEGIN TRANSFERRING] -------- \n");
     __uint32_t last_inorder_ack;
+    __uint16_t new_checksum;
     while (send_window.to_be_send <= total_count || queue->size>0) {
         while (send_window.usable > 0 && send_window.to_be_send <= total_count) {
             /*
@@ -363,60 +364,65 @@ int main(int argc, char** argv) {
 
             //debug，判断了是否在窗口里，不仅仅判断了是否大于最小序列号，也判断是否小于最大序列号
             //&& last_inorder_ack < (Front(queue)->seq_num + queue->size)
-            if (last_inorder_ack >= Front(queue)->seq_num && last_inorder_ack < (Front(queue)->seq_num + queue->size)) {
-                printf("[Recv ACK] %u \n", last_inorder_ack);
 
-                initAck.ackNum = last_inorder_ack;
-                initAck.count = 1;
-                while (queue->size > 0 && last_inorder_ack >= Front(queue)->seq_num) {
-                    Dequeue(queue);
-                    send_window.usable++;
-                }
 
-                if (queue->size == 0){
-                    break;
-                }
+            new_checksum = recv_packet->ack_checksum;
+            recv_packet->ack_checksum = 0;
+            if (cksum((u_short*) recv_packet, sizeof(ackpacket)/2) == new_checksum){
+                if (last_inorder_ack >= Front(queue)->seq_num && last_inorder_ack < (Front(queue)->seq_num + queue->size)) {
+                    printf("[Recv ACK] %u \n", last_inorder_ack);
 
-                //debug，如果收到的ACK在当前窗口内，修改是否接收到ACK的状态
-                //不可能出现ack+1 =ack_accul,因此>足够了，不需要>=
+                    initAck.ackNum = last_inorder_ack;
+                    initAck.count = 1;
+                    while (queue->size > 0 && last_inorder_ack >= Front(queue)->seq_num) {
+                        Dequeue(queue);
+                        send_window.usable++;
+                    }
 
-                /*
-                 * first case, ack_num <= inorder_ack, all ack are inorder, no need to do further check
-                 * second case, ack > inorder_ack, receive the out-of-order ack
-                 */
-                if (last_inorder_ack < recv_packet->ack_num){
+                    if (queue->size == 0){
+                        break;
+                    }
+
+                    //debug，如果收到的ACK在当前窗口内，修改是否接收到ACK的状态
+                    //不可能出现ack+1 =ack_accul,因此>足够了，不需要>=
+
+                    /*
+                     * first case, ack_num <= inorder_ack, all ack are inorder, no need to do further check
+                     * second case, ack > inorder_ack, receive the out-of-order ack
+                     */
+                    if (last_inorder_ack < recv_packet->ack_num){
 //                    if (recv_packet->ack_num >= Front(queue)->seq_num && recv_packet->ack_num < (Front(queue)->seq_num + queue->size)) {
                         if (recv_packet->ack_num >= Front(queue)->seq_num) {
+                            for (int i = queue->front; i < (queue->front + queue->size); i++) {
+                                if (queue->data[i % QUEUE_SIZE]->seq_num == recv_packet->ack_num) {
+                                    is_ack[i % QUEUE_SIZE] = true;
+                                    break;
+                                }
+                            }
+
+                            // pop all the continuous ack
+                            while (queue->size>0 && is_ack[queue->front]){
+                                Dequeue(queue);
+                                send_window.usable ++;
+                            }
+                        } else if (recv_packet->ack_num == ERROR_NUM) {
+                            printf("[receive corrupt ack] %u \n ", recv_packet->ack_num);
+                        }
+                    }
+                } else {
+                    //如果ACK在窗口里，说明是disorder
+//                if (recv_packet->ack_num >= Front(queue)->seq_num && recv_packet->ack_num < (Front(queue)->seq_num + queue->size)) {
+                    if (recv_packet->ack_num >= Front(queue)->seq_num) {
+                        printf("[Recv ACK Disorder] %u \n", recv_packet->ack_num);
                         for (int i = queue->front; i < (queue->front + queue->size); i++) {
                             if (queue->data[i % QUEUE_SIZE]->seq_num == recv_packet->ack_num) {
                                 is_ack[i % QUEUE_SIZE] = true;
                                 break;
                             }
                         }
-
-                        // pop all the continuous ack
-                        while (queue->size>0 && is_ack[queue->front]){
-                            Dequeue(queue);
-                            send_window.usable ++;
-                        }
                     } else if (recv_packet->ack_num == ERROR_NUM) {
-                        printf("[receive corrupt ack] %u \n ", recv_packet->ack_num);
+                        printf("[Rec corrupt ack] %u \n ", recv_packet->ack_num);
                     }
-                }
-            } else {
-                //如果ACK在窗口里，说明是disorder
-//                if (recv_packet->ack_num >= Front(queue)->seq_num && recv_packet->ack_num < (Front(queue)->seq_num + queue->size)) {
-                if (recv_packet->ack_num >= Front(queue)->seq_num) {
-                    printf("[Recv ACK Disorder] %u \n", recv_packet->ack_num);
-                    for (int i = queue->front; i < (queue->front + queue->size); i++) {
-                        if (queue->data[i % QUEUE_SIZE]->seq_num == recv_packet->ack_num) {
-                            is_ack[i % QUEUE_SIZE] = true;
-                            break;
-                        }
-                    }
-                } else if (recv_packet->ack_num == ERROR_NUM) {
-                    printf("[Rec corrupt ack] %u \n ", recv_packet->ack_num);
-                }
 
 //                else{
                     //如果接收到的ACK包号不在窗口内，收到三个ACK后，发送当前最小的序号发送的包
@@ -448,6 +454,7 @@ int main(int argc, char** argv) {
                         initAck.count = 1;
                     }
 //                }
+                }
             }
             //printf("cur queue front seq is %u\n", Front(queue)->seq_num);
             //printf("the usable is %d ,the \n", send_window.usable);
