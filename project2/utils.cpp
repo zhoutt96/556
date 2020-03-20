@@ -67,3 +67,10 @@ u_short cksum(u_short *buf, int count)
 long double calLatency(struct timeval* start, struct timeval* end){
     return (end->tv_sec - start->tv_sec)*1000000 + end->tv_usec - start->tv_usec;
 }
+
+void fillackPacket(ackpacket* ack_packet){
+    ack_packet->ack_checksum = 0;
+    __uint16_t new_checksum;
+    new_checksum = cksum((u_short*) ack_packet, sizeof(ack_packet)/2);
+    ack_packet->ack_checksum = new_checksum;
+}
