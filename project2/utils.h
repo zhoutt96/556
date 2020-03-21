@@ -18,7 +18,7 @@
 //#define ERROR_NUM 65534
 #define IGNORE_CODE 0
 #define FIN 1
-//#define FINACK -2
+#define FINACK 2
 #define FIN_TIMEOUT 100000
 #define TIMEEXCEEDLIMIT 1500
 #define RESENDTIMELIMIT 1000

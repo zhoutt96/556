@@ -144,7 +144,6 @@ struct timeval ack_time;
 struct timeval send_time[QUEUE_SIZE];
 struct timeval receive_time[QUEUE_SIZE];
 
-
 //struct timeval send_time;
 int main(int argc, char** argv) {
     struct timeval send_start_time, send_end_time;
@@ -500,10 +499,9 @@ int main(int argc, char** argv) {
         }
     }
 
-
-    send_fin_packet->ack_num = FIN;
-    send_fin_packet->last_inorder_ack = FIN;
-    send_fin_packet->isFin = FIN;
+    send_fin_packet->ack_num = FINACK;
+    send_fin_packet->last_inorder_ack = FINACK;
+    send_fin_packet->isFin = FINACK;
     fillackPacket(send_fin_packet);
     send_num = sendto(sock, send_fin_packet, sizeof(*send_fin_packet), 0, (const struct sockaddr *) &sin, sizeof(sin));
     gettimeofday(&last_send_tstamp, NULL);
@@ -522,6 +520,7 @@ int main(int argc, char** argv) {
         }
     }
 
+    printf("Exit Sendfile \n");
     free(queue);
     exit(0);
 
