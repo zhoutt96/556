@@ -21,6 +21,8 @@ using namespace std;
 /* a few simple linked list functions             */
 /**************************************************/
 
+#define RECEIVE_FIN_ACK 1
+
 
 void helpMenu()
 {
@@ -34,23 +36,6 @@ void helpMenu()
            "|         by the firewall) are 18000-18200 inclusive.                            |\n");
     printf("--------------                 End of the Menu                     --------------|\n");
 }
-
-//u_short cksum(u_short *buf, int count)
-//{
-//    register u_long sum = 0;
-//    while (count--)
-//    {
-//        sum += *buf++;
-//        if (sum & 0xFFFF0000)
-//        {
-//            /* carry occurred, so wrap around */
-//            sum &= 0xFFFF;
-//            sum++;
-//        }
-//    }
-//    return ~(sum & 0xFFFF);
-//}
-
 
 /*****************************************/
 /* main program                          */
@@ -90,13 +75,12 @@ int main(int argc, char **argv) {
         abort();
     }
 
-
     int num;
     int receive_correct_file = 0;
     char* buffer = (char*) malloc(sizeof(packet));
     packet *recv_packet = (packet*) buffer;
     ackpacket *ack_packet = (ackpacket*) malloc(sizeof(ackpacket));
-
+    ackpacket *fin_ack_packet = (ackpacket*) malloc(sizeof(ackpacket));
 
     while (receive_correct_file==0)
     {
@@ -163,7 +147,6 @@ int main(int argc, char **argv) {
             recv_packet = (packet*)buffer;
             unsigned int checksum = recv_packet->checksum;
             recv_packet->checksum = 0;
-            //debug
             if (checksum == cksum((unsigned short*)recv_packet, sizeof(*recv_packet)/2)){
                 offset = (recv_packet->seq_num-1)*sizeof(recv_packet->data);
                 length = recv_packet->payload_size;
@@ -181,7 +164,6 @@ int main(int argc, char **argv) {
                     if(recv_packet->seq_num == ack+1 && list.isEmpty()){
                         printf("[recv data] %lu (%lu) %u %s \n",offset, length, recv_packet->seq_num, "ACCEPTED(in-order)");
                         fwrite(recv_packet->data,1,length,fp);
-//                        printf("write seq %u, length is \n", recv_packet->seq_num, recv_packet->payload_size);
                         ack++;
                         ack_packet->ack_num = ack;
                         ack_packet->last_inorder_ack = ack;
@@ -190,7 +172,6 @@ int main(int argc, char **argv) {
                         list.add(recv_packet->seq_num,recv_packet->data,length);
                         ListNode* content = list.pop(ack);
                         while(content!=NULL){
-                            printf("write seq %u \n", content->seq);
                             fwrite(content->data,1,content->payload_size,fp);
                             ack = content->seq;
                             ListNode* temp = content;
@@ -203,22 +184,50 @@ int main(int argc, char **argv) {
                 }
             }else{
                 printf("[recv corrupt packet], seq %u, checksum %d  \n", recv_packet->seq_num, checksum);
-//                ack_packet->ack_num = ERROR_NUM;
                 ack_packet->ack_num = IGNORE_CODE;
                 ack_packet->last_inorder_ack = ack;
-//                printf("size if %lu", sizeof(*recv_packet)/2);
-//                printf("queue rear is %d \n", );
-//                printf("data size i")
-//                printf("[recv corrupt packet]\n");
             }
 
             //ack_packet->ack_num = ack;
             //ack_packet->last_inorder_ack = ack;
             printf("[send ack] %u %u \n", ack_packet->ack_num, ack);
+            ack_packet->isFin = 0;
             fillackPacket(ack_packet);
             sendto(sock, ack_packet, sizeof(*ack_packet), 0, (const struct sockaddr *) &addr, sizeof(addr));
         }
     }
+
+    struct timeval last_send_tstamp, cur_timestamp;
+    long latency;
+    int recv_filename_ack = -1;
+
+    printf("Finish Transferring data \n");
+    ack_packet->ack_num = FIN;
+    ack_packet->last_inorder_ack = FIN;
+    ack_packet->isFin = FIN;
+    fillackPacket(ack_packet);
+    num = sendto(sock, ack_packet, sizeof(*ack_packet), 0, (const struct sockaddr *) &addr, sizeof(addr));
+    while (num<=0){
+        num = sendto(sock, ack_packet, sizeof(*ack_packet), 0, (const struct sockaddr *) &addr, sizeof(addr));
+    }
+    printf("[Send Fin]");
+    gettimeofday(&last_send_tstamp, NULL);
+
+    while(recv_filename_ack != RECEIVE_FIN_ACK){
+        num = recvfrom(sock, fin_ack_packet, sizeof(ackpacket), 0, (struct sockaddr *)&addr, &addrlen);
+        if (num > 0 && fin_ack_packet->ack_num == FIN){
+            recv_filename_ack = RECEIVE_FIN_ACK;
+        }
+
+        gettimeofday(&cur_timestamp, NULL);
+        latency = getLatency(&last_send_tstamp, &cur_timestamp);
+        if (latency > TIMEEXCEEDLIMIT){
+            num = sendto(sock, ack_packet, sizeof(*ack_packet), 0, (const struct sockaddr *) &addr, sizeof(addr));
+            printf("[Send Fin]");
+            gettimeofday(&last_send_tstamp, NULL);
+        }
+    }
+
     fclose(fp);
     printf("[completed]\n");
     exit(0);
