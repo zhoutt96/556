@@ -190,7 +190,7 @@ int main(int argc, char **argv) {
 
             //ack_packet->ack_num = ack;
             //ack_packet->last_inorder_ack = ack;
-            printf("[send ack] %u %u \n", ack_packet->ack_num, ack);
+            printf("[send ack] ack%u, inorder%u \n", ack_packet->ack_num, ack_packet->last_inorder_ack);
             ack_packet->isFin = 0;
             fillackPacket(ack_packet);
             sendto(sock, ack_packet, sizeof(*ack_packet), 0, (const struct sockaddr *) &addr, sizeof(addr));
@@ -215,7 +215,7 @@ int main(int argc, char **argv) {
 
     while(recv_filename_ack != RECEIVE_FIN_ACK){
         num = recvfrom(sock, fin_ack_packet, sizeof(ackpacket), 0, (struct sockaddr *)&addr, &addrlen);
-        if (num > 0 && fin_ack_packet->ack_num == FIN){
+        if (num > 0 && fin_ack_packet->isFin == FIN){
             recv_filename_ack = RECEIVE_FIN_ACK;
         }
 

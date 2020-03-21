@@ -12,19 +12,18 @@
 
 #ifndef PROJECT2_UTILS_H
 #define PROJECT2_UTILS_H
-#define DEFAULTMAXWINDOWSIZE 100
-#define DATASIZE 1400  // The size of the payload part of sending packet
+#define DEFAULTMAXWINDOWSIZE 16
+#define DATASIZE 62500  // The size of the payload part of sending packet
 #define RESENDLIMIT 3
 //#define ERROR_NUM 65534
 #define IGNORE_CODE 0
 #define FIN 1
 //#define FINACK -2
-#define FIN_TIMEOUT 5000
-#define TIMEEXCEEDLIMIT 2000
+#define FIN_TIMEOUT 100000
+#define TIMEEXCEEDLIMIT 1500
 #define RESENDTIMELIMIT 1000
 #define RECEIVED 1
 #define NOTRECEIVED 0
-
 
 typedef struct window{
     __uint16_t usable; // total available window

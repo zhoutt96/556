@@ -1,6 +1,14 @@
 cmake_minimum_required(VERSION 3.15)
-project(pj2__)
+project(project2)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(pj2__ sendfile.cpp utils.cpp utils.h)
+include_directories(.)
+
+add_executable(project2
+        linkList.h
+        queue.cpp
+        queue.h
+        recvfile.cpp
+        utils.cpp
+        utils.h)

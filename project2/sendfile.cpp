@@ -208,8 +208,8 @@ int main(int argc, char** argv) {
     }
 
     struct timeval timeout;
-    timeout.tv_sec = 1;//second
-    timeout.tv_usec = 0;//m_second
+    timeout.tv_sec = 0;//second
+    timeout.tv_usec = 1;//m_second
     if (setsockopt(sock, SOL_SOCKET, SO_RCVTIMEO, &timeout, sizeof(timeout)) == -1) {
         perror("setsockopt failed:");
     }
@@ -373,7 +373,7 @@ int main(int argc, char** argv) {
                 }
 
                 if (last_inorder_ack >= Front(queue)->seq_num && last_inorder_ack < (Front(queue)->seq_num + queue->size)) {
-                    printf("[Recv ACK] %u \n", last_inorder_ack);
+//                    printf("[Recv ACK] %u \n", last_inorder_ack);
 
                     initAck.ackNum = last_inorder_ack;
                     initAck.count = 1;
@@ -413,7 +413,7 @@ int main(int argc, char** argv) {
                     //如果ACK在窗口里，说明是disorder
 //                if (recv_packet->ack_num >= Front(queue)->seq_num && recv_packet->ack_num < (Front(queue)->seq_num + queue->size)) {
                     if (recv_packet->ack_num >= Front(queue)->seq_num) {
-                        printf("[Recv ACK Disorder] %u \n", recv_packet->ack_num);
+//                        printf("[Recv ACK Disorder] %u \n", recv_packet->ack_num);
                         for (int i = queue->front; i < (queue->front + queue->size); i++) {
                             if (queue->data[i % QUEUE_SIZE]->seq_num == recv_packet->ack_num) {
                                 is_ack[i % QUEUE_SIZE] = true;
@@ -439,11 +439,11 @@ int main(int argc, char** argv) {
                             //debug
                             send_num = sendto(sock, send_packet, sizeof(*send_packet), 0,
                                               (const struct sockaddr *) &sin, sizeof(sin));
-                            printf("[MORE THAN 3 ACK RESEND] %u \t wait!! \n", send_packet->seq_num);
+//                            printf("[MORE THAN 3 ACK RESEND] %u \t wait!! \n", send_packet->seq_num);
                             while (send_num <= 0) {
                                 send_num = sendto(sock, send_packet, sizeof(*send_packet), 0,
                                                   (const struct sockaddr *) &sin, sizeof(sin));
-                                printf("[MORE THAN 3 ACK RESEND] (%u)\t finish!!! \n", send_packet->seq_num);
+//                                printf("[MORE THAN 3 ACK RESEND] (%u)\t finish!!! \n", send_packet->seq_num);
                             }
 
                             initAck.count = 0;
@@ -475,14 +475,14 @@ int main(int argc, char** argv) {
                 for (resend_no = queue->front; resend_no < (queue->front + queue->size); resend_no++){
                     if (!is_ack[resend_no % QUEUE_SIZE]) {
                         send_packet = queue->data[resend_no % QUEUE_SIZE];
-                        printf("[RESEND DATA] (%u) Seq(%u)\n", send_packet->payload_size, send_packet->seq_num);
+//                        printf("[RESEND DATA] (%u) Seq(%u)\n", send_packet->payload_size, send_packet->seq_num);
                         send_num = sendto(sock, send_packet, sizeof(*send_packet), 0, (const struct sockaddr *) &sin,
                                           sizeof(sin));
                         while (send_num <= 0) {
                             //debug
                             send_num = sendto(sock, send_packet, sizeof(*send_packet), 0, (const struct sockaddr *) &sin,
                                               sizeof(sin));
-                            printf("[RESEND DATA] (%u)\t finished!!!! \n", send_packet->payload_size);
+//                            printf("[RESEND DATA] (%u)\t finished!!!! \n", send_packet->payload_size);
                         }
                         gettimeofday(&last_send_tstamp, NULL);
                         //debug，获得当前发送的时间
@@ -510,7 +510,7 @@ int main(int argc, char** argv) {
 
     while (true){
         recv_num = recvfrom(sock, recv_packet, sizeof(ackpacket), 0, (struct sockaddr *)&sin, &sinlen);
-        if (recv_num > 0 && recv_packet->ack_num == FIN){
+        if (recv_num > 0 && recv_packet->isFin == FIN){
             send_num = sendto(sock, send_fin_packet, sizeof(*send_fin_packet), 0, (const struct sockaddr *) &sin, sizeof(sin));
             gettimeofday(&last_send_tstamp, NULL);
         }else{
@@ -522,6 +522,7 @@ int main(int argc, char** argv) {
         }
     }
 
+    free(queue);
     exit(0);
 
 
