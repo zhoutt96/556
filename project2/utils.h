@@ -8,14 +8,23 @@
 #include <string.h>
 #include <sys/types.h>
 #include <unistd.h>
+#include <sys/time.h>
 
 #ifndef PROJECT2_UTILS_H
 #define PROJECT2_UTILS_H
 #define DEFAULTMAXWINDOWSIZE 100
 #define DATASIZE 1400  // The size of the payload part of sending packet
 #define RESENDLIMIT 3
-#define ERROR_NUM 65534
-#define IGNORE_CODE -1
+//#define ERROR_NUM 65534
+#define IGNORE_CODE 0
+#define FIN 1
+//#define FINACK -2
+#define FIN_TIMEOUT 5000
+#define TIMEEXCEEDLIMIT 2000
+#define RESENDTIMELIMIT 1000
+#define RECEIVED 1
+#define NOTRECEIVED 0
+
 
 typedef struct window{
     __uint16_t usable; // total available window
@@ -25,7 +34,6 @@ typedef struct window{
 } sendwindow;
 
 typedef struct packet{
-    // 4+2+2+2 = 10
     __uint32_t seq_num;
     __uint16_t payload_size;
     __uint16_t checksum;
@@ -38,6 +46,7 @@ typedef struct ackpacket{
     __uint32_t ack_num;
     __uint32_t last_inorder_ack;
     __uint16_t ack_checksum;
+    __uint16_t isFin;
 } ackpacket;
 
 FILE* openFile(char* fullFilePath);
@@ -48,7 +57,7 @@ u_short cksum(u_short *buf, int count);
 void createFile(char* filename);
 long double calLatency(struct timeval* start, struct timeval* end);
 void fillackPacket(ackpacket* ack_packet);
-
+long getLatency(struct timeval* start, struct timeval* end);
 
 
 

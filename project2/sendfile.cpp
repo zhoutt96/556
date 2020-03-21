@@ -12,12 +12,6 @@
 #include "utils.h"
 #include "queue.h"
 
-#define BUFFERSIZE 1000000
-#define TIMEEXCEEDLIMIT 2000
-#define RESENDTIMELIMIT 1000
-#define RECEIVED 1
-#define NOTRECEIVED 0
-
 #define MAX(x, y) (((x) > (y)) ? (x) : (y))
 #define MIN(x, y) (((x) < (y)) ? (x) : (y))
 
@@ -37,9 +31,7 @@ void MoveForward(struct window* send_window, Queue* queue){
     Enqueue(queue);
 }
 
-long getLatency(struct timeval* start, struct timeval* end){
-    return (end->tv_sec - start->tv_sec) * 1000000 + end->tv_usec - start->tv_usec;
-}
+
 
 int Split(char *src, char *delim, IString* istr)//split buf
 {
@@ -265,14 +257,16 @@ int main(int argc, char** argv) {
      * send the packet which contains the filename and directory name, in the format of filepath/filename
      */
 
-    packet* send_packet;
+    packet *send_packet = (packet*) malloc(sizeof(packet));
     ackpacket *recv_packet = (ackpacket*) malloc(sizeof(ackpacket));
+    ackpacket *send_fin_packet = (ackpacket*) malloc(sizeof(ackpacket));
+
     InitQueue(queue); // init the queue, and allocate memory to the data
 
     /*
      * Send the filename and path first, the sender will not transfer data until receiving the ack from the receiver
      */
-    send_packet = (packet*) malloc(sizeof(packet));
+//    send_packet = (packet*) malloc(sizeof(packet));
     int recv_filename_ack=NOTRECEIVED;
 
     memset(send_packet->data,0,DATASIZE);
@@ -311,10 +305,12 @@ int main(int argc, char** argv) {
         }
     }
 
-    printf("-------- [BEGIN TRANSFERRING] -------- \n");
+    printf("---------------- [BEGIN TRANSFERRING] ---------------- \n");
     __uint32_t last_inorder_ack;
     __uint16_t new_checksum;
-    while (send_window.to_be_send <= total_count || queue->size>0) {
+
+//    while (send_window.to_be_send <= total_count || queue->size>0) {
+    while (true){
         while (send_window.usable > 0 && send_window.to_be_send <= total_count) {
             /*
              * Keep sending data, until the usable windows is equal to zero
@@ -334,6 +330,7 @@ int main(int argc, char** argv) {
                 printf("[SEND DATA] %u (%u)\n", offset, send_packet->payload_size);
             }
             gettimeofday(&last_send_tstamp, NULL);
+
             //debug，获得当前发送的时间
 //            send_time[queue->rear % QUEUE_SIZE].tv_sec  = last_send_tstamp.tv_sec;
 //            send_time[queue->rear % QUEUE_SIZE].tv_usec = last_send_tstamp.tv_usec;
@@ -346,7 +343,6 @@ int main(int argc, char** argv) {
 //            delay = (send_time[queue->rear-1].tv_sec - send_time[0].tv_sec) * 1000000
 //                      + (send_time[queue->rear-1].tv_usec - send_time[0].tv_usec);
 //        }
-
 
         /*
          * if there is no available data, then begin to wait for the ack and free the data
@@ -365,10 +361,17 @@ int main(int argc, char** argv) {
             //debug，判断了是否在窗口里，不仅仅判断了是否大于最小序列号，也判断是否小于最大序列号
             //&& last_inorder_ack < (Front(queue)->seq_num + queue->size)
 
-
             new_checksum = recv_packet->ack_checksum;
             recv_packet->ack_checksum = 0;
             if (cksum((u_short*) recv_packet, sizeof(ackpacket)/2) == new_checksum){
+                if (recv_packet->isFin == FIN){
+                    gettimeofday(&send_end_time, NULL);
+                    //double total_travel_time = getLatency(&send_start_time, &send_end_time)/1000000;
+                    latency = getLatency(&send_start_time, &send_end_time)/1000;
+                    printf("Sending file successfully, using %ld s\t %ld ms\n", latency/1000, latency%1000);
+                    break;
+                }
+
                 if (last_inorder_ack >= Front(queue)->seq_num && last_inorder_ack < (Front(queue)->seq_num + queue->size)) {
                     printf("[Recv ACK] %u \n", last_inorder_ack);
 
@@ -377,10 +380,6 @@ int main(int argc, char** argv) {
                     while (queue->size > 0 && last_inorder_ack >= Front(queue)->seq_num) {
                         Dequeue(queue);
                         send_window.usable++;
-                    }
-
-                    if (queue->size == 0){
-                        break;
                     }
 
                     //debug，如果收到的ACK在当前窗口内，修改是否接收到ACK的状态
@@ -405,9 +404,10 @@ int main(int argc, char** argv) {
                                 Dequeue(queue);
                                 send_window.usable ++;
                             }
-                        } else if (recv_packet->ack_num == ERROR_NUM) {
-                            printf("[receive corrupt ack] %u \n ", recv_packet->ack_num);
                         }
+//                        else if (recv_packet->ack_num == ERROR_NUM) {
+//                            printf("[receive corrupt ack] %u \n ", recv_packet->ack_num);
+//                        }
                     }
                 } else {
                     //如果ACK在窗口里，说明是disorder
@@ -420,9 +420,11 @@ int main(int argc, char** argv) {
                                 break;
                             }
                         }
-                    } else if (recv_packet->ack_num == ERROR_NUM) {
-                        printf("[Rec corrupt ack] %u \n ", recv_packet->ack_num);
                     }
+
+//                    else if (recv_packet->ack_num == ERROR_NUM) {
+//                        printf("[Rec corrupt ack] %u \n ", recv_packet->ack_num);
+//                    }
 
 //                else{
                     //如果接收到的ACK包号不在窗口内，收到三个ACK后，发送当前最小的序号发送的包
@@ -455,6 +457,8 @@ int main(int argc, char** argv) {
                     }
 //                }
                 }
+            }else{
+                printf("[Recv corrupted ack] %u", recv_packet->ack_num);
             }
             //printf("cur queue front seq is %u\n", Front(queue)->seq_num);
             //printf("the usable is %d ,the \n", send_window.usable);
@@ -496,10 +500,35 @@ int main(int argc, char** argv) {
         }
     }
 
-    gettimeofday(&send_end_time, NULL);
-    //double total_travel_time = getLatency(&send_start_time, &send_end_time)/1000000;
-    latency = getLatency(&send_start_time, &send_end_time)/1000;
-    printf("Sending file successfully, using %ld s\t %ld ms\n", latency/1000, latency%1000);
+
+    send_fin_packet->ack_num = FIN;
+    send_fin_packet->last_inorder_ack = FIN;
+    send_fin_packet->isFin = FIN;
+    fillackPacket(send_fin_packet);
+    send_num = sendto(sock, send_fin_packet, sizeof(*send_fin_packet), 0, (const struct sockaddr *) &sin, sizeof(sin));
+    gettimeofday(&last_send_tstamp, NULL);
+
+    while (true){
+        recv_num = recvfrom(sock, recv_packet, sizeof(ackpacket), 0, (struct sockaddr *)&sin, &sinlen);
+        if (recv_num > 0 && recv_packet->ack_num == FIN){
+            send_num = sendto(sock, send_fin_packet, sizeof(*send_fin_packet), 0, (const struct sockaddr *) &sin, sizeof(sin));
+            gettimeofday(&last_send_tstamp, NULL);
+        }else{
+            gettimeofday(&cur_timestamp, NULL);
+            latency = getLatency(&last_send_tstamp, &cur_timestamp);
+            if (latency > FIN_TIMEOUT){
+                break;
+            }
+        }
+    }
+
+    exit(0);
+
+
+//    gettimeofday(&send_end_time, NULL);
+//    //double total_travel_time = getLatency(&send_start_time, &send_end_time)/1000000;
+//    latency = getLatency(&send_start_time, &send_end_time)/1000;
+//    printf("Sending file successfully, using %ld s\t %ld ms\n", latency/1000, latency%1000);
 
     //debug，测试延迟时间，用小包测试。
     //这里强制赋值了QUEUE_SIZE，主要用于打包测试
@@ -538,6 +567,6 @@ int main(int argc, char** argv) {
     printf("The max latency is %ld \t the min latency is %ld \t the average latency is %ld \n",
             latency_max,latency_min,latency_ave);
     */
-    printf("the first window size data send time is %ld us \n", delay);
+//    printf("the first window size data send time is %ld us \n", delay);
 
 }
