@@ -1,0 +1,1 @@
+./compare -f data/data.txt data/data.txt.recv

@@ -17,7 +17,7 @@ DEFS 	 	=
 all:
 	g++ sendfile.cpp utils.cpp queue.cpp -o sendfile
 	g++ recvfile.cpp utils.cpp -o recvfile
-	#g++ compare.cpp -o compare
+	g++ compare.cpp -o compare
 
 clean:
 	rm -f *.o

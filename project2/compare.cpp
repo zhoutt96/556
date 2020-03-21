@@ -1,10 +1,16 @@
 //
-// Created by zhoutt96 on 3/13/20.
+// Created by zhoutt96 on 3/21/20.
 //
 
-//#include <cHEADER.h>
-#include<iostream>
-#include<string>
+#include <sys/types.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <sys/types.h>
+#include <unistd.h>
+#include <sys/time.h>
+#include <iostream>
+#include <string>
 
 using namespace std;
 int main(int argc, char** argv)
@@ -25,4 +31,3 @@ int main(int argc, char** argv)
     cout<<"YES\n";
     return 0;
 }
-
