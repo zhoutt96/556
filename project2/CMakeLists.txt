@@ -7,7 +7,6 @@ include_directories(.)
 
 add_executable(project2
         linkList.h
-        queue.cpp
         queue.h
         recvfile.cpp
         utils.cpp

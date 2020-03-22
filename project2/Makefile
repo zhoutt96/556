@@ -15,7 +15,7 @@ DEFS 	 	=
 #	$(CC) $(DEFS) $(CFLAGS) $(LIB) -o recvfile.cpp utils.cpp
 
 all:
-	g++ sendfile.cpp utils.cpp queue.cpp -o sendfile
+	g++ sendfile.cpp utils.cpp -o sendfile
 	g++ recvfile.cpp utils.cpp -o recvfile
 	g++ compare.cpp -o compare
 

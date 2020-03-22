@@ -68,10 +68,10 @@ void helpMenu()
 {
     printf("------------------------            Menu for COMP 556 Project 2         ------------------------|\n");
     printf("|./sendfile -h:                                                               show help menu    |\n");
-    printf("|./sendfile -r <recv-drop30-400-1400.log host>:<recv-drop30-400-1400.log port> -f <subdir>/<filename>                                   |\n");
-    printf("|        <recv-drop30-400-1400.log host> (Required):                                                                |\n"
+    printf("|./sendfile -r <recv_host>:<recv_port> -f <subdir>/<filename>                                   |\n");
+    printf("|        <<recv_host> (Required):                                                                |\n"
            "|               The IP address of the remote host in a.b.c.d format.                            |\n" );
-    printf("|        <recv-drop30-400-1400.log port> (Required):                                                                |\n"
+    printf("|        <recv_port> (Required):                                                                |\n"
            "|               The UDP port of the remote host.                                                |\n");
     printf("|        <subdir> (Required):                                                                   |\n"
            "|               The local subdirectory where the file is located.                               |\n");
@@ -274,22 +274,22 @@ int main(int argc, char** argv) {
     send_num = sendto(sock, send_packet, sizeof(*send_packet), 0, (const struct sockaddr *) &sin, sizeof(sin));
 
     while(send_num<0){
-        printf("[SEND FAIL] Resend the filepath and filename \n");
+//        printf("[SEND FAIL] Resend the filepath and filename \n");
         send_num = sendto(sock, send_packet, sizeof(*send_packet), 0, (const struct sockaddr *) &sin, sizeof(sin));
+        printf("[send filepath/filename] \n");
     }
 
-    printf("[SEND SUCCESS] Send the path of file /filename successfully\n");
+//    printf("[SEND SUCCESS] Send the path of file /filename successfully\n");
 
     gettimeofday(&last_send_tstamp, NULL);
 
     while (recv_filename_ack == NOTRECEIVED){
         recv_num = recvfrom(sock, recv_packet, sizeof(ackpacket), 0, (struct sockaddr *)&sin, &sinlen);
-//        printf("recv_num is %d \n", recv_num);
         if (recv_num>0 && recv_packet->last_inorder_ack == recv_packet->ack_num){
             /*Receive the ack package from receiver succesfully,
              * begin to send the content */
             recv_filename_ack = RECEIVED;
-            printf("[RECEIVE ACK SUCCESS] Receive the ack number of filepath/filename successfully \n");
+//            printf("[RECEIVE ACK SUCCESS] Receive the ack number of filepath/filename successfully \n");
         }else{
             /*
              * if time out, resend the packet
@@ -304,11 +304,10 @@ int main(int argc, char** argv) {
         }
     }
 
-    printf("---------------- [BEGIN TRANSFERRING] ---------------- \n");
+//    printf("---------------- [BEGIN SENDING DATA] ---------------- \n");
     __uint32_t last_inorder_ack;
     __uint16_t new_checksum;
 
-//    while (send_window.to_be_send <= total_count || queue->size>0) {
     while (true){
         while (send_window.usable > 0 && send_window.to_be_send <= total_count) {
             /*
@@ -322,27 +321,17 @@ int main(int argc, char** argv) {
             is_ack[queue->rear % QUEUE_SIZE] = false;
             fillPacket(fp, send_packet, &send_window, left_filesize);
             send_num = sendto(sock, send_packet, sizeof(*send_packet), 0, (const struct sockaddr *) &sin, sizeof(sin));
-            printf("[SEND DATA] %u (%u) Seq(%u)\n", offset, send_packet->payload_size, send_packet->seq_num);
+//            printf("[send data] %u (%u) Seq(%u)\n", offset, send_packet->payload_size, send_packet->seq_num);
+            printf("[send data] %u (%u) \n", offset, send_packet->payload_size);
             while (send_num <= 0) {
                 send_num = sendto(sock, send_packet, sizeof(*send_packet), 0, (const struct sockaddr *) &sin,
                                   sizeof(sin));
-                printf("[SEND DATA] %u (%u)\n", offset, send_packet->payload_size);
+                printf("[send data] %u (%u)\n", offset, send_packet->payload_size);
+//                printf("[SEND DATA] %u (%u)\n", offset, send_packet->payload_size);
             }
             gettimeofday(&last_send_tstamp, NULL);
-
-            //debug，获得当前发送的时间
-//            send_time[queue->rear % QUEUE_SIZE].tv_sec  = last_send_tstamp.tv_sec;
-//            send_time[queue->rear % QUEUE_SIZE].tv_usec = last_send_tstamp.tv_usec;
-
             MoveForward(&send_window, queue);
         }
-        //debug,希望记录下完成第一次完整窗口发送所用的时间
-//        if(is_first == false){
-//            is_first = true;
-//            delay = (send_time[queue->rear-1].tv_sec - send_time[0].tv_sec) * 1000000
-//                      + (send_time[queue->rear-1].tv_usec - send_time[0].tv_usec);
-//        }
-
         /*
          * if there is no available data, then begin to wait for the ack and free the data
          */
@@ -351,38 +340,24 @@ int main(int argc, char** argv) {
          * if the ack is correct, and it is equal to the smallest ack in queue, accept it, otherwise, ignore it
          */
         if (recv_num > 0) {
-            //debug，需要重新判断一下
-            //考虑到ACK丢包，应该只看last_inorder_ack，如果在窗口内，将窗口前移。
-            //&& last_inorder_ack < Rear(queue)->seq_num
             last_inorder_ack = recv_packet->last_inorder_ack;
-            //printf("[Recv ACK] %u [Recv Accum ACK] %u [Front sqe_num] %u \n", last_inorder_ack, recv_packet->ack_num, Front(queue)->seq_num);
-
-            //debug，判断了是否在窗口里，不仅仅判断了是否大于最小序列号，也判断是否小于最大序列号
-            //&& last_inorder_ack < (Front(queue)->seq_num + queue->size)
-
             new_checksum = recv_packet->ack_checksum;
             recv_packet->ack_checksum = 0;
             if (cksum((u_short*) recv_packet, sizeof(ackpacket)/2) == new_checksum){
                 if (recv_packet->isFin == FIN){
                     gettimeofday(&send_end_time, NULL);
-                    //double total_travel_time = getLatency(&send_start_time, &send_end_time)/1000000;
                     latency = getLatency(&send_start_time, &send_end_time)/1000;
-                    printf("Sending file successfully, using %ld s\t %ld ms\n", latency/1000, latency%1000);
+                    printf("[Finish File Transmission], Using %ld s\t %ld ms\n", latency/1000, latency%1000);
                     break;
                 }
 
                 if (last_inorder_ack >= Front(queue)->seq_num && last_inorder_ack < (Front(queue)->seq_num + queue->size)) {
-//                    printf("[Recv ACK] %u \n", last_inorder_ack);
-
                     initAck.ackNum = last_inorder_ack;
                     initAck.count = 1;
                     while (queue->size > 0 && last_inorder_ack >= Front(queue)->seq_num) {
                         Dequeue(queue);
                         send_window.usable++;
                     }
-
-                    //debug，如果收到的ACK在当前窗口内，修改是否接收到ACK的状态
-                    //不可能出现ack+1 =ack_accul,因此>足够了，不需要>=
 
                     /*
                      * first case, ack_num <= inorder_ack, all ack are inorder, no need to do further check
@@ -404,12 +379,8 @@ int main(int argc, char** argv) {
                                 send_window.usable ++;
                             }
                         }
-//                        else if (recv_packet->ack_num == ERROR_NUM) {
-//                            printf("[receive corrupt ack] %u \n ", recv_packet->ack_num);
-//                        }
                     }
                 } else {
-                    //如果ACK在窗口里，说明是disorder
 //                if (recv_packet->ack_num >= Front(queue)->seq_num && recv_packet->ack_num < (Front(queue)->seq_num + queue->size)) {
                     if (recv_packet->ack_num >= Front(queue)->seq_num) {
 //                        printf("[Recv ACK Disorder] %u \n", recv_packet->ack_num);
@@ -421,13 +392,6 @@ int main(int argc, char** argv) {
                         }
                     }
 
-//                    else if (recv_packet->ack_num == ERROR_NUM) {
-//                        printf("[Rec corrupt ack] %u \n ", recv_packet->ack_num);
-//                    }
-
-//                else{
-                    //如果接收到的ACK包号不在窗口内，收到三个ACK后，发送当前最小的序号发送的包
-//                    printf("[Ignore ACK] %u \n", last_inorder_ack);
                     if (last_inorder_ack == initAck.ackNum) {
                         initAck.count += 1;
                         if (initAck.count == RESENDLIMIT) {
@@ -435,19 +399,20 @@ int main(int argc, char** argv) {
                              * if we receive the same ack for three times, then we need to resend this packet
                              */
                             send_packet = Front(queue);
-                            //debug
+                            offset = (send_packet->seq_num-1) * DATASIZE;
                             send_num = sendto(sock, send_packet, sizeof(*send_packet), 0,
                                               (const struct sockaddr *) &sin, sizeof(sin));
-//                            printf("[MORE THAN 3 ACK RESEND] %u \t wait!! \n", send_packet->seq_num);
+
+                            printf("[resend data, 3 same ack] %u (%u) \n", offset, send_packet->payload_size);
                             while (send_num <= 0) {
                                 send_num = sendto(sock, send_packet, sizeof(*send_packet), 0,
                                                   (const struct sockaddr *) &sin, sizeof(sin));
 //                                printf("[MORE THAN 3 ACK RESEND] (%u)\t finish!!! \n", send_packet->seq_num);
+                                printf("[resend data, 3 same ack] %u (%u) \n", offset, send_packet->payload_size);
                             }
 
                             initAck.count = 0;
                             initAck.ackNum = -1;
-                            //debug，得到发送当前包的时刻
                             gettimeofday(&send_time[queue->front], NULL);
                         }
                     }else {
@@ -457,12 +422,8 @@ int main(int argc, char** argv) {
 //                }
                 }
             }else{
-                printf("[Recv corrupted ack] %u", recv_packet->ack_num);
+                printf("[recv corrupted ack] %u", recv_packet->ack_num);
             }
-            //printf("cur queue front seq is %u\n", Front(queue)->seq_num);
-            //printf("the usable is %d ,the \n", send_window.usable);
-            //printf("the size of queue is %d ,the font of queue is %d, the rear is %d\n",queue->size,queue->front,queue->rear);
-            //printf(" ------------------------------------------ \n");
         }else{
             gettimeofday(&cur_timestamp, NULL);
             latency = getLatency(&last_send_tstamp, &cur_timestamp);
@@ -474,26 +435,19 @@ int main(int argc, char** argv) {
                 for (resend_no = queue->front; resend_no < (queue->front + queue->size); resend_no++){
                     if (!is_ack[resend_no % QUEUE_SIZE]) {
                         send_packet = queue->data[resend_no % QUEUE_SIZE];
-//                        printf("[RESEND DATA] (%u) Seq(%u)\n", send_packet->payload_size, send_packet->seq_num);
                         send_num = sendto(sock, send_packet, sizeof(*send_packet), 0, (const struct sockaddr *) &sin,
                                           sizeof(sin));
+                        offset = (send_packet->seq_num-1) * DATASIZE;
+                        printf("[resend data, timeout] %u (%u) \n", offset, send_packet->payload_size);
                         while (send_num <= 0) {
-                            //debug
                             send_num = sendto(sock, send_packet, sizeof(*send_packet), 0, (const struct sockaddr *) &sin,
                                               sizeof(sin));
-//                            printf("[RESEND DATA] (%u)\t finished!!!! \n", send_packet->payload_size);
+                            printf("[resend data, timeout] %u (%u) \n", offset, send_packet->payload_size);
                         }
                         gettimeofday(&last_send_tstamp, NULL);
-                        //debug，获得当前发送的时间
-//                        send_time[resend_no % QUEUE_SIZE].tv_sec  = last_send_tstamp.tv_sec;
-//                        send_time[resend_no % QUEUE_SIZE].tv_usec = last_send_tstamp.tv_usec;
                     }
                 }
 
-                //debug,应该重发所有的数据（没有ACK的，在窗口里）
-                // send_packet = Front(queue);
-                //debug
-                //send_num = sendto(sock,send_packet,sizeof(*send_packet), 0, (const struct sockaddr *) &sin, sizeof(sin));
                 gettimeofday(&last_send_tstamp, NULL);
             }
         }
@@ -520,7 +474,7 @@ int main(int argc, char** argv) {
         }
     }
 
-    printf("Exit Sendfile \n");
+    printf("Exit Successfully\n");
     free(queue);
     exit(0);
 }

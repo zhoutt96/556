@@ -21,7 +21,6 @@ using namespace std;
 /* a few simple linked list functions             */
 /**************************************************/
 
-#define RECEIVE_FIN_ACK 1
 
 
 void helpMenu()
@@ -95,12 +94,10 @@ int main(int argc, char **argv) {
         if (num > 0){
             u_short checksum = recv_packet->checksum;
             recv_packet->checksum = 0;
-            //debug，长度
             u_short newCheckSum = cksum((u_short*)buffer, sizeof(*recv_packet)/2);
 //        u_short newCheckSum = cksum((u_short*)buffer, sizeof((DATASIZE+10)/2));
             if (checksum == newCheckSum)  //modify
             {
-                // send a ack back to the client
                 printf("receive the filename successfully \n");
                 receive_correct_file = 1;
                 ack_packet->ack_num = recv_packet->seq_num;
@@ -132,7 +129,6 @@ int main(int argc, char **argv) {
 
 
     FILE *fp = NULL;
-//    int filesize;
 
     fp = fopen(recv_packet->data, "wb+");
     if(fp!=NULL){
@@ -196,9 +192,7 @@ int main(int argc, char **argv) {
                 ack_packet->last_inorder_ack = ack;
             }
 
-            //ack_packet->ack_num = ack;
-            //ack_packet->last_inorder_ack = ack;
-            printf("[send ack] ack%u, inorder%u \n", ack_packet->ack_num, ack_packet->last_inorder_ack);
+//            printf("[send ack] ack%u, inorder%u \n", ack_packet->ack_num, ack_packet->last_inorder_ack);
             ack_packet->isFin = 0;
             fillackPacket(ack_packet);
             sendto(sock, ack_packet, sizeof(*ack_packet), 0, (const struct sockaddr *) &addr, sizeof(addr));
@@ -209,7 +203,7 @@ int main(int argc, char **argv) {
     long latency;
     int recv_filename_ack = -1;
 
-    printf("Finish Transferring data \n");
+    printf("finish transferring data \n");
     ack_packet->ack_num = FIN;
     ack_packet->last_inorder_ack = FIN;
     ack_packet->isFin = FIN;
@@ -218,20 +212,20 @@ int main(int argc, char **argv) {
     while (num<=0){
         num = sendto(sock, ack_packet, sizeof(*ack_packet), 0, (const struct sockaddr *) &addr, sizeof(addr));
     }
-    printf("[Send Fin]");
+    printf("[send fin \n]");
     gettimeofday(&last_send_tstamp, NULL);
 
     while(true){
         num = recvfrom(sock, fin_ack_packet, sizeof(ackpacket), 0, (struct sockaddr *)&addr, &addrlen);
         if (num > 0 && fin_ack_packet->isFin == FINACK){
-            printf("Recv fin ack \n");
+            printf("recv fin ack \n");
             break;
         }else{
             gettimeofday(&cur_timestamp, NULL);
             latency = getLatency(&last_send_tstamp, &cur_timestamp);
             if (latency > TIMEEXCEEDLIMIT){
                 num = sendto(sock, ack_packet, sizeof(*ack_packet), 0, (const struct sockaddr *) &addr, sizeof(addr));
-                printf("[Send Fin]");
+                printf("[send fin] \n");
                 gettimeofday(&last_send_tstamp, NULL);
             }
         }
