@@ -12,13 +12,12 @@
 #include "utils.h"
 #include "queue.h"
 
-#define MAX(x, y) (((x) > (y)) ? (x) : (y))
-#define MIN(x, y) (((x) < (y)) ? (x) : (y))
 
-typedef struct IString{
-    char **str;     //the PChar of string array
-    size_t num;     //the number of string
-}IString;
+typedef struct HostAndPort{
+    char *host;     //the PChar of string array
+    unsigned int port;     //the number of string
+}HostAndPort;
+
 
 typedef struct ACKCount{
     int count;
@@ -31,38 +30,28 @@ void MoveForward(struct window* send_window, Queue* queue){
     Enqueue(queue);
 }
 
-
-
-int Split(char *src, char *delim, IString* istr)//split buf
-{
-    int i;
-    char *str = NULL, *p = NULL;
-
-    (*istr).num = 1;
-    str = (char*)calloc(strlen(src)+1,sizeof(char));
-    if (str == NULL) return 0;
-    (*istr).str = (char**)calloc(1,sizeof(char *));
-    if ((*istr).str == NULL) return 0;
-    strcpy(str,src);
-
-    p = strtok(str, delim);
-    (*istr).str[0] = (char*)calloc(strlen(p)+1,sizeof(char));
-    if ((*istr).str[0] == NULL) return 0;
-    strcpy((*istr).str[0],p);
-    for(i=1; p = strtok(NULL, delim); i++)
-    {
-        (*istr).num++;
-        (*istr).str = (char**)realloc((*istr).str,(i+1)*sizeof(char *));
-        if ((*istr).str == NULL) return 0;
-        (*istr).str[i] = (char*)calloc(strlen(p)+1,sizeof(char));
-        if ((*istr).str[0] == NULL) return 0;
-        strcpy((*istr).str[i],p);
+int SplitPort(char *str, char *delim, HostAndPort *server){
+//    printf("%s \n", str);
+    char s[strlen(str)];
+    for (int i=0; i< strlen(str); i++){
+        s[i] = str[i];
     }
-    free(str);
-    str = p = NULL;
-
+    int start = 0;
+    char *p;
+    p = strtok(s, delim);
+    while(start<=1) {
+        if (start == 0){
+            server->host = p;
+        }else{
+            server->port = atoi(p);
+//            memcpy(&server->port, &p, 5);
+        }
+        p = strtok(NULL, delim);
+        start ++;
+    }
     return 1;
 }
+
 
 void helpMenu()
 {
@@ -146,6 +135,7 @@ struct timeval receive_time[QUEUE_SIZE];
 
 //struct timeval send_time;
 int main(int argc, char** argv) {
+
     struct timeval send_start_time, send_end_time;
     //debug
     bool is_first = false;
@@ -185,21 +175,21 @@ int main(int argc, char** argv) {
         freeaddrinfo(getaddrinfo_result);
     }
 
-    IString istr;
+    HostAndPort server;
+
     /* Split the hostname:port, and then interpret the hostname and port number */
-    if ( Split(argv[2], ":", &istr)){
-        if (getaddrinfo(istr.str[0], NULL, &hints, &getaddrinfo_result) == 0) {
+    if (SplitPort(argv[2], ":", &server)){
+        if (getaddrinfo(server.host, NULL, &hints, &getaddrinfo_result) == 0) {
             server_addr = (unsigned int) ((struct sockaddr_in *) (getaddrinfo_result->ai_addr))->sin_addr.s_addr;
             freeaddrinfo(getaddrinfo_result);
         }
-        server_port = atoi(istr.str[1]); // this is the port number
+        server_port = server.port; // this is the port number
+//        printf("%u \n", server_port);
         checkPort(server_port);
-        // free the struct
     }else{
         errorMenu();
         abort();
     }
-
     if ((sock = socket (AF_INET, SOCK_DGRAM, 0)) < 0)
     {
         perror ("UDP socket creation failure");
@@ -233,7 +223,6 @@ int main(int argc, char** argv) {
     // calculate the total number of packets
     printf("the total_file_length is %u \n", total_file_length);
     __uint32_t total_count;
-    //debug
     if( total_file_length % DATASIZE ==0)
     {
         total_count = total_file_length/DATASIZE;

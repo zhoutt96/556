@@ -11,10 +11,11 @@
 #include "utils.h"
 #include <sys/stat.h>
 #include <dirent.h>
-//#include <jmorecfg.h>
-//#include "checksum.h"
 #include "linkList.h"
 #include <queue>
+#include <stdio.h>
+#include <string.h>
+
 using namespace std;
 
 /**************************************************/
@@ -126,7 +127,6 @@ int main(int argc, char **argv) {
         }
     }
     strcat(recv_packet->data,".recv");
-
 
     FILE *fp = NULL;
 
