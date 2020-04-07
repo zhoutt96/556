@@ -212,7 +212,7 @@ int main(int argc, char **argv) {
     while (num<=0){
         num = sendto(sock, ack_packet, sizeof(*ack_packet), 0, (const struct sockaddr *) &addr, sizeof(addr));
     }
-    printf("[send fin \n]");
+    printf("[send fin] \n");
     gettimeofday(&last_send_tstamp, NULL);
 
     while(true){

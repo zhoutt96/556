@@ -1,1 +1,0 @@
-scp /Users/zhoutt96/556pj2/project2/recvfile.cpp /Users/zhoutt96/556pj2/project2/sendfile.cpp  /Users/zhoutt96/556pj2/project2/utils.h /Users/zhoutt96/556pj2/project2/utils.cpp /Users/zhoutt96/556pj2/project2/Makefile /Users/zhoutt96/556pj2/project2/exe.sh /Users/zhoutt96/556pj2/project2/compare.cpp ll76comp429@cai.cs.rice.edu:ztt/project2

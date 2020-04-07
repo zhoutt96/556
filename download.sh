@@ -1,1 +1,0 @@
-scp /Users/zhoutt96/556pj2/project2/data/data.txt.recv tz16@ssh.clear.rice.edu:comp556/project2/data

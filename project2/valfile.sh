@@ -1,1 +1,1 @@
-./compare -f data/data.txt data/data.txt.recv
+./compare -f data/30MB.bin data/30MB.bin.recv

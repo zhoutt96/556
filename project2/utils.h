@@ -12,8 +12,8 @@
 
 #ifndef PROJECT2_UTILS_H
 #define PROJECT2_UTILS_H
-#define DEFAULTMAXWINDOWSIZE 16
-#define DATASIZE 62500  // The size of the payload part of sending packet
+#define DEFAULTMAXWINDOWSIZE 60
+#define DATASIZE 20000  // The size of the payload part of sending packet
 #define RESENDLIMIT 3
 //#define ERROR_NUM 65534
 #define IGNORE_CODE 0

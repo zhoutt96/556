@@ -44,7 +44,6 @@ int SplitPort(char *str, char *delim, HostAndPort *server){
             server->host = p;
         }else{
             server->port = atoi(p);
-//            memcpy(&server->port, &p, 5);
         }
         p = strtok(NULL, delim);
         start ++;
@@ -154,7 +153,6 @@ int main(int argc, char** argv) {
         abort();
     }
 
-//    char* hostAndPort = (char*) malloc(BUFSIZ);
     int sock;
     unsigned int server_addr;
     struct sockaddr_in sin;
@@ -293,7 +291,6 @@ int main(int argc, char** argv) {
         }
     }
 
-//    printf("---------------- [BEGIN SENDING DATA] ---------------- \n");
     __uint32_t last_inorder_ack;
     __uint16_t new_checksum;
 
@@ -310,7 +307,6 @@ int main(int argc, char** argv) {
             is_ack[queue->rear % QUEUE_SIZE] = false;
             fillPacket(fp, send_packet, &send_window, left_filesize);
             send_num = sendto(sock, send_packet, sizeof(*send_packet), 0, (const struct sockaddr *) &sin, sizeof(sin));
-//            printf("[send data] %u (%u) Seq(%u)\n", offset, send_packet->payload_size, send_packet->seq_num);
             printf("[send data] %u (%u) \n", offset, send_packet->payload_size);
             while (send_num <= 0) {
                 send_num = sendto(sock, send_packet, sizeof(*send_packet), 0, (const struct sockaddr *) &sin,
@@ -372,7 +368,6 @@ int main(int argc, char** argv) {
                 } else {
 //                if (recv_packet->ack_num >= Front(queue)->seq_num && recv_packet->ack_num < (Front(queue)->seq_num + queue->size)) {
                     if (recv_packet->ack_num >= Front(queue)->seq_num) {
-//                        printf("[Recv ACK Disorder] %u \n", recv_packet->ack_num);
                         for (int i = queue->front; i < (queue->front + queue->size); i++) {
                             if (queue->data[i % QUEUE_SIZE]->seq_num == recv_packet->ack_num) {
                                 is_ack[i % QUEUE_SIZE] = true;
@@ -396,13 +391,12 @@ int main(int argc, char** argv) {
                             while (send_num <= 0) {
                                 send_num = sendto(sock, send_packet, sizeof(*send_packet), 0,
                                                   (const struct sockaddr *) &sin, sizeof(sin));
-//                                printf("[MORE THAN 3 ACK RESEND] (%u)\t finish!!! \n", send_packet->seq_num);
                                 printf("[resend data, 3 same ack] %u (%u) \n", offset, send_packet->payload_size);
                             }
 
                             initAck.count = 0;
                             initAck.ackNum = -1;
-                            gettimeofday(&send_time[queue->front], NULL);
+                            gettimeofday(&last_send_tstamp, NULL);
                         }
                     }else {
                         initAck.ackNum = last_inorder_ack;
@@ -465,5 +459,8 @@ int main(int argc, char** argv) {
 
     printf("Exit Successfully\n");
     free(queue);
+    free(send_packet);
+    free(recv_packet);
+    free(send_fin_packet);
     exit(0);
 }
