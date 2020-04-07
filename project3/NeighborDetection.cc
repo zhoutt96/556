@@ -28,9 +28,10 @@ void RoutingProtocolImpl::init_ping() {
         *(unsigned int *) ping_packet->payload = htonl(this->sys->time());
         sys->send(i, ping_packet, SIZE_OF_PP);
     }
-    alarmType ping_alarm = PING_ALARM;
-    printf("[INIT ALARM] ping alarm: %d \n", ping_alarm);
-    this->sys->set_alarm(this, 10000, (void*) ping_alarm);
+
+    alarmType cur_alarm = alarmType::PING_ALARM;
+    void *ptr = &cur_alarm;
+    this->sys->set_alarm(this, 10000, (void*) ptr);
 }
 
 void RoutingProtocolImpl::ping_message_handler(unsigned short port, Packet *recv_packet, unsigned short size) {
@@ -60,15 +61,8 @@ void RoutingProtocolImpl::data_message_handler() {
 
 
 void RoutingProtocolImpl::init_expire_alarm(){
-    enum alarmType EXPIRE_alarm = EXPIRE_ALARM;
-//    char *EXPIRE_alarm = malloc(sizeof(alarmType));
-//    char *EXPIRE_alarm = new char[sizeof(char) * sizeof(alarmType)];
-//    *((alarmType *)EXPIRE_alarm) = EXPIRE_ALARM;
-//    printf("[SET ALARM] %d \n", EXPIRE_alarm);
-
-    void *ptr = &EXPIRE_alarm;
-//    this->sys->set_alarm(this, 1000, (void*) EXPIRE_alarm);
-    printf("SETR alarm %d \n", *(int *)ptr);
+    alarmType cur_alarm = alarmType::EXPIRE_ALARM;
+    void *ptr = &cur_alarm;
     this->sys->set_alarm(this, 1000, ptr);
 };
 

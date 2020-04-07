@@ -16,22 +16,18 @@ void RoutingProtocolImpl::init(unsigned short num_ports, unsigned short router_i
   this->router_id = router_id;
   this->init_port_vector();
   this->init_ping();
-  this->init_expire_alarm();
-  if (protocol_type == P_DV){
-      this->init_DV_Protocol(); // to be finished
-  }else if(protocol_type == P_LS){
-      this->init_LS_Protocol(); // to be finished
-  }
+//  this->init_expire_alarm();
+//  if (protocol_type == P_DV){
+//      this->init_DV_Protocol(); // to be finished
+//  }else if(protocol_type == P_LS){
+//      this->init_LS_Protocol(); // to be finished
+//  }
 }
 
-void RoutingProtocolImpl::handle_alarm(void *data) {
-//    alarmType cur_type = (*((alarmType*)data));
-//    alarmType cur_type = *(alarmType*)data;
-    int cur_type = *(int*)data;
-//    alarmType cur_type = (alarmType)reinterpret_cast<int>(data);
-//    alarmType
-    printf("[REC ALARM] %d \n", cur_type);
-    switch (cur_type){
+void RoutingProtocolImpl::handle_alarm(void* data) {
+    int* cur_type = static_cast<int*>(data);
+    printf("[REC ALARM] %d \n", *cur_type);
+    switch (*cur_type){
         case PING_ALARM:
             this->init_ping();
         case DV_ALARM:

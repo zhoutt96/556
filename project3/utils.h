@@ -24,7 +24,6 @@ typedef enum alarmType
     DV_ALARM,
     LS_ALARM,
     PING_ALARM,
-//    PONG_ALARM,
     EXPIRE_ALARM
 }alarmType;
 
