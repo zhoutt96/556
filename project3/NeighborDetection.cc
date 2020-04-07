@@ -6,7 +6,6 @@
 #include "RoutingProtocolImpl.h"
 #include <vector>
 
-
 void RoutingProtocolImpl::init_port_vector(){
     // init the status of each port as unconnected, and init the
     printf("[INIT] Port Status Array \n");
@@ -30,7 +29,7 @@ void RoutingProtocolImpl::init_ping() {
         sys->send(i, ping_packet, SIZE_OF_PP);
     }
     alarmType ping_alarm = PING_ALARM;
-    printf("[ALARM TYPE] Init : %d \n", ping_alarm);
+    printf("[INIT ALARM] ping alarm: %d \n", ping_alarm);
     this->sys->set_alarm(this, 10000, (void*) ping_alarm);
 }
 
@@ -61,9 +60,16 @@ void RoutingProtocolImpl::data_message_handler() {
 
 
 void RoutingProtocolImpl::init_expire_alarm(){
-    alarmType EXPIRE_alarm = EXPIRE_ALARM;
-    printf("[SET ALARM] %d \n", EXPIRE_alarm);
-    this->sys->set_alarm(this, 1000, (void*) EXPIRE_alarm);
+    enum alarmType EXPIRE_alarm = EXPIRE_ALARM;
+//    char *EXPIRE_alarm = malloc(sizeof(alarmType));
+//    char *EXPIRE_alarm = new char[sizeof(char) * sizeof(alarmType)];
+//    *((alarmType *)EXPIRE_alarm) = EXPIRE_ALARM;
+//    printf("[SET ALARM] %d \n", EXPIRE_alarm);
+
+    void *ptr = &EXPIRE_alarm;
+//    this->sys->set_alarm(this, 1000, (void*) EXPIRE_alarm);
+    printf("SETR alarm %d \n", *(int *)ptr);
+    this->sys->set_alarm(this, 1000, ptr);
 };
 
 void RoutingProtocolImpl::expire_alarm_handler(){

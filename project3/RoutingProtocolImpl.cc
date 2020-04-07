@@ -25,9 +25,13 @@ void RoutingProtocolImpl::init(unsigned short num_ports, unsigned short router_i
 }
 
 void RoutingProtocolImpl::handle_alarm(void *data) {
-    alarmType *cur_type = (alarmType*) data;
-    printf("receive the alarm type of %d \n", *cur_type);
-    switch (*cur_type){
+//    alarmType cur_type = (*((alarmType*)data));
+//    alarmType cur_type = *(alarmType*)data;
+    int cur_type = *(int*)data;
+//    alarmType cur_type = (alarmType)reinterpret_cast<int>(data);
+//    alarmType
+    printf("[REC ALARM] %d \n", cur_type);
+    switch (cur_type){
         case PING_ALARM:
             this->init_ping();
         case DV_ALARM:

@@ -9,7 +9,13 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="923acee2-6c1a-43b6-b046-e3365dcb99a0" name="Default Changelist" comment="" />
+    <list default="true" id="923acee2-6c1a-43b6-b046-e3365dcb99a0" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/Makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NeighborDetection.cc" beforeDir="false" afterPath="$PROJECT_DIR$/NeighborDetection.cc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RoutingProtocolImpl.cc" beforeDir="false" afterPath="$PROJECT_DIR$/RoutingProtocolImpl.cc" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -18,7 +24,11 @@
   <component name="ClangdSettings">
     <option name="formatViaClangd" value="false" />
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
   <component name="ProjectId" id="1a13TYE9wGzsJXUPYSGBjM1ZREf" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
@@ -26,6 +36,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
@@ -52,6 +63,7 @@
       <updated>1585889280163</updated>
       <workItem from="1585889281385" duration="931000" />
       <workItem from="1586220114867" duration="23890000" />
+      <workItem from="1586296829810" duration="2644000" />
     </task>
     <servers />
   </component>
@@ -59,10 +71,10 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="320" y="115" key="#Deployment" timestamp="1586281650976">
+    <state x="320" y="115" key="#Deployment" timestamp="1586296882345">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="320" y="115" key="#Deployment/0.0.1440.900/1440.0.1920.1080@0.0.1440.900" timestamp="1586281650976" />
+    <state x="320" y="115" key="#Deployment/0.0.1440.900/1440.0.1920.1080@0.0.1440.900" timestamp="1586296882345" />
     <state x="458" y="204" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1586232524438">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
@@ -80,5 +92,9 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="627" y="187" key="ftp.server.browser/0.0.1440.900/1440.0.1920.1080@0.0.1440.900" timestamp="1586281629740" />
+    <state x="385" y="196" width="670" height="676" key="search.everywhere.popup" timestamp="1586299098028">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="385" y="196" width="670" height="676" key="search.everywhere.popup/0.0.1440.900/1440.0.1920.1080@0.0.1440.900" timestamp="1586299098028" />
   </component>
 </project>
