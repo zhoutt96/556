@@ -15,14 +15,17 @@ void RoutingProtocolImpl::init_port_vector(){
 
 void RoutingProtocolImpl::init_ping() {
     printf("create ping message \n");
-    char* buffer = (char *) malloc(SIZE_OF_PP);
     for (int i=0; i<this->num_of_port; i++){
+        char* buffer = (char *) malloc(SIZE_OF_PP);
         *(ePacketType *)(buffer) = (ePacketType) PING;
         *(unsigned short *) (buffer+2) = (unsigned short) htons(SIZE_OF_PP);
         *(unsigned short *) (buffer+4) = (unsigned short) htons(this->router_id);
         *(unsigned int *) (buffer+8) = (unsigned int) htonl(this->sys->time());
         sys->send(i, buffer, SIZE_OF_PP);
     }
+}
+
+void RoutingProtocolImpl::init_ping_alarm(){
     void* ptr = malloc(sizeof(alarmType));
     *((alarmType*)ptr) = PING_ALARM;
     this->sys->set_alarm(this, 10000, ptr);
@@ -39,10 +42,6 @@ void RoutingProtocolImpl::ping_message_handler(unsigned short port, void *packet
 }
 
 void RoutingProtocolImpl::pong_message_handler(unsigned short port, void *packet, unsigned short size) {
-    if (size != SIZE_OF_PP){
-        printf("The size of PONG Packet is wrong \n");
-        return;
-    }
     printf("[RECV] Pong Message, Size is %u \n", size);
     unsigned int ping_time = *(unsigned int *)((char*)packet + 8);
     unsigned int rtt = sys->time() - ntohl(ping_time);
@@ -73,10 +72,12 @@ void RoutingProtocolImpl::expire_alarm_handler(void* data){
     printf("[RECV ALARM]EXPIRE \n");
     for (int i=0; i<this->num_of_port; i++){
         unsigned int duration = sys->time() - this->port_status[i].last_refreshed_time;
-        if (duration > 15*1000){
+        if (duration > 15*1000 && this->port_status[i].status == CONNECTED){
             // this port status is expired
+            printf("[Delete Expire] \n");
             this->port_status[i].status = DEAD;
             this->port_status[i].last_refreshed_time = sys->time();
+            this->printPortStatus();
         }
 
         if (this->routing_protocol == P_DV){
@@ -90,6 +91,7 @@ void RoutingProtocolImpl::expire_alarm_handler(void* data){
 
 void RoutingProtocolImpl::ping_alarm_handler(void* data) {
     printf("[RECV ALARM] PING \n");
+    this->init_ping();
     this->sys->set_alarm(this, 10000, data);
 }
 
@@ -98,7 +100,7 @@ void RoutingProtocolImpl::printPortStatus(){
     cout<<"time = "<<this->sys->time()/1000.0<<" ";
     cout<<"Print Port Status on Node "<<this->router_id<<"\n";
     for (int i=0; i<this->num_of_port; i++){
-        cout << i << ", status is " << this->port_status[i].status << ", neighbor id "<<this->port_status[i].nei_id << ",cost is "<<this->port_status[i].link_cost <<"\n";
+        cout <<"port num is " <<i << ", status is " << this->port_status[i].status << ", neighbor id "<<this->port_status[i].nei_id << ",cost is "<<this->port_status[i].link_cost <<"\n";
     }
     printf("------------------------- End  ------------------\n");
 }

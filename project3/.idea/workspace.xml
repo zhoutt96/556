@@ -14,7 +14,6 @@
       <change beforePath="$PROJECT_DIR$/NeighborDetection.cc" beforeDir="false" afterPath="$PROJECT_DIR$/NeighborDetection.cc" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/RoutingProtocolImpl.cc" beforeDir="false" afterPath="$PROJECT_DIR$/RoutingProtocolImpl.cc" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/RoutingProtocolImpl.h" beforeDir="false" afterPath="$PROJECT_DIR$/RoutingProtocolImpl.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project3.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/project3.pdf" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -75,7 +74,7 @@
       <updated>1585889280163</updated>
       <workItem from="1585889281385" duration="931000" />
       <workItem from="1586220114867" duration="23890000" />
-      <workItem from="1586296829810" duration="32999000" />
+      <workItem from="1586296829810" duration="34934000" />
     </task>
     <servers />
   </component>
@@ -113,9 +112,9 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="627" y="187" key="ftp.server.browser/0.0.1440.900/1440.0.1920.1080@0.0.1440.900" timestamp="1586281629740" />
-    <state x="385" y="196" width="670" height="676" key="search.everywhere.popup" timestamp="1586318743290">
+    <state x="385" y="196" width="670" height="676" key="search.everywhere.popup" timestamp="1586379399866">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="385" y="196" width="670" height="676" key="search.everywhere.popup/0.0.1440.900/1440.0.1920.1080@0.0.1440.900" timestamp="1586318743290" />
+    <state x="385" y="196" width="670" height="676" key="search.everywhere.popup/0.0.1440.900/1440.0.1920.1080@0.0.1440.900" timestamp="1586379399866" />
   </component>
 </project>

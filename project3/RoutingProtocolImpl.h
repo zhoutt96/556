@@ -58,6 +58,7 @@ class RoutingProtocolImpl : public RoutingProtocol {
     void init_LS_Protocol();
     void init_port_vector();
     void init_expire_alarm();
+    void init_ping_alarm();
 
     // message handler (five kinds of message in total)
     void ping_message_handler(unsigned short port, void *packet,unsigned short size);

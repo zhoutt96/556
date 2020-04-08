@@ -15,12 +15,14 @@ void RoutingProtocolImpl::init(unsigned short num_ports, unsigned short router_i
     this->router_id = router_id;
     this->init_port_vector();
     this->init_ping();
+    this->init_ping_alarm();
     this->init_expire_alarm();
     if (protocol_type == P_DV){
       this->init_DV_Protocol(); // to be finished
     }else if(protocol_type == P_LS){
       this->init_LS_Protocol(); // to be finished
     }
+    printf("The node Id is %u, and the router id is %u \n", this->sys->id, this->router_id);
 }
 
 void RoutingProtocolImpl::handle_alarm(void* data) {
