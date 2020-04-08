@@ -19,13 +19,13 @@
 
 
 #define SIZE_OF_PP 12
-typedef enum alarmType
+enum alarmType
 {
     DV_ALARM,
     LS_ALARM,
     PING_ALARM,
     EXPIRE_ALARM
-}alarmType;
+};
 
 typedef enum portStatus
 {

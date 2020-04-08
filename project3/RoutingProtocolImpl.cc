@@ -25,20 +25,25 @@ void RoutingProtocolImpl::init(unsigned short num_ports, unsigned short router_i
 }
 
 void RoutingProtocolImpl::handle_alarm(void* data) {
-    int* cur_type = static_cast<int*>(data);
-//    printf("[REC ALARM] %d \n", *cur_type);
-    switch (*cur_type){
+    alarmType cur_type = *((alarmType*)data);
+
+    printf("[RECV ALARM] %d \n", cur_type);
+    switch (cur_type){
         case PING_ALARM:
             this->init_ping();
+            break;
         case DV_ALARM:
             this->updateDV(); // to be finished
+            break;
         case LS_ALARM:
             this->updateLS(); // to be finished
+            break;
         case EXPIRE_ALARM:
             this->expire_alarm_handler();
+            break;
         default:
-            return;
             printf("Can not recognize the alarm \n");
+            return;
     }
 }
 
@@ -49,7 +54,7 @@ void RoutingProtocolImpl::recv(unsigned short port, void *packet, unsigned short
         return;
     }
     ePacketType cur_type = (ePacketType)(*((unsigned char *)packet));
-//    printf("the type is %d, size is %u\n", cur_type, size);
+    printf("the type is %d, size is %u\n", cur_type, size);
     switch (cur_type){
         case DATA:
             this->data_message_handler();

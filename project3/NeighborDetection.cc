@@ -64,19 +64,17 @@ void RoutingProtocolImpl::pong_message_handler(unsigned short port, void *packet
 }
 
 void RoutingProtocolImpl::data_message_handler() {
-//    printf("[RECV] Data Message \n");
+    printf("[RECV] Data Message \n");
 }
 
 void RoutingProtocolImpl::init_expire_alarm(){
-    alarmType cur_alarm = alarmType::EXPIRE_ALARM;
-    void *ptr = &cur_alarm;
+    void* ptr = malloc(sizeof(alarmType));
+    *((alarmType*)ptr) = EXPIRE_ALARM;
     this->sys->set_alarm(this, 1000, ptr);
 };
 
 void RoutingProtocolImpl::expire_alarm_handler(){
-    /* visit all the elements in port_status_vector, if its status is not refreshed in 15 seconds,
-     * then set it as dead */
-//    printf("[RECEIVE ALARM] %d \n", EXPIRE_ALARM);
+    printf("[RECV ALARM]EXPIRE \n");
     for (int i=0; i<this->num_of_port; i++){
         unsigned int duration = sys->time() - this->port_status[i].last_refreshed_time;
         if (duration > 15*1000){
@@ -95,6 +93,11 @@ void RoutingProtocolImpl::expire_alarm_handler(){
 }
 
 void RoutingProtocolImpl::ping_alarm_handler() {
+//    printf("[RECV ALARM]EXPIRE \n");
+//    char *EXPIRE = new char[sizeof(char) * sizeof(alarmType)];
+//    *((alarmType *)EXPIRE) = EXPIRE_ALARM;
+//    createPingPongMessage();
+//    sys->set_alarm(this, 1000, EXPIRE);
     alarmType cur_alarm = alarmType::PING_ALARM;
     void *ptr = &cur_alarm;
     this->sys->set_alarm(this, 10000, (void*) ptr);
