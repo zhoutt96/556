@@ -51,23 +51,34 @@ class RoutingProtocolImpl : public RoutingProtocol {
     // that the packet is generated locally and not received from 
     // a neighbor router.
 
-    void init_ping(); // send ping message at the beginning
-    void ping_message_handler(unsigned short port, void *recv_packet,unsigned short size);
-    void pong_message_handler(unsigned short port, void *recv_packet,unsigned short size);
 
+    // functions for init
+    void init_ping(); // send ping message at the beginning
     void init_DV_Protocol();
     void init_LS_Protocol();
-    void DV_message_handler();
-    void LS_message_handler();
-    void data_message_handler();
-    void updateDV();
-    void updateLS();
     void init_port_vector();
     void init_expire_alarm();
+
+    // message handler (five kinds of message in total)
+    void ping_message_handler(unsigned short port, void *packet,unsigned short size);
+    void pong_message_handler(unsigned short port, void *packet,unsigned short size);
+    void DV_message_handler(unsigned short port, void *packet,unsigned short size);
+    void LS_message_handler(unsigned short port, void *packet,unsigned short size);
+    void data_message_handler(unsigned short port, void *packet,unsigned short size);
+
+    // function to update the DV and LS forwarding table periodically
+    void updateDV();
+    void updateLS();
+
+    // function to forward data message
+    void forward_message_LS(unsigned short port, void *packet,unsigned short size);
+    void forward_message_DV(unsigned short port, void *packet,unsigned short size);
+
+    // function to handler the alarm message
     void ping_alarm_handler();
     void expire_alarm_handler();
 
-    // functions for debugging
+    // functions for debugging/printing
     void printPortStatus();
 
  private:

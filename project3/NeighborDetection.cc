@@ -6,7 +6,6 @@
 #include "RoutingProtocolImpl.h"
 
 void RoutingProtocolImpl::init_port_vector(){
-//    printf("[INIT] Port Status Array \n");
     this->port_status =(PORT*) malloc(sizeof(PORT)*this->num_of_port);
     for (int i=0; i<this->num_of_port; i++){
         this->port_status[i] = PORT(i,this->sys->time());
@@ -30,25 +29,26 @@ void RoutingProtocolImpl::init_ping() {
 }
 
 void RoutingProtocolImpl::ping_message_handler(unsigned short port, void *packet, unsigned short size) {
-    if (size != SIZE_OF_PP){
-//        printf("The size of PING Packet is wrong \n");
-        return;
-    }
+//    if (size != SIZE_OF_PP){
+////        printf("The size of PING Packet is wrong \n");
+//        return;
+//    }
     char* send_buffer = (char *) malloc(SIZE_OF_PP);
     printf("[RECV] Ping Message, Size is %u \n", size);
     unsigned short target_id = *(unsigned short *)((char*)packet + 4);
     *(ePacketType*)(send_buffer) = (ePacketType) PONG;
-    *(unsigned short *)((char*)packet +2) = htons(size);
-    *(unsigned short *)((char*)packet + 4) = htons(this->router_id);
-    *(unsigned short *)((char*)packet + 6) = htons(target_id);
+    *(unsigned short *)((char*)send_buffer +2) = htons(size);
+    *(unsigned short *)((char*)send_buffer + 4) = htons(this->router_id);
+    *(unsigned short *)((char*)send_buffer + 6) = htons(target_id);
     this->sys->send(port, send_buffer, SIZE_OF_PP);
 }
 
 void RoutingProtocolImpl::pong_message_handler(unsigned short port, void *packet, unsigned short size) {
-    if (size != SIZE_OF_PP){
-        printf("The size of PONG Packet is wrong \n");
-        return;
-    }
+//    if (size != SIZE_OF_PP){
+//        printf("The size of PONG Packet is wrong \n");
+//        return;
+//    }
+
     printf("[RECV] Pong Message, Size is %u \n", size);
     unsigned int ping_time = *(unsigned int *)((char*)packet + 8);
     unsigned int rtt = sys->time() - ntohl(ping_time);
@@ -60,8 +60,13 @@ void RoutingProtocolImpl::pong_message_handler(unsigned short port, void *packet
     this->printPortStatus();
 }
 
-void RoutingProtocolImpl::data_message_handler() {
+void RoutingProtocolImpl::data_message_handler(unsigned short port, void *packet,unsigned short size) {
     printf("[RECV] Data Message \n");
+    if (this->routing_protocol == P_LS){
+        this->forward_message_DV(port, packet, size);
+    }else if(this->routing_protocol == P_DV){
+        this->forward_message_LS(port, packet, size);
+    }
 }
 
 void RoutingProtocolImpl::init_expire_alarm(){
@@ -95,10 +100,12 @@ void RoutingProtocolImpl::ping_alarm_handler() {
 }
 
 void RoutingProtocolImpl::printPortStatus(){
+    printf("--------------Port Status Table -----------------\n");
     cout<<"time = "<<this->sys->time()/1000.0<<" ";
     cout<<"Print Port Status on Node "<<this->router_id<<"\n";
     for (int i=0; i<this->num_of_port; i++){
-        cout << i << "," << this->port_status[i].status << "neighbor id "<<this->port_status[i].nei_id << ",status "<<this->port_status[i].status <<",cost is "<<this->port_status[i].link_cost <<"\n";
+        cout << i << ", status is " << this->port_status[i].status << ", neighbor id "<<this->port_status[i].nei_id << ",cost is "<<this->port_status[i].link_cost <<"\n";
     }
+    printf("------------------------- End  ------------------\n");
 }
 
