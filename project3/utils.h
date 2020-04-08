@@ -9,6 +9,7 @@
 #include <errno.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <vector>
 #include <string.h>
 #include <sys/types.h>
 #include <unistd.h>
@@ -16,6 +17,10 @@
 #include <netinet/in.h>
 #include <arpa/inet.h>
 #include <fcntl.h>
+#include <unordered_set>
+#include <utility>      // std::pair
+#include <iostream>     // std::cout
+#include <map>
 
 
 #define SIZE_OF_PP 12
@@ -43,27 +48,46 @@ typedef struct Packet{
     char* payload; //??
 } Packet;
 
-typedef struct PORT{
-    unsigned char status;
+
+struct PORT{
+    unsigned short status;
     unsigned int last_refreshed_time;
     unsigned int port_id;
     unsigned short nei_id;
     unsigned int link_cost; // RRT
 
+    PORT(){
+        this->status = UNCONNECTED;
+    }
+
     PORT( unsigned int port_id){
         this->status = UNCONNECTED;
         this->port_id = port_id;
     }
-}PORT;
 
-//typedef struct PP_Packet{
-//    unsigned char type;
-//    unsigned char reserved;
-//    unsigned short size;
-//    unsigned short source_id;
-//    unsigned short des_id;
-//    unsigned int payload;
-//} PP_Packet;
+    PORT(unsigned int port_id, unsigned int last_refresh_time){
+        this->port_id = port_id;
+        this->last_refreshed_time = last_refresh_time;
+        this->status = UNCONNECTED;
+    }
+
+//    PORT& operator =(const PORT& a)
+//    {
+//        port_id = a.port_id;
+//        last_refreshed_time = a.last_refreshed_time;
+//        status = a.status;
+//        link_cost = a.link_cost;
+//        nei_id = a.nei_id;
+//        return *this;
+//    }
+//
+//    bool operator ==(const PORT& a) const
+//    {
+//        return(a.port_id == port_id);
+//    }
+
+};
+
 
 
 

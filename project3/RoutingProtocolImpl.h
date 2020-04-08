@@ -13,7 +13,6 @@
 #include <vector>
 
 
-
 class RoutingProtocolImpl : public RoutingProtocol {
     private:
         unsigned short num_of_port;
@@ -52,11 +51,12 @@ class RoutingProtocolImpl : public RoutingProtocol {
     // that the packet is generated locally and not received from 
     // a neighbor router.
 
-    void init_ping();
-    void init_DV_Protocol();
-    void init_LS_Protocol();
+    void init_ping(); // send ping message at the beginning
     void ping_message_handler(unsigned short port, void *recv_packet,unsigned short size);
     void pong_message_handler(unsigned short port, void *recv_packet,unsigned short size);
+
+    void init_DV_Protocol();
+    void init_LS_Protocol();
     void DV_message_handler();
     void LS_message_handler();
     void data_message_handler();
@@ -66,6 +66,9 @@ class RoutingProtocolImpl : public RoutingProtocol {
     void init_expire_alarm();
     void ping_alarm_handler();
     void expire_alarm_handler();
+
+    // functions for debugging
+    void printPortStatus();
 
  private:
     Node *sys; // To store Node object; used to access GSR9999 interfaces 

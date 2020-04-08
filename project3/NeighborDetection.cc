@@ -4,16 +4,14 @@
 
 #include "utils.h"
 #include "RoutingProtocolImpl.h"
-#include <vector>
 
 void RoutingProtocolImpl::init_port_vector(){
-    // init the status of each port as unconnected, and init the
 //    printf("[INIT] Port Status Array \n");
     this->port_status =(PORT*) malloc(sizeof(PORT)*this->num_of_port);
     for (int i=0; i<this->num_of_port; i++){
-        this->port_status[i] = PORT(i);
-        this->port_status[i].last_refreshed_time = this->sys->time();
+        this->port_status[i] = PORT(i,this->sys->time());
     }
+    this->printPortStatus();
 }
 
 void RoutingProtocolImpl::init_ping() {
@@ -26,10 +24,9 @@ void RoutingProtocolImpl::init_ping() {
         *(unsigned int *) (buffer+8) = (unsigned int) htonl(this->sys->time());
         sys->send(i, buffer, SIZE_OF_PP);
     }
-
-    alarmType cur_alarm = alarmType::PING_ALARM;
-    void *ptr = &cur_alarm;
-    this->sys->set_alarm(this, 10000, (void*) ptr);
+    void* ptr = malloc(sizeof(alarmType));
+    *((alarmType*)ptr) = PING_ALARM;
+    this->sys->set_alarm(this, 10000, ptr);
 }
 
 void RoutingProtocolImpl::ping_message_handler(unsigned short port, void *packet, unsigned short size) {
@@ -38,7 +35,7 @@ void RoutingProtocolImpl::ping_message_handler(unsigned short port, void *packet
         return;
     }
     char* send_buffer = (char *) malloc(SIZE_OF_PP);
-//    printf("[RECV] Ping Message, size is %u \n", size);
+    printf("[RECV] Ping Message, Size is %u \n", size);
     unsigned short target_id = *(unsigned short *)((char*)packet + 4);
     *(ePacketType*)(send_buffer) = (ePacketType) PONG;
     *(unsigned short *)((char*)packet +2) = htons(size);
@@ -49,10 +46,10 @@ void RoutingProtocolImpl::ping_message_handler(unsigned short port, void *packet
 
 void RoutingProtocolImpl::pong_message_handler(unsigned short port, void *packet, unsigned short size) {
     if (size != SIZE_OF_PP){
-//        printf("The size of PONG Packet is wrong \n");
+        printf("The size of PONG Packet is wrong \n");
         return;
     }
-//    printf("[RECV] Pong Message, size is %u \n", size);
+    printf("[RECV] Pong Message, Size is %u \n", size);
     unsigned int ping_time = *(unsigned int *)((char*)packet + 8);
     unsigned int rtt = sys->time() - ntohl(ping_time);
     unsigned short nei_id = *(unsigned int *)((char*)packet + 4);
@@ -60,7 +57,7 @@ void RoutingProtocolImpl::pong_message_handler(unsigned short port, void *packet
     this->port_status[port].last_refreshed_time = this->sys->time();
     this->port_status[port].nei_id = ntohs(nei_id);
     this->port_status[port].link_cost = rtt;
-//    printf("[Finish] Pong Message \n");
+    this->printPortStatus();
 }
 
 void RoutingProtocolImpl::data_message_handler() {
@@ -93,13 +90,15 @@ void RoutingProtocolImpl::expire_alarm_handler(){
 }
 
 void RoutingProtocolImpl::ping_alarm_handler() {
-//    printf("[RECV ALARM]EXPIRE \n");
-//    char *EXPIRE = new char[sizeof(char) * sizeof(alarmType)];
-//    *((alarmType *)EXPIRE) = EXPIRE_ALARM;
-//    createPingPongMessage();
-//    sys->set_alarm(this, 1000, EXPIRE);
-    alarmType cur_alarm = alarmType::PING_ALARM;
-    void *ptr = &cur_alarm;
-    this->sys->set_alarm(this, 10000, (void*) ptr);
+    printf("[RECV ALARM] PING \n");
+    this->init_ping();
+}
+
+void RoutingProtocolImpl::printPortStatus(){
+    cout<<"time = "<<this->sys->time()/1000.0<<" ";
+    cout<<"Print Port Status on Node "<<this->router_id<<"\n";
+    for (int i=0; i<this->num_of_port; i++){
+        cout << i << "," << this->port_status[i].status << "neighbor id "<<this->port_status[i].nei_id << ",status "<<this->port_status[i].status <<",cost is "<<this->port_status[i].link_cost <<"\n";
+    }
 }
 

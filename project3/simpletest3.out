@@ -34,7 +34,8 @@ time = 0.01 Event_Xmit_Pkt_On_Link (2,1) packet type is PONG
 time = 0.01 Event_Xmit_Pkt_On_Link (1,2) packet type is PONG
 time = 0.01 Event_Xmit_Pkt_On_Link (3,4) packet type is PONG
 time = 0.01 Event_Xmit_Pkt_On_Link (4,3) packet type is PONG
-time = 0.01 Event_Xmit_Data_Pkt source node 2 destination node 4 packet type is DATA
+time = 0.01 Event_Xmit_Data_Pkt source node 2 destinati
+on node 4 packet type is DATA
 time = 0.01 Event_Recv_Pkt_On_Node 3 packet type is PING
 time = 0.01 Event_Xmit_Pkt_On_Link (3,1) packet type is PONG
 time = 0.01 Event_Recv_Pkt_On_Node 1 packet type is PING
