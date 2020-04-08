@@ -75,8 +75,8 @@ class RoutingProtocolImpl : public RoutingProtocol {
     void forward_message_DV(unsigned short port, void *packet,unsigned short size);
 
     // function to handler the alarm message
-    void ping_alarm_handler();
-    void expire_alarm_handler();
+    void ping_alarm_handler(void* data);
+    void expire_alarm_handler(void* data);
 
     // functions for debugging/printing
     void printPortStatus();

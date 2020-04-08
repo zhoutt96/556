@@ -27,7 +27,7 @@ void RoutingProtocolImpl::handle_alarm(void* data) {
     alarmType cur_type = *((alarmType*)data);
     switch (cur_type){
         case PING_ALARM:
-            this->ping_alarm_handler();
+            this->ping_alarm_handler(data);
             break;
         case DV_ALARM:
             this->updateDV(); // to be finished
@@ -36,11 +36,11 @@ void RoutingProtocolImpl::handle_alarm(void* data) {
             this->updateLS(); // to be finished
             break;
         case EXPIRE_ALARM:
-            this->expire_alarm_handler();
+            this->expire_alarm_handler(data);
             break;
         default:
             printf("Can not recognize the alarm \n");
-            return;
+            break;
     }
 }
 
@@ -74,6 +74,8 @@ void RoutingProtocolImpl::recv(unsigned short port, void *packet, unsigned short
             printf("[ERROR] Can Not Recognize this Packet Type \n");
             break;
     }
+//    free(packet);
+//    delete packet;
 }
 
 
