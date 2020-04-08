@@ -6,13 +6,13 @@
 #include "RoutingProtocolImpl.h"
 
 void RoutingProtocolImpl::updateLS(){
-    printf("Update LS now \n");
+//    printf("Update LS now \n");
 }
 
 void RoutingProtocolImpl::init_LS_Protocol(){
-    printf("Init LS now \n");
+//    printf("Init LS now \n");
 }
 
 void RoutingProtocolImpl::LS_message_handler(){
-    printf("Handle LS Message now \n");
+//    printf("Handle LS Message now \n");
 }

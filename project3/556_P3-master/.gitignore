@@ -1,0 +1,10 @@
+# directories
+.idea
+.git
+.DS_Store
+cmake-build-debug
+
+# execution file
+**/**.o
+Simulator
+

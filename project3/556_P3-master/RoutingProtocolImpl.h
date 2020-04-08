@@ -1,29 +1,16 @@
 #ifndef ROUTINGPROTOCOLIMPL_H
 #define ROUTINGPROTOCOLIMPL_H
 
-
-
-#include "global.h"
-#include "Event.h"
-#include "Link.h"
-#include "Node.h"
-#include "Simulator.h"
 #include "RoutingProtocol.h"
-#include "utils.h"
-#include <vector>
-
-
+#include "DVManager.h"
+#include "LSManager.h"
+#include "common.h"
+#include <unordered_map>
 
 class RoutingProtocolImpl : public RoutingProtocol {
-    private:
-        unsigned short num_of_port;
-        unsigned short router_id;
-        eProtocolType routing_protocol;
-        PORT* port_status;
-
-    public:
-        RoutingProtocolImpl(Node *n);
-        ~RoutingProtocolImpl();
+public:
+    RoutingProtocolImpl(Node *n);
+    ~RoutingProtocolImpl();
 
     void init(unsigned short num_ports, unsigned short router_id, eProtocolType protocol_type);
     // As discussed in the assignment document, your RoutingProtocolImpl is
@@ -52,24 +39,25 @@ class RoutingProtocolImpl : public RoutingProtocol {
     // that the packet is generated locally and not received from 
     // a neighbor router.
 
-    void init_ping();
-    void init_DV_Protocol();
-    void init_LS_Protocol();
-    void ping_message_handler(unsigned short port, void *recv_packet,unsigned short size);
-    void pong_message_handler(unsigned short port, void *recv_packet,unsigned short size);
-    void DV_message_handler();
-    void LS_message_handler();
-    void data_message_handler();
-    void updateDV();
-    void updateLS();
-    void init_port_vector();
-    void init_expire_alarm();
-    void ping_alarm_handler();
-    void expire_alarm_handler();
+private:
+    Node *sys; // To store Node object; used to access GSR9999 interfaces
+    eProtocolType protocol_type;
+    unsigned short router_id;
+    unsigned short num_ports;
+    unordered_map<unsigned short, Neighbor> neighbors;
+    unordered_map<unsigned short, Port> ports;
+    unordered_map<unsigned short, unsigned short> forwarding_table;
+    DVManager DVM;
+    LSManager LSM;
 
- private:
-    Node *sys; // To store Node object; used to access GSR9999 interfaces 
+
+    void createPingPongMessage();
+
+    void handleMessage(unsigned short port, void *packet, unsigned short size);
+
+    void forwardData(unsigned short port, void *packet);
 };
+
 
 #endif
 

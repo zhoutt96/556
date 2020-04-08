@@ -35,12 +35,12 @@ typedef enum portStatus
 }portStatus;
 
 typedef struct Packet{
-    unsigned char type;
-    unsigned char reserved;
-    unsigned short size;
-    unsigned short source_id;
-    unsigned short des_id;
-    char* payload;
+    unsigned char type;  //1
+    unsigned char reserved; //1
+    unsigned short size; //2
+    unsigned short source_id; //2
+    unsigned short des_id; //2
+    char* payload; //??
 } Packet;
 
 typedef struct PORT{

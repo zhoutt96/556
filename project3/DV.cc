@@ -7,14 +7,15 @@
 #include "RoutingProtocolImpl.h"
 
 void RoutingProtocolImpl::updateDV(){
-    printf("Update DV now \n");
+//    printf("Update DV now \n");
+    
 }
 
 void RoutingProtocolImpl::init_DV_Protocol(){
-    printf("Init DV now \n");
+//    printf("Init DV now \n");
 }
 
 void RoutingProtocolImpl::DV_message_handler(){
-    printf("Handle DV Message now \n");
+//    printf("Handle DV Message now \n");
 }
 
