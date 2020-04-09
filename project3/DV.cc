@@ -3,12 +3,17 @@
 //
 
 
-#include "utils.h"
+//#include "utils.h"
 #include "RoutingProtocolImpl.h"
+
+void RoutingProtocolImpl::init_DV_alarm(){
+
+}
 
 void RoutingProtocolImpl::updateDV(){
 //    printf("Update DV now \n");
-    
+
+
 }
 
 void RoutingProtocolImpl::init_DV_Protocol(){

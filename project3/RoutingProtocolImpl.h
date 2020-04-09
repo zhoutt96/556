@@ -1,28 +1,17 @@
 #ifndef ROUTINGPROTOCOLIMPL_H
 #define ROUTINGPROTOCOLIMPL_H
 
-
-
-#include "global.h"
-#include "Event.h"
-#include "Link.h"
-#include "Node.h"
-#include "Simulator.h"
 #include "RoutingProtocol.h"
 #include "utils.h"
-#include <vector>
+#include <unordered_map>
+#include "Node.h"
+
 
 
 class RoutingProtocolImpl : public RoutingProtocol {
-    private:
-        unsigned short num_of_port;
-        unsigned short router_id;
-        eProtocolType routing_protocol;
-        PORT* port_status;
-
-    public:
-        RoutingProtocolImpl(Node *n);
-        ~RoutingProtocolImpl();
+public:
+    RoutingProtocolImpl(Node *n);
+    ~RoutingProtocolImpl();
 
     void init(unsigned short num_ports, unsigned short router_id, eProtocolType protocol_type);
     // As discussed in the assignment document, your RoutingProtocolImpl is
@@ -51,7 +40,6 @@ class RoutingProtocolImpl : public RoutingProtocol {
     // that the packet is generated locally and not received from 
     // a neighbor router.
 
-
     // functions for init
     void init_ping(); // send ping message at the beginning
     void init_DV_Protocol();
@@ -59,6 +47,9 @@ class RoutingProtocolImpl : public RoutingProtocol {
     void init_port_vector();
     void init_expire_alarm();
     void init_ping_alarm();
+
+    void init_LS_alarm();
+    void flooding_lsp();
 
     // message handler (five kinds of message in total)
     void ping_message_handler(unsigned short port, void *packet,unsigned short size);
@@ -78,13 +69,22 @@ class RoutingProtocolImpl : public RoutingProtocol {
     // function to handler the alarm message
     void ping_alarm_handler(void* data);
     void expire_alarm_handler(void* data);
+    void init_DV_alarm();
 
     // functions for debugging/printing
     void printPortStatus();
+    static unsigned int ls_seq_num;
 
- private:
-    Node *sys; // To store Node object; used to access GSR9999 interfaces 
+
+private:
+    Node *sys; // To store Node object; used to access GSR9999 interfaces
+    unsigned short num_of_port;
+    unsigned short router_id;
+    eProtocolType routing_protocol;
+    unordered_map<unsigned short, PORT> port_map;
+
 };
+
 
 #endif
 

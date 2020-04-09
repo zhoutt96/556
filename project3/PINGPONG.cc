@@ -1,17 +1,12 @@
-//
-// Created by zhoutt96 on 4/6/20.
-//
+
+
+#ifndef PROJECT3_DETECTNEIGHBOR_CC
+#define PROJECT3_DETECTNEIGHBOR_CC
 
 #include "utils.h"
 #include "RoutingProtocolImpl.h"
 
-void RoutingProtocolImpl::init_port_vector(){
-    this->port_status =(PORT*) malloc(sizeof(PORT)*this->num_of_port);
-    for (int i=0; i<this->num_of_port; i++){
-        this->port_status[i] = PORT(i,this->sys->time());
-    }
-    this->printPortStatus();
-}
+int PingPong_size = 12;
 
 void RoutingProtocolImpl::init_ping() {
     printf("create ping message \n");
@@ -45,20 +40,21 @@ void RoutingProtocolImpl::pong_message_handler(unsigned short port, void *packet
     printf("[RECV] Pong Message, Size is %u \n", size);
     unsigned int ping_time = *(unsigned int *)((char*)packet + 8);
     unsigned int rtt = sys->time() - ntohl(ping_time);
-    unsigned short nei_id = *(unsigned int *)((char*)packet + 4);
-    this->port_status[port].status = CONNECTED;
-    this->port_status[port].last_refreshed_time = this->sys->time();
-    this->port_status[port].nei_id = ntohs(nei_id);
-    this->port_status[port].link_cost = rtt;
+    unsigned short nei_id = ntohs(*(unsigned int *)((char*)packet + 4));
+    this->port_map[nei_id].port_id = port;
+    this->port_map[nei_id].status = CONNECTED;
+    this->port_map[nei_id].last_refreshed_time = this->sys->time();
+    this->port_map[nei_id].nei_id = nei_id;
+    this->port_map[nei_id].link_cost = rtt;
     this->printPortStatus();
 }
 
 void RoutingProtocolImpl::data_message_handler(unsigned short port, void *packet,unsigned short size) {
     printf("[RECV] Data Message \n");
     if (this->routing_protocol == P_LS){
-        this->forward_message_DV(port, packet, size);
+//        this->forward_message_DV(port, packet, size);
     }else if(this->routing_protocol == P_DV){
-        this->forward_message_LS(port, packet, size);
+//        this->forward_message_LS(port, packet, size);
     }
 }
 
@@ -70,20 +66,21 @@ void RoutingProtocolImpl::init_expire_alarm(){
 
 void RoutingProtocolImpl::expire_alarm_handler(void* data){
     printf("[RECV ALARM]EXPIRE \n");
-    for (int i=0; i<this->num_of_port; i++){
-        unsigned int duration = sys->time() - this->port_status[i].last_refreshed_time;
-        if (duration > 15*1000 && this->port_status[i].status == CONNECTED){
-            // this port status is expired
-            printf("[Delete Expire] \n");
-            this->port_status[i].status = DEAD;
-            this->port_status[i].last_refreshed_time = sys->time();
+    for (auto it=this->port_map.begin(); it!=this->port_map.end(); it++){
+        unsigned int last_refreshed_time = it->second.last_refreshed_time;
+        unsigned int duration = sys->time() - last_refreshed_time;
+
+        if (duration >= 15*1000){
+            printf("EXPIRE \n");
+            this->port_map[it->first].status = UNCONNECTED;
+            this->port_map[it->first].last_refreshed_time = this->sys->time();
             this->printPortStatus();
         }
 
         if (this->routing_protocol == P_DV){
-            this->updateDV();
+//            this->updateDV();
         }else if (this->routing_protocol == P_LS){
-            this->updateLS();
+//            this->updateLS();
         }
     }
     this->sys->set_alarm(this, 1000, data);
@@ -96,12 +93,13 @@ void RoutingProtocolImpl::ping_alarm_handler(void* data) {
 }
 
 void RoutingProtocolImpl::printPortStatus(){
-    printf("--------------Port Status Table -----------------\n");
+    printf("\n------------------Port Status Table ---------------------\n");
     cout<<"time = "<<this->sys->time()/1000.0<<" ";
     cout<<"Print Port Status on Node "<<this->router_id<<"\n";
-    for (int i=0; i<this->num_of_port; i++){
-        cout <<"port num is " <<i << ", status is " << this->port_status[i].status << ", neighbor id "<<this->port_status[i].nei_id << ",cost is "<<this->port_status[i].link_cost <<"\n";
+    for (auto it=this->port_map.begin(); it!=this->port_map.end(); ++it) {
+        cout <<"port num is " <<it->second.port_id<< ", status is " << it->second.status << ", neighbor id "<< it->second.nei_id << ",cost is "<< it->second.link_cost <<"\n";
     }
-    printf("------------------------- End  ------------------\n");
+    printf("----------------------------- End  ----------------------\n");
 }
 
+#endif //PROJECT3_DETECTNEIGHBOR_CC

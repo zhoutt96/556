@@ -18,10 +18,10 @@ using namespace __gnu_cxx;
 #define DEFAULT_COST 1
 
 enum eEventType {
-        EVENT_LINK_DYING,
-        EVENT_LINK_COMINGUP,
-        EVENT_XMIT_PKT,
-        EVENT_NEW_LINK
+    EVENT_LINK_DYING,
+    EVENT_LINK_COMINGUP,
+    EVENT_XMIT_PKT,
+    EVENT_NEW_LINK
 };
 
 /*************************************/
@@ -39,16 +39,16 @@ enum eEventType {
 // is originating locally rather than received from a neighbor
 
 enum ePacketType {
-  DATA,
-  PING,
-  PONG,
-  DV,
-  LS,
+    DATA,
+    PING,
+    PONG,
+    DV,
+    LS,
 };
 
 enum eProtocolType {
-  P_DV,
-  P_LS
+    P_DV,
+    P_LS
 };
 
 /*************************************/

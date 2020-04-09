@@ -1,26 +1,12 @@
 //
-// Created by zhoutt96 on 4/6/20.
+// Created by Zequn Jiang on 3/30/20.
 //
 
+#ifndef PROJECT3_COMMON_H
+#define PROJECT3_COMMON_H
 
-#ifndef PROJECT3_UTILS_H
-#define PROJECT3_UTILS_H
-
-#include <errno.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include <vector>
-#include <string.h>
-#include <sys/types.h>
-#include <unistd.h>
-#include <sys/socket.h>
+#include "global.h"
 #include <netinet/in.h>
-#include <arpa/inet.h>
-#include <fcntl.h>
-#include <unordered_set>
-#include <utility>      // std::pair
-#include <iostream>     // std::cout
-#include <map>
 
 
 #define SIZE_OF_PP 12
@@ -36,7 +22,6 @@ typedef enum portStatus
 {
     CONNECTED,
     UNCONNECTED,
-    DEAD
 }portStatus;
 
 typedef struct Packet{
@@ -87,8 +72,4 @@ struct PORT{
 //    }
 
 };
-
-
-
-
-#endif //PROJECT3_UTILS_H
+#endif //PROJECT3_COMMON_H

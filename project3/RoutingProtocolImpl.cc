@@ -1,31 +1,28 @@
 #include "RoutingProtocolImpl.h"
-#include "utils.h"
 
 RoutingProtocolImpl::RoutingProtocolImpl(Node *n) : RoutingProtocol(n) {
-  sys = n;
+    sys = n;
 }
 
 RoutingProtocolImpl::~RoutingProtocolImpl() {
-  // add your own code (if needed)
+    // add your own code (if needed)
 }
 
 void RoutingProtocolImpl::init(unsigned short num_ports, unsigned short router_id, eProtocolType protocol_type) {
     this->routing_protocol = protocol_type;
     this->num_of_port = num_ports;
     this->router_id = router_id;
-    this->init_port_vector();
     this->init_ping();
     this->init_ping_alarm();
     this->init_expire_alarm();
     if (protocol_type == P_DV){
-      this->init_DV_Protocol(); // to be finished
+        this->init_DV_Protocol(); // to be finished
     }else if(protocol_type == P_LS){
-      this->init_LS_Protocol(); // to be finished
+        this->init_LS_Protocol(); // to be finished
     }
-    printf("The node Id is %u, and the router id is %u \n", this->sys->id, this->router_id);
 }
 
-void RoutingProtocolImpl::handle_alarm(void* data) {
+void RoutingProtocolImpl::handle_alarm(void *data) {
     alarmType cur_type = *((alarmType*)data);
     switch (cur_type){
         case PING_ALARM:
@@ -76,9 +73,4 @@ void RoutingProtocolImpl::recv(unsigned short port, void *packet, unsigned short
             printf("[ERROR] Can Not Recognize this Packet Type \n");
             break;
     }
-//    free(packet);
-//    delete packet;
 }
-
-
-// add more of your own code
