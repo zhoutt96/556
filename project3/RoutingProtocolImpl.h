@@ -4,6 +4,7 @@
 #include "RoutingProtocol.h"
 #include "utils.h"
 #include <unordered_map>
+#include <unordered_set>
 #include "Node.h"
 
 
@@ -61,6 +62,7 @@ public:
     // function to update the DV and LS forwarding table periodically
     void updateDV();
     void updateLS();
+    void get_ls_forwarding_table();
 
     // function to forward data message
     void forward_message_LS(unsigned short port, void *packet,unsigned short size);
@@ -69,10 +71,14 @@ public:
     // function to handler the alarm message
     void ping_alarm_handler(void* data);
     void expire_alarm_handler(void* data);
+    void LS_alarm_handler(void* data);
+
     void init_DV_alarm();
+    void print_flooding_table();
 
     // functions for debugging/printing
     void printPortStatus();
+    void extractInfoFromPacket();
     static unsigned int ls_seq_num;
 
 
@@ -81,8 +87,11 @@ private:
     unsigned short num_of_port;
     unsigned short router_id;
     eProtocolType routing_protocol;
-    unordered_map<unsigned short, PORT> port_map;
-
+    std::unordered_map<unsigned short, PORT> port_map; // key is neighbor_id, values is struct Port
+    // key is the source_id, value is the unordered_set whiches Topology_info
+    std::unordered_map<unsigned short, std::unordered_set<Topology_Info, MyHashFunction>> lsp_topology_map;
+    std::unordered_set<unsigned int> lsp_seq_set;
+    unsigned short num_of_nei;
 };
 
 

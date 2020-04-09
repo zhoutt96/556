@@ -41,6 +41,9 @@ void RoutingProtocolImpl::pong_message_handler(unsigned short port, void *packet
     unsigned int ping_time = *(unsigned int *)((char*)packet + 8);
     unsigned int rtt = sys->time() - ntohl(ping_time);
     unsigned short nei_id = ntohs(*(unsigned int *)((char*)packet + 4));
+    if(this->port_map[nei_id].status == UNCONNECTED){
+        num_of_nei++;
+    }
     this->port_map[nei_id].port_id = port;
     this->port_map[nei_id].status = CONNECTED;
     this->port_map[nei_id].last_refreshed_time = this->sys->time();
@@ -52,9 +55,9 @@ void RoutingProtocolImpl::pong_message_handler(unsigned short port, void *packet
 void RoutingProtocolImpl::data_message_handler(unsigned short port, void *packet,unsigned short size) {
     printf("[RECV] Data Message \n");
     if (this->routing_protocol == P_LS){
-//        this->forward_message_DV(port, packet, size);
+        this->forward_message_DV(port, packet, size);
     }else if(this->routing_protocol == P_DV){
-//        this->forward_message_LS(port, packet, size);
+        this->forward_message_LS(port, packet, size);
     }
 }
 
@@ -74,13 +77,14 @@ void RoutingProtocolImpl::expire_alarm_handler(void* data){
             printf("EXPIRE \n");
             this->port_map[it->first].status = UNCONNECTED;
             this->port_map[it->first].last_refreshed_time = this->sys->time();
+            this->num_of_nei --;
             this->printPortStatus();
         }
 
         if (this->routing_protocol == P_DV){
-//            this->updateDV();
+            this->updateDV();
         }else if (this->routing_protocol == P_LS){
-//            this->updateLS();
+            this->updateLS();
         }
     }
     this->sys->set_alarm(this, 1000, data);

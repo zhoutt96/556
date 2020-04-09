@@ -10,6 +10,10 @@
 
 
 #define SIZE_OF_PP 12
+#define PACKET_BASE_SIZE 12
+
+typedef std::pair<unsigned short, unsigned int> topology_pair;
+
 enum alarmType
 {
     DV_ALARM,
@@ -33,6 +37,47 @@ typedef struct Packet{
     char* payload; //??
 } Packet;
 
+struct Topology_Info{
+    unsigned short nei_id;
+    unsigned short port_id;
+    unsigned int cost;
+
+    Topology_Info& operator =(const Topology_Info& a)
+    {
+        nei_id = a.nei_id;
+        port_id = a.port_id;
+        cost = a.cost;
+        return *this;
+    }
+
+    inline bool operator==(const Topology_Info& other) const {
+        if (nei_id == other.nei_id)
+            return true;
+        return false;
+    }
+
+    bool operator<(const Topology_Info& other) {
+        if (nei_id < other.nei_id )
+            return true;
+        return false;
+    }
+
+    Topology_Info(unsigned short nei_id, unsigned short port_id, unsigned int cost){
+        this->nei_id = nei_id;
+        this->port_id = port_id;
+        this->cost = cost;
+    }
+
+};
+
+class MyHashFunction {
+    public:
+        // id is returned as hash function
+        size_t operator()(const Topology_Info& t) const
+        {
+            return t.nei_id;
+        }
+};
 
 struct PORT{
     unsigned short status;
