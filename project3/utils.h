@@ -7,6 +7,8 @@
 
 #include "global.h"
 #include <netinet/in.h>
+#include <stdio.h>
+#include <string.h>
 
 
 #define SIZE_OF_PP 12
@@ -39,13 +41,13 @@ typedef struct Packet{
 
 struct Topology_Info{
     unsigned short nei_id;
-    unsigned short port_id;
+//    unsigned short port_id;
     unsigned int cost;
 
     Topology_Info& operator =(const Topology_Info& a)
     {
         nei_id = a.nei_id;
-        port_id = a.port_id;
+//        port_id = a.port_id;
         cost = a.cost;
         return *this;
     }
@@ -62,9 +64,9 @@ struct Topology_Info{
         return false;
     }
 
-    Topology_Info(unsigned short nei_id, unsigned short port_id, unsigned int cost){
+    Topology_Info(unsigned short nei_id, unsigned int cost){
         this->nei_id = nei_id;
-        this->port_id = port_id;
+//        this->port_id = port_id;
         this->cost = cost;
     }
 

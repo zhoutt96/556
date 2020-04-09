@@ -38,18 +38,27 @@ void RoutingProtocolImpl::ping_message_handler(unsigned short port, void *packet
 
 void RoutingProtocolImpl::pong_message_handler(unsigned short port, void *packet, unsigned short size) {
     printf("[RECV] Pong Message, Size is %u \n", size);
+//    int update = 0;
     unsigned int ping_time = *(unsigned int *)((char*)packet + 8);
     unsigned int rtt = sys->time() - ntohl(ping_time);
     unsigned short nei_id = ntohs(*(unsigned int *)((char*)packet + 4));
-    if(this->port_map[nei_id].status == UNCONNECTED){
-        num_of_nei++;
-    }
-    this->port_map[nei_id].port_id = port;
-    this->port_map[nei_id].status = CONNECTED;
+
     this->port_map[nei_id].last_refreshed_time = this->sys->time();
-    this->port_map[nei_id].nei_id = nei_id;
-    this->port_map[nei_id].link_cost = rtt;
-    this->printPortStatus();
+    if (!port_map.count(nei_id) || port_map[nei_id].status == UNCONNECTED || port_map[nei_id].link_cost!=rtt ||  port_map[nei_id].port_id!=port){
+        this->port_map[nei_id].port_id = port;
+        this->port_map[nei_id].status = CONNECTED;
+//        this->port_map[nei_id].last_refreshed_time = this->sys->time();
+        this->port_map[nei_id].nei_id = nei_id;
+        this->port_map[nei_id].link_cost = rtt;
+        this->printPortStatus();
+        this->num_of_nei ++;
+        if (routing_protocol == P_LS){
+            updateLS();
+        }else{
+            updateDV();
+        }
+    }
+
 }
 
 void RoutingProtocolImpl::data_message_handler(unsigned short port, void *packet,unsigned short size) {
@@ -69,24 +78,28 @@ void RoutingProtocolImpl::init_expire_alarm(){
 
 void RoutingProtocolImpl::expire_alarm_handler(void* data){
     printf("[RECV ALARM]EXPIRE \n");
+    int updated=0;
     for (auto it=this->port_map.begin(); it!=this->port_map.end(); it++){
         unsigned int last_refreshed_time = it->second.last_refreshed_time;
         unsigned int duration = sys->time() - last_refreshed_time;
 
-        if (duration >= 15*1000){
+        if (duration >= 15*1000 && this->port_map[it->first].status == UNCONNECTED){
             printf("EXPIRE \n");
             this->port_map[it->first].status = UNCONNECTED;
             this->port_map[it->first].last_refreshed_time = this->sys->time();
             this->num_of_nei --;
-            this->printPortStatus();
+            updated = 1;
         }
+    }
 
+    if (updated == 1){
         if (this->routing_protocol == P_DV){
             this->updateDV();
         }else if (this->routing_protocol == P_LS){
             this->updateLS();
         }
     }
+    this->printPortStatus();
     this->sys->set_alarm(this, 1000, data);
 }
 

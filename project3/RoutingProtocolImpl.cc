@@ -52,7 +52,7 @@ void RoutingProtocolImpl::recv(unsigned short port, void *packet, unsigned short
     }
 
     ePacketType cur_type = (ePacketType)(*((unsigned char *)packet));
-    printf("the type is %d, size is %u\n", cur_type, size);
+//    printf("the type is %d, size is %u\n", cur_type, size);
 
     switch (cur_type){
         case DATA:

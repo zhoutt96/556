@@ -30,10 +30,12 @@ void RoutingProtocolImpl::init_LS_Protocol(){
 }
 
 void RoutingProtocolImpl::LS_message_handler(unsigned short port, void *packet,unsigned short size){
-    printf("[RECV] LS Message \n");
     unsigned int lsp_seq_id =ntohl( *(unsigned int *)((char*)packet + 8));
     unsigned short source_id = ntohs(*(unsigned short *)((char*)packet + 4));
 //    unsigned short total_size = ntohs(*(unsigned short *)((char*)packet + 2));
+    printf("[RECV] LS Message, size is %u, source id %u\n", size, source_id);
+//    printf("seq is %u, source id is %u \n", lsp_seq_id, source_id);
+
     if (this->lsp_seq_set.count(lsp_seq_id)){
         // receive this seq_id before, discard and do nothing
         return;
@@ -51,9 +53,12 @@ void RoutingProtocolImpl::LS_message_handler(unsigned short port, void *packet,u
         for (i_position = PACKET_BASE_SIZE; i_position < size; i_position+=4){
             unsigned short nei_id =  ntohs(*(unsigned short *)((char*)packet + i_position));
             unsigned short cost =  ntohs(*(unsigned short *)((char*)packet + i_position+2));
-            lsp_topology_map[source_id].insert(Topology_Info(nei_id, port, cost));
+//            printf("Recv nei id %u, and cost %u on node %u\n", nei_id, cost, this->router_id);
+            lsp_topology_map[source_id].insert(Topology_Info(nei_id,cost));
         }
     }
+    this->print_flooding_table();
+//    free(packet);
 }
 
 void RoutingProtocolImpl::forward_message_LS(unsigned short port, void *packet,unsigned short size){
@@ -61,30 +66,36 @@ void RoutingProtocolImpl::forward_message_LS(unsigned short port, void *packet,u
 }
 
 void RoutingProtocolImpl::flooding_lsp(){
-    unsigned short payload_size = this->num_of_nei*4;
-    unsigned short total_size = payload_size+PACKET_BASE_SIZE;
-    char* buffer = (char *) malloc(total_size);
-    *(ePacketType *)(buffer) = (ePacketType) LS;
-    *(unsigned short *) (buffer+2) = htons((unsigned short) total_size);
-    *(unsigned short *) (buffer+4) =htons((unsigned short) this->router_id);
-    *(unsigned int *) (buffer+8) =  htonl(this->ls_seq_num);
-    this->ls_seq_num++;
-    /*add the payload into the packet*/
-    int cur_start_position = PACKET_BASE_SIZE;
+    if (num_of_nei > 0){
+        unsigned short payload_size = this->num_of_nei*4;
+        unsigned short total_size = payload_size+PACKET_BASE_SIZE;
+        char* buffer = (char *) malloc(total_size);
+        *(ePacketType *)(buffer) = (ePacketType) LS;
+        *(unsigned short *) (buffer+2) = htons((unsigned short) total_size);
+        *(unsigned short *) (buffer+4) =htons((unsigned short) this->router_id);
+        *(unsigned int *) (buffer+8) =  htonl(this->ls_seq_num);
 
-    for (auto it=this->port_map.begin(); it!=this->port_map.end(); ++it) {
-        if (it->second.status == CONNECTED){
-            // it this neighbour is valid, add it to the
-            *(unsigned short*) (buffer+cur_start_position) = htons(it->second.nei_id);
-            *(unsigned short*) (buffer+cur_start_position+2) = htons(it->second.link_cost);
-            cur_start_position+=4;
+        this->lsp_seq_set.insert(this->ls_seq_num);
+        this->ls_seq_num++;
+
+        int cur_start_position = PACKET_BASE_SIZE;
+
+        for (auto it=this->port_map.begin(); it!=this->port_map.end(); ++it) {
+            if (it->second.status == CONNECTED){
+                // it this neighbour is valid, add it to the
+                *(unsigned short*) (buffer+cur_start_position) = htons(it->second.nei_id);
+                *(unsigned short*) (buffer+cur_start_position+2) = htons(it->second.link_cost);
+                cur_start_position+=4;
+                lsp_topology_map[router_id].insert(Topology_Info(it->second.nei_id, it->second.link_cost));
+            }
+        }
+
+        for (int i=0; i<num_of_port;i++){
+            char* send_buffer = (char *) malloc(total_size);
+            memcpy(send_buffer, buffer, total_size);
+            sys->send(i, send_buffer, total_size);
         }
     }
-
-    for (int i=0; i<num_of_port;i++){
-        sys->send(i, buffer, total_size);
-    }
-    this->print_flooding_table();
 }
 
 void RoutingProtocolImpl::LS_alarm_handler(void *data) {
@@ -100,8 +111,7 @@ void RoutingProtocolImpl::print_flooding_table(){
     for (auto it=this->lsp_topology_map.begin(); it!=this->lsp_topology_map.end(); ++it) {
         cout << " ****** Source id is " << it->first <<", it has "<<it->second.size()<<" neighbors \n";
         for (auto itr = it->second.begin(); itr != it->second.end(); ++itr) {
-            /* ... process *itr ... */
-            cout << "source id "<< it->first << ",nei id " << itr->nei_id << ",cost is " << itr->cost << ", port is " << itr->port_id<<"\n";
+            cout << "source id "<< it->first << ",nei id " << itr->nei_id << ",cost is " << itr->cost <<"\n";
         }
     }
     printf("**************************** End ****************************\n");
