@@ -63,6 +63,8 @@ public:
     void updateDV();
     void updateLS();
     void get_ls_forwarding_table();
+    void flushLS(unsigned short nei_id);
+//    void flushDV(unsigned short nei_id);
 
     // function to forward data message
     void forward_message_LS(unsigned short port, void *packet,unsigned short size);

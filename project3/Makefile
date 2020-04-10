@@ -42,5 +42,5 @@ RoutingProtocolImpl.o: RoutingProtocolImpl.h utils.h
 
 
 clean:
-	rm -f *.o Simulator
+	rm -f *.o Simulator core*
 

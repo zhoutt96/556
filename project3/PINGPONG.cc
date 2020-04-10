@@ -54,6 +54,7 @@ void RoutingProtocolImpl::pong_message_handler(unsigned short port, void *packet
         this->num_of_nei ++;
         if (routing_protocol == P_LS){
             updateLS();
+//            flush
         }else{
             updateDV();
         }

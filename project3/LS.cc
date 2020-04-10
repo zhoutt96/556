@@ -32,7 +32,6 @@ void RoutingProtocolImpl::init_LS_Protocol(){
 void RoutingProtocolImpl::LS_message_handler(unsigned short port, void *packet,unsigned short size){
     unsigned int lsp_seq_id =ntohl( *(unsigned int *)((char*)packet + 8));
     unsigned short source_id = ntohs(*(unsigned short *)((char*)packet + 4));
-//    unsigned short total_size = ntohs(*(unsigned short *)((char*)packet + 2));
     printf("[RECV] LS Message, size is %u, source id %u\n", size, source_id);
 //    printf("seq is %u, source id is %u \n", lsp_seq_id, source_id);
 
@@ -42,6 +41,7 @@ void RoutingProtocolImpl::LS_message_handler(unsigned short port, void *packet,u
     }else{
         // and forward to all neighbors except the source id
         this->lsp_seq_set.insert(lsp_seq_id);
+        this->lsp_topology_map[source_id].clear();
         for (auto it=this->port_map.begin(); it!=this->port_map.end(); ++it) {
             if (it->second.status == CONNECTED && it->second.nei_id!=source_id){
                 this->sys->send(it->second.port_id, packet, size);
@@ -117,3 +117,10 @@ void RoutingProtocolImpl::print_flooding_table(){
     printf("**************************** End ****************************\n");
 }
 
+void RoutingProtocolImpl::flushLS(unsigned short nei_id){
+    for (auto it=this->lsp_topology_map.begin(); it!=this->lsp_topology_map.end(); ++it) {
+        if (it->first != nei_id && it->first != router_id){
+            // flush all the other data to the neighbor
+        }
+    }
+}
