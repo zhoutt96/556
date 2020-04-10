@@ -86,7 +86,7 @@ void RoutingProtocolImpl::flooding_lsp(){
                 *(unsigned short*) (buffer+cur_start_position) = htons(it->second.nei_id);
                 *(unsigned short*) (buffer+cur_start_position+2) = htons(it->second.link_cost);
                 cur_start_position+=4;
-                lsp_topology_map[router_id].insert(Topology_Info(it->second.nei_id, it->second.link_cost));
+//                lsp_topology_map[router_id].insert(Topology_Info(it->second.nei_id, it->second.link_cost));
             }
         }
 
@@ -101,7 +101,7 @@ void RoutingProtocolImpl::flooding_lsp(){
 void RoutingProtocolImpl::LS_alarm_handler(void *data) {
     this->flooding_lsp();
     this->get_ls_forwarding_table();
-    sys->set_alarm(this, 35*1000, data);
+    sys->set_alarm(this, 30*1000, data);
 }
 
 void RoutingProtocolImpl::print_flooding_table(){
