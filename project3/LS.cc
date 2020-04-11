@@ -149,7 +149,7 @@ void RoutingProtocolImpl::LS_expire_alarm_handler(void *data){
     }
 }
 
-void RoutingProtocolImpl:: () {
+void RoutingProtocolImpl:: Dijkstra() {
     // initialize
     /*
      * adjacent matrix: row: source, col: target, value: cost
