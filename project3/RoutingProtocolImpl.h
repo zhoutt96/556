@@ -84,6 +84,9 @@ public:
     void extractInfoFromPacket();
     static unsigned int ls_seq_num;
     int get_nei_num();
+    
+     // Dijkstra
+    void Dijkstra();
 
 
 private:
