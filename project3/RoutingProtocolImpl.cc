@@ -15,7 +15,7 @@ void RoutingProtocolImpl::init(unsigned short num_ports, unsigned short router_i
     this->init_ping();
     this->init_ping_alarm();
     this->init_expire_alarm();
-    this->num_of_nei = 0;
+//    this->num_of_nei = 0;
     if (protocol_type == P_DV){
         this->init_DV_Protocol(); // to be finished
     }else if(protocol_type == P_LS){

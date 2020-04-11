@@ -19,6 +19,7 @@ void RoutingProtocolImpl::init_LS_alarm(){
 
 void RoutingProtocolImpl::updateLS(){
     printf("[Update] LS Table \n");
+    this->lsp_topology_map.clear();
     this->flooding_lsp();
     this->get_ls_forwarding_table();
 }
@@ -37,16 +38,31 @@ void RoutingProtocolImpl::LS_message_handler(unsigned short port, void *packet,u
 
     if (this->lsp_seq_set.count(lsp_seq_id)){
         // receive this seq_id before, discard and do nothing
+        free(packet);
         return;
     }else{
         // and forward to all neighbors except the source id
         this->lsp_seq_set.insert(lsp_seq_id);
         this->lsp_topology_map[source_id].clear();
-        for (auto it=this->port_map.begin(); it!=this->port_map.end(); ++it) {
-            if (it->second.status == CONNECTED && it->second.nei_id!=source_id){
-                this->sys->send(it->second.port_id, packet, size);
-            }
+        this->lsp_refresh_time_map[source_id] = sys->time();
+
+//        for (auto it=this->port_map.begin(); it!=this->port_map.end(); ++it) {
+//            if (it->second.status == CONNECTED && it->second.nei_id!=source_id){
+//                char* send_buffer = (char *) malloc(size);
+//                memcpy(send_buffer, packet, size);
+////                this->sys->send(it->second.port_id, packet, size);
+//                this->sys->send(it->second.port_id, send_buffer, size);
+//            }
+//        }
+
+
+        for(int i=0; i<num_of_port;i++){
+            char* send_buffer = (char *) malloc(size);
+            memcpy(send_buffer, packet, size);
+//                this->sys->send(it->second.port_id, packet, size);
+            this->sys->send(i, send_buffer, size);
         }
+
 
         // store topology to local
         int i_position;
@@ -58,7 +74,7 @@ void RoutingProtocolImpl::LS_message_handler(unsigned short port, void *packet,u
         }
     }
     this->print_flooding_table();
-//    free(packet);
+    free(packet);
 }
 
 void RoutingProtocolImpl::forward_message_LS(unsigned short port, void *packet,unsigned short size){
@@ -66,8 +82,8 @@ void RoutingProtocolImpl::forward_message_LS(unsigned short port, void *packet,u
 }
 
 void RoutingProtocolImpl::flooding_lsp(){
-    if (num_of_nei > 0){
-        unsigned short payload_size = this->num_of_nei*4;
+    if (get_nei_num() > 0){
+        unsigned short payload_size = get_nei_num()*4;
         unsigned short total_size = payload_size+PACKET_BASE_SIZE;
         char* buffer = (char *) malloc(total_size);
         *(ePacketType *)(buffer) = (ePacketType) LS;
@@ -117,10 +133,17 @@ void RoutingProtocolImpl::print_flooding_table(){
     printf("**************************** End ****************************\n");
 }
 
-void RoutingProtocolImpl::flushLS(unsigned short nei_id){
+void RoutingProtocolImpl::LS_expire_alarm_handler(void *data){
+    std::vector<unsigned short> to_be_deleted;
     for (auto it=this->lsp_topology_map.begin(); it!=this->lsp_topology_map.end(); ++it) {
-        if (it->first != nei_id && it->first != router_id){
-            // flush all the other data to the neighbor
+        unsigned int duration = sys->time() - lsp_refresh_time_map[it->first];
+        if (duration > 45*1000){
+            to_be_deleted.push_back(it->first);
         }
+    }
+
+    for (std::vector<unsigned short>::iterator it=to_be_deleted.begin(); it !=to_be_deleted.end(); ++it){
+        lsp_topology_map.erase(*it);
+        lsp_refresh_time_map.erase(*it);
     }
 }

@@ -74,6 +74,7 @@ public:
     void ping_alarm_handler(void* data);
     void expire_alarm_handler(void* data);
     void LS_alarm_handler(void* data);
+    void LS_expire_alarm_handler(void *data);
 
     void init_DV_alarm();
     void print_flooding_table();
@@ -82,6 +83,7 @@ public:
     void printPortStatus();
     void extractInfoFromPacket();
     static unsigned int ls_seq_num;
+    int get_nei_num();
 
 
 private:
@@ -92,8 +94,9 @@ private:
     std::unordered_map<unsigned short, PORT> port_map; // key is neighbor_id, values is struct Port
     // key is the source_id, value is the unordered_set whiches Topology_info
     std::unordered_map<unsigned short, std::unordered_set<Topology_Info, MyHashFunction>> lsp_topology_map;
+    std::unordered_map<unsigned short, unsigned short> lsp_refresh_time_map;
     std::unordered_set<unsigned int> lsp_seq_set;
-    unsigned short num_of_nei;
+//    unsigned short num_of_nei;
 };
 
 
