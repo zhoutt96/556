@@ -95,6 +95,7 @@ void RoutingProtocolImpl::expire_alarm_handler(void* data){
             this->updateLS();
         }
     }
+    LS_expire_alarm_handler(data);
     this->sys->set_alarm(this, 1000, data);
 }
 
