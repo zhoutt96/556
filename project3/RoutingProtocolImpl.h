@@ -86,6 +86,7 @@ public:
     static unsigned int ls_seq_num;
     int get_nei_num();
     void Dijkstra();
+    void print_forwarding_table();
 
 private:
     Node *sys; // To store Node object; used to access GSR9999 interfaces
@@ -98,6 +99,7 @@ private:
     std::unordered_map<unsigned short, unsigned int> lsp_refresh_time_map;
     std::unordered_set<unsigned int> lsp_seq_set;
 //    unsigned short num_of_nei;
+    std::unordered_map<unsigned short, unsigned short> forwarding_table;
 };
 
 

@@ -21,13 +21,11 @@ void RoutingProtocolImpl::updateLS(){
 //    printf("[Update] LS Table \n");
     this->lsp_topology_map.clear();
     this->flooding_lsp();
-    this->get_ls_forwarding_table();
 }
 
 void RoutingProtocolImpl::init_LS_Protocol(){
     this->init_LS_alarm();
     this->flooding_lsp();
-    this->get_ls_forwarding_table();
 }
 
 void RoutingProtocolImpl::LS_message_handler(unsigned short port, void *packet,unsigned short size){
@@ -85,6 +83,8 @@ void RoutingProtocolImpl::LS_message_handler(unsigned short port, void *packet,u
 
     }
     this->print_flooding_table();
+//    this->Dijkstra();
+//    print_forwarding_table();
     free(packet);
 }
 
@@ -146,27 +146,27 @@ void RoutingProtocolImpl::print_flooding_table(){
 
 void RoutingProtocolImpl::LS_expire_alarm_handler(void *data){
     int is_delete = 0;
-    printf("LS expire alarm on node %d ######## \n", router_id);
+//    printf("LS expire alarm on node %d ######## \n", router_id);
     std::vector<unsigned short> to_be_deleted;
     for (auto it=this->lsp_topology_map.begin(); it!=this->lsp_topology_map.end(); ++it) {
         unsigned int duration = sys->time() - lsp_refresh_time_map[it->first];
-        printf("duration is %d \n",duration);
+//        printf("duration is %d \n",duration);
         if (duration> 45*1000){
             is_delete  = 1;
-            printf("this ls entry expires %d, duration is %d \n", it->first, duration);
+//            printf("this ls entry expires %d, duration is %d \n", it->first, duration);
             to_be_deleted.push_back(it->first);
         }
     }
 
     for (std::vector<unsigned short>::iterator it=to_be_deleted.begin(); it !=to_be_deleted.end(); ++it){
-        printf("Delete info of node %d on node %d", *it, router_id);
+//        printf("Delete info of node %d on node %d", *it, router_id);
         lsp_topology_map.erase(*it);
         lsp_refresh_time_map.erase(*it);
     }
     if (is_delete == 1){
         print_flooding_table();
     }
-    printf("########\n");
+//    printf("########\n");
 }
 
 
@@ -206,8 +206,9 @@ void RoutingProtocolImpl:: Dijkstra() {
                 // update the forwarding table
                 if(link[0]!=router_id)
                 {
-                    (*forwarding_table)[link[1]]=(*forwarding_table)[link[0]]; // destionation: nexthop to go to des
+//                    (*forwarding_table)[link[1]]=(*forwarding_table)[link[0]]; // destionation: nexthop to go to des
                     //then continue find the new destination
+                    forwarding_table[link[1]]=forwarding_table[link[0]];
                     break;
                 }
             }
@@ -231,5 +232,19 @@ void RoutingProtocolImpl:: Dijkstra() {
             }
         }
     }
+    print_forwarding_table();
 }
+
+void RoutingProtocolImpl::print_forwarding_table(){
+    printf("\n------------------ Forwarding Table --------------------\n");
+    cout<<"time = "<<this->sys->time()/1000.0<<" ";
+    cout<<"Print Forwarding Table on Node "<<this->router_id<<"length is "<<this->forwarding_table.size()<<"\n";
+    for (auto it=this->forwarding_table.begin(); it!=this->forwarding_table.end(); ++it) {
+        cout << "source id " << it->first <<", next node is "<<it->second<<"\n";
+    }
+    printf("------------------ end  --------------------\n");
+}
+
+
+
 
