@@ -56,6 +56,7 @@ void RoutingProtocolImpl::pong_message_handler(unsigned short port, void *packet
     if (update){
         // detect the new neighbour
         if (routing_protocol == P_LS){
+            printf("find a new neighbor %d on node %d \n", nei_id, router_id);
             this->flooding_lsp();
         }else{
             updateDV();

@@ -18,7 +18,7 @@ void RoutingProtocolImpl::init_LS_alarm(){
 }
 
 void RoutingProtocolImpl::updateLS(){
-//    printf("[Update] LS Table \n");
+    printf("[Update] LS Table \n");
     this->lsp_topology_map.clear();
     this->flooding_lsp();
 }
@@ -32,39 +32,16 @@ void RoutingProtocolImpl::LS_message_handler(unsigned short port, void *packet,u
     unsigned int lsp_seq_id =ntohl( *(unsigned int *)((char*)packet + 8));
     unsigned short source_id = ntohs(*(unsigned short *)((char*)packet + 4));
 
-    if (this->lsp_seq_set.count(lsp_seq_id)){
+    if (this->lsp_seq_set.count(lsp_seq_id) || source_id == router_id){
         // receive this seq_id before, discard and do nothing
         free(packet);
         return;
     }else{
         // and forward to all neighbors except the source id
         this->lsp_seq_set.insert(lsp_seq_id);
-//        this->lsp_topology_map[source_id].clear();
         this->lsp_refresh_time_map[source_id] = sys->time();
 
-//        for (auto it=this->port_map.begin(); it!=this->port_map.end(); ++it) {
-//            if (it->second.status == CONNECTED && it->second.nei_id!=source_id){
-//                char* send_buffer = (char *) malloc(size);
-//                memcpy(send_buffer, packet, size);
-////                this->sys->send(it->second.port_id, packet, size);
-//                this->sys->send(it->second.port_id, send_buffer, size);
-//            }
-//        }
-
-        std::unordered_set<Topology_Info, MyHashFunction> temp_set;
-        if (lsp_topology_map.count(source_id)){
-            // update a new node info
-            temp_set = lsp_topology_map[source_id];
-            for (auto it=temp_set.begin(); it!=temp_set.end(); ++it) {
-                if(lsp_topology_map.count(it->nei_id)){
-                    lsp_topology_map.erase(it->nei_id);
-                    lsp_refresh_time_map.erase(it->nei_id);
-                }
-            }
-            this->lsp_topology_map[source_id].clear();
-        }
-
-
+        this->lsp_topology_map[source_id].clear();
         for(int i=0; i<num_of_port;i++){
             char* send_buffer = (char *) malloc(size);
             memcpy(send_buffer, packet, size);
@@ -146,27 +123,26 @@ void RoutingProtocolImpl::print_flooding_table(){
 
 void RoutingProtocolImpl::LS_expire_alarm_handler(void *data){
     int is_delete = 0;
-//    printf("LS expire alarm on node %d ######## \n", router_id);
+    printf("LS expire alarm on node %d ######## \n", router_id);
     std::vector<unsigned short> to_be_deleted;
     for (auto it=this->lsp_topology_map.begin(); it!=this->lsp_topology_map.end(); ++it) {
         unsigned int duration = sys->time() - lsp_refresh_time_map[it->first];
-//        printf("duration is %d \n",duration);
+        printf("duration is %d \n",duration);
         if (duration> 45*1000){
             is_delete  = 1;
-//            printf("this ls entry expires %d, duration is %d \n", it->first, duration);
+            printf("this ls entry expires %d, duration is %d \n", it->first, duration);
             to_be_deleted.push_back(it->first);
         }
     }
 
     for (std::vector<unsigned short>::iterator it=to_be_deleted.begin(); it !=to_be_deleted.end(); ++it){
-//        printf("Delete info of node %d on node %d", *it, router_id);
+        printf("Delete info of node %d on node %d", *it, router_id);
         lsp_topology_map.erase(*it);
         lsp_refresh_time_map.erase(*it);
     }
     if (is_delete == 1){
         print_flooding_table();
     }
-//    printf("########\n");
 }
 
 
