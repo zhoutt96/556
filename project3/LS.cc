@@ -4,6 +4,13 @@
 
 
 #include "RoutingProtocolImpl.h"
+#include <iostream>
+#include <limits>
+#include <iostream>
+#include <limits>
+#include <algorithm>    // std::max
+using namespace std;
+
 
 unsigned int RoutingProtocolImpl::ls_seq_num = 0;
 
@@ -18,7 +25,7 @@ void RoutingProtocolImpl::init_LS_alarm(){
 }
 
 void RoutingProtocolImpl::updateLS(){
-    printf("[Update] LS Table \n");
+//    printf("[Update] LS Table \n");
     this->lsp_topology_map.clear();
     this->flooding_lsp();
 }
@@ -63,10 +70,6 @@ void RoutingProtocolImpl::LS_message_handler(unsigned short port, void *packet,u
 //    this->Dijkstra();
 //    print_forwarding_table();
     free(packet);
-}
-
-void RoutingProtocolImpl::forward_message_LS(unsigned short port, void *packet,unsigned short size){
-
 }
 
 void RoutingProtocolImpl::flooding_lsp(){
@@ -123,20 +126,20 @@ void RoutingProtocolImpl::print_flooding_table(){
 
 void RoutingProtocolImpl::LS_expire_alarm_handler(void *data){
     int is_delete = 0;
-    printf("LS expire alarm on node %d ######## \n", router_id);
+//    printf("LS expire alarm on node %d ######## \n", router_id);
     std::vector<unsigned short> to_be_deleted;
     for (auto it=this->lsp_topology_map.begin(); it!=this->lsp_topology_map.end(); ++it) {
         unsigned int duration = sys->time() - lsp_refresh_time_map[it->first];
-        printf("duration is %d \n",duration);
+//        printf("duration is %d \n",duration);
         if (duration> 45*1000){
             is_delete  = 1;
-            printf("this ls entry expires %d, duration is %d \n", it->first, duration);
+//            printf("this ls entry expires %d, duration is %d \n", it->first, duration);
             to_be_deleted.push_back(it->first);
         }
     }
 
     for (std::vector<unsigned short>::iterator it=to_be_deleted.begin(); it !=to_be_deleted.end(); ++it){
-        printf("Delete info of node %d on node %d", *it, router_id);
+//        printf("Delete info of node %d on node %d", *it, router_id);
         lsp_topology_map.erase(*it);
         lsp_refresh_time_map.erase(*it);
     }
@@ -153,63 +156,63 @@ void RoutingProtocolImpl::delete_nei_in_lsp(unsigned short nei_id){
     }
 }
 
-void RoutingProtocolImpl:: Dijkstra() {
-    // initialize
-    /*
-     * adjacent matrix: row: source, col: target, value: cost
-     * */
-    int node_size=lsp_topology_map.size(); // all the nodes we can get
-    unordered_map<unsigned short, unsigned short> des_map; // <target_id, cost>
-    auto comparator =[] (unsigned short*link1 , unsigned short *link2) {
-        return link1[2]>link2[2];
-    };
-    priority_queue<unsigned short*, vector<unsigned short*>, decltype(comparator)> pq (comparator);
-    unsigned short source[]={router_id,router_id,0};
-    pq.push(source);
-
-    while(des_map.size()<node_size && !pq.empty())
-    {
-        int curDes=INFINITY_COST;
-        while(!pq.empty())
-        {
-            unsigned short *link= pq.top();
-            pq.pop();
-            //put it into destinations
-            if(!des_map.count(link[1]))
-            {
-                des_map[link[1]]=link[2];
-                curDes=link[1];
-                // update the forwarding table
-                if(link[0]!=router_id)
-                {
-//                    (*forwarding_table)[link[1]]=(*forwarding_table)[link[0]]; // destionation: nexthop to go to des
-                    //then continue find the new destination
-                    forwarding_table[link[1]]=forwarding_table[link[0]];
-                    break;
-                }
-            }
-        }
-
-        // when no avaiable nodes to add->break
-        if(curDes==INFINITY_COST)
-            break;
-
-        // update the neighbors info
-        auto neighbors= this->lsp_topology_map[curDes];
-        for(auto neighborNode: neighbors )
-        {
-            if(neighborNode.cost==INFINITY_COST)
-                continue;
-            // add into pq
-            if(neighborNode.nei_id!=curDes && des_map.count(neighborNode.nei_id)==0)
-            {
-                unsigned short curLink[] = {(unsigned short)curDes, neighborNode.nei_id,(unsigned short)neighborNode.cost};
-                pq.push(curLink);
-            }
-        }
-    }
-    print_forwarding_table();
-}
+//void RoutingProtocolImpl:: Dijkstra() {
+//    // initialize
+//    /*
+//     * adjacent matrix: row: source, col: target, value: cost
+//     * */
+//    int node_size=lsp_topology_map.size(); // all the nodes we can get
+//    unordered_map<unsigned short, unsigned short> des_map; // <target_id, cost>
+//    auto comparator =[] (unsigned short*link1 , unsigned short *link2) {
+//        return link1[2]>link2[2];
+//    };
+//    priority_queue<unsigned short*, vector<unsigned short*>, decltype(comparator)> pq (comparator);
+//    unsigned short source[]={router_id,router_id,0};
+//    pq.push(source);
+//
+//    while(des_map.size()<node_size && !pq.empty())
+//    {
+//        int curDes=INFINITY_COST;
+//        while(!pq.empty())
+//        {
+//            unsigned short *link= pq.top();
+//            pq.pop();
+//            //put it into destinations
+//            if(!des_map.count(link[1]))
+//            {
+//                des_map[link[1]]=link[2];
+//                curDes=link[1];
+//                // update the forwarding table
+//                if(link[0]!=router_id)
+//                {
+////                    (*forwarding_table)[link[1]]=(*forwarding_table)[link[0]]; // destionation: nexthop to go to des
+//                    //then continue find the new destination
+//                    forwarding_table[link[1]]=forwarding_table[link[0]];
+//                    break;
+//                }
+//            }
+//        }
+//
+//        // when no avaiable nodes to add->break
+//        if(curDes==INFINITY_COST)
+//            break;
+//
+//        // update the neighbors info
+//        auto neighbors= this->lsp_topology_map[curDes];
+//        for(auto neighborNode: neighbors )
+//        {
+//            if(neighborNode.cost==INFINITY_COST)
+//                continue;
+//            // add into pq
+//            if(neighborNode.nei_id!=curDes && des_map.count(neighborNode.nei_id)==0)
+//            {
+//                unsigned short curLink[] = {(unsigned short)curDes, neighborNode.nei_id,(unsigned short)neighborNode.cost};
+//                pq.push(curLink);
+//            }
+//        }
+//    }
+//    print_forwarding_table();
+//}
 
 void RoutingProtocolImpl::print_forwarding_table(){
     printf("\n------------------ Forwarding Table --------------------\n");
@@ -222,5 +225,98 @@ void RoutingProtocolImpl::print_forwarding_table(){
 }
 
 
+void RoutingProtocolImpl::Dijkstra(){
+    int MAX_LEN=0;
+    for (auto it=this->lsp_topology_map.begin(); it!=this->lsp_topology_map.end(); ++it) {
+        if (MAX_LEN < it->first){
+            MAX_LEN = it->first;
+        }
+    }
+
+    printf("dijkstra on node %d \n", router_id);
+    printPortStatus();
+    print_flooding_table();
+    bool visited[MAX_LEN+1];
+    int distance[MAX_LEN+1];
+    int parent[MAX_LEN+1];
+    int node_curr;
+    int smallest_dist;
+    int node_neighbour;
+    int cost;
 
 
+    unordered_set<Topology_Info,MyHashFunction> curr;
+
+    for (int i=1; i<MAX_LEN+1; i++){
+        visited[i] = false;
+        distance[i] = std::numeric_limits<int>::max();
+        parent[i] = -1;
+    }
+    distance[router_id] = 0;
+    node_curr = router_id;
+    smallest_dist = std::numeric_limits<int>::max();
+    visited[router_id] = true;
+
+    for (auto it=this->port_map.begin(); it!=this->port_map.end(); ++it) {
+        distance[it->second.nei_id] = it->second.link_cost;
+        parent[it->second.nei_id] = router_id;
+    }
+
+    for (int i=1;i<MAX_LEN+1;i++){
+        if (!visited[i] && (distance[i] < smallest_dist)){
+            node_curr = i;
+            smallest_dist = distance[i];
+        }
+    }
+
+    while(!visited[node_curr]){
+        visited[node_curr] = true;
+        curr = lsp_topology_map[node_curr];
+
+        for (auto it=curr.begin();it!=curr.end();++it){
+            node_neighbour = it->nei_id;
+            cost = it->cost;
+
+            if (distance[node_curr]+cost < distance[node_neighbour]){
+                distance[node_neighbour] = distance[node_curr]+cost;
+                parent[node_neighbour] = node_curr;
+            }
+        }
+
+        smallest_dist = std::numeric_limits<int>::max();
+        for(int i=1; i<MAX_LEN+1; i++){
+            if (!visited[i] && (distance[i]<smallest_dist)){
+                node_curr = i;
+                smallest_dist = distance[i];
+            }
+        }
+    }
+
+
+    /*store the parent info into the forwarding_table */
+//    for (int i=1; i<num_of_port+2; i++){
+//        printf("i is %d, parent is %d \n", i, parent[i]);
+//    }
+//    for (int i=0; i<num_of_port+2; i++){
+//        printf("i is %d, distance is %d \n", i, distance[i]);
+//    }
+    int parent_id;
+    for (int i=1; i<MAX_LEN+1; i++){
+        parent_id = find_ls_parent(i, parent);
+        if (parent_id!=-1){
+            forwarding_table[i] = parent_id;
+        }
+    }
+    print_forwarding_table();
+}
+
+int RoutingProtocolImpl::find_ls_parent(int node_Id, int parent[]){
+    if (parent[node_Id]==-1){
+        // can not reach
+        return -1;
+    }
+    while (parent[node_Id]!=router_id){
+        node_Id = parent[node_Id];
+    }
+    return node_Id;
+}

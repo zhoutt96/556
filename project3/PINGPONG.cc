@@ -27,7 +27,7 @@ void RoutingProtocolImpl::init_ping_alarm(){
 }
 
 void RoutingProtocolImpl::ping_message_handler(unsigned short port, void *packet, unsigned short size) {
-    printf("[RECV] Ping Message, Size is %u \n", size);
+//    printf("[RECV] Ping Message, Size is %u \n", size);
     unsigned short target_id = *(unsigned short *)((char*)packet + 4);
     *(ePacketType*)(packet) = (ePacketType) PONG;
     *(unsigned short *)((char*)packet +2) = htons(size);
@@ -42,7 +42,7 @@ void RoutingProtocolImpl::pong_message_handler(unsigned short port, void *packet
     unsigned int ping_time = *(unsigned int *)((char*)packet + 8);
     unsigned int rtt = sys->time() - ntohl(ping_time);
     unsigned short nei_id = ntohs(*(unsigned short *)((char*)packet + 4));
-    printf("[RECV] Pong Message, on node %u from node %u \n", router_id, nei_id);
+//    printf("[RECV] Pong Message, on node %u from node %u \n", router_id, nei_id);
 
     if (!port_map.count(nei_id) || port_map[nei_id].status!=CONNECTED || port_map[nei_id].port_id!=port || port_map[nei_id].link_cost!=rtt){
         update = 1;
@@ -56,7 +56,7 @@ void RoutingProtocolImpl::pong_message_handler(unsigned short port, void *packet
     if (update){
         // detect the new neighbour
         if (routing_protocol == P_LS){
-            printf("find a new neighbor %d on node %d \n", nei_id, router_id);
+//            printf("find a new neighbor %d on node %d \n", nei_id, router_id);
             this->flooding_lsp();
         }else{
             updateDV();
@@ -65,16 +65,17 @@ void RoutingProtocolImpl::pong_message_handler(unsigned short port, void *packet
 
     this->printPortStatus();
     this->print_flooding_table();
+    free(packet);
 }
 
 void RoutingProtocolImpl::data_message_handler(unsigned short port, void *packet,unsigned short size) {
-    printf("[RECV] Data Message \n");
+//    printf("[RECV] Data Message \n");
 
     unsigned short source_id = ntohs(*(unsigned short *)((char*)packet + 4));
     unsigned short des_id = ntohs(*(unsigned short *)((char*)packet + 6));
-    printf("receive data packet on node %d, from source %d, to %d\n", router_id, source_id, des_id);
+//    printf("receive data packet on node %d, from source %d, to %d\n", router_id, source_id, des_id);
     if (des_id == router_id){
-        printf("arrive at des \n");
+        printf("arrive at des %d\n", router_id);
         free(packet);
         return;
     }
@@ -82,20 +83,22 @@ void RoutingProtocolImpl::data_message_handler(unsigned short port, void *packet
     printPortStatus();
     print_flooding_table();
 
-    if (forwarding_table.count(source_id)){
+    if (routing_protocol == P_LS){
+        this->Dijkstra();
+    }
+
+    if (forwarding_table.count(des_id)){
         unsigned short next_node = this->forwarding_table[des_id];
         if (port_map.count(next_node)){
-            this->Dijkstra();
-            print_forwarding_table();
             unsigned short port_num = this->port_map[next_node].port_id;
             printf("send data packet on node %d, from source %d, to %d, via %d \n", router_id, source_id, des_id, next_node);
             this->sys->send(port_num, packet, size);
         }else{
-            printf("This node is not a neighbour\n");
+//            printf("This node is not a neighbour\n");
             return;
         }
     }else{
-        printf("this node is not in forwarding table \n");
+//        printf("this node is not in forwarding table \n");
         return;
     }
 //    unsigned short next_node = this->forwarding_table[des_id];
@@ -110,14 +113,14 @@ void RoutingProtocolImpl::init_expire_alarm(){
 };
 
 void RoutingProtocolImpl::expire_alarm_handler(void* data){
-    printf("[RECV ALARM]EXPIRE \n");
+//    printf("[RECV ALARM]EXPIRE \n");
     int updated=0;
     for (auto it=this->port_map.begin(); it!=this->port_map.end(); it++){
         unsigned int last_refreshed_time = it->second.last_refreshed_time;
         unsigned int duration = sys->time() - last_refreshed_time;
 
         if (duration >= 15*1000 && this->port_map[it->first].status == CONNECTED){
-            printf("EXPIRE \n");
+//            printf("EXPIRE \n");
             this->port_map[it->first].status = UNCONNECTED;
             this->port_map[it->first].last_refreshed_time = this->sys->time();
             this->delete_nei_in_lsp(it->second.nei_id);
