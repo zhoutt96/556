@@ -258,8 +258,10 @@ void RoutingProtocolImpl::Dijkstra(){
     visited[router_id] = true;
 
     for (auto it=this->port_map.begin(); it!=this->port_map.end(); ++it) {
-        distance[it->second.nei_id] = it->second.link_cost;
-        parent[it->second.nei_id] = router_id;
+        if (it->second.status == CONNECTED){
+            distance[it->second.nei_id] = it->second.link_cost;
+            parent[it->second.nei_id] = router_id;
+        }
     }
 
     for (int i=1;i<MAX_LEN+1;i++){
