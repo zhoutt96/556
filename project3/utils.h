@@ -73,12 +73,26 @@ struct Topology_Info{
 };
 
 class MyHashFunction {
-    public:
-        // id is returned as hash function
-        size_t operator()(const Topology_Info& t) const
-        {
-            return t.nei_id;
-        }
+public:
+    // id is returned as hash function
+    size_t operator()(const Topology_Info& t) const
+    {
+        return t.nei_id;
+    }
+};
+
+class DVTable{
+public:
+    unsigned short des;
+    unsigned short nextHop;
+    unsigned short cost;
+
+    DVTable(unsigned short des, unsigned short nextHop,unsigned short cost){
+        this->des = des;
+        this->nextHop = nextHop;
+        this->cost = cost;
+    }
+
 };
 
 struct PORT{

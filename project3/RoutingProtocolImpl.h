@@ -6,6 +6,7 @@
 #include <unordered_map>
 #include <unordered_set>
 #include "Node.h"
+#include <vector>
 
 
 
@@ -60,7 +61,10 @@ public:
     void data_message_handler(unsigned short port, void *packet,unsigned short size);
 
     // function to update the DV and LS forwarding table periodically
-    void updateDV();
+    void updateDV(unsigned short port, vector<pair<unsigned short, unsigned short>> updateMsg);
+    void updateDV(unsigned short nei_id, unsigned short costChange);
+    void DV_sendUpdateMsg()
+
     void updateLS();
     void get_ls_forwarding_table();
     void flushLS(unsigned short nei_id);
@@ -98,6 +102,10 @@ private:
     std::unordered_map<unsigned short, std::unordered_set<Topology_Info, MyHashFunction>> lsp_topology_map;
     std::unordered_map<unsigned short, unsigned int> lsp_refresh_time_map;
     std::unordered_set<unsigned int> lsp_seq_set;
+
+    std::unordered_map<unsigned short, DVTable> dv_cost_map; //<des, DVTable>
+    std::unordered_map<unsigned short, unsigned int> dvp_refresh_time_map; //??
+
 //    unsigned short num_of_nei;
     std::unordered_map<unsigned short, unsigned short> forwarding_table;
 };
