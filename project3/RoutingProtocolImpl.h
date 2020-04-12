@@ -91,6 +91,7 @@ public:
     int get_nei_num();
     void Dijkstra();
     void print_forwarding_table();
+    int find_ls_parent(int node_Id, int parent[]);
 
 private:
     Node *sys; // To store Node object; used to access GSR9999 interfaces
