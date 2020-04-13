@@ -30,7 +30,7 @@ void RoutingProtocolImpl::handle_alarm(void *data) {
             this->ping_alarm_handler(data);
             break;
         case DV_ALARM:
-            this->updateDV(); // to be finished
+            this->DV_alarm_handler(data);
             break;
         case LS_ALARM:
             this->LS_alarm_handler(data);

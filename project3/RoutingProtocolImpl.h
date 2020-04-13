@@ -61,9 +61,15 @@ public:
     void data_message_handler(unsigned short port, void *packet,unsigned short size);
 
     // function to update the DV and LS forwarding table periodically
-    void updateDV(unsigned short port, vector<pair<unsigned short, unsigned short>> updateMsg);
-    void updateDV(unsigned short nei_id, unsigned short costChange);
-    void DV_sendUpdateMsg()
+//    void updateDV();
+    void updateDVTableByMsg(unsigned short port, vector<pair<unsigned short, unsigned short>> updateMsg);
+    void updateForwardingTable();
+    void DV_sendUpdateMsg();
+    void updateLocalDVTable(unsigned short nei_id, unsigned short old_rtt, unsigned short new_rtt, bool isNew);
+    void DV_alarm_handler(void *data);
+    void print_DV_table();
+    void DV_expire_alarm_handler(void *data);
+    void setLastUpdateTime(unsigned short des);
 
     void updateLS();
     void get_ls_forwarding_table();
@@ -80,6 +86,7 @@ public:
     void LS_alarm_handler(void* data);
     void LS_expire_alarm_handler(void *data);
     void delete_nei_in_lsp(unsigned short nei_id);
+
 
     void init_DV_alarm();
     void print_flooding_table();

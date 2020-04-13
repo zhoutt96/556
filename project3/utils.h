@@ -13,6 +13,7 @@
 
 #define SIZE_OF_PP 12
 #define PACKET_BASE_SIZE 12
+#define INFINITY_COST 65535
 
 typedef std::pair<unsigned short, unsigned int> topology_pair;
 
