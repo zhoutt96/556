@@ -1,0 +1,5 @@
+Tests whether
+
+1) triggered updates are sent for both distance vector and link state
+1) forwarding table can update 
+
