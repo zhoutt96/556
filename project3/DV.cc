@@ -17,7 +17,7 @@ void RoutingProtocolImpl::init_DV_alarm(){
 }
 
 void RoutingProtocolImpl::DV_alarm_handler(void *data) {
-
+    DV_sendUpdateMsg();
     sys->set_alarm(this, 30*1000, data);
 }
 
@@ -134,7 +134,7 @@ void RoutingProtocolImpl::init_DV_Protocol(){
 
 void RoutingProtocolImpl::DV_message_handler(unsigned short port, void *packet,unsigned short size){
     printf("[RECV] DV Message \n");
-    unsigned short actual_size =  *(unsigned short *)((char*)packet + 2);
+    unsigned short actual_size =  ntohs(*(unsigned short *)((char*)packet + 2));
     unsigned short source_id = ntohs(*(unsigned short *)((char*)packet + 4));
 //    unsigned short des_id = ntohs(*(unsigned short *)((char*)packet + 6));
 
@@ -214,7 +214,7 @@ void RoutingProtocolImpl::DV_sendUpdateMsg(){
     if(get_nei_num()<=0)
         return;
     int numDVTable = dv_cost_map.size();
-    unsigned short total_size = 2*numDVTable+8;
+    unsigned short total_size = 4*numDVTable+8;
     char* buffer = (char *)malloc(total_size);
     *(ePacketType *)(buffer) = (ePacketType) DV;
     *(unsigned short *) (buffer+2) = htons((unsigned short) total_size);
@@ -244,13 +244,13 @@ void RoutingProtocolImpl::DV_sendUpdateMsg(){
 }
 
 void RoutingProtocolImpl::print_DV_table(){
-    printf("\n******************** DV Table *********************\n");
+    printf("\n******************** DV Table *****************************\n");
     cout<<"time= "<<this->sys->time()/1000.0<<" ";
     cout<<"Print DV Table on Node "<<this->router_id<<"\n";
     cout<<"Des Node \t Next Hop \t Cost \n";
     for(auto &a:dv_cost_map){
         DVTable table = a.second;
-        cout<<table.des<<" \t "<<table.nextHop<<" \t "<<table.cost<<" \n";
+        cout<<table.des<<" \t\t "<<table.nextHop<<" \t\t "<<table.cost<<" \n";
     }
     printf("**************************** End ****************************\n");
 
