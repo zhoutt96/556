@@ -1,0 +1,5 @@
+Tests whether
+
+1) the forwarding table can be updated periodically
+2) can handle the corner case of unreachable node successfully
+

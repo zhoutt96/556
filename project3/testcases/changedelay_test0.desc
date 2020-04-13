@@ -1,0 +1,5 @@
+Tests whether
+
+1) the delay change will be detected by ping-pong communication, and trigger the LS update, and flooding.
+
+
