@@ -93,6 +93,7 @@ public:
         this->nextHop = nextHop;
         this->cost = cost;
     }
+    DVTable(){}
 
 };
 
