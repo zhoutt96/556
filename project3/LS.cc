@@ -236,9 +236,11 @@ void RoutingProtocolImpl::Dijkstra(){
     printf("dijkstra on node %d \n", router_id);
     printPortStatus();
     print_flooding_table();
+
     bool visited[MAX_LEN+1];
     int distance[MAX_LEN+1];
     int parent[MAX_LEN+1];
+
     int node_curr;
     int smallest_dist;
     int node_neighbour;
@@ -302,6 +304,7 @@ void RoutingProtocolImpl::Dijkstra(){
 //    for (int i=0; i<num_of_port+2; i++){
 //        printf("i is %d, distance is %d \n", i, distance[i]);
 //    }
+    forwarding_table.clear();
     int parent_id;
     for (int i=1; i<MAX_LEN+1; i++){
         parent_id = find_ls_parent(i, parent);

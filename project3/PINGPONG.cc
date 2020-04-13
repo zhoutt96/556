@@ -94,11 +94,11 @@ void RoutingProtocolImpl::data_message_handler(unsigned short port, void *packet
             printf("send data packet on node %d, from source %d, to %d, via %d \n", router_id, source_id, des_id, next_node);
             this->sys->send(port_num, packet, size);
         }else{
-//            printf("This node is not a neighbour\n");
+            printf("[Discard Data Packet]receive data packet on node %d, from source %d, to %d\n", router_id, source_id, des_id);
             return;
         }
     }else{
-//        printf("this node is not in forwarding table \n");
+        printf("[Discard Data Packet]receive data packet on node %d, from source %d, to %d\n", router_id, source_id, des_id);
         return;
     }
 //    unsigned short next_node = this->forwarding_table[des_id];
