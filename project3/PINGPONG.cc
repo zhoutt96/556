@@ -46,12 +46,15 @@ void RoutingProtocolImpl::pong_message_handler(unsigned short port, void *packet
 
     if (!port_map.count(nei_id) || port_map[nei_id].status!=CONNECTED || port_map[nei_id].port_id!=port || port_map[nei_id].link_cost!=rtt){
         update = 1;
-        if(port_map.count(nei_id)==0){
-            updateLocalDVTable(nei_id,0,rtt,true);
-        }else if(port_map[nei_id].status!=CONNECTED){
-            updateLocalDVTable(nei_id,port_map[nei_id].link_cost,INFINITY_COST,false);
-        }if(port_map[nei_id].link_cost!=rtt){
-            updateLocalDVTable(nei_id,port_map[nei_id].link_cost,rtt,false);
+        if (this->routing_protocol == P_DV) {
+            if (port_map.count(nei_id) == 0) {
+                updateLocalDVTable(nei_id, 0, rtt, true);
+            } else if (port_map[nei_id].status != CONNECTED) {
+                updateLocalDVTable(nei_id, port_map[nei_id].link_cost, INFINITY_COST, false);
+            }
+            if (port_map[nei_id].link_cost != rtt) {
+                updateLocalDVTable(nei_id, port_map[nei_id].link_cost, rtt, false);
+            }
         }
     }
 
@@ -131,8 +134,9 @@ void RoutingProtocolImpl::expire_alarm_handler(void* data){
             this->port_map[it->first].status = UNCONNECTED;
             this->port_map[it->first].last_refreshed_time = this->sys->time();
             this->delete_nei_in_lsp(it->second.nei_id);
-
-            updateLocalDVTable(it->first,0,INFINITY_COST,false);
+            if (this->routing_protocol == P_DV) {
+                updateLocalDVTable(it->first, 0, INFINITY_COST, false);
+            }
 
             updated = 1;
             printPortStatus();
@@ -148,8 +152,13 @@ void RoutingProtocolImpl::expire_alarm_handler(void* data){
             this->flooding_lsp();
         }
     }
-    LS_expire_alarm_handler(data);
-    DV_expire_alarm_handler(data);
+    if (this->routing_protocol == P_DV){
+        DV_expire_alarm_handler(data);
+    }else if (this->routing_protocol == P_LS){
+        LS_expire_alarm_handler(data);
+    }
+
+
     this->sys->set_alarm(this, 1000, data);
 }
 
