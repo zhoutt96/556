@@ -50,7 +50,7 @@ void RoutingProtocolImpl::pong_message_handler(unsigned short port, void *packet
             if (port_map.count(nei_id) == 0) {
                 updateLocalDVTable(nei_id, 0, rtt, true);
             } else if (port_map[nei_id].status != CONNECTED) {
-                updateLocalDVTable(nei_id, port_map[nei_id].link_cost, INFINITY_COST, false);
+                updateLocalDVTable(nei_id, 0, rtt, true);
             }
             if (port_map[nei_id].link_cost != rtt) {
                 updateLocalDVTable(nei_id, port_map[nei_id].link_cost, rtt, false);

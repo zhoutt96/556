@@ -104,6 +104,8 @@ void RoutingProtocolImpl::updateDVTableByMsg(unsigned short port, vector<pair<un
     if(isUpdate){
         updateForwardingTable();
         //DV_sendUpdateMsg();
+        print_DV_table();
+        printPortStatus();
     }
 
 }
@@ -204,6 +206,8 @@ void RoutingProtocolImpl::updateLocalDVTable(unsigned short nei_id, unsigned sho
     }
     if(isUpdate){
         DV_sendUpdateMsg();
+        print_DV_table();
+        printPortStatus();
     }
 }
 
@@ -270,5 +274,6 @@ void RoutingProtocolImpl::DV_expire_alarm_handler(void *data){
     }
     if(to_be_deleted.size()>0){
         print_DV_table();
+        printPortStatus();
     }
 }
