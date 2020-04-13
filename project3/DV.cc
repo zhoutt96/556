@@ -136,7 +136,7 @@ void RoutingProtocolImpl::DV_message_handler(unsigned short port, void *packet,u
     printf("[RECV] DV Message \n");
     unsigned short actual_size =  *(unsigned short *)((char*)packet + 2);
     unsigned short source_id = ntohs(*(unsigned short *)((char*)packet + 4));
-    unsigned short des_id = ntohs(*(unsigned short *)((char*)packet + 6));
+//    unsigned short des_id = ntohs(*(unsigned short *)((char*)packet + 6));
 
     vector<pair<unsigned short, unsigned short>> updateMsg;
     int i = 8;
