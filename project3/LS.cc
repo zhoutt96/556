@@ -156,63 +156,6 @@ void RoutingProtocolImpl::delete_nei_in_lsp(unsigned short nei_id){
     }
 }
 
-//void RoutingProtocolImpl:: Dijkstra() {
-//    // initialize
-//    /*
-//     * adjacent matrix: row: source, col: target, value: cost
-//     * */
-//    int node_size=lsp_topology_map.size(); // all the nodes we can get
-//    unordered_map<unsigned short, unsigned short> des_map; // <target_id, cost>
-//    auto comparator =[] (unsigned short*link1 , unsigned short *link2) {
-//        return link1[2]>link2[2];
-//    };
-//    priority_queue<unsigned short*, vector<unsigned short*>, decltype(comparator)> pq (comparator);
-//    unsigned short source[]={router_id,router_id,0};
-//    pq.push(source);
-//
-//    while(des_map.size()<node_size && !pq.empty())
-//    {
-//        int curDes=INFINITY_COST;
-//        while(!pq.empty())
-//        {
-//            unsigned short *link= pq.top();
-//            pq.pop();
-//            //put it into destinations
-//            if(!des_map.count(link[1]))
-//            {
-//                des_map[link[1]]=link[2];
-//                curDes=link[1];
-//                // update the forwarding table
-//                if(link[0]!=router_id)
-//                {
-////                    (*forwarding_table)[link[1]]=(*forwarding_table)[link[0]]; // destionation: nexthop to go to des
-//                    //then continue find the new destination
-//                    forwarding_table[link[1]]=forwarding_table[link[0]];
-//                    break;
-//                }
-//            }
-//        }
-//
-//        // when no avaiable nodes to add->break
-//        if(curDes==INFINITY_COST)
-//            break;
-//
-//        // update the neighbors info
-//        auto neighbors= this->lsp_topology_map[curDes];
-//        for(auto neighborNode: neighbors )
-//        {
-//            if(neighborNode.cost==INFINITY_COST)
-//                continue;
-//            // add into pq
-//            if(neighborNode.nei_id!=curDes && des_map.count(neighborNode.nei_id)==0)
-//            {
-//                unsigned short curLink[] = {(unsigned short)curDes, neighborNode.nei_id,(unsigned short)neighborNode.cost};
-//                pq.push(curLink);
-//            }
-//        }
-//    }
-//    print_forwarding_table();
-//}
 
 void RoutingProtocolImpl::print_forwarding_table(){
     printf("\n------------------ Forwarding Table --------------------\n");
