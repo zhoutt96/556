@@ -1,1 +1,15 @@
-??
+Team Members
+    ● Liling Liu (LL76)
+    ● Tianyue Yuwen (TY26)
+    
+Usage
+    ● How to build:
+    Type "make" on the command line under the same path of the "makefile" file to build the
+    project.
+    If you want to clean the file, type "make clean".
+  
+Notes
+    ● our test strategy description is in the same path of the "makefile" file, named test.txt
+    ● our designed test case in the "testcases" directory and
+        "my_pingpong_test" is testing ping/pong protocol
+        "my_whole_test" is testing the whole LS/DV protocol
