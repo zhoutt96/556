@@ -34,6 +34,7 @@ void RoutingProtocolImpl::updateDVTableByMsg(unsigned short port, vector<pair<un
     printf("[Update] DV table \n");
     unsigned short sendNode = port;
     unsigned short jumpCost;
+    vector<unsigned short> to_be_deleted;
 
     for(auto &a:updateMsg){
         if(a.first == router_id){
@@ -45,7 +46,7 @@ void RoutingProtocolImpl::updateDVTableByMsg(unsigned short port, vector<pair<un
                 isUpdate = true;
             }else{
                 DVTable jumpNode = dv_cost_map[sendNode];
-                if(jumpNode.cost != a.second){
+                if(jumpNode.cost != a.second && jumpNode.nextHop == jumpNode.des){
                     jumpNode.cost = a.second;
                     dv_cost_map[sendNode] = jumpNode;
                     isUpdate = true;
@@ -76,8 +77,8 @@ void RoutingProtocolImpl::updateDVTableByMsg(unsigned short port, vector<pair<un
             DVTable neighbor = dv_cost_map[a.first];
             if(neighbor.nextHop == sendNode){
                 if(a.second == INFINITY_COST){
-                    dv_cost_map.erase(a.first);
-                    forwarding_table.erase(a.first);
+                    to_be_deleted.push_back(a.first);
+
 
                 }else{
                     neighbor.cost = jumpCost+a.second;
@@ -101,9 +102,20 @@ void RoutingProtocolImpl::updateDVTableByMsg(unsigned short port, vector<pair<un
         }
 
     }
+
+    for(auto &v:to_be_deleted){
+        dv_cost_map.erase(v);
+        forwarding_table.erase(v);
+    }
+
     if(isUpdate){
         updateForwardingTable();
         //DV_sendUpdateMsg();
+
+        for(auto &a:updateMsg){
+            cout<<"NodeID: "<<a.first<<" cost:"<<a.second<<"\n";
+        }
+
         print_DV_table();
         printPortStatus();
     }
@@ -135,10 +147,11 @@ void RoutingProtocolImpl::init_DV_Protocol(){
 }
 
 void RoutingProtocolImpl::DV_message_handler(unsigned short port, void *packet,unsigned short size){
-    printf("[RECV] DV Message \n");
+    //printf("[RECV] DV Message \n");
     unsigned short actual_size =  ntohs(*(unsigned short *)((char*)packet + 2));
     unsigned short source_id = ntohs(*(unsigned short *)((char*)packet + 4));
 //    unsigned short des_id = ntohs(*(unsigned short *)((char*)packet + 6));
+    printf("[RECV] Node %d rev DV Message from Node %d \n",router_id,source_id);
 
     vector<pair<unsigned short, unsigned short>> updateMsg;
     int i = 8;
@@ -151,12 +164,14 @@ void RoutingProtocolImpl::DV_message_handler(unsigned short port, void *packet,u
         i = i + 4;
     }
     updateDVTableByMsg(source_id,updateMsg);
-
+    free(packet);
 
 }
 
 void RoutingProtocolImpl::updateLocalDVTable(unsigned short nei_id, unsigned short old_rtt, unsigned short new_rtt, bool isNew) {
     bool isUpdate = false;
+    vector<unsigned short> to_be_deleted;
+
     if(isNew){
         if(dv_cost_map.count(nei_id)==0){
             DVTable newRec(nei_id,nei_id,new_rtt);
@@ -180,8 +195,8 @@ void RoutingProtocolImpl::updateLocalDVTable(unsigned short nei_id, unsigned sho
             DVTable table = r.second;
             if(table.nextHop == nei_id){
                 if(new_rtt == INFINITY_COST){
-                    dv_cost_map.erase(r.first);
-                    forwarding_table.erase(table.des);
+                    to_be_deleted.push_back(r.first);
+
                     isUpdate = true;
                     continue;
                 }else{
@@ -204,6 +219,12 @@ void RoutingProtocolImpl::updateLocalDVTable(unsigned short nei_id, unsigned sho
 
         }
     }
+
+    for(auto &v:to_be_deleted){
+        dv_cost_map.erase(v);
+        forwarding_table.erase(v);
+    }
+
     if(isUpdate){
         DV_sendUpdateMsg();
         print_DV_table();
