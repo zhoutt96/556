@@ -70,6 +70,7 @@ public:
     void print_DV_table();
     void DV_expire_alarm_handler(void *data);
     void setLastUpdateTime(unsigned short des);
+    void updateDVTableByPortMap();
 
     void updateLS();
     void get_ls_forwarding_table();
