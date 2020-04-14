@@ -13,3 +13,4 @@ Notes
     ● our designed test case in the "testcases" directory and
         "my_pingpong_test" is testing ping/pong protocol
         "my_whole_test" is testing the whole LS/DV protocol
+    ● when the test case become complicate, the time interval should be enough to let DV protocol update.
