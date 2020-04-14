@@ -22,13 +22,10 @@
 140.00 changedelay (3,5) 0.040
 190.00 xmit (7,1)
 250.00 linkdying (1,2)
-350.00 xmit (9,1)
-400.00 linkdying (1,10)
-440.00 xmit (1,8)
-460.00 xmit (2,8)
-490.00 linkcomingup(1,2)
-550.00 xmit(9, 1)
-600.00 end
-
-
-                                                                                                                                                                                                     
+550.00 xmit (9,1)
+600.00 linkdying (1,10)
+640.00 xmit (1,8)
+660.00 xmit (2,8)
+700.00 linkcomingup(1,2)
+800.00 xmit(9, 1)
+850.00 end

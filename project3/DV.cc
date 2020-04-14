@@ -33,7 +33,7 @@ void RoutingProtocolImpl::updateDVTableByMsg(unsigned short port, vector<pair<un
     bool isUpdate = false;
     printf("[Update] DV table \n");
     unsigned short sendNode = port;
-    unsigned short jumpCost = dv_cost_map[sendNode].cost;
+    unsigned short jumpCost = port_map[sendNode].link_cost;
     vector<unsigned short> to_be_deleted;
 
 //    for(auto &a:updateMsg){
@@ -295,6 +295,7 @@ void RoutingProtocolImpl::DV_expire_alarm_handler(void *data){
         dv_cost_map.erase(v);
         forwarding_table.erase(v);
     }
+    updateDVTableByPortMap();
     if(to_be_deleted.size()>0){
         print_DV_table();
         printPortStatus();
@@ -312,6 +313,13 @@ void RoutingProtocolImpl::updateDVTableByPortMap(){
                 isUpdate = true;
             }else if(dv_cost_map[p.first].cost == p.second.link_cost){
                 setLastUpdateTime(p.first);
+            }else if(dv_cost_map[p.first].cost > p.second.link_cost){
+                DVTable table = dv_cost_map[p.first];
+                table.cost = p.second.link_cost;
+                table.nextHop = p.first;
+                dv_cost_map[p.first] = table;
+                setLastUpdateTime(p.first);
+                isUpdate = true;
             }
         }
     }
